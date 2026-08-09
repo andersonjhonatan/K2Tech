@@ -21,7 +21,7 @@ export function HeroSection() {
           <div className="device-top"><span>K2 TECH</span><i aria-hidden="true">●</i></div>
           <div className="device-content">
             <p>VOCÊ ESTÁ CONVIDADO</p>
-            <h3>LIA<br/><em>&amp; CAIO</em></h3>
+            <div className="device-title">LIA<br/><em>&amp; CAIO</em></div>
             <div className="device-date">23 · AGOSTO · 2026</div>
             <span className="device-button">CONFIRMAR PRESENÇA <Arrow/></span>
           </div>
