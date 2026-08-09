@@ -1,28 +1,43 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+import { siteConfig } from "./site-config";
 
 export const metadata: Metadata = {
-  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
-  title: "K2 Tech | Convites online interativos",
-  description:
-    "Convites online interativos, sites e experiências digitais criadas pela K2 Tech para momentos que merecem ser lembrados.",
-  keywords: ["convite online", "convite interativo", "convite digital", "site para eventos", "K2 Tech"],
-  applicationName: "K2 Tech",
-  authors: [{ name: "K2 Tech" }],
-  creator: "K2 Tech",
-  robots: { index: true, follow: true },
+  metadataBase: new URL(siteConfig.siteUrl),
+  title: siteConfig.title,
+  description: siteConfig.description,
+  keywords: [
+    "convite online",
+    "convite interativo",
+    "convite digital",
+    "convite de casamento online",
+    "convite infantil online",
+    "site para eventos",
+    "K2 Tech",
+  ],
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
   openGraph: {
-    title: "K2 Tech | Convites online interativos",
+    title: siteConfig.title,
     description: "Seu evento começa no primeiro clique.",
+    url: "/",
+    siteName: siteConfig.name,
     locale: "pt_BR",
     type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "K2 Tech — experiências digitais que marcam" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "K2 Tech | Convites online interativos",
+    title: siteConfig.title,
     description: "Seu evento começa no primeiro clique.",
+    images: ["/opengraph-image"],
   },
   icons: {
     icon: [
