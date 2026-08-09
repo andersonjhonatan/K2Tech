@@ -1,0 +1,17 @@
+.intro,
+.projects,
+.reviews,
+.services,
+.method,
+.contact,
+.footer {
+  content-visibility: auto;
+}
+
+.intro { contain-intrinsic-size: auto 900px; }
+.projects { contain-intrinsic-size: auto 2200px; }
+.reviews { contain-intrinsic-size: auto 1800px; }
+.services { contain-intrinsic-size: auto 900px; }
+.method { contain-intrinsic-size: auto 800px; }
+.contact { contain-intrinsic-size: auto 1000px; }
+.footer { contain-intrinsic-size: auto 360px; }
