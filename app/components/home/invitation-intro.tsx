@@ -12,6 +12,7 @@ export function InvitationIntro() {
   const [letterOpen, setLetterOpen] = useState(false);
   const startY = useRef(0);
   const dragging = useRef(false);
+  const dragRef = useRef(0);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -19,23 +20,31 @@ export function InvitationIntro() {
     if (!opened && !reduced) setVisible(true);
   }, []);
 
+  function setDragSafe(value:number){ dragRef.current=value; setDrag(value); }
   function finish() {
+    if(opening) return;
     sessionStorage.setItem(STORAGE_KEY, "1");
+    dragging.current=false;
     setOpening(true);
-    setDrag(OPEN_THRESHOLD);
-    if ("vibrate" in navigator) navigator.vibrate?.(28);
-    window.setTimeout(() => setLetterOpen(true), 760);
-    window.setTimeout(() => setVisible(false), 2850);
+    setDragSafe(OPEN_THRESHOLD);
+    navigator.vibrate?.(28);
+    window.setTimeout(() => setLetterOpen(true), 900);
+    window.setTimeout(() => setVisible(false), 3200);
   }
 
-  function skip() { sessionStorage.setItem(STORAGE_KEY, "1"); setVisible(false); }
-  function pointerDown(event: PointerEvent<HTMLButtonElement>) { if(opening)return; dragging.current=true; startY.current=event.clientY; event.currentTarget.setPointerCapture(event.pointerId); }
-  function pointerMove(event: PointerEvent<HTMLButtonElement>) { if(!dragging.current||opening)return; setDrag(Math.min(Math.max(0,startY.current-event.clientY),OPEN_THRESHOLD)); }
-  function pointerUp() { if(!dragging.current||opening)return; dragging.current=false; if(drag>=OPEN_THRESHOLD*.68)finish(); else setDrag(0); }
+  function skip(){ sessionStorage.setItem(STORAGE_KEY,"1"); setVisible(false); }
+  function pointerDown(event:PointerEvent<HTMLButtonElement>){ if(opening)return; dragging.current=true; startY.current=event.clientY; event.currentTarget.setPointerCapture(event.pointerId); }
+  function pointerMove(event:PointerEvent<HTMLButtonElement>){
+    if(!dragging.current||opening)return;
+    const next=Math.min(Math.max(0,startY.current-event.clientY),OPEN_THRESHOLD);
+    setDragSafe(next);
+    if(next>=OPEN_THRESHOLD*.97) finish();
+  }
+  function pointerUp(){ if(!dragging.current||opening)return; dragging.current=false; if(dragRef.current>=OPEN_THRESHOLD*.68) finish(); else setDragSafe(0); }
 
-  if (!visible) return null;
+  if(!visible)return null;
   const progress=Math.min(drag/OPEN_THRESHOLD,1);
-  const style={"--seal-progress":progress,"--paper-rise":`${Math.round(progress*20)}px`} as CSSProperties;
+  const style={"--seal-progress":progress,"--paper-rise":`${Math.round(progress*12)}px`} as CSSProperties;
   const segments=Array.from({length:8});
 
   return <div className={`invitation-intro ${opening?"is-opening":""} ${letterOpen?"letter-open":""}`} role="dialog" aria-modal="true" aria-label="Convite de entrada K2 Tech">
@@ -45,15 +54,9 @@ export function InvitationIntro() {
     <div className="envelope-stage" style={style}>
       <div className="letter"><span>K2 TECH APRESENTA</span><strong>SEU EVENTO<br/><em>COMEÇA AQUI.</em></strong><small>DESIGN · TECNOLOGIA · EXPERIÊNCIA</small></div>
       <div className="envelope-shadow" aria-hidden="true"/>
-      <div className="envelope">
-        <div className="envelope-back"><div className="inner-paper"><span>K2 TECH</span></div></div>
-        <div className="envelope-left"/><div className="envelope-right"/><div className="envelope-bottom"/>
-        <div className="flap-curl" aria-hidden="true">{segments.map((_,i)=><div className="flap-segment" key={i} style={{"--segment":i} as CSSProperties}><div className="flap-face"/></div>)}</div>
-        <div className="envelope-edge"/>
-      </div>
-      <button className="wax-seal" type="button" aria-label="Arraste o lacre para cima para abrir o convite" onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={pointerUp} style={{transform:`translate(-50%, calc(-50% - ${drag}px))`}}><span>K2</span><i/></button>
-      <div className="seal-thread" aria-hidden="true"/>
+      <div className="envelope"><div className="envelope-back"><div className="inner-paper"><span>K2 TECH</span></div></div><div className="envelope-left"/><div className="envelope-right"/><div className="envelope-bottom"/><div className="flap-curl" aria-hidden="true">{segments.map((_,i)=><div className="flap-segment" key={i} style={{"--segment":i} as CSSProperties}><div className="flap-face"/></div>)}</div><div className="envelope-edge"/></div>
+      <button className="wax-seal" type="button" aria-label="Arraste o lacre para cima para abrir o convite" onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={pointerUp} style={{transform:`translate(-50%,calc(-50% - ${drag}px))`}}><span>K2</span><i/></button><div className="seal-thread" aria-hidden="true"/>
     </div>
-    <div className="intro-instruction"><span>↑</span><strong>{progress>.15?"CONTINUE PUXANDO":"ARRASTE PARA ROMPER O LACRE"}</strong><small>{progress>.15?"O papel acompanha o seu movimento":"Use o mouse ou toque e arraste para cima"}</small></div>
+    <div className="intro-instruction"><span>↑</span><strong>{progress>.15?"CONTINUE PUXANDO":"ARRASTE PARA ROMPER O LACRE"}</strong><small>{progress>.15?`${Math.round(progress*100)}% · preparando a dobra`:"Use o mouse ou toque e arraste para cima"}</small></div>
   </div>;
 }
