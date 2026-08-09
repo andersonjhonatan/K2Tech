@@ -14,18 +14,33 @@ jobs:
   lighthouse:
     runs-on: ubuntu-latest
     env:
-      PREVIEW_URL: https://k2-tech-git-agent-k2tech-invi-d4e070-andersonjhonatans-projects.vercel.app/
+      AUDIT_URL: http://127.0.0.1:3000/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Check preview availability
-        run: curl --fail --retry 5 --retry-delay 6 --location "$PREVIEW_URL" --output /dev/null
+          cache: npm
+      - name: Install and build production app
+        run: |
+          npm ci
+          npm run build
+      - name: Start production server
+        run: |
+          npm start > /tmp/k2tech-next.log 2>&1 &
+          echo $! > /tmp/k2tech-next.pid
+      - name: Wait for application
+        run: |
+          for attempt in {1..30}; do
+            if curl --fail --silent "$AUDIT_URL" --output /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/k2tech-next.log
+          exit 1
       - name: Run Lighthouse mobile
-        run: npx --yes lighthouse "$PREVIEW_URL" --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=./lighthouse-mobile.json --only-categories=performance,accessibility,best-practices,seo --form-factor=mobile
+        run: npx --yes lighthouse "$AUDIT_URL" --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=./lighthouse-mobile.json --only-categories=performance,accessibility,best-practices,seo --form-factor=mobile
       - name: Run Lighthouse desktop
-        run: npx --yes lighthouse "$PREVIEW_URL" --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=./lighthouse-desktop.json --only-categories=performance,accessibility,best-practices,seo --preset=desktop
+        run: npx --yes lighthouse "$AUDIT_URL" --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=./lighthouse-desktop.json --only-categories=performance,accessibility,best-practices,seo --preset=desktop
       - name: Print audit summary
         run: |
           node <<'NODE'
@@ -49,6 +64,9 @@ jobs:
           NODE
       - uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-reports
+          name: lighthouse-local-reports
           path: lighthouse-*.json
           retention-days: 7
+      - name: Stop production server
+        if: always()
+        run: kill "$(cat /tmp/k2tech-next.pid)" || true
