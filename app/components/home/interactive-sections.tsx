@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { FormEvent, useEffect, useState } from "react";
 import { siteConfig } from "../../site-config";
 
 const testimonials = [
@@ -11,48 +8,15 @@ const testimonials = [
   ["Sistema personalizado", "A K2 entendeu nossa rotina e entregou uma solução clara, rápida e muito fácil de usar.", "Marcos Vinícius"],
   ["Convite infantil", "As crianças e os pais adoraram. Ficou divertido, simples de acessar e cheio de detalhes.", "Lívia Andrade"],
   ["Landing page", "O processo foi muito organizado e o resultado ficou muito melhor do que imaginávamos.", "Natália & Diego"],
-];
+] as const;
 
-function whatsappLink(message: string) {
-  return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
-}
+const testimonialPages = [testimonials.slice(0, 3), testimonials.slice(3, 6)];
 
 function Arrow() {
   return <span className="arrow" aria-hidden="true">↗</span>;
 }
 
 export function ExperiencesSection() {
-  const [reviewSent, setReviewSent] = useState(false);
-  const [reviewPage, setReviewPage] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const reviewPages = Math.ceil(testimonials.length / 3);
-
-  useEffect(() => {
-    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(
-      () => setReviewPage((page) => (page + 1) % reviewPages),
-      9000,
-    );
-    return () => window.clearInterval(timer);
-  }, [paused, reviewPages]);
-
-  function changeReviewPage(direction: number) {
-    setPaused(true);
-    setReviewPage((page) => (page + direction + reviewPages) % reviewPages);
-  }
-
-  function sendReview(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const name = form.get("reviewer")?.toString() || "";
-    const project = form.get("review-project")?.toString() || "";
-    const review = form.get("review")?.toString() || "";
-    setReviewSent(true);
-    const url = whatsappLink(`Nova avaliação recebida pelo site da K2 Tech.\n\nCliente: ${name || "Não informado"}\nProjeto: ${project || "Não informado"}\n\nAvaliação:\n${review}`);
-    const tab = window.open(url, "_blank", "noopener,noreferrer");
-    if (!tab) window.location.href = url;
-  }
-
   return (
     <section id="avaliacoes" className="reviews section-space">
       <div className="container">
@@ -69,31 +33,37 @@ export function ExperiencesSection() {
           role="region"
           aria-roledescription="carrossel"
           aria-label="Referências de experiências e resultados"
-          onMouseEnter={() => setPaused(true)}
-          onFocusCapture={() => setPaused(true)}
+          data-testimonial-carousel
         >
-          <div className="testimonial-grid" key={reviewPage}>
-            {testimonials.slice(reviewPage * 3, reviewPage * 3 + 3).map(([project, quote, name]) => (
-              <article className="testimonial-card" key={project}>
-                <span className="quote-mark" aria-hidden="true">“</span>
-                <p>{quote}</p>
-                <footer><strong>{name}</strong><small>{project}</small></footer>
-              </article>
-            ))}
-          </div>
+          {testimonialPages.map((page, pageIndex) => (
+            <div
+              className="testimonial-grid"
+              data-review-page={pageIndex}
+              hidden={pageIndex !== 0}
+              key={pageIndex}
+            >
+              {page.map(([project, quote, name]) => (
+                <article className="testimonial-card" key={project}>
+                  <span className="quote-mark" aria-hidden="true">“</span>
+                  <p>{quote}</p>
+                  <footer><strong>{name}</strong><small>{project}</small></footer>
+                </article>
+              ))}
+            </div>
+          ))}
           <div className="review-controls">
-            <button type="button" onClick={() => changeReviewPage(-1)} aria-label="Ver experiências anteriores">←</button>
-            <span aria-label={`Página ${reviewPage + 1} de ${reviewPages}`}><b>{String(reviewPage + 1).padStart(2, "0")}</b> / {String(reviewPages).padStart(2, "0")}</span>
+            <button type="button" data-review-prev aria-label="Ver experiências anteriores">←</button>
+            <span data-review-indicator aria-label="Página 1 de 2"><b>01</b> / 02</span>
             <button
               type="button"
-              onClick={() => setPaused((value) => !value)}
-              aria-pressed={paused}
-              aria-label={paused ? "Retomar rotação automática das experiências" : "Pausar rotação automática das experiências"}
-              title={paused ? "Retomar" : "Pausar"}
+              data-review-toggle
+              aria-pressed="false"
+              aria-label="Pausar rotação automática das experiências"
+              title="Pausar"
             >
-              {paused ? "▶" : "Ⅱ"}
+              Ⅱ
             </button>
-            <button type="button" onClick={() => changeReviewPage(1)} aria-label="Ver próximas experiências">→</button>
+            <button type="button" data-review-next aria-label="Ver próximas experiências">→</button>
           </div>
         </div>
 
@@ -103,13 +73,19 @@ export function ExperiencesSection() {
             <h3>Conta como foi<br/>o seu <em>projeto.</em></h3>
             <p>Se você já fez um projeto com a K2 Tech, envie sua avaliação. Ela chega direto pelo WhatsApp para conferência antes da publicação.</p>
           </div>
-          <form className="review-form" onSubmit={sendReview}>
+          <form
+            className="review-form"
+            data-k2-form="review"
+            data-whatsapp={siteConfig.whatsappNumber}
+            action={`https://wa.me/${siteConfig.whatsappNumber}`}
+            target="_blank"
+          >
             <label>SEU NOME<input name="reviewer" required autoComplete="name" placeholder="Como podemos identificar você?"/></label>
             <label>QUAL FOI O PROJETO?<select name="review-project" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Convite online interativo</option><option>Site institucional</option><option>Sistema personalizado</option><option>Outro projeto</option></select></label>
             <label>COMO FOI A EXPERIÊNCIA?<textarea name="review" required rows={4} placeholder="Escreva sua avaliação para a K2 Tech"/></label>
             <button className="button button-outline" type="submit">Enviar avaliação <Arrow /></button>
             <p className="form-privacy">Ao enviar, você será direcionado ao WhatsApp da K2 Tech.</p>
-            {reviewSent && <p className="form-note" role="status">Abrindo conversa no WhatsApp…</p>}
+            <p className="form-note" role="status" hidden data-form-status>Abrindo conversa no WhatsApp…</p>
           </form>
         </div>
       </div>
@@ -118,20 +94,6 @@ export function ExperiencesSection() {
 }
 
 export function ContactSection() {
-  const [sent, setSent] = useState(false);
-
-  function sendBrief(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const name = form.get("name")?.toString() || "";
-    const company = form.get("company")?.toString() || "";
-    const message = form.get("message")?.toString() || "";
-    setSent(true);
-    const url = whatsappLink(`Olá, vim pelo site da K2 Tech.\n\nNome: ${name || "Não informado"}\nEmpresa ou marca: ${company || "Não informada"}\n\nSobre o projeto:\n${message}`);
-    const tab = window.open(url, "_blank", "noopener,noreferrer");
-    if (!tab) window.location.href = url;
-  }
-
   return (
     <section id="contato" className="contact container section-space">
       <div className="contact-top">
@@ -140,15 +102,21 @@ export function ContactSection() {
       </div>
       <div className="contact-grid">
         <h2>Vamos fazer seus<br/>convidados dizerem<br/><em>“eu preciso ir”.</em></h2>
-        <form onSubmit={sendBrief}>
+        <form
+          data-k2-form="contact"
+          data-whatsapp={siteConfig.whatsappNumber}
+          action={`https://wa.me/${siteConfig.whatsappNumber}`}
+          target="_blank"
+        >
           <label>SEU NOME<input name="name" required autoComplete="name" placeholder="Como podemos te chamar?"/></label>
           <label>EMPRESA / MARCA<input name="company" autoComplete="organization" placeholder="Qual é o seu negócio?"/></label>
           <label>ME CONTA UM POUCO<textarea name="message" required placeholder="Qual momento você quer transformar em experiência?" rows={3}/></label>
           <button className="button button-dark" type="submit">Enviar mensagem <Arrow /></button>
           <p className="form-privacy">Ao enviar, você será direcionado ao WhatsApp da K2 Tech. Consulte nossa <Link href="/privacidade">Política de Privacidade</Link>.</p>
-          {sent && <p className="form-note" role="status">Abrindo conversa no WhatsApp…</p>}
+          <p className="form-note" role="status" hidden data-form-status>Abrindo conversa no WhatsApp…</p>
         </form>
       </div>
+      <script src="/js/home-interactions.js" defer />
     </section>
   );
 }
