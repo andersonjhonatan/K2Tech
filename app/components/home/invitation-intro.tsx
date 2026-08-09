@@ -18,6 +18,7 @@ export function InvitationIntro() {
   const [drag, setDrag] = useState(0);
   const [opening, setOpening] = useState(false);
   const [letterOpen, setLetterOpen] = useState(false);
+  const [webglActive, setWebglActive] = useState(false);
   const startY = useRef(0);
   const dragging = useRef(false);
   const dragRef = useRef(0);
@@ -79,8 +80,13 @@ export function InvitationIntro() {
     setVisible(false);
   }
 
+  function prepareCurl() {
+    setWebglActive(true);
+  }
+
   function down(event: PointerEvent<HTMLButtonElement>) {
     if (openingRef.current) return;
+    prepareCurl();
     dragging.current = true;
     startY.current = event.clientY;
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -103,6 +109,7 @@ export function InvitationIntro() {
   function handleSealKey(event: KeyboardEvent<HTMLButtonElement>) {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
+      prepareCurl();
       finish();
     }
   }
@@ -163,15 +170,16 @@ export function InvitationIntro() {
         <div className="envelope-shadow" aria-hidden="true"/>
         <div className="envelope" aria-hidden="true">
           <div className="envelope-back"><div className="inner-paper"><span>K2 TECH</span></div></div>
-          <WebGLEnvelopeFlap progress={progressRef}/>
+          <WebGLEnvelopeFlap progress={progressRef} active={webglActive}/>
           <div className="envelope-left"/><div className="envelope-right"/><div className="envelope-bottom"/><div className="envelope-edge"/>
         </div>
         <button
           ref={sealRef}
           className="wax-seal"
           type="button"
-          aria-label="Abrir o convite. Arraste o lacre para cima ou pressione Enter ou Espaço."
+          aria-label="K2 — abrir o convite. Arraste o lacre para cima ou pressione Enter ou Espaço."
           aria-describedby="invitation-intro-instruction"
+          onPointerEnter={prepareCurl}
           onPointerDown={down}
           onPointerMove={move}
           onPointerUp={up}
