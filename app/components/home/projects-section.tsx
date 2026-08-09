@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { projectStatusLabel, projects, projectWhatsappUrl } from "../../data/projects";
 import { siteConfig } from "../../site-config";
 import { Arrow } from "./home-ui";
@@ -48,7 +47,7 @@ export function ProjectsSection() {
           ))}
         </div>
         <div className="hero-actions">
-          <Link className="button button-light all-projects" href="/projetos">Ver todos os projetos <Arrow/></Link>
+          <a className="button button-light all-projects" href="/projetos">Ver todos os projetos <Arrow/></a>
           <a className="button button-light all-projects" href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">Crie seu convite com a K2 <Arrow/></a>
         </div>
       </div>
