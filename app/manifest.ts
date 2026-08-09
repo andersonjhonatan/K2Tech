@@ -11,7 +11,9 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#080b12",
     lang: "pt-BR",
     icons: [
-      { src: "/favicons/k2-on-dark-v2.png", sizes: "any", type: "image/png" },
+      { src: "/favicons/k2-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+      { src: "/favicons/k2-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+      { src: "/favicons/k2-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
   };
 }
