@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { siteConfig } from "../../site-config";
 
 const testimonials = [
@@ -112,7 +111,7 @@ export function ContactSection() {
           <label>EMPRESA / MARCA<input name="company" autoComplete="organization" placeholder="Qual é o seu negócio?"/></label>
           <label>ME CONTA UM POUCO<textarea name="message" required placeholder="Qual momento você quer transformar em experiência?" rows={3}/></label>
           <button className="button button-dark" type="submit">Enviar mensagem <Arrow /></button>
-          <p className="form-privacy">Ao enviar, você será direcionado ao WhatsApp da K2 Tech. Consulte nossa <Link href="/privacidade">Política de Privacidade</Link>.</p>
+          <p className="form-privacy">Ao enviar, você será direcionado ao WhatsApp da K2 Tech. Consulte nossa <a href="/privacidade">Política de Privacidade</a>.</p>
           <p className="form-note" role="status" hidden data-form-status>Abrindo conversa no WhatsApp…</p>
         </form>
       </div>
