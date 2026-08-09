@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
+import { SiGmail, SiInstagram, SiWhatsapp } from "react-icons/si";
 import { siteConfig } from "./site-config";
 
 type Project = {
@@ -80,6 +81,10 @@ const testimonials = [
   ["Landing page", "O processo foi muito organizado e o resultado ficou muito melhor do que imaginávamos.", "Natália & Diego", "Avaliação demonstrativa"],
 ];
 
+function whatsappLink(message: string) {
+  return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return <span className={diagonal ? "arrow diagonal" : "arrow"}>↗</span>;
 }
@@ -87,7 +92,7 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 function K2Mark() {
   return (
     <span className="official-logo">
-      <Image src="/images/k2-tech-logo-light.png" alt="K2 Tech" fill sizes="160px" />
+      <Image src="/images/k2-tech-logo-transparent-v2.png" alt="K2 Tech" fill sizes="160px" />
     </span>
   );
 }
@@ -99,6 +104,7 @@ export default function Home() {
   const reviewPages = Math.ceil(testimonials.length / 3);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = window.setInterval(() => {
       setReviewPage((page) => (page + 1) % reviewPages);
     }, 9000);
@@ -115,12 +121,11 @@ export default function Home() {
     const name = form.get("name")?.toString() || "";
     const company = form.get("company")?.toString() || "";
     const message = form.get("message")?.toString() || "";
-    const subject = encodeURIComponent(`Novo projeto — ${name || "Contato pelo site"}`);
-    const body = encodeURIComponent(`Nome: ${name}\nEmpresa: ${company}\n\nSobre o projeto:\n${message}`);
     setSent(true);
-    window.setTimeout(() => {
-      window.location.href = `mailto:${siteConfig.contactEmail}?subject=${subject}&body=${body}`;
-    }, 450);
+    const url = whatsappLink(`Olá, vim pelo site da K2 Tech.\n\nNome: ${name || "Não informado"}\nEmpresa ou marca: ${company || "Não informada"}\n\nSobre o projeto:\n${message}`);
+    const tab = window.open(url, "_blank");
+    if (tab) tab.opener = null;
+    else window.location.href = url;
   }
 
   function sendReview(event: FormEvent<HTMLFormElement>) {
@@ -129,12 +134,11 @@ export default function Home() {
     const name = form.get("reviewer")?.toString() || "";
     const project = form.get("review-project")?.toString() || "";
     const review = form.get("review")?.toString() || "";
-    const subject = encodeURIComponent(`Nova avaliação — ${project || "Projeto K2 Tech"}`);
-    const body = encodeURIComponent(`Cliente: ${name}\nProjeto: ${project}\n\nAvaliação:\n${review}`);
     setReviewSent(true);
-    window.setTimeout(() => {
-      window.location.href = `mailto:${siteConfig.contactEmail}?subject=${subject}&body=${body}`;
-    }, 450);
+    const url = whatsappLink(`Nova avaliação recebida pelo site da K2 Tech.\n\nCliente: ${name || "Não informado"}\nProjeto: ${project || "Não informado"}\n\nAvaliação:\n${review}`);
+    const tab = window.open(url, "_blank");
+    if (tab) tab.opener = null;
+    else window.location.href = url;
   }
 
   return (
@@ -146,8 +150,9 @@ export default function Home() {
           <a href="#projetos">Projetos</a>
           <a href="#avaliacoes">Avaliações</a>
           <a href="#servicos">Serviços</a>
+          <a href="#contato">Contato</a>
         </nav>
-        <a className="header-cta" href="#contato">Iniciar projeto <Arrow /></a>
+        <a className="header-cta" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp <Arrow /></a>
         <details className="mobile-nav">
           <summary aria-label="Abrir menu"><span /><span /></summary>
           <div>
@@ -155,7 +160,8 @@ export default function Home() {
             <a href="#projetos">Projetos</a>
             <a href="#avaliacoes">Avaliações</a>
             <a href="#servicos">Serviços</a>
-            <a href="#contato">Iniciar projeto</a>
+            <a href="#contato">Contato</a>
+            <a href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
           </div>
         </details>
       </header>
@@ -166,7 +172,7 @@ export default function Home() {
           <h1>Seu evento<br />começa no<br /><em>primeiro clique.</em></h1>
           <p className="hero-text">Convites online interativos que encantam seus convidados, organizam cada detalhe e transformam expectativa em experiência.</p>
           <div className="hero-actions">
-            <a className="button button-dark" href="#contato">Vamos conversar <Arrow /></a>
+            <a className="button button-whatsapp" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp <Arrow /></a>
             <a className="text-link" href="#projetos">Ver experiências <span>↓</span></a>
           </div>
         </div>
@@ -180,7 +186,7 @@ export default function Home() {
               <p>VOCÊ ESTÁ CONVIDADO</p>
               <h3>LIA<br /><em>&amp; CAIO</em></h3>
               <div className="device-date">23 · AGOSTO · 2026</div>
-              <button type="button">CONFIRMAR PRESENÇA <Arrow /></button>
+              <span className="device-button">CONFIRMAR PRESENÇA <Arrow /></span>
             </div>
             <div className="device-footer"><span>⌁</span><b>EXPERIÊNCIA DIGITAL INTERATIVA</b></div>
           </div>
@@ -221,6 +227,7 @@ export default function Home() {
                 <div className="project-meta"><span>{project.number} — {project.category}</span><Arrow diagonal /></div>
                 <h3>{project.name}</h3>
                 <p>{project.detail}</p>
+                <a className="project-action" href={whatsappLink(`Olá, vim pelo site da K2 Tech e gostei do projeto ${project.name}. Gostaria de criar algo nesse estilo.`)} target="_blank" rel="noreferrer" aria-label={`Conversar sobre um projeto como ${project.name}`}>Quero algo assim <Arrow /></a>
               </article>
             ))}
           </div>
@@ -252,7 +259,8 @@ export default function Home() {
               <label>QUAL FOI O PROJETO?<select name="review-project" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Convite online interativo</option><option>Site institucional</option><option>Sistema personalizado</option><option>Outro projeto</option></select></label>
               <label>COMO FOI A EXPERIÊNCIA?<textarea name="review" required rows={4} placeholder="Escreva sua avaliação para a K2 Tech" /></label>
               <button className="button button-outline" type="submit">Enviar avaliação <Arrow /></button>
-              {reviewSent && <p className="form-note">Abrindo seu aplicativo de e-mail…</p>}
+              <p className="form-privacy">Ao enviar, você será direcionado ao WhatsApp da K2 Tech.</p>
+              {reviewSent && <p className="form-note">Abrindo conversa no WhatsApp…</p>}
             </form>
           </div>
         </div>
@@ -289,7 +297,8 @@ export default function Home() {
             <label>EMPRESA / MARCA<input name="company" placeholder="Qual é o seu negócio?" /></label>
             <label>ME CONTA UM POUCO<textarea name="message" required placeholder="Qual momento você quer transformar em experiência?" rows={3} /></label>
             <button className="button button-dark" type="submit">Enviar mensagem <Arrow /></button>
-            {sent && <p className="form-note">Abrindo seu aplicativo de e-mail…</p>}
+            <p className="form-privacy">Ao enviar, você será direcionado ao WhatsApp da K2 Tech.</p>
+            {sent && <p className="form-note">Abrindo conversa no WhatsApp…</p>}
           </form>
         </div>
       </section>
@@ -298,11 +307,12 @@ export default function Home() {
         <div className="container footer-grid">
           <a className="brand footer-brand" href="#inicio"><K2Mark /></a>
           <p>Convites e experiências digitais para momentos que merecem ser lembrados.</p>
-          <div className="footer-links"><a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer">Instagram <Arrow /></a><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></div>
+          <div className="footer-links"><a className="contact-link" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer"><SiWhatsapp className="contact-icon whatsapp-icon" aria-hidden="true" />WhatsApp · {siteConfig.phoneDisplay}</a><a className="contact-link" href={`mailto:${siteConfig.contactEmail}`}><SiGmail className="contact-icon gmail-icon" aria-hidden="true" />{siteConfig.contactEmail}</a><a className="contact-link" href={siteConfig.instagramUrl} target="_blank" rel="noreferrer"><SiInstagram className="contact-icon instagram-icon" aria-hidden="true" />Instagram</a></div>
           <small>© {new Date().getFullYear()} K2 Tech. Todos os direitos reservados.</small>
           <a className="back-top" href="#inicio">Voltar ao topo ↑</a>
         </div>
       </footer>
+      <a className="whatsapp-float" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp"><SiWhatsapp className="contact-icon" aria-hidden="true" /><em>Falar no WhatsApp</em></a>
     </main>
   );
 }
