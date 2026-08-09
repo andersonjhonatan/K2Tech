@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { SiGmail, SiInstagram, SiWhatsapp } from "react-icons/si";
 import { siteConfig } from "../../site-config";
 import { Arrow, K2Mark } from "./home-ui";
@@ -41,7 +40,7 @@ export function SiteFooter() {
             <a className="contact-link" href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer"><SiWhatsapp className="contact-icon whatsapp-icon" aria-hidden="true"/>WhatsApp · {siteConfig.phoneDisplay}</a>
             <a className="contact-link" href={`mailto:${siteConfig.contactEmail}`}><SiGmail className="contact-icon gmail-icon" aria-hidden="true"/>{siteConfig.contactEmail}</a>
             <a className="contact-link" href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer"><SiInstagram className="contact-icon instagram-icon" aria-hidden="true"/>Instagram</a>
-            <Link href="/privacidade">Privacidade</Link>
+            <a href="/privacidade">Privacidade</a>
           </div>
           <small>© {new Date().getFullYear()} K2 Tech. Todos os direitos reservados.</small>
           <a className="back-top" href="#inicio">Voltar ao topo ↑</a>
