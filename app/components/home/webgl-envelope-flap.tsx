@@ -1,45 +1,30 @@
 "use client";
 
-import { CSSProperties, MutableRefObject, useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties, type MutableRefObject } from "react";
 
 type Props = {
   progress: MutableRefObject<number>;
-  active: boolean;
 };
 
-const sharedSurface: CSSProperties = {
+const canvasStyle: CSSProperties = {
   position: "absolute",
   left: 0,
   top: 0,
+  zIndex: 6,
   width: "100%",
   height: "62%",
   display: "block",
   pointerEvents: "none",
-};
-
-const fallbackStyle: CSSProperties = {
-  ...sharedSurface,
-  zIndex: 5,
-  clipPath: "polygon(0 0, 100% 0, 50% 100%)",
-  background: "linear-gradient(180deg,#17243a 0%,#0b1422 100%)",
-  filter: "drop-shadow(0 7px 9px rgba(0,0,0,.48))",
-};
-
-const canvasStyle: CSSProperties = {
-  ...sharedSurface,
-  zIndex: 6,
   filter: "drop-shadow(0 7px 9px rgba(0,0,0,.48))",
 };
 
 const vertexShader = `attribute vec2 a;uniform float p;varying float light;varying float backMix;varying float curlShade;void main(){float row=(1.0-a.y)*.5;float halfW=1.0-row;float x=a.x*halfW;float travel=smoothstep(0.0,1.0,p);float fold=1.0-travel;float d=max(0.0,row-fold);float active=smoothstep(0.0,.085,d);float radius=.17+.035*sin(travel*3.14159);float ang=min(3.14,d*(6.8+4.2*travel));float yy=a.y;float z=0.0;if(active>0.0){float base=1.0-2.0*fold;yy=base-2.0*radius*sin(ang);z=radius*(1.0-cos(ang))*2.75;}float hingeLock=1.0-smoothstep(0.0,.085,row);z*=1.0-hingeLock;float persp=1.0/(1.0+max(z,0.0)*.20);gl_Position=vec4(x*persp,yy*persp,z*.12,1.0);float crest=pow(max(0.0,sin(ang)),3.0);light=.55+.34*cos(ang)+crest*.16;backMix=smoothstep(1.8,2.9,ang);curlShade=crest*active;}`;
 const fragmentShader = `precision mediump float;varying float light;varying float backMix;varying float curlShade;void main(){vec3 dark=vec3(.030,.057,.102);vec3 lit=vec3(.135,.195,.305);vec3 back=vec3(.19,.23,.31);vec3 front=mix(dark,lit,clamp(light,0.0,1.0));vec3 col=mix(front,back,backMix*.30);col*=1.0-curlShade*.22;gl_FragColor=vec4(col,1.0);}`;
 
-export function WebGLEnvelopeFlap({ progress, active }: Props) {
+export function WebGLEnvelopeFlap({ progress }: Props) {
   const canvas = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (!active) return;
-
     const element = canvas.current;
     if (!element) return;
 
@@ -166,12 +151,7 @@ export function WebGLEnvelopeFlap({ progress, active }: Props) {
       context.deleteShader(vertex);
       context.deleteShader(fragment);
     };
-  }, [active, progress]);
+  }, [progress]);
 
-  return (
-    <>
-      <div style={fallbackStyle} aria-hidden="true" />
-      <canvas ref={canvas} style={canvasStyle} aria-hidden="true" />
-    </>
-  );
+  return <canvas ref={canvas} style={canvasStyle} aria-hidden="true" />;
 }
