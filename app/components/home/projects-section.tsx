@@ -14,7 +14,7 @@ export function ProjectsSection() {
           <p>Convites que criam expectativa antes mesmo de a celebração começar.</p>
         </div>
         <div className="project-grid">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <article className={`project-card ${project.className}`} key={project.name}>
               <div className="project-art">
                 {project.video && (
@@ -35,7 +35,6 @@ export function ProjectsSection() {
                       fill
                       sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1200px) 50vw, 390px"
                       quality={72}
-                      priority={index === 1}
                     />
                     <div className="concept-badge">CONCEITO VISUAL</div>
                   </>
