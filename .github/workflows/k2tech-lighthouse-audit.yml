@@ -1,0 +1,54 @@
+name: K2 Tech Lighthouse audit
+
+on:
+  push:
+    branches:
+      - agent/k2tech-invitation-intro
+    paths:
+      - .github/workflows/k2tech-lighthouse-audit.yml
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    env:
+      PREVIEW_URL: https://k2-tech-git-agent-k2tech-invi-d4e070-andersonjhonatans-projects.vercel.app/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Check preview availability
+        run: curl --fail --retry 5 --retry-delay 6 --location "$PREVIEW_URL" --output /dev/null
+      - name: Run Lighthouse mobile
+        run: npx --yes lighthouse "$PREVIEW_URL" --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=./lighthouse-mobile.json --only-categories=performance,accessibility,best-practices,seo --form-factor=mobile
+      - name: Run Lighthouse desktop
+        run: npx --yes lighthouse "$PREVIEW_URL" --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=./lighthouse-desktop.json --only-categories=performance,accessibility,best-practices,seo --preset=desktop
+      - name: Print audit summary
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          for (const mode of ['mobile','desktop']) {
+            const report = JSON.parse(fs.readFileSync(`lighthouse-${mode}.json`, 'utf8'));
+            const c = report.categories;
+            const a = report.audits;
+            const pct = (key) => Math.round((c[key]?.score ?? 0) * 100);
+            console.log(`LIGHTHOUSE ${mode.toUpperCase()}`);
+            console.log(`performance=${pct('performance')}`);
+            console.log(`accessibility=${pct('accessibility')}`);
+            console.log(`best-practices=${pct('best-practices')}`);
+            console.log(`seo=${pct('seo')}`);
+            console.log(`FCP=${a['first-contentful-paint']?.displayValue ?? 'n/a'}`);
+            console.log(`LCP=${a['largest-contentful-paint']?.displayValue ?? 'n/a'}`);
+            console.log(`TBT=${a['total-blocking-time']?.displayValue ?? 'n/a'}`);
+            console.log(`CLS=${a['cumulative-layout-shift']?.displayValue ?? 'n/a'}`);
+            console.log(`SpeedIndex=${a['speed-index']?.displayValue ?? 'n/a'}`);
+          }
+          NODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: lighthouse-*.json
+          retention-days: 7
