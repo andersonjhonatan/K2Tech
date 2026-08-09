@@ -41,10 +41,32 @@ jobs:
           done
           cat /tmp/k2tech-next.log
           exit 1
-      - name: Run Lighthouse mobile
-        run: npx --yes lighthouse "$AUDIT_URL" --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=./lighthouse-mobile.json --only-categories=performance,accessibility,best-practices,seo --form-factor=mobile
-      - name: Run Lighthouse desktop
-        run: npx --yes lighthouse "$AUDIT_URL" --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=./lighthouse-desktop.json --only-categories=performance,accessibility,best-practices,seo --preset=desktop
+      - name: Run Lighthouse mobile with retry
+        run: |
+          success=0
+          for attempt in 1 2 3; do
+            rm -f ./lighthouse-mobile.json
+            if npx --yes lighthouse "$AUDIT_URL" --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=./lighthouse-mobile.json --only-categories=performance,accessibility,best-practices,seo --form-factor=mobile; then
+              success=1
+              break
+            fi
+            echo "Lighthouse mobile attempt $attempt failed; retrying..."
+            sleep 3
+          done
+          test "$success" -eq 1
+      - name: Run Lighthouse desktop with retry
+        run: |
+          success=0
+          for attempt in 1 2 3; do
+            rm -f ./lighthouse-desktop.json
+            if npx --yes lighthouse "$AUDIT_URL" --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=./lighthouse-desktop.json --only-categories=performance,accessibility,best-practices,seo --preset=desktop; then
+              success=1
+              break
+            fi
+            echo "Lighthouse desktop attempt $attempt failed; retrying..."
+            sleep 3
+          done
+          test "$success" -eq 1
       - name: Print final audit summary
         run: |
           node <<'NODE'
