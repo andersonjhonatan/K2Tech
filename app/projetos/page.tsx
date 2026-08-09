@@ -49,7 +49,7 @@ export default function ProjetosPage() {
         </Link>
         <nav className={styles.nav} aria-label="Navegação da página de projetos">
           <Link href="/">Início</Link>
-          <a href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp ↗</a>
+          <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">Falar no WhatsApp ↗</a>
         </nav>
       </header>
 
@@ -64,15 +64,23 @@ export default function ProjetosPage() {
 
       <section className={styles.portfolio} aria-labelledby="portfolio-title">
         <h2 id="portfolio-title" className={styles.srOnly}>Projetos da K2 Tech</h2>
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <article className={styles.project} key={project.name}>
             <div className={styles.visual}>
               {project.video ? (
-                <video autoPlay loop muted playsInline preload="metadata" aria-label={`Prévia em vídeo do ${project.name}`}>
+                <video loop muted playsInline preload="metadata" controls aria-label={`Prévia em vídeo do ${project.name}`}>
                   <source src={project.video} type="video/mp4" />
+                  Seu navegador não suporta a reprodução deste vídeo.
                 </video>
               ) : (
-                <Image src={project.image!} alt={`Prévia do conceito ${project.name}, categoria ${project.category}`} fill sizes="(max-width: 800px) 100vw, 58vw" />
+                <Image
+                  src={project.image!}
+                  alt={`Prévia do conceito ${project.name}, categoria ${project.category}`}
+                  fill
+                  sizes="(max-width: 800px) calc(100vw - 28px), (max-width: 1200px) 60vw, 720px"
+                  quality={76}
+                  priority={index === 1}
+                />
               )}
               <span className={`${styles.status} ${project.status === "Projeto real" ? styles.statusReal : ""}`}>{project.status}</span>
             </div>
@@ -81,7 +89,7 @@ export default function ProjetosPage() {
               <h3>{project.name}</h3>
               <p>{project.description}</p>
               {project.status === "Conceito visual" && <small>Este é um conceito visual de portfólio e não representa um trabalho realizado para cliente.</small>}
-              <a className={styles.projectCta} href={whatsappFor(project.name)} target="_blank" rel="noreferrer">Quero um convite nesse estilo <span>↗</span></a>
+              <a className={styles.projectCta} href={whatsappFor(project.name)} target="_blank" rel="noopener noreferrer">Quero um convite nesse estilo <span aria-hidden="true">↗</span></a>
             </div>
           </article>
         ))}
@@ -91,7 +99,7 @@ export default function ProjetosPage() {
         <p>SEU TEMA NÃO ESTÁ AQUI?</p>
         <h2>A ideia pode ser diferente.<br /><em>A experiência também.</em></h2>
         <p className={styles.finalText}>Conte para a K2 Tech o tema, a ocasião e o clima que você imagina. O projeto pode nascer do zero para combinar com o seu momento.</p>
-        <a href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent("Olá, vim pela página de projetos da K2 Tech. Tenho um tema diferente e quero criar um convite online personalizado do zero.")}`} target="_blank" rel="noreferrer">Quero criar um tema diferente ↗</a>
+        <a href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent("Olá, vim pela página de projetos da K2 Tech. Tenho um tema diferente e quero criar um convite online personalizado do zero.")}`} target="_blank" rel="noopener noreferrer">Quero criar um tema diferente ↗</a>
       </section>
 
       <footer className={styles.footer}>
