@@ -45,43 +45,44 @@ export function WebGLEnvelopeFlap({ progress }: Props) {
       powerPreference: "high-performance",
     });
     if (!gl) return;
+    const context = gl;
 
     function compile(type: number, source: string) {
-      const shader = gl.createShader(type);
+      const shader = context.createShader(type);
       if (!shader) return null;
-      gl.shaderSource(shader, source);
-      gl.compileShader(shader);
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        gl.deleteShader(shader);
+      context.shaderSource(shader, source);
+      context.compileShader(shader);
+      if (!context.getShaderParameter(shader, context.COMPILE_STATUS)) {
+        context.deleteShader(shader);
         return null;
       }
       return shader;
     }
 
-    const vertex = compile(gl.VERTEX_SHADER, vertexShader);
-    const fragment = compile(gl.FRAGMENT_SHADER, fragmentShader);
+    const vertex = compile(context.VERTEX_SHADER, vertexShader);
+    const fragment = compile(context.FRAGMENT_SHADER, fragmentShader);
     if (!vertex || !fragment) {
-      if (vertex) gl.deleteShader(vertex);
-      if (fragment) gl.deleteShader(fragment);
+      if (vertex) context.deleteShader(vertex);
+      if (fragment) context.deleteShader(fragment);
       return;
     }
 
-    const program = gl.createProgram();
+    const program = context.createProgram();
     if (!program) {
-      gl.deleteShader(vertex);
-      gl.deleteShader(fragment);
+      context.deleteShader(vertex);
+      context.deleteShader(fragment);
       return;
     }
-    gl.attachShader(program, vertex);
-    gl.attachShader(program, fragment);
-    gl.linkProgram(program);
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      gl.deleteProgram(program);
-      gl.deleteShader(vertex);
-      gl.deleteShader(fragment);
+    context.attachShader(program, vertex);
+    context.attachShader(program, fragment);
+    context.linkProgram(program);
+    if (!context.getProgramParameter(program, context.LINK_STATUS)) {
+      context.deleteProgram(program);
+      context.deleteShader(vertex);
+      context.deleteShader(fragment);
       return;
     }
-    gl.useProgram(program);
+    context.useProgram(program);
 
     const rows = 72;
     const vertices: number[] = [];
@@ -95,32 +96,32 @@ export function WebGLEnvelopeFlap({ progress }: Props) {
       indices.push(index, index + 1, index + 2, index + 1, index + 3, index + 2);
     }
 
-    const vertexBuffer = gl.createBuffer();
-    const indexBuffer = gl.createBuffer();
+    const vertexBuffer = context.createBuffer();
+    const indexBuffer = context.createBuffer();
     if (!vertexBuffer || !indexBuffer) {
-      gl.deleteProgram(program);
-      gl.deleteShader(vertex);
-      gl.deleteShader(fragment);
+      context.deleteProgram(program);
+      context.deleteShader(vertex);
+      context.deleteShader(fragment);
       return;
     }
 
-    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
-    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+    context.bindBuffer(context.ARRAY_BUFFER, vertexBuffer);
+    context.bufferData(context.ARRAY_BUFFER, new Float32Array(vertices), context.STATIC_DRAW);
+    context.bindBuffer(context.ELEMENT_ARRAY_BUFFER, indexBuffer);
+    context.bufferData(context.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), context.STATIC_DRAW);
 
-    const attribute = gl.getAttribLocation(program, "a");
+    const attribute = context.getAttribLocation(program, "a");
     if (attribute < 0) {
-      gl.deleteBuffer(vertexBuffer);
-      gl.deleteBuffer(indexBuffer);
-      gl.deleteProgram(program);
-      gl.deleteShader(vertex);
-      gl.deleteShader(fragment);
+      context.deleteBuffer(vertexBuffer);
+      context.deleteBuffer(indexBuffer);
+      context.deleteProgram(program);
+      context.deleteShader(vertex);
+      context.deleteShader(fragment);
       return;
     }
-    gl.enableVertexAttribArray(attribute);
-    gl.vertexAttribPointer(attribute, 2, gl.FLOAT, false, 0, 0);
-    const progressLocation = gl.getUniformLocation(program, "p");
+    context.enableVertexAttribArray(attribute);
+    context.vertexAttribPointer(attribute, 2, context.FLOAT, false, 0, 0);
+    const progressLocation = context.getUniformLocation(program, "p");
 
     let frame = 0;
     let contextLost = false;
@@ -140,13 +141,13 @@ export function WebGLEnvelopeFlap({ progress }: Props) {
         element.width = width;
         element.height = height;
       }
-      gl.viewport(0, 0, width, height);
-      gl.clearColor(0, 0, 0, 0);
-      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-      gl.enable(gl.DEPTH_TEST);
-      gl.depthFunc(gl.LEQUAL);
-      gl.uniform1f(progressLocation, progress.current);
-      gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
+      context.viewport(0, 0, width, height);
+      context.clearColor(0, 0, 0, 0);
+      context.clear(context.COLOR_BUFFER_BIT | context.DEPTH_BUFFER_BIT);
+      context.enable(context.DEPTH_TEST);
+      context.depthFunc(context.LEQUAL);
+      context.uniform1f(progressLocation, progress.current);
+      context.drawElements(context.TRIANGLES, indices.length, context.UNSIGNED_SHORT, 0);
       frame = requestAnimationFrame(draw);
     };
     draw();
@@ -154,11 +155,11 @@ export function WebGLEnvelopeFlap({ progress }: Props) {
     return () => {
       cancelAnimationFrame(frame);
       element.removeEventListener("webglcontextlost", onContextLost);
-      gl.deleteBuffer(vertexBuffer);
-      gl.deleteBuffer(indexBuffer);
-      gl.deleteProgram(program);
-      gl.deleteShader(vertex);
-      gl.deleteShader(fragment);
+      context.deleteBuffer(vertexBuffer);
+      context.deleteBuffer(indexBuffer);
+      context.deleteProgram(program);
+      context.deleteShader(vertex);
+      context.deleteShader(fragment);
     };
   }, [progress]);
 
