@@ -2,25 +2,10 @@
   "name": "k2-tech-site",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint ."
-  },
+  "scripts": {"dev":"next dev","build":"next build","start":"next start","lint":"eslint ."},
   "dependencies": {
-    "@types/node": "22.10.1",
-    "@types/react": "19.0.2",
-    "@types/react-dom": "19.0.2",
-    "gsap": "^3.13.0",
-    "next": "16.3.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-icons": "^5.7.0",
-    "typescript": "5.7.2"
+    "@types/node":"22.10.1","@types/react":"19.0.2","@types/react-dom":"19.0.2",
+    "next":"16.3.0","react":"19.0.0","react-dom":"19.0.0","react-icons":"^5.7.0","typescript":"5.7.2"
   },
-  "devDependencies": {
-    "eslint": "^9.39.5",
-    "eslint-config-next": "^16.3.0"
-  }
+  "devDependencies":{"eslint":"^9.39.5","eslint-config-next":"^16.3.0"}
 }
