@@ -1,0 +1,54 @@
+name: K2 Tech quality phase 1
+
+on:
+  push:
+    branches:
+      - agent/k2tech-invitation-intro
+    paths:
+      - .github/workflows/k2tech-quality-phase1.yml
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/k2tech-invitation-intro
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false sharp@0.34.3
+      - name: Optimize images and migrate fonts
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),path=require('path'),sharp=require('sharp');
+          const images=['debutante-julia-v3.png','casamento-maya-caio-v2.png','infantil-miguel.png','cha-revelacao-luna-v2.png','idea-summit.png'];
+          (async()=>{
+            for(const name of images){const src=path.join('public/images/projects',name),dst=src.replace(/\.png$/i,'.webp');await sharp(src).rotate().webp({quality:82,effort:6,smartSubsample:true}).toFile(dst);const before=fs.statSync(src).size,after=fs.statSync(dst).size;if(after>=before)throw new Error(`Optimization did not reduce ${name}`);fs.unlinkSync(src);console.log(`${name}: ${before} -> ${after}`)}
+            const logo='public/images/k2-tech-logo-transparent-v2.png',logoWebp='public/images/k2-tech-logo-transparent-v2.webp';await sharp(logo).webp({lossless:true,effort:6}).toFile(logoWebp);if(fs.statSync(logoWebp).size<fs.statSync(logo).size)fs.unlinkSync(logo);else fs.unlinkSync(logoWebp);
+            for(const file of ['public/images/k2-workspace.png','public/images/k2-tech-logo-transparent-v2-chroma.png','public/images/identidadevisual.png','public/images/k2-tech-logo-light.png'])if(fs.existsSync(file))fs.unlinkSync(file);
+            const replacements=new Map(images.map(n=>[`/images/projects/${n}`,`/images/projects/${n.replace(/\.png$/i,'.webp')}`]));if(fs.existsSync(logoWebp))replacements.set('/images/k2-tech-logo-transparent-v2.png','/images/k2-tech-logo-transparent-v2.webp');
+            const files=[];function walk(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){const f=path.join(d,e.name);if(e.isDirectory())walk(f);else if(/\.(tsx?|css|md)$/i.test(e.name))files.push(f)}}walk('app');for(const file of files){let c=fs.readFileSync(file,'utf8'),o=c;for(const [a,b] of replacements)c=c.split(a).join(b);if(c!==o)fs.writeFileSync(file,c)}
+            let layout=fs.readFileSync('app/layout.tsx','utf8');if(!layout.includes('next/font/google')){layout=layout.replace('import type { Metadata } from "next";\n','import type { Metadata } from "next";\nimport { Inter, Poppins } from "next/font/google";\n').replace('import { siteConfig } from "./site-config";\n','import { siteConfig } from "./site-config";\n\nconst inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });\nconst poppins = Poppins({ weight: ["500", "600", "700"], style: ["normal", "italic"], subsets: ["latin"], display: "swap", variable: "--font-poppins" });\n').replace('<html lang="pt-BR">','<html lang="pt-BR" className={`${inter.variable} ${poppins.variable}`}>');fs.writeFileSync('app/layout.tsx',layout)}
+            for(const file of ['app/globals.css','app/components/home/invitation-intro.css']){let c=fs.readFileSync(file,'utf8').replace(/^@import url\([^\n]+\);\s*/,'').split('Poppins,Inter,sans-serif').join('var(--font-poppins),var(--font-inter),sans-serif').split('Inter,Arial,sans-serif').join('var(--font-inter),Arial,sans-serif').split('Inter,sans-serif').join('var(--font-inter),Arial,sans-serif');fs.writeFileSync(file,c)}
+            let nc=fs.readFileSync('next.config.ts','utf8');if(!nc.includes('images:')){nc=nc.replace('const nextConfig: NextConfig = {\n','const nextConfig: NextConfig = {\n  images: {\n    formats: ["image/webp"],\n    minimumCacheTTL: 86400,\n  },\n');fs.writeFileSync('next.config.ts',nc)}
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+      - name: Validate
+        run: |
+          npm run lint
+          npm run build
+      - name: Commit
+        run: |
+          rm -f .github/workflows/k2tech-quality-phase1.yml
+          git config user.name "K2 Tech Quality Bot"
+          git config user.email "105141966+andersonjhonatan@users.noreply.github.com"
+          git add -A
+          git commit -m "optimize portfolio images and self-host fonts"
+          git push origin agent/k2tech-invitation-intro
