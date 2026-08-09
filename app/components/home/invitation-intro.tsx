@@ -1,17 +1,36 @@
 "use client";
 
 import {
-  CSSProperties,
-  KeyboardEvent,
-  PointerEvent,
+  Suspense,
+  lazy,
   useEffect,
   useRef,
   useState,
+  type CSSProperties,
+  type KeyboardEvent,
+  type PointerEvent,
 } from "react";
-import { WebGLEnvelopeFlap } from "./webgl-envelope-flap";
+
+const WebGLEnvelopeFlap = lazy(() =>
+  import("./webgl-envelope-flap").then((module) => ({ default: module.WebGLEnvelopeFlap })),
+);
 
 const STORAGE_KEY = "k2tech-invitation-opened";
 const OPEN_THRESHOLD = 150;
+
+const flapFallbackStyle: CSSProperties = {
+  position: "absolute",
+  left: 0,
+  top: 0,
+  zIndex: 5,
+  width: "100%",
+  height: "62%",
+  display: "block",
+  pointerEvents: "none",
+  clipPath: "polygon(0 0, 100% 0, 50% 100%)",
+  background: "linear-gradient(180deg,#17243a 0%,#0b1422 100%)",
+  filter: "drop-shadow(0 7px 9px rgba(0,0,0,.48))",
+};
 
 export function InvitationIntro() {
   const [visible, setVisible] = useState(false);
@@ -170,7 +189,12 @@ export function InvitationIntro() {
         <div className="envelope-shadow" aria-hidden="true"/>
         <div className="envelope" aria-hidden="true">
           <div className="envelope-back"><div className="inner-paper"><span>K2 TECH</span></div></div>
-          <WebGLEnvelopeFlap progress={progressRef} active={webglActive}/>
+          <div style={flapFallbackStyle} aria-hidden="true" />
+          {webglActive && (
+            <Suspense fallback={null}>
+              <WebGLEnvelopeFlap progress={progressRef}/>
+            </Suspense>
+          )}
           <div className="envelope-left"/><div className="envelope-right"/><div className="envelope-bottom"/><div className="envelope-edge"/>
         </div>
         <button
