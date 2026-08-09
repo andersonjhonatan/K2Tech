@@ -5,6 +5,7 @@ import { ProjectsSection } from "./components/home/projects-section";
 import { ServicesSection, MethodSection } from "./components/home/services-method";
 import { SiteFooter, SiteHeader } from "./components/home/site-chrome";
 import "./components/home/invitation-intro.css";
+import "./components/home/home-performance.css";
 
 export default function Home() {
   return (
