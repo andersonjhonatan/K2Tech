@@ -9,15 +9,15 @@ import { siteConfig } from "./site-config";
 type Project={number:string;category:string;name:string;className:string;detail:string;video?:string;image?:string};
 const projects:Project[]=[
 {number:"01",category:"Projeto real / Convite interativo",name:"CONVITE K2",className:"real",detail:"Uma prévia real de convite online interativo criada pela K2 Tech.",video:"/videos/convite-interativo-k2-preview.mp4"},
-{number:"02",category:"Conceito / Debutante",name:"JULIA 15",className:"debutante",detail:"Uma experiência digital para anunciar a celebração, compartilhar informações e confirmar presenças.",image:"/images/projects/debutante-julia-v3.png"},
-{number:"03",category:"Conceito / Casamento",name:"MAYA & CAIO",className:"wedding",detail:"Um convite elegante e interativo para levar a história do casal até cada convidado.",image:"/images/projects/casamento-maya-caio-v2.png"},
-{number:"04",category:"Conceito / Infantil",name:"MIGUEL 06",className:"kids",detail:"Um convite divertido para uma festa infantil começar com brincadeira desde o celular.",image:"/images/projects/infantil-miguel.png"},
-{number:"05",category:"Conceito / Chá revelação",name:"BABY LUNA",className:"reveal",detail:"Informações, confirmação e expectativa reunidas em uma experiência delicada e especial.",image:"/images/projects/cha-revelacao-luna-v2.png"},
-{number:"06",category:"Conceito / Evento corporativo",name:"IDEA SUMMIT",className:"corporate",detail:"Um convite de alto impacto para conectar convidados à energia de um grande evento.",image:"/images/projects/idea-summit.png"}];
+{number:"02",category:"Conceito / Debutante",name:"JULIA 15",className:"debutante",detail:"Uma experiência digital para anunciar a celebração, compartilhar informações e confirmar presenças.",image:"/images/projects/debutante-julia-v3.webp"},
+{number:"03",category:"Conceito / Casamento",name:"MAYA & CAIO",className:"wedding",detail:"Um convite elegante e interativo para levar a história do casal até cada convidado.",image:"/images/projects/casamento-maya-caio-v2.webp"},
+{number:"04",category:"Conceito / Infantil",name:"MIGUEL 06",className:"kids",detail:"Um convite divertido para uma festa infantil começar com brincadeira desde o celular.",image:"/images/projects/infantil-miguel.webp"},
+{number:"05",category:"Conceito / Chá revelação",name:"BABY LUNA",className:"reveal",detail:"Informações, confirmação e expectativa reunidas em uma experiência delicada e especial.",image:"/images/projects/cha-revelacao-luna-v2.webp"},
+{number:"06",category:"Conceito / Evento corporativo",name:"IDEA SUMMIT",className:"corporate",detail:"Um convite de alto impacto para conectar convidados à energia de um grande evento.",image:"/images/projects/idea-summit.webp"}];
 const services=[["01","Convites interativos","Uma experiência feita sob medida com confirmações, localização, cronograma e a personalidade do seu evento."],["02","Sites que posicionam","Presenças digitais rápidas, bonitas e estratégicas para o seu negócio ser encontrado e escolhido."],["03","Soluções sob medida","Projetos digitais que resolvem o que planilhas e processos manuais já não conseguem acompanhar."]];
 function whatsappLink(message:string){return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`}
 function Arrow({diagonal=false}:{diagonal?:boolean}){return <span className={diagonal?"arrow diagonal":"arrow"}>↗</span>}
-function K2Mark(){return <span className="official-logo"><Image src="/images/k2-tech-logo-transparent-v2.png" alt="K2 Tech" fill sizes="160px" priority/></span>}
+function K2Mark(){return <span className="official-logo"><Image src="/images/k2-tech-logo-transparent-v2.webp" alt="K2 Tech" fill sizes="160px" priority/></span>}
 
 export default function Home(){return <main>
 <InvitationIntro/>

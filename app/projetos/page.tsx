@@ -28,11 +28,11 @@ type Project = {
 
 const projects: Project[] = [
   { number: "01", name: "CONVITE K2", category: "Convite interativo", status: "Projeto real", description: "Uma experiência real criada pela K2 Tech para mostrar como um convite pode reunir apresentação, informações e interação em uma experiência pensada para o celular.", video: "/videos/convite-interativo-k2-preview.mp4" },
-  { number: "02", name: "JULIA 15", category: "Debutante", status: "Conceito visual", description: "Conceito de experiência digital para uma festa de 15 anos, com direção visual sofisticada, informações da celebração e espaço para confirmação de presença.", image: "/images/projects/debutante-julia-v3.png" },
-  { number: "03", name: "MAYA & CAIO", category: "Casamento", status: "Conceito visual", description: "Conceito elegante para casamento, pensado para apresentar a celebração de forma emocional, organizada e memorável desde o primeiro acesso.", image: "/images/projects/casamento-maya-caio-v2.png" },
-  { number: "04", name: "MIGUEL 06", category: "Infantil", status: "Conceito visual", description: "Conceito infantil com linguagem divertida e visual marcante, mostrando como o convite pode começar a experiência da festa antes mesmo do grande dia.", image: "/images/projects/infantil-miguel.png" },
-  { number: "05", name: "BABY LUNA", category: "Chá revelação", status: "Conceito visual", description: "Conceito delicado para chá revelação, combinando expectativa, informações essenciais e uma apresentação visual criada para ser compartilhada com facilidade.", image: "/images/projects/cha-revelacao-luna-v2.png" },
-  { number: "06", name: "IDEA SUMMIT", category: "Evento corporativo", status: "Conceito visual", description: "Conceito de alto impacto para evento corporativo, com estética contemporânea e estrutura preparada para comunicar agenda, local e proposta do encontro.", image: "/images/projects/idea-summit.png" },
+  { number: "02", name: "JULIA 15", category: "Debutante", status: "Conceito visual", description: "Conceito de experiência digital para uma festa de 15 anos, com direção visual sofisticada, informações da celebração e espaço para confirmação de presença.", image: "/images/projects/debutante-julia-v3.webp" },
+  { number: "03", name: "MAYA & CAIO", category: "Casamento", status: "Conceito visual", description: "Conceito elegante para casamento, pensado para apresentar a celebração de forma emocional, organizada e memorável desde o primeiro acesso.", image: "/images/projects/casamento-maya-caio-v2.webp" },
+  { number: "04", name: "MIGUEL 06", category: "Infantil", status: "Conceito visual", description: "Conceito infantil com linguagem divertida e visual marcante, mostrando como o convite pode começar a experiência da festa antes mesmo do grande dia.", image: "/images/projects/infantil-miguel.webp" },
+  { number: "05", name: "BABY LUNA", category: "Chá revelação", status: "Conceito visual", description: "Conceito delicado para chá revelação, combinando expectativa, informações essenciais e uma apresentação visual criada para ser compartilhada com facilidade.", image: "/images/projects/cha-revelacao-luna-v2.webp" },
+  { number: "06", name: "IDEA SUMMIT", category: "Evento corporativo", status: "Conceito visual", description: "Conceito de alto impacto para evento corporativo, com estética contemporânea e estrutura preparada para comunicar agenda, local e proposta do encontro.", image: "/images/projects/idea-summit.webp" },
 ];
 
 function whatsappFor(project: string) {
@@ -45,7 +45,7 @@ export default function ProjetosPage() {
     <main className={styles.page}>
       <header className={styles.header}>
         <Link href="/" className={styles.brand} aria-label="K2 Tech, voltar para a página inicial">
-          <Image src="/images/k2-tech-logo-transparent-v2.png" alt="K2 Tech" width={160} height={58} priority />
+          <Image src="/images/k2-tech-logo-transparent-v2.webp" alt="K2 Tech" width={160} height={58} priority />
         </Link>
         <nav className={styles.nav} aria-label="Navegação da página de projetos">
           <Link href="/">Início</Link>
