@@ -16,6 +16,7 @@ export type ShowcaseProject = {
   githubUrl?: string;
   published?: boolean;
   spotlight?: boolean;
+  previewType?: "image" | "montagem-site";
 };
 
 export type InvitationProject = {
@@ -36,6 +37,9 @@ const portfolioAsset = (path: string) =>
 const bobAsset = (path: string) =>
   `https://raw.githubusercontent.com/andersonjhonatan/Convite-BobEsponja/main/${path}`;
 
+const montagemAsset = (path: string) =>
+  `https://raw.githubusercontent.com/andersonjhonatan/Montagem/main/${path}`;
+
 export const showcaseProjects: ShowcaseProject[] = [
   {
     number: "01",
@@ -46,7 +50,8 @@ export const showcaseProjects: ShowcaseProject[] = [
     description: "Site desenvolvido para apresentar serviços, fortalecer confiança e transformar visitas em contatos comerciais.",
     portfolioDescription: "Uma presença digital criada para um profissional de montagem de móveis, organizando serviços, diferenciais e contato em uma experiência simples, rápida e pensada para gerar confiança e oportunidades comerciais.",
     tags: ["Next.js", "Responsivo", "Conversão"],
-    image: portfolioAsset("public/projects/montagem.png"),
+    image: montagemAsset("public/arrasta.png"),
+    previewType: "montagem-site",
     liveUrl: "https://montagem.vercel.app/",
     githubUrl: "https://github.com/andersonjhonatan/Montagem",
     published: true,
@@ -242,7 +247,6 @@ export const invitationConcepts: InvitationProject[] = [
   },
 ];
 
-// Compatibilidade com componentes antigos que ainda possam importar `projects`.
 export const projects = invitationConcepts;
 
 export function projectStatusLabel(project: InvitationProject) {
