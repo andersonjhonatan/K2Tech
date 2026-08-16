@@ -9,17 +9,17 @@ export function ProjectsSection() {
     <section id="projetos" className="projects section-space">
       <div className="container">
         <div className="section-heading">
-          <div className="section-label light"><span>02</span><i/> PROJETOS EM DESTAQUE</div>
-          <h2>Projetos que<br/><em>saíram da ideia.</em></h2>
-          <p>Sites, produtos e experiências digitais construídos para mostrar o que a K2 Tech consegue transformar em presença.</p>
+          <div className="section-label light"><span>02</span><i/> PROJETOS REAIS EM DESTAQUE</div>
+          <h2>Não precisa imaginar.<br/><em>Você pode testar.</em></h2>
+          <p>Experiências publicadas pela K2 Tech para você abrir no celular, navegar e sentir como cada projeto funciona de verdade.</p>
         </div>
 
         <div className="project-grid showcase-home-grid">
           {featured.map((project) => (
-            <article className={`project-card showcase-home-card ${project.className}`} key={project.name}>
+            <article className={`project-card showcase-home-card ${project.className} ${project.spotlight ? "showcase-home-spotlight" : ""}`} key={project.name}>
               <div
                 className={`project-art showcase-project-art ${project.image ? "has-image" : "no-image"}`}
-                style={project.image ? { backgroundImage: `url(${project.image})` } : undefined}
+                style={project.image ? { backgroundImage: `url(${project.image})`, backgroundPosition: project.imagePosition } : undefined}
                 role="img"
                 aria-label={`Prévia do projeto ${project.name}`}
               >
@@ -30,7 +30,9 @@ export function ProjectsSection() {
                   </div>
                 )}
                 <div className="showcase-art-overlay" />
-                <div className="video-badge"><span aria-hidden="true">●</span> PROJETO K2 TECH</div>
+                <div className={`video-badge ${project.published ? "live-project-badge" : ""}`}>
+                  <span aria-hidden="true">●</span> {project.spotlight ? "CASE EM DESTAQUE" : "PROJETO REAL · ONLINE"}
+                </div>
               </div>
 
               <div className="project-meta"><span>{project.number} — {project.category}</span><Arrow diagonal/></div>
@@ -39,7 +41,10 @@ export function ProjectsSection() {
               <div className="showcase-tags" aria-label="Tecnologias e características">
                 {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
               </div>
-              <a className="project-action" href="/projetos">Ver case completo <Arrow/></a>
+              <div className="showcase-home-actions">
+                {project.liveUrl && <a className="project-action project-action-live" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Abrir projeto ao vivo <Arrow/></a>}
+                <a className="project-action" href="/projetos">Ver case completo <Arrow/></a>
+              </div>
             </article>
           ))}
         </div>
