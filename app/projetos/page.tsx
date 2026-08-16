@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { MontagemSitePreview } from "../components/project-previews";
 import { invitationConcepts, projectWhatsappUrl, publishedProjects, showcaseProjects } from "../data/projects";
 import { siteConfig } from "../site-config";
 import styles from "./projetos.module.css";
@@ -52,51 +53,58 @@ export default function ProjetosPage() {
         </div>
 
         <div className={styles.caseGrid}>
-          {showcaseProjects.map((project) => (
-            <article className={`${styles.caseCard} ${project.spotlight ? styles.caseFeatured : ""} ${project.spotlight ? realStyles.caseSpotlight : ""}`} key={project.name}>
-              <div
-                className={`${styles.caseVisual} ${styles[`visual_${project.className}`] ?? ""}`}
-                style={project.image ? { backgroundImage: `url(${project.image})`, backgroundPosition: project.imagePosition } : undefined}
-                role="img"
-                aria-label={`Prévia do projeto ${project.name}`}
-              >
-                {!project.image && (
-                  <div className={styles.generatedVisual} aria-hidden="true">
-                    <span>&lt;/&gt;</span>
-                    <strong>{project.name}</strong>
-                    <i />
-                  </div>
-                )}
-                {project.secondaryImage && (
-                  <div
-                    className={realStyles.secondaryPreview}
-                    style={{ backgroundImage: `url(${project.secondaryImage})` }}
-                    aria-label="Prévia da interação do projeto"
-                    role="img"
-                  >
-                    <span>INTERAÇÃO</span>
-                  </div>
-                )}
-                <div className={styles.visualShade} />
-                <span className={styles.caseNumber}>{project.number}</span>
-                <span className={`${styles.caseBadge} ${project.published ? realStyles.caseBadgeLive : ""}`}>
-                  {project.spotlight ? "CASE CRIATIVO EM DESTAQUE" : project.published ? "PROJETO REAL · ONLINE" : "PROJETO K2 TECH"}
-                </span>
-              </div>
+          {showcaseProjects.map((project) => {
+            const isMontagemPreview = project.previewType === "montagem-site" && project.image;
 
-              <div className={styles.caseInfo}>
-                <div className={styles.caseMeta}><span>{project.eyebrow}</span><span>{project.category}</span></div>
-                <h3>{project.name}</h3>
-                <p>{project.portfolioDescription}</p>
-                <div className={styles.tags}>{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-                <div className={styles.caseLinks}>
-                  {project.liveUrl && <a className={realStyles.liveProjectLink} href={project.liveUrl} target="_blank" rel="noopener noreferrer"><span className={realStyles.liveDot} /> Abrir projeto ao vivo ↗</a>}
-                  {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">GitHub ↗</a>}
-                  <a href={projectWhatsappUrl(project.name, "portfolio")} target="_blank" rel="noopener noreferrer">Quero algo nessa direção ↗</a>
+            return (
+              <article className={`${styles.caseCard} ${project.spotlight ? styles.caseFeatured : ""} ${project.spotlight ? realStyles.caseSpotlight : ""}`} key={project.name}>
+                <div
+                  className={`${styles.caseVisual} ${styles[`visual_${project.className}`] ?? ""}`}
+                  style={!isMontagemPreview && project.image ? { backgroundImage: `url(${project.image})`, backgroundPosition: project.imagePosition } : undefined}
+                  role="img"
+                  aria-label={`Prévia do projeto ${project.name}`}
+                >
+                  {isMontagemPreview ? (
+                    <MontagemSitePreview imageUrl={project.image!} />
+                  ) : !project.image ? (
+                    <div className={styles.generatedVisual} aria-hidden="true">
+                      <span>&lt;/&gt;</span>
+                      <strong>{project.name}</strong>
+                      <i />
+                    </div>
+                  ) : null}
+
+                  {project.secondaryImage && (
+                    <div
+                      className={realStyles.secondaryPreview}
+                      style={{ backgroundImage: `url(${project.secondaryImage})` }}
+                      aria-label="Prévia da interação do projeto"
+                      role="img"
+                    >
+                      <span>INTERAÇÃO</span>
+                    </div>
+                  )}
+                  <div className={styles.visualShade} />
+                  <span className={styles.caseNumber}>{project.number}</span>
+                  <span className={`${styles.caseBadge} ${project.published ? realStyles.caseBadgeLive : ""}`}>
+                    {project.spotlight ? "CASE CRIATIVO EM DESTAQUE" : project.published ? "PROJETO REAL · ONLINE" : "PROJETO K2 TECH"}
+                  </span>
                 </div>
-              </div>
-            </article>
-          ))}
+
+                <div className={styles.caseInfo}>
+                  <div className={styles.caseMeta}><span>{project.eyebrow}</span><span>{project.category}</span></div>
+                  <h3>{project.name}</h3>
+                  <p>{project.portfolioDescription}</p>
+                  <div className={styles.tags}>{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                  <div className={styles.caseLinks}>
+                    {project.liveUrl && <a className={realStyles.liveProjectLink} href={project.liveUrl} target="_blank" rel="noopener noreferrer"><span className={realStyles.liveDot} /> Abrir projeto ao vivo ↗</a>}
+                    {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">GitHub ↗</a>}
+                    <a href={projectWhatsappUrl(project.name, "portfolio")} target="_blank" rel="noopener noreferrer">Quero algo nessa direção ↗</a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
