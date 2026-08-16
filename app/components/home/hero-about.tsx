@@ -1,5 +1,6 @@
 import { siteConfig } from "../../site-config";
 import { Arrow } from "./home-ui";
+import matrixStyles from "./matrix-hero.module.css";
 
 export function HeroSection() {
   return (
@@ -13,22 +14,64 @@ export function HeroSection() {
           <a className="text-link" href="#projetos">Ver projetos reais <span aria-hidden="true">↓</span></a>
         </div>
       </div>
-      <div className="hero-visual reveal" aria-label="Interface conceitual de produto digital desenvolvido pela K2 Tech">
-        <div className="visual-note"><span>DESIGN + CÓDIGO + ESTRATÉGIA</span><i/></div>
-        <div className="tech-ring ring-one"/><div className="tech-ring ring-two"/>
-        <div className="network-lines" aria-hidden="true"><i/><i/><i/><i/><i/></div>
-        <div className="invite-device">
-          <div className="device-top"><span>K2 TECH / DIGITAL LAB</span><i aria-hidden="true">●</i></div>
-          <div className="device-content">
-            <p>PRODUTO DIGITAL</p>
-            <div className="device-title">WEB<br/><em>SYSTEMS</em></div>
-            <div className="device-date">DESIGN · CODE · STRATEGY</div>
-            <span className="device-button">PROJETO PRONTO PARA CRESCER <Arrow/></span>
+
+      <div className={`${matrixStyles.visual} reveal`} aria-label="Workspace conceitual de desenvolvimento digital da K2 Tech">
+        <div className={matrixStyles.glow} aria-hidden="true" />
+        <div className={matrixStyles.grid} aria-hidden="true" />
+
+        <div className={matrixStyles.workspace}>
+          <div className={matrixStyles.topbar}>
+            <div className={matrixStyles.dots} aria-hidden="true"><i/><i/><i/></div>
+            <span>K2 TECH / DIGITAL WORKSPACE</span>
+            <span className={matrixStyles.status}><i/> BUILD READY</span>
           </div>
-          <div className="device-footer"><span aria-hidden="true">⌁</span><b>SITES · SISTEMAS · EXPERIÊNCIAS</b></div>
+
+          <div className={matrixStyles.body}>
+            <aside className={matrixStyles.sidebar} aria-hidden="true">
+              <div className={matrixStyles.sideBrand}>K2<b>.</b></div>
+              <span className={`${matrixStyles.sideItem} ${matrixStyles.sideItemActive}`}>OVERVIEW</span>
+              <span className={matrixStyles.sideItem}>WEB</span>
+              <span className={matrixStyles.sideItem}>SYSTEMS</span>
+              <span className={matrixStyles.sideItem}>INTERFACES</span>
+              <span className={matrixStyles.sideItem}>DEPLOY</span>
+            </aside>
+
+            <div className={matrixStyles.main}>
+              <section className={matrixStyles.heroPanel}>
+                <span className={matrixStyles.kicker}>K2 DIGITAL LAB</span>
+                <strong>Design, código e produto no mesmo fluxo.</strong>
+                <p>Do primeiro wireframe ao deploy, cada camada conversa com a próxima.</p>
+              </section>
+
+              <section className={matrixStyles.architecture} aria-label="Fluxo de arquitetura digital">
+                <div className={matrixStyles.panelHead}><span>ARQUITETURA</span><span>CONNECTED</span></div>
+                <div className={matrixStyles.flow}>
+                  <span className={matrixStyles.node}>INTERFACE</span>
+                  <span className={matrixStyles.node}>API</span>
+                  <span className={matrixStyles.node}>DADOS</span>
+                </div>
+              </section>
+
+              <section className={matrixStyles.terminal} aria-label="Trecho conceitual de código">
+                <div className={matrixStyles.panelHead}><span>PRODUCT.TS</span><span>LIVE</span></div>
+                <div className={matrixStyles.code}>
+                  <div><b>const</b> <span>product</span> = {'{'}</div>
+                  <div>&nbsp;&nbsp;design: <em>true</em>,</div>
+                  <div>&nbsp;&nbsp;scalable: <em>true</em>,</div>
+                  <div>&nbsp;&nbsp;responsive: <em>true</em></div>
+                  <div>{'}'}</div>
+                </div>
+              </section>
+
+              <div className={matrixStyles.stack} aria-label="Tecnologias e áreas">
+                <span>NEXT.JS</span><span>REACT</span><span>NODE</span><span>UX/UI</span><span>APIs</span><span>DEPLOY</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="floating-tag tag-one">sites &<br/>interfaces</div>
-        <div className="floating-tag tag-two">K2®</div>
+
+        <div className={matrixStyles.floatingA}>WEB DESIGN</div>
+        <div className={matrixStyles.floatingB}>SYSTEMS / APPS</div>
       </div>
     </section>
   );
