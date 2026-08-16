@@ -32,19 +32,46 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <>
-      <footer className="footer">
-        <div className="container footer-grid">
-          <a className="brand footer-brand" href="#inicio" aria-label="K2 Tech, voltar ao início"><K2Mark /></a>
-          <p>Sites, sistemas, interfaces e experiências digitais para negócios e ideias que querem crescer.</p>
-          <div className="footer-links">
-            <a className="contact-link" href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer"><SiWhatsapp className="contact-icon whatsapp-icon" aria-hidden="true"/>WhatsApp · {siteConfig.phoneDisplay}</a>
-            <a className="contact-link" href={`mailto:${siteConfig.contactEmail}`}><SiGmail className="contact-icon gmail-icon" aria-hidden="true"/>{siteConfig.contactEmail}</a>
-            <a className="contact-link" href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer"><SiInstagram className="contact-icon instagram-icon" aria-hidden="true"/>Instagram</a>
-            <a href="/projetos">Projetos</a>
-            <a href="/privacidade">Privacidade</a>
+      <footer className="footer k2-footer">
+        <div className="container k2-footer-shell">
+          <div className="k2-footer-main">
+            <div className="k2-footer-brand-block">
+              <a className="brand footer-brand" href="#inicio" aria-label="K2 Tech, voltar ao início"><K2Mark /></a>
+              <p>Sites, sistemas, interfaces e experiências digitais construídos para negócios que querem crescer com presença e tecnologia.</p>
+              <span className="k2-footer-signature">K2 TECH · DESIGN + DESENVOLVIMENTO + PRODUTO</span>
+            </div>
+
+            <div className="k2-footer-column">
+              <span className="k2-footer-label">CONTATO</span>
+              <a className="k2-footer-contact" href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <SiWhatsapp className="contact-icon whatsapp-icon" aria-hidden="true"/>
+                <span><small>WhatsApp</small>{siteConfig.phoneDisplay}</span>
+              </a>
+              <a className="k2-footer-contact" href={`mailto:${siteConfig.contactEmail}`}>
+                <SiGmail className="contact-icon gmail-icon" aria-hidden="true"/>
+                <span><small>E-mail</small>{siteConfig.contactEmail}</span>
+              </a>
+              <a className="k2-footer-contact" href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer">
+                <SiInstagram className="contact-icon instagram-icon" aria-hidden="true"/>
+                <span><small>Instagram</small>@k2tech</span>
+              </a>
+            </div>
+
+            <div className="k2-footer-column k2-footer-nav-column">
+              <span className="k2-footer-label">NAVEGAÇÃO</span>
+              <nav className="k2-footer-nav" aria-label="Navegação do rodapé">
+                <a href="#servicos">Serviços <span>↗</span></a>
+                <a href="/projetos">Projetos <span>↗</span></a>
+                <a href="#contato">Contato <span>↗</span></a>
+                <a href="/privacidade">Privacidade <span>↗</span></a>
+              </nav>
+            </div>
           </div>
-          <small>© {new Date().getFullYear()} K2 Tech. Tecnologia para crescimento real.</small>
-          <a className="back-top" href="#inicio">Voltar ao topo ↑</a>
+
+          <div className="k2-footer-bottom">
+            <small>© {new Date().getFullYear()} K2 Tech. Tecnologia para crescimento real.</small>
+            <a className="back-top" href="#inicio">Voltar ao topo ↑</a>
+          </div>
         </div>
       </footer>
       <a className="whatsapp-float" href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
