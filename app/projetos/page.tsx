@@ -4,6 +4,7 @@ import Link from "next/link";
 import { invitationConcepts, projectWhatsappUrl, publishedProjects, showcaseProjects } from "../data/projects";
 import { siteConfig } from "../site-config";
 import styles from "./projetos.module.css";
+import realStyles from "./real-projects.module.css";
 
 export const metadata: Metadata = {
   title: "Projetos | K2 Tech",
@@ -52,7 +53,7 @@ export default function ProjetosPage() {
 
         <div className={styles.caseGrid}>
           {showcaseProjects.map((project) => (
-            <article className={`${styles.caseCard} ${project.spotlight ? styles.caseFeatured : ""} ${project.spotlight ? styles.caseSpotlight : ""}`} key={project.name}>
+            <article className={`${styles.caseCard} ${project.spotlight ? styles.caseFeatured : ""} ${project.spotlight ? realStyles.caseSpotlight : ""}`} key={project.name}>
               <div
                 className={`${styles.caseVisual} ${styles[`visual_${project.className}`] ?? ""}`}
                 style={project.image ? { backgroundImage: `url(${project.image})`, backgroundPosition: project.imagePosition } : undefined}
@@ -68,7 +69,7 @@ export default function ProjetosPage() {
                 )}
                 {project.secondaryImage && (
                   <div
-                    className={styles.secondaryPreview}
+                    className={realStyles.secondaryPreview}
                     style={{ backgroundImage: `url(${project.secondaryImage})` }}
                     aria-label="Prévia da interação do projeto"
                     role="img"
@@ -78,7 +79,7 @@ export default function ProjetosPage() {
                 )}
                 <div className={styles.visualShade} />
                 <span className={styles.caseNumber}>{project.number}</span>
-                <span className={`${styles.caseBadge} ${project.published ? styles.caseBadgeLive : ""}`}>
+                <span className={`${styles.caseBadge} ${project.published ? realStyles.caseBadgeLive : ""}`}>
                   {project.spotlight ? "CASE EM DESTAQUE" : project.published ? "PROJETO REAL · ONLINE" : "PROJETO K2 TECH"}
                 </span>
               </div>
@@ -89,7 +90,7 @@ export default function ProjetosPage() {
                 <p>{project.portfolioDescription}</p>
                 <div className={styles.tags}>{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                 <div className={styles.caseLinks}>
-                  {project.liveUrl && <a className={styles.liveProjectLink} href={project.liveUrl} target="_blank" rel="noopener noreferrer"><span className={styles.liveDot} /> Abrir projeto ao vivo ↗</a>}
+                  {project.liveUrl && <a className={realStyles.liveProjectLink} href={project.liveUrl} target="_blank" rel="noopener noreferrer"><span className={realStyles.liveDot} /> Abrir projeto ao vivo ↗</a>}
                   {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">GitHub ↗</a>}
                   <a href={projectWhatsappUrl(project.name, "portfolio")} target="_blank" rel="noopener noreferrer">Quero algo nessa direção ↗</a>
                 </div>
