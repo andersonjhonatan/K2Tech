@@ -1,27 +1,79 @@
 import { Arrow } from "./home-ui";
+import styles from "./services-section.module.css";
 
 const services = [
-  ["01", "Sites & Landing Pages", "Sites institucionais, páginas de venda e presenças digitais rápidas, responsivas e pensadas para posicionar seu negócio.", "A partir de R$ 299,90"],
-  ["02", "Sistemas & Aplicações Web", "Painéis, áreas restritas, ferramentas internas e aplicações feitas para organizar processos e resolver problemas reais.", "Sob orçamento"],
-  ["03", "Web Design & Interfaces", "Direção visual, UX/UI e interfaces com identidade para produtos que precisam parecer profissionais antes mesmo da primeira linha de código.", "Sob orçamento"],
-  ["04", "Experiências Interativas", "Projetos digitais que usam narrativa, animação e interação para criar experiências memoráveis — incluindo nossa linha de convites digitais.", "Convites a partir de R$ 49,90"],
+  {
+    number: "01",
+    category: "Presença & conversão",
+    title: "Sites & Landing Pages",
+    text: "Sites institucionais, páginas de venda e experiências de marca pensadas para apresentar seu negócio com clareza, gerar confiança e conduzir o visitante para a próxima ação.",
+    price: "Projetos a partir de R$ 299,90",
+    featured: true,
+  },
+  {
+    number: "02",
+    category: "Operação & produto",
+    title: "Sistemas & Aplicações Web",
+    text: "Painéis, áreas restritas, plataformas e ferramentas internas desenvolvidas para organizar processos, centralizar informações e resolver necessidades reais da operação.",
+    price: "Sob orçamento",
+    featured: false,
+  },
+  {
+    number: "03",
+    category: "Interface & UX",
+    title: "Web Design & Interfaces",
+    text: "Direção visual, arquitetura de informação e interfaces responsivas para produtos que precisam transmitir profissionalismo, identidade e facilidade de uso desde o primeiro contato.",
+    price: "Sob orçamento",
+    featured: false,
+  },
+  {
+    number: "04",
+    category: "Interação & storytelling",
+    title: "Experiências Interativas",
+    text: "Projetos digitais com narrativa, animação e interação para criar experiências memoráveis. Aqui entram ativações, páginas especiais e também a vertical de convites digitais da K2 Tech.",
+    price: "Convites a partir de R$ 49,90",
+    featured: true,
+  },
 ] as const;
 
 export function ServicesSection() {
   return (
-    <section id="servicos" className="services container section-space">
-      <div className="section-label"><span>02</span><i/> O QUE CONSTRUÍMOS</div>
-      <div className="services-head">
-        <h2>Do site ao sistema.<br/><em>Do design à experiência.</em></h2>
-        <p>A K2 Tech combina tecnologia, interface e visão de produto para construir a solução certa para cada contexto.</p>
+    <section id="servicos" className={`services container ${styles.section}`}>
+      <div className="section-label"><span>02</span><i/> SOLUÇÕES K2 TECH</div>
+
+      <div className={styles.intro}>
+        <h2 className={styles.title}>
+          Do primeiro site ao sistema que move a operação.
+          <em>Construímos o que o negócio precisa.</em>
+        </h2>
+        <p className={styles.introCopy}>
+          Design, desenvolvimento e visão de produto trabalhando juntos. A solução muda de acordo com o problema — o padrão de qualidade, não.
+        </p>
       </div>
-      <div className="service-list">
-        {services.map(([number, title, text, price]) => (
-          <article className="service-item" key={number}>
-            <span className="service-number">{number}</span>
-            <h3>{title}</h3>
-            <div className="service-copy"><p>{text}</p><strong>{price}</strong></div>
-            <Arrow diagonal/>
+
+      <div className={styles.grid}>
+        {services.map((service) => (
+          <article
+            className={`${styles.card} ${service.featured ? styles.featured : ""}`}
+            key={service.number}
+          >
+            <div className={styles.cardTop}>
+              <span className={styles.number}>{service.number}</span>
+              <span className={styles.category}>{service.category}</span>
+            </div>
+
+            <h3>{service.title}</h3>
+            <p className={styles.description}>{service.text}</p>
+
+            <div className={styles.cardFooter}>
+              <div className={styles.investment}>
+                <small>Faixa de investimento</small>
+                <strong>{service.price}</strong>
+              </div>
+              <a className={styles.action} href="#contato">
+                Falar sobre este serviço <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </article>
         ))}
       </div>
