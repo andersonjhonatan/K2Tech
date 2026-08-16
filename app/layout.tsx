@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import "./pricing.css";
+import "./showcase.css";
 import { siteConfig } from "./site-config";
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
