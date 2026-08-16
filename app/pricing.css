@@ -1,0 +1,8 @@
+.service-copy{display:flex;flex-direction:column;gap:12px;min-width:0}
+.service-copy p{margin:0}
+.service-copy strong{width:max-content;padding:7px 10px;border:1px solid rgba(37,99,235,.22);border-radius:999px;background:rgba(37,99,235,.055);color:#2563eb;font:700 10px var(--font-inter),Arial,sans-serif;letter-spacing:.02em}
+
+@media(max-width:760px){
+  .service-copy{gap:10px}
+  .service-copy strong{font-size:9px;padding:6px 9px}
+}

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import "./pricing.css";
+import "./showcase.css";
+import "./matrix-polish.css";
 import { siteConfig } from "./site-config";
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
@@ -11,13 +14,19 @@ export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
   keywords: [
-    "convite online",
-    "convite interativo",
-    "convite digital",
-    "convite de casamento online",
-    "convite infantil online",
-    "site para eventos",
     "K2 Tech",
+    "desenvolvimento web",
+    "criação de sites",
+    "landing pages",
+    "sistemas web",
+    "aplicações web",
+    "web design",
+    "UX UI",
+    "produtos digitais",
+    "soluções digitais",
+    "sites personalizados",
+    "experiências interativas",
+    "convites interativos",
   ],
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name }],
@@ -30,17 +39,17 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: siteConfig.title,
-    description: "Seu evento começa no primeiro clique.",
+    description: "Sites, sistemas e produtos digitais desenvolvidos sob medida pela K2 Tech.",
     url: "/",
     siteName: siteConfig.name,
     locale: "pt_BR",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "K2 Tech — experiências digitais que marcam" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "K2 Tech — sites, sistemas e soluções digitais" }],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
-    description: "Seu evento começa no primeiro clique.",
+    description: "Sites, sistemas e produtos digitais desenvolvidos sob medida pela K2 Tech.",
     images: ["/opengraph-image"],
   },
   icons: {

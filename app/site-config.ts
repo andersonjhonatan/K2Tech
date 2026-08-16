@@ -2,9 +2,9 @@ const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/
 
 export const siteConfig = {
   name: "K2 Tech",
-  title: "K2 Tech | Convites online interativos",
+  title: "K2 Tech | Sites, Sistemas e Soluções Digitais",
   description:
-    "Convites online interativos, sites e experiências digitais criadas pela K2 Tech para momentos que merecem ser lembrados.",
+    "A K2 Tech cria sites, sistemas web, interfaces, produtos digitais e experiências interativas sob medida para negócios, marcas e projetos que querem crescer.",
   siteUrl: configuredSiteUrl || "https://k2tech.vercel.app",
   instagramUrl: "https://instagram.com/k2tech.oficial",
   contactEmail: "k2techempresa@gmail.com",
