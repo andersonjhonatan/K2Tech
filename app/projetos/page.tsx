@@ -8,11 +8,11 @@ import realStyles from "./real-projects.module.css";
 
 export const metadata: Metadata = {
   title: "Projetos | K2 Tech",
-  description: "Conheça projetos reais publicados, sites, produtos e experiências digitais desenvolvidos pela K2 Tech, além da biblioteca criativa de conceitos.",
+  description: "Conheça sites, aplicações web, interfaces e experiências interativas desenvolvidas pela K2 Tech, além do laboratório criativo que dará origem à vertical K2 Convites.",
   alternates: { canonical: "/projetos" },
   openGraph: {
     title: "Projetos | K2 Tech",
-    description: "Projetos reais, sites, produtos web e experiências interativas construídos pela K2 Tech.",
+    description: "Sites, sistemas, produtos web e experiências digitais construídos pela K2 Tech.",
     url: "/projetos",
     type: "website",
   },
@@ -27,28 +27,28 @@ export default function ProjetosPage() {
         </Link>
         <nav className={styles.nav} aria-label="Navegação da página de projetos">
           <Link href="/">Início</Link>
-          <a href="#cases">Projetos reais</a>
-          <a href="#conceitos">Conceitos</a>
+          <a href="#cases">Projetos</a>
+          <a href="#conceitos">K2 Convites</a>
           <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">Falar no WhatsApp ↗</a>
         </nav>
       </header>
 
       <section className={styles.hero}>
-        <div className={styles.heroTopline}><span>PORTFÓLIO K2 TECH</span><span>2026</span></div>
-        <h1>Projetos que você pode<br /><em>abrir, testar e sentir.</em></h1>
+        <div className={styles.heroTopline}><span>PORTFÓLIO · K2 TECH MATRIZ</span><span>2026</span></div>
+        <h1>Projetos diferentes.<br /><em>Uma mesma capacidade de construir.</em></h1>
         <div className={styles.heroBottom}>
-          <p>Antes de contratar, você pode navegar por experiências reais publicadas pela K2 Tech. Aqui o portfólio mostra o projeto funcionando — não apenas uma imagem estática.</p>
+          <p>Sites para negócios, aplicações web e experiências interativas convivem no mesmo portfólio porque a K2 Tech não nasce presa a um único tipo de entrega. A solução muda conforme o problema.</p>
           <div className={styles.heroStats}>
             <div><strong>{String(publishedProjects.length).padStart(2, "0")}</strong><span>projetos publicados</span></div>
-            <div><strong>{String(invitationConcepts.length).padStart(2, "0")}</strong><span>direções criativas</span></div>
+            <div><strong>{String(invitationConcepts.length).padStart(2, "0")}</strong><span>conceitos da vertical criativa</span></div>
           </div>
         </div>
       </section>
 
       <section className={styles.caseSection} id="cases" aria-labelledby="cases-title">
         <div className={styles.sectionIntro}>
-          <p>01 · PROJETOS REAIS</p>
-          <div><h2 id="cases-title">Trabalhos que já estão<br /><em>no ar.</em></h2><p>Os primeiros cases abaixo têm link direto para a experiência publicada. Abra no celular, interaja e veja como a K2 Tech trabalha na prática.</p></div>
+          <p>01 · PROJETOS DA MATRIZ</p>
+          <div><h2 id="cases-title">Código, design e<br /><em>problemas diferentes.</em></h2><p>Projetos que mostram amplitude: presença digital para negócios, aplicações web e experiências criativas que podem ser abertas e testadas.</p></div>
         </div>
 
         <div className={styles.caseGrid}>
@@ -74,13 +74,13 @@ export default function ProjetosPage() {
                     aria-label="Prévia da interação do projeto"
                     role="img"
                   >
-                    <span>MINI-JOGO</span>
+                    <span>INTERAÇÃO</span>
                   </div>
                 )}
                 <div className={styles.visualShade} />
                 <span className={styles.caseNumber}>{project.number}</span>
                 <span className={`${styles.caseBadge} ${project.published ? realStyles.caseBadgeLive : ""}`}>
-                  {project.spotlight ? "CASE EM DESTAQUE" : project.published ? "PROJETO REAL · ONLINE" : "PROJETO K2 TECH"}
+                  {project.spotlight ? "CASE CRIATIVO EM DESTAQUE" : project.published ? "PROJETO REAL · ONLINE" : "PROJETO K2 TECH"}
                 </span>
               </div>
 
@@ -102,8 +102,8 @@ export default function ProjetosPage() {
 
       <section className={styles.conceptSection} id="conceitos" aria-labelledby="concept-title">
         <div className={styles.sectionIntro}>
-          <p>02 · BIBLIOTECA CRIATIVA</p>
-          <div><h2 id="concept-title">Outras direções<br /><em>que podemos explorar.</em></h2><p>Conceitos visuais para mostrar possibilidades de linguagem, composição e experiência além dos projetos já publicados.</p></div>
+          <p>02 · VERTICAL CRIATIVA</p>
+          <div><h2 id="concept-title">K2 Convites.<br /><em>Uma especialidade dentro da K2.</em></h2><p>Os convites interativos são uma frente forte da empresa e estão sendo tratados como uma vertical própria. Futuramente, essa biblioteca poderá viver em um produto e repositório dedicados, com a assinatura “by K2 Tech”.</p></div>
         </div>
 
         <div className={styles.conceptGrid}>
@@ -141,7 +141,7 @@ export default function ProjetosPage() {
       <section className={styles.finalCta}>
         <p>SEU PROJETO AINDA NÃO EXISTE?</p>
         <h2>Melhor ainda.<br /><em>A gente começa do zero.</em></h2>
-        <p className={styles.finalText}>Conte o que você quer construir e a K2 Tech transforma a ideia em uma experiência digital pensada para o seu contexto, sua marca e seu público.</p>
+        <p className={styles.finalText}>Conte o problema, a ideia ou o objetivo. A K2 Tech ajuda a definir a melhor solução — seja um site, sistema, interface ou experiência digital.</p>
         <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">Conversar com a K2 Tech ↗</a>
       </section>
 
