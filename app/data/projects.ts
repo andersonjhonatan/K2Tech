@@ -10,8 +10,12 @@ export type ShowcaseProject = {
   portfolioDescription: string;
   tags: string[];
   image?: string;
+  secondaryImage?: string;
+  imagePosition?: string;
   liveUrl?: string;
-  githubUrl: string;
+  githubUrl?: string;
+  published?: boolean;
+  spotlight?: boolean;
 };
 
 export type InvitationProject = {
@@ -29,9 +33,73 @@ export type InvitationProject = {
 const portfolioAsset = (path: string) =>
   `https://raw.githubusercontent.com/andersonjhonatan/Portfolio/main/${path}`;
 
+const bobAsset = (path: string) =>
+  `https://raw.githubusercontent.com/andersonjhonatan/Convite-BobEsponja/main/${path}`;
+
 export const showcaseProjects: ShowcaseProject[] = [
   {
     number: "01",
+    name: "Convite Bob Esponja",
+    category: "Convite interativo infantil",
+    eyebrow: "Case principal · projeto real",
+    className: "bob",
+    description: "Uma experiência completa que transforma o convite em brincadeira: entrada temática, informações da festa, confirmação de presença e um mini-jogo para preparar o hambúrguer de siri.",
+    portfolioDescription: "Um dos cases mais completos da K2 Tech. O convite começa com uma entrada inspirada no Siri Cascudo, apresenta a celebração com forte identidade visual e leva o convidado até um mini-jogo interativo no qual é preciso montar o hambúrguer de siri na ordem correta. O projeto mostra como narrativa, interação e utilidade podem coexistir em uma experiência mobile-first.",
+    tags: ["Next.js", "Mini-jogo", "RSVP", "Mobile-first"],
+    image: bobAsset("public/assets/hero-siri-cascudo.png"),
+    secondaryImage: bobAsset("public/assets/siri-kitchen-game.png"),
+    imagePosition: "center",
+    liveUrl: "https://convite-bob-esponja.vercel.app",
+    githubUrl: "https://github.com/andersonjhonatan/Convite-BobEsponja",
+    published: true,
+    spotlight: true,
+  },
+  {
+    number: "02",
+    name: "Helena & Gabriel",
+    category: "Convite de casamento",
+    eyebrow: "Editorial de luxo · projeto real",
+    className: "helenaGabriel",
+    description: "Convite de casamento com linguagem editorial, abertura cinematográfica, história do casal, agenda, RSVP e lista de presentes.",
+    portfolioDescription: "Experiência editorial de casamento construída com uma estética sofisticada e acolhedora. O projeto reúne abertura imersiva, narrativa do casal, cronologia da história, cerimônia e recepção, agenda completa, confirmação de presença e lista de presentes em uma jornada elegante e responsiva.",
+    tags: ["Editorial", "Casamento", "RSVP", "Lista de presentes"],
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=86",
+    imagePosition: "65% 42%",
+    liveUrl: "https://helena-gabriel-editorial-luxo-87k6pd4tx.vercel.app/",
+    published: true,
+  },
+  {
+    number: "03",
+    name: "A Cavalgada de Benício",
+    category: "Convite interativo infantil",
+    eyebrow: "Vaqueiro · projeto real",
+    className: "vaqueiro",
+    description: "Convite infantil com clima de sertão, abertura imersiva, narrativa afetiva, missão interativa e confirmação de presença.",
+    portfolioDescription: "Uma experiência infantil inspirada no universo do pequeno vaqueiro. A entrada apresenta a aventura de Benício, o convite organiza data, local e contagem regressiva e inclui uma missão na qual o convidado ajuda a encontrar ferraduras pela fazendinha. Tudo pensado para funcionar primeiro no celular.",
+    tags: ["Next.js", "Interação", "Storytelling", "Mobile-first"],
+    image: "https://images.pexels.com/photos/19087935/pexels-photo-19087935.jpeg?auto=compress&cs=tinysrgb&w=1800",
+    imagePosition: "center 35%",
+    liveUrl: "https://convite-vaqueiro.vercel.app/#aventura",
+    githubUrl: "https://github.com/andersonjhonatan/Convite-Vaqueiro",
+    published: true,
+  },
+  {
+    number: "04",
+    name: "A Fazendinha da Helena",
+    category: "Convite interativo infantil",
+    eyebrow: "Vaqueira · projeto real",
+    className: "vaqueira",
+    description: "Convite infantil delicado com universo de fazendinha encantada, abertura visual, contagem regressiva, interação e RSVP.",
+    portfolioDescription: "Uma versão feminina e delicada do universo da fazenda, construída com direção visual floral, personagens ilustrados e uma pequena missão interativa para encontrar lacinhos. O projeto equilibra fantasia, legibilidade e experiência mobile-first.",
+    tags: ["Next.js", "Fazendinha", "Interação", "RSVP"],
+    image: "https://cdn.pixabay.com/photo/2024/02/20/22/29/ai-generated-8586295_1280.jpg",
+    imagePosition: "center 28%",
+    liveUrl: "https://convite-vaqueira.vercel.app/#inicio",
+    githubUrl: "https://github.com/andersonjhonatan/Convite-Vaqueira",
+    published: true,
+  },
+  {
+    number: "05",
     name: "Montagem de Móveis",
     category: "Site para negócio local",
     eyebrow: "Projeto para cliente",
@@ -42,9 +110,10 @@ export const showcaseProjects: ShowcaseProject[] = [
     image: portfolioAsset("public/projects/montagem.png"),
     liveUrl: "https://montagem.vercel.app/",
     githubUrl: "https://github.com/andersonjhonatan/Montagem",
+    published: true,
   },
   {
-    number: "02",
+    number: "06",
     name: "Convite Roblox",
     category: "Convite interativo",
     eyebrow: "Experiência mobile-first",
@@ -56,7 +125,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     githubUrl: "https://github.com/andersonjhonatan/ConviteRoblox",
   },
   {
-    number: "03",
+    number: "07",
     name: "Tarefas+",
     category: "Produto web",
     eyebrow: "Aplicação produtiva",
@@ -67,9 +136,10 @@ export const showcaseProjects: ShowcaseProject[] = [
     image: portfolioAsset("public/projects/tarefas.png"),
     liveUrl: "https://tasks-p26e.vercel.app/",
     githubUrl: "https://github.com/andersonjhonatan/Tasks",
+    published: true,
   },
   {
-    number: "04",
+    number: "08",
     name: "Convite Minecraft",
     category: "Convite interativo",
     eyebrow: "Universo temático",
@@ -80,7 +150,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     githubUrl: "https://github.com/andersonjhonatan/Convite-Minecraft",
   },
   {
-    number: "05",
+    number: "09",
     name: "Aniversário Spider-Man",
     category: "Convite digital",
     eyebrow: "Experiência infantil",
@@ -92,7 +162,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     githubUrl: "https://github.com/andersonjhonatan/aniversario-spiderman",
   },
   {
-    number: "06",
+    number: "10",
     name: "Stella Explorations",
     category: "Experiência visual",
     eyebrow: "Projeto conceitual web",
@@ -105,6 +175,8 @@ export const showcaseProjects: ShowcaseProject[] = [
     githubUrl: "https://github.com/andersonjhonatan/Stellar_Tailwind",
   },
 ];
+
+export const publishedProjects = showcaseProjects.filter((project) => project.published);
 
 export const invitationConcepts: InvitationProject[] = [
   {
