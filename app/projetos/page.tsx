@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { invitationConcepts, projectWhatsappUrl, showcaseProjects } from "../data/projects";
+import { invitationConcepts, projectWhatsappUrl, publishedProjects, showcaseProjects } from "../data/projects";
 import { siteConfig } from "../site-config";
 import styles from "./projetos.module.css";
 
 export const metadata: Metadata = {
   title: "Projetos | K2 Tech",
-  description: "Conheça os sites, produtos e experiências digitais desenvolvidos pela K2 Tech, além da biblioteca criativa de conceitos para convites interativos.",
+  description: "Conheça projetos reais publicados, sites, produtos e experiências digitais desenvolvidos pela K2 Tech, além da biblioteca criativa de conceitos.",
   alternates: { canonical: "/projetos" },
   openGraph: {
     title: "Projetos | K2 Tech",
-    description: "Sites, produtos web e experiências interativas construídos pela K2 Tech.",
+    description: "Projetos reais, sites, produtos web e experiências interativas construídos pela K2 Tech.",
     url: "/projetos",
     type: "website",
   },
@@ -26,36 +26,36 @@ export default function ProjetosPage() {
         </Link>
         <nav className={styles.nav} aria-label="Navegação da página de projetos">
           <Link href="/">Início</Link>
-          <a href="#cases">Cases</a>
-          <a href="#conceitos">Convites</a>
+          <a href="#cases">Projetos reais</a>
+          <a href="#conceitos">Conceitos</a>
           <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">Falar no WhatsApp ↗</a>
         </nav>
       </header>
 
       <section className={styles.hero}>
         <div className={styles.heroTopline}><span>PORTFÓLIO K2 TECH</span><span>2026</span></div>
-        <h1>Projetos que transformam<br /><em>ideia em presença.</em></h1>
+        <h1>Projetos que você pode<br /><em>abrir, testar e sentir.</em></h1>
         <div className={styles.heroBottom}>
-          <p>Uma seleção de sites, produtos web e experiências interativas construídos pela K2 Tech, organizada para mostrar não só o visual, mas a intenção de cada projeto.</p>
+          <p>Antes de contratar, você pode navegar por experiências reais publicadas pela K2 Tech. Aqui o portfólio mostra o projeto funcionando — não apenas uma imagem estática.</p>
           <div className={styles.heroStats}>
-            <div><strong>{String(showcaseProjects.length).padStart(2, "0")}</strong><span>cases em destaque</span></div>
-            <div><strong>{String(invitationConcepts.length).padStart(2, "0")}</strong><span>conceitos criativos</span></div>
+            <div><strong>{String(publishedProjects.length).padStart(2, "0")}</strong><span>projetos publicados</span></div>
+            <div><strong>{String(invitationConcepts.length).padStart(2, "0")}</strong><span>direções criativas</span></div>
           </div>
         </div>
       </section>
 
       <section className={styles.caseSection} id="cases" aria-labelledby="cases-title">
         <div className={styles.sectionIntro}>
-          <p>01 · PROJETOS CONSTRUÍDOS</p>
-          <div><h2 id="cases-title">Cases da<br /><em>K2 Tech.</em></h2><p>Projetos que já saíram do planejamento e ganharam interface, código e experiência real.</p></div>
+          <p>01 · PROJETOS REAIS</p>
+          <div><h2 id="cases-title">Trabalhos que já estão<br /><em>no ar.</em></h2><p>Os primeiros cases abaixo têm link direto para a experiência publicada. Abra no celular, interaja e veja como a K2 Tech trabalha na prática.</p></div>
         </div>
 
         <div className={styles.caseGrid}>
-          {showcaseProjects.map((project, index) => (
-            <article className={`${styles.caseCard} ${index === 0 ? styles.caseFeatured : ""}`} key={project.name}>
+          {showcaseProjects.map((project) => (
+            <article className={`${styles.caseCard} ${project.spotlight ? styles.caseFeatured : ""} ${project.spotlight ? styles.caseSpotlight : ""}`} key={project.name}>
               <div
                 className={`${styles.caseVisual} ${styles[`visual_${project.className}`] ?? ""}`}
-                style={project.image ? { backgroundImage: `url(${project.image})` } : undefined}
+                style={project.image ? { backgroundImage: `url(${project.image})`, backgroundPosition: project.imagePosition } : undefined}
                 role="img"
                 aria-label={`Prévia do projeto ${project.name}`}
               >
@@ -66,9 +66,21 @@ export default function ProjetosPage() {
                     <i />
                   </div>
                 )}
+                {project.secondaryImage && (
+                  <div
+                    className={styles.secondaryPreview}
+                    style={{ backgroundImage: `url(${project.secondaryImage})` }}
+                    aria-label="Prévia da interação do projeto"
+                    role="img"
+                  >
+                    <span>MINI-JOGO</span>
+                  </div>
+                )}
                 <div className={styles.visualShade} />
                 <span className={styles.caseNumber}>{project.number}</span>
-                <span className={styles.caseBadge}>PROJETO K2 TECH</span>
+                <span className={`${styles.caseBadge} ${project.published ? styles.caseBadgeLive : ""}`}>
+                  {project.spotlight ? "CASE EM DESTAQUE" : project.published ? "PROJETO REAL · ONLINE" : "PROJETO K2 TECH"}
+                </span>
               </div>
 
               <div className={styles.caseInfo}>
@@ -77,8 +89,8 @@ export default function ProjetosPage() {
                 <p>{project.portfolioDescription}</p>
                 <div className={styles.tags}>{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                 <div className={styles.caseLinks}>
-                  {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>}
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                  {project.liveUrl && <a className={styles.liveProjectLink} href={project.liveUrl} target="_blank" rel="noopener noreferrer"><span className={styles.liveDot} /> Abrir projeto ao vivo ↗</a>}
+                  {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">GitHub ↗</a>}
                   <a href={projectWhatsappUrl(project.name, "portfolio")} target="_blank" rel="noopener noreferrer">Quero algo nessa direção ↗</a>
                 </div>
               </div>
@@ -90,7 +102,7 @@ export default function ProjetosPage() {
       <section className={styles.conceptSection} id="conceitos" aria-labelledby="concept-title">
         <div className={styles.sectionIntro}>
           <p>02 · BIBLIOTECA CRIATIVA</p>
-          <div><h2 id="concept-title">Convites e<br /><em>direções visuais.</em></h2><p>Conceitos que ampliam as possibilidades de estilo para eventos, celebrações e experiências interativas.</p></div>
+          <div><h2 id="concept-title">Outras direções<br /><em>que podemos explorar.</em></h2><p>Conceitos visuais para mostrar possibilidades de linguagem, composição e experiência além dos projetos já publicados.</p></div>
         </div>
 
         <div className={styles.conceptGrid}>
