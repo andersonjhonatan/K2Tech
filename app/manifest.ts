@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "K2 Tech — Convites online interativos",
+    name: "K2 Tech — Sites, Sistemas e Soluções Digitais",
     short_name: "K2 Tech",
-    description: "Convites online interativos e experiências digitais para momentos especiais.",
+    description: "Sites, sistemas web, interfaces, produtos digitais e experiências interativas desenvolvidos pela K2 Tech.",
     start_url: "/",
     display: "standalone",
     background_color: "#080b12",
