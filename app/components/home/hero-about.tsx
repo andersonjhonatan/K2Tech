@@ -5,29 +5,29 @@ export function HeroSection() {
   return (
     <section id="inicio" className="hero container">
       <div className="hero-copy reveal">
-        <p className="eyebrow"><span/> EXPERIÊNCIAS DIGITAIS QUE MARCAM</p>
-        <h1>Seu evento<br/>começa no<br/><em>primeiro clique.</em></h1>
-        <p className="hero-text">Convites online interativos que encantam seus convidados, organizam cada detalhe e transformam expectativa em experiência.</p>
+        <p className="eyebrow"><span/> DESIGN · DESENVOLVIMENTO · PRODUTO DIGITAL</p>
+        <h1>Ideias que viram<br/>produtos digitais<br/><em>de verdade.</em></h1>
+        <p className="hero-text">Sites, sistemas e experiências web desenvolvidos sob medida para transformar uma ideia em presença, operação e crescimento.</p>
         <div className="hero-actions">
-          <a className="button button-whatsapp" href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">Falar no WhatsApp <Arrow/></a>
-          <a className="text-link" href="#projetos">Ver experiências <span aria-hidden="true">↓</span></a>
+          <a className="button button-whatsapp" href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">Falar sobre um projeto <Arrow/></a>
+          <a className="text-link" href="#projetos">Ver projetos reais <span aria-hidden="true">↓</span></a>
         </div>
       </div>
-      <div className="hero-visual reveal" aria-label="Exemplo de convite digital interativo">
-        <div className="visual-note"><span>DESIGN + TECNOLOGIA</span><i/></div>
+      <div className="hero-visual reveal" aria-label="Interface conceitual de produto digital desenvolvido pela K2 Tech">
+        <div className="visual-note"><span>DESIGN + CÓDIGO + ESTRATÉGIA</span><i/></div>
         <div className="tech-ring ring-one"/><div className="tech-ring ring-two"/>
         <div className="network-lines" aria-hidden="true"><i/><i/><i/><i/><i/></div>
         <div className="invite-device">
-          <div className="device-top"><span>K2 TECH</span><i aria-hidden="true">●</i></div>
+          <div className="device-top"><span>K2 TECH / DIGITAL LAB</span><i aria-hidden="true">●</i></div>
           <div className="device-content">
-            <p>VOCÊ ESTÁ CONVIDADO</p>
-            <div className="device-title">LIA<br/><em>&amp; CAIO</em></div>
-            <div className="device-date">23 · AGOSTO · 2026</div>
-            <span className="device-button">CONFIRMAR PRESENÇA <Arrow/></span>
+            <p>PRODUTO DIGITAL</p>
+            <div className="device-title">WEB<br/><em>SYSTEMS</em></div>
+            <div className="device-date">DESIGN · CODE · STRATEGY</div>
+            <span className="device-button">PROJETO PRONTO PARA CRESCER <Arrow/></span>
           </div>
-          <div className="device-footer"><span aria-hidden="true">⌁</span><b>EXPERIÊNCIA DIGITAL INTERATIVA</b></div>
+          <div className="device-footer"><span aria-hidden="true">⌁</span><b>SITES · SISTEMAS · EXPERIÊNCIAS</b></div>
         </div>
-        <div className="floating-tag tag-one">convites<br/>interativos</div>
+        <div className="floating-tag tag-one">sites &<br/>interfaces</div>
         <div className="floating-tag tag-two">K2®</div>
       </div>
     </section>
@@ -39,14 +39,14 @@ export function AboutSection() {
     <section id="sobre" className="intro container section-space">
       <div className="section-label"><span>01</span><i/> SOBRE A K2 TECH</div>
       <div className="intro-grid">
-        <h2>Um convite pode ser<br/><em>muito mais.</em></h2>
+        <h2>Tecnologia para<br/><em>crescimento real.</em></h2>
         <div className="intro-content">
-          <p className="lead">A K2 Tech transforma momentos importantes em experiências digitais memoráveis.</p>
-          <p>Com design, tecnologia e cuidado com os detalhes, criamos espaços onde seus convidados encontram tudo o que precisam — e sentem a energia do que está por vir.</p>
-          <a className="text-link" href="#servicos">Conheça as possibilidades <Arrow/></a>
+          <p className="lead">A K2 Tech é uma empresa de desenvolvimento web e design digital que transforma necessidades em produtos claros, funcionais e profissionais.</p>
+          <p>Construímos sites institucionais, landing pages, sistemas web, interfaces e experiências interativas. Os convites digitais fazem parte desse ecossistema como uma especialidade criativa — não como o limite do que a K2 Tech pode construir.</p>
+          <a className="text-link" href="#servicos">Conheça nossas frentes <Arrow/></a>
         </div>
       </div>
-      <div className="values-row"><span>DETALHE EM CADA TELA</span><b aria-hidden="true">✳</b><span>DESIGN COM EMOÇÃO</span><b aria-hidden="true">✳</b><span>TECNOLOGIA SEM COMPLICAÇÃO</span></div>
+      <div className="values-row"><span>DESIGN COM INTENÇÃO</span><b aria-hidden="true">✳</b><span>CÓDIGO COM ESTRUTURA</span><b aria-hidden="true">✳</b><span>SOLUÇÕES FEITAS PARA EVOLUIR</span></div>
     </section>
   );
 }
