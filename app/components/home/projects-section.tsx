@@ -9,9 +9,9 @@ export function ProjectsSection() {
     <section id="projetos" className="projects section-space">
       <div className="container">
         <div className="section-heading">
-          <div className="section-label light"><span>02</span><i/> PROJETOS REAIS EM DESTAQUE</div>
-          <h2>Não precisa imaginar.<br/><em>Você pode testar.</em></h2>
-          <p>Experiências publicadas pela K2 Tech para você abrir no celular, navegar e sentir como cada projeto funciona de verdade.</p>
+          <div className="section-label light"><span>03</span><i/> PROJETOS EM DESTAQUE</div>
+          <h2>Uma empresa.<br/><em>Vários tipos de solução.</em></h2>
+          <p>Sites para negócios, aplicações web e experiências interativas. Projetos diferentes para mostrar que a K2 Tech não trabalha com uma única fórmula.</p>
         </div>
 
         <div className="project-grid showcase-home-grid">
@@ -31,7 +31,7 @@ export function ProjectsSection() {
                 )}
                 <div className="showcase-art-overlay" />
                 <div className={`video-badge ${project.published ? "live-project-badge" : ""}`}>
-                  <span aria-hidden="true">●</span> {project.spotlight ? "CASE EM DESTAQUE" : "PROJETO REAL · ONLINE"}
+                  <span aria-hidden="true">●</span> {project.spotlight ? "CASE CRIATIVO EM DESTAQUE" : project.published ? "PROJETO REAL · ONLINE" : "PROJETO K2 TECH"}
                 </div>
               </div>
 
@@ -50,8 +50,8 @@ export function ProjectsSection() {
         </div>
 
         <div className="hero-actions">
-          <a className="button button-light all-projects" href="/projetos">Ver portfólio da K2 Tech <Arrow/></a>
-          <a className="button button-light all-projects" href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">Fale sobre seu projeto <Arrow/></a>
+          <a className="button button-light all-projects" href="/projetos">Explorar todos os projetos <Arrow/></a>
+          <a className="button button-light all-projects" href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">Fale sobre sua ideia <Arrow/></a>
         </div>
       </div>
     </section>
