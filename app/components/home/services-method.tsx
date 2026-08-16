@@ -1,18 +1,19 @@
 import { Arrow } from "./home-ui";
 
 const services = [
-  ["01", "Convites interativos", "Uma experiência feita sob medida com confirmações, localização, cronograma e a personalidade do seu evento.", "A partir de R$ 49,90"],
-  ["02", "Sites que posicionam", "Presenças digitais rápidas, bonitas e estratégicas para o seu negócio ser encontrado e escolhido.", "A partir de R$ 299,90"],
-  ["03", "Soluções sob medida", "Projetos digitais que resolvem o que planilhas e processos manuais já não conseguem acompanhar.", "Sob orçamento"],
+  ["01", "Sites & Landing Pages", "Sites institucionais, páginas de venda e presenças digitais rápidas, responsivas e pensadas para posicionar seu negócio.", "A partir de R$ 299,90"],
+  ["02", "Sistemas & Aplicações Web", "Painéis, áreas restritas, ferramentas internas e aplicações feitas para organizar processos e resolver problemas reais.", "Sob orçamento"],
+  ["03", "Web Design & Interfaces", "Direção visual, UX/UI e interfaces com identidade para produtos que precisam parecer profissionais antes mesmo da primeira linha de código.", "Sob orçamento"],
+  ["04", "Experiências Interativas", "Projetos digitais que usam narrativa, animação e interação para criar experiências memoráveis — incluindo nossa linha de convites digitais.", "Convites a partir de R$ 49,90"],
 ] as const;
 
 export function ServicesSection() {
   return (
     <section id="servicos" className="services container section-space">
-      <div className="section-label"><span>04</span><i/> O QUE FAZEMOS</div>
+      <div className="section-label"><span>02</span><i/> O QUE CONSTRUÍMOS</div>
       <div className="services-head">
-        <h2>Seu momento.<br/><em>Do seu jeito.</em></h2>
-        <p>Do convite à presença digital do seu negócio, construímos experiências que aproximam pessoas.</p>
+        <h2>Do site ao sistema.<br/><em>Do design à experiência.</em></h2>
+        <p>A K2 Tech combina tecnologia, interface e visão de produto para construir a solução certa para cada contexto.</p>
       </div>
       <div className="service-list">
         {services.map(([number, title, text, price]) => (
@@ -33,13 +34,13 @@ export function MethodSection() {
     <section className="method section-space">
       <div className="container method-grid">
         <div>
-          <div className="section-label light"><span>05</span><i/> COMO FUNCIONA</div>
-          <h2>Boa parceria<br/>tem <em>processo.</em></h2>
+          <div className="section-label light"><span>05</span><i/> COMO TRABALHAMOS</div>
+          <h2>Boa solução<br/>tem <em>processo.</em></h2>
         </div>
         <div className="steps">
-          <article><span>01</span><div><h3>Seu momento</h3><p>Entendemos a história, o estilo e tudo o que os convidados precisam viver antes do evento.</p></div></article>
-          <article><span>02</span><div><h3>Direção criativa</h3><p>Transformamos a sua ideia em uma proposta visual única, feita para despertar expectativa.</p></div></article>
-          <article><span>03</span><div><h3>Convite no ar</h3><p>Construímos, refinamos e entregamos seu convite pronto para ser compartilhado com quem importa.</p></div></article>
+          <article><span>01</span><div><h3>Entender o problema</h3><p>Começamos pelo objetivo, público, contexto e pelo que o projeto precisa resolver — não pela tecnologia da moda.</p></div></article>
+          <article><span>02</span><div><h3>Desenhar a solução</h3><p>Organizamos estrutura, experiência, identidade visual e arquitetura técnica antes de transformar a ideia em produto.</p></div></article>
+          <article><span>03</span><div><h3>Construir, testar e publicar</h3><p>Desenvolvemos, refinamos e colocamos o projeto no ar com foco em responsividade, clareza, desempenho e evolução futura.</p></div></article>
         </div>
       </div>
     </section>
