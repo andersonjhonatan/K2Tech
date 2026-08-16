@@ -35,7 +35,7 @@ export default function ProjetosPage() {
       </header>
 
       <section className={styles.hero}>
-        <div className={styles.heroTopline}><span>PORTFÓLIO · K2 TECH MATRIZ</span><span>2026</span></div>
+        <div className={styles.heroTopline}><span>PORTFÓLIO · K2 TECH</span><span>2026</span></div>
         <h1>Projetos diferentes.<br /><em>Uma mesma capacidade de construir.</em></h1>
         <div className={styles.heroBottom}>
           <p>Sites para negócios, aplicações web e experiências interativas convivem no mesmo portfólio porque a K2 Tech não nasce presa a um único tipo de entrega. A solução muda conforme o problema.</p>
@@ -48,7 +48,7 @@ export default function ProjetosPage() {
 
       <section className={styles.caseSection} id="cases" aria-labelledby="cases-title">
         <div className={styles.sectionIntro}>
-          <p>01 · PROJETOS DA MATRIZ</p>
+          <p>01 · PROJETOS K2 TECH</p>
           <div><h2 id="cases-title">Código, design e<br /><em>problemas diferentes.</em></h2><p>Projetos que mostram amplitude: presença digital para negócios, aplicações web e experiências criativas que podem ser abertas e testadas.</p></div>
         </div>
 
