@@ -1,0 +1,93 @@
+.caseSpotlight{
+  border-color:rgba(59,130,246,.34);
+  background:
+    radial-gradient(circle at 86% 18%,rgba(37,99,235,.11),transparent 20rem),
+    linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+  box-shadow:0 28px 90px rgba(0,0,0,.22),0 0 0 1px rgba(37,99,235,.05) inset;
+}
+
+.caseSpotlight:hover{
+  border-color:rgba(59,130,246,.5);
+  box-shadow:0 34px 110px rgba(0,0,0,.32),0 0 60px rgba(37,99,235,.07);
+}
+
+.secondaryPreview{
+  position:absolute;
+  right:20px;
+  bottom:20px;
+  z-index:3;
+  width:min(31%,210px);
+  aspect-ratio:4/3;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:18px;
+  background:#0b1018 center/cover no-repeat;
+  box-shadow:0 18px 48px rgba(0,0,0,.46);
+}
+
+.secondaryPreview:after{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(5,8,13,.72));
+  content:"";
+}
+
+.secondaryPreview span{
+  position:absolute;
+  left:10px;
+  bottom:9px;
+  z-index:2;
+  padding:5px 7px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  background:rgba(5,8,13,.68);
+  color:#f7fbff;
+  font-size:.48rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  backdrop-filter:blur(8px);
+}
+
+.caseBadgeLive{
+  border-color:rgba(91,255,174,.38)!important;
+  color:#b8ffda!important;
+  background:rgba(7,18,14,.78)!important;
+}
+
+.liveProjectLink{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  border-color:rgba(59,130,246,.38)!important;
+  background:linear-gradient(135deg,rgba(37,99,235,.17),rgba(59,130,246,.08))!important;
+  color:#f3f7ff!important;
+}
+
+.liveDot{
+  width:7px;
+  height:7px;
+  flex:none;
+  border-radius:50%;
+  background:#58e6a8;
+  box-shadow:0 0 0 4px rgba(88,230,168,.09),0 0 13px rgba(88,230,168,.38);
+}
+
+@media(max-width:920px){
+  .secondaryPreview{
+    width:min(34%,190px);
+  }
+}
+
+@media(max-width:680px){
+  .secondaryPreview{
+    right:13px;
+    bottom:13px;
+    width:36%;
+    border-radius:13px;
+  }
+  .secondaryPreview span{
+    left:7px;
+    bottom:7px;
+    font-size:.42rem;
+  }
+}
