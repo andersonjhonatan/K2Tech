@@ -5,7 +5,7 @@ export const siteConfig = {
   title: "K2 Tech | Sites, Sistemas e Soluções Digitais",
   description:
     "A K2 Tech cria sites, sistemas web, interfaces, produtos digitais e experiências interativas sob medida para negócios, marcas e projetos que querem crescer.",
-  siteUrl: configuredSiteUrl || "https://k2tech.vercel.app",
+  siteUrl: configuredSiteUrl || "https://k2-tech.vercel.app",
   instagramUrl: "https://instagram.com/k2tech.oficial",
   contactEmail: "k2techempresa@gmail.com",
   instagramHandle: "@k2tech.oficial",
