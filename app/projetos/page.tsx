@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MontagemSitePreview } from "../components/project-previews";
 import { invitationConcepts, projectWhatsappUrl, publishedProjects, showcaseProjects } from "../data/projects";
+import { weatherProject } from "../data/weather-project";
 import { siteConfig } from "../site-config";
 import styles from "./projetos.module.css";
 import realStyles from "./real-projects.module.css";
@@ -20,6 +21,8 @@ export const metadata: Metadata = {
 };
 
 export default function ProjetosPage() {
+  const portfolioProjects = [...showcaseProjects.slice(0, 2), weatherProject, ...showcaseProjects.slice(2)];
+
   return (
     <main className={styles.page}>
       <header className={styles.header}>
@@ -53,7 +56,7 @@ export default function ProjetosPage() {
         </div>
 
         <div className={styles.caseGrid}>
-          {showcaseProjects.map((project) => {
+          {portfolioProjects.map((project) => {
             const isMontagemPreview = project.previewType === "montagem-site" && project.image;
 
             return (
