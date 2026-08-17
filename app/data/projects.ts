@@ -58,6 +58,18 @@ export const showcaseProjects: ShowcaseProject[] = [
   },
   {
     number: "02",
+    name: "Boostify Agência Digital",
+    category: "Site institucional para agência",
+    eyebrow: "Marketing & performance · projeto real",
+    className: "boostify",
+    description: "Site institucional voltado à apresentação de serviços, geração de confiança e conversão de visitantes em oportunidades comerciais.",
+    portfolioDescription: "Presença digital desenvolvida para uma agência de marketing e performance. O projeto organiza serviços como tráfego pago, gestão de redes sociais, sites, automação e análise de dados em uma experiência responsiva, com contato direto, foco em conversão e uma área de avaliações enviada para moderação antes da publicação.",
+    tags: ["Next.js", "Framer Motion", "API", "Conversão"],
+    liveUrl: "https://portfolioyuri.vercel.app/",
+    published: true,
+  },
+  {
+    number: "03",
     name: "Tarefas+",
     category: "Aplicação web",
     eyebrow: "Produto digital · projeto real",
@@ -71,7 +83,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     published: true,
   },
   {
-    number: "03",
+    number: "04",
     name: "Convite Bob Esponja",
     category: "Experiência interativa",
     eyebrow: "Case criativo · projeto real",
@@ -88,7 +100,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     spotlight: true,
   },
   {
-    number: "04",
+    number: "05",
     name: "Helena & Gabriel",
     category: "Experiência editorial",
     eyebrow: "Casamento · projeto real",
@@ -102,7 +114,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     published: true,
   },
   {
-    number: "05",
+    number: "06",
     name: "A Cavalgada de Benício",
     category: "Experiência interativa",
     eyebrow: "Vaqueiro · projeto real",
@@ -117,7 +129,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     published: true,
   },
   {
-    number: "06",
+    number: "07",
     name: "A Fazendinha da Helena",
     category: "Experiência interativa",
     eyebrow: "Vaqueira · projeto real",
@@ -132,7 +144,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     published: true,
   },
   {
-    number: "07",
+    number: "08",
     name: "Stella Explorations",
     category: "Experiência visual web",
     eyebrow: "Interface conceitual · projeto publicado",
@@ -146,7 +158,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     published: true,
   },
   {
-    number: "08",
+    number: "09",
     name: "Convite Roblox",
     category: "Experiência interativa",
     eyebrow: "Experiência mobile-first",
@@ -158,7 +170,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     githubUrl: "https://github.com/andersonjhonatan/ConviteRoblox",
   },
   {
-    number: "09",
+    number: "10",
     name: "Convite Minecraft",
     category: "Experiência interativa",
     eyebrow: "Universo temático",
@@ -169,7 +181,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     githubUrl: "https://github.com/andersonjhonatan/Convite-Minecraft",
   },
   {
-    number: "10",
+    number: "11",
     name: "Aniversário Spider-Man",
     category: "Experiência digital",
     eyebrow: "Experiência infantil",
