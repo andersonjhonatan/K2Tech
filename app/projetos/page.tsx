@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { BoostifySitePreview, WeatherAppPreview } from "../components/project-coded-previews";
 import { MontagemSitePreview } from "../components/project-previews";
 import { invitationConcepts, projectWhatsappUrl, publishedProjects, showcaseProjects } from "../data/projects";
 import { weatherProject } from "../data/weather-project";
@@ -58,17 +59,24 @@ export default function ProjetosPage() {
         <div className={styles.caseGrid}>
           {portfolioProjects.map((project) => {
             const isMontagemPreview = project.previewType === "montagem-site" && project.image;
+            const isBoostifyPreview = project.className === "boostify";
+            const isWeatherPreview = project.className === "weather";
+            const hasCodedPreview = Boolean(isMontagemPreview || isBoostifyPreview || isWeatherPreview);
 
             return (
               <article className={`${styles.caseCard} ${project.spotlight ? styles.caseFeatured : ""} ${project.spotlight ? realStyles.caseSpotlight : ""}`} key={project.name}>
                 <div
                   className={`${styles.caseVisual} ${styles[`visual_${project.className}`] ?? ""}`}
-                  style={!isMontagemPreview && project.image ? { backgroundImage: `url(${project.image})`, backgroundPosition: project.imagePosition } : undefined}
+                  style={!hasCodedPreview && project.image ? { backgroundImage: `url(${project.image})`, backgroundPosition: project.imagePosition } : undefined}
                   role="img"
                   aria-label={`Prévia do projeto ${project.name}`}
                 >
                   {isMontagemPreview ? (
                     <MontagemSitePreview imageUrl={project.image!} />
+                  ) : isBoostifyPreview ? (
+                    <BoostifySitePreview />
+                  ) : isWeatherPreview ? (
+                    <WeatherAppPreview />
                   ) : !project.image ? (
                     <div className={styles.generatedVisual} aria-hidden="true">
                       <span>&lt;/&gt;</span>

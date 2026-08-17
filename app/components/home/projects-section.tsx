@@ -1,6 +1,7 @@
 import { showcaseProjects } from "../../data/projects";
 import { weatherProject } from "../../data/weather-project";
 import { siteConfig } from "../../site-config";
+import { BoostifySitePreview, WeatherAppPreview } from "../project-coded-previews";
 import { MontagemSitePreview } from "../project-previews";
 import { Arrow } from "./home-ui";
 
@@ -19,17 +20,24 @@ export function ProjectsSection() {
         <div className="project-grid showcase-home-grid">
           {featured.map((project) => {
             const isMontagemPreview = project.previewType === "montagem-site" && project.image;
+            const isBoostifyPreview = project.className === "boostify";
+            const isWeatherPreview = project.className === "weather";
+            const hasCodedPreview = Boolean(isMontagemPreview || isBoostifyPreview || isWeatherPreview);
 
             return (
               <article className={`project-card showcase-home-card ${project.className} ${project.spotlight ? "showcase-home-spotlight" : ""}`} key={project.name}>
                 <div
                   className={`project-art showcase-project-art ${project.image ? "has-image" : "no-image"}`}
-                  style={!isMontagemPreview && project.image ? { backgroundImage: `url(${project.image})`, backgroundPosition: project.imagePosition } : undefined}
+                  style={!hasCodedPreview && project.image ? { backgroundImage: `url(${project.image})`, backgroundPosition: project.imagePosition } : undefined}
                   role="img"
                   aria-label={`Prévia do projeto ${project.name}`}
                 >
                   {isMontagemPreview ? (
                     <MontagemSitePreview imageUrl={project.image!} />
+                  ) : isBoostifyPreview ? (
+                    <BoostifySitePreview />
+                  ) : isWeatherPreview ? (
+                    <WeatherAppPreview />
                   ) : !project.image ? (
                     <div className="generated-project-visual" aria-hidden="true">
                       <span>&lt;/&gt;</span>
