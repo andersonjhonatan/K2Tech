@@ -1,10 +1,11 @@
 import { showcaseProjects } from "../../data/projects";
+import { weatherProject } from "../../data/weather-project";
 import { siteConfig } from "../../site-config";
 import { MontagemSitePreview } from "../project-previews";
 import { Arrow } from "./home-ui";
 
 export function ProjectsSection() {
-  const featured = showcaseProjects.slice(0, 4);
+  const featured = [showcaseProjects[0], showcaseProjects[1], weatherProject, showcaseProjects[2]];
 
   return (
     <section id="projetos" className="projects section-space">
