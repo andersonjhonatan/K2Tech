@@ -7,65 +7,12 @@ import { SiGmail, SiInstagram, SiWhatsapp } from "react-icons/si";
 import { siteConfig } from "./site-config";
 import { KortIcon, TreskLogo, TreskMark } from "./tresk-logo";
 
-type Project = {
-  number: string;
-  category: string;
-  name: string;
-  className: string;
-  detail: string;
-  video?: string;
-  image?: string;
-};
-
-const projects: Project[] = [
-  {
-    number: "01",
-    category: "Projeto real / Convite interativo",
-    name: "CONVITE INTERATIVO",
-    className: "real",
-    detail: "Uma prévia real de convite online interativo criado pela TresK Tecnologia.",
-    video: "/videos/convite-interativo-preview.mp4",
-  },
-  {
-    number: "02",
-    category: "Conceito / Debutante",
-    name: "JULIA 15",
-    className: "debutante",
-    detail: "Uma experiência digital para anunciar a celebração, compartilhar informações e confirmar presenças.",
-    image: "/images/projects/debutante-julia-v3.png",
-  },
-  {
-    number: "03",
-    category: "Conceito / Casamento",
-    name: "MAYA & CAIO",
-    className: "wedding",
-    detail: "Um convite elegante e interativo para levar a história do casal até cada convidado.",
-    image: "/images/projects/casamento-maya-caio-v2.png",
-  },
-  {
-    number: "04",
-    category: "Conceito / Infantil",
-    name: "MIGUEL 06",
-    className: "kids",
-    detail: "Um convite divertido para uma festa infantil começar com brincadeira desde o celular.",
-    image: "/images/projects/infantil-miguel.png",
-  },
-  {
-    number: "05",
-    category: "Conceito / Chá revelação",
-    name: "BABY LUNA",
-    className: "reveal",
-    detail: "Informações, confirmação e expectativa reunidas em uma experiência delicada e especial.",
-    image: "/images/projects/cha-revelacao-luna-v2.png",
-  },
-  {
-    number: "06",
-    category: "Conceito / Evento corporativo",
-    name: "IDEA SUMMIT",
-    className: "corporate",
-    detail: "Um convite de alto impacto para conectar convidados à energia de um grande evento.",
-    image: "/images/projects/idea-summit.png",
-  },
+const projects = [
+  { category: "Debutante", name: "JULIA 15", image: "/images/projects/debutante-julia-v3.png" },
+  { category: "Casamento", name: "MAYA & CAIO", image: "/images/projects/casamento-maya-caio-v2.png" },
+  { category: "Infantil", name: "MIGUEL 06", image: "/images/projects/infantil-miguel.png" },
+  { category: "Chá revelação", name: "BABY LUNA", image: "/images/projects/cha-revelacao-luna-v2.png" },
+  { category: "Evento corporativo", name: "IDEA SUMMIT", image: "/images/projects/idea-summit.png" },
 ];
 
 const solutions = [
@@ -257,25 +204,43 @@ export default function Home() {
       <section id="projetos" className="projects section-space">
         <div className="container">
           <div className="section-heading">
-            <div className="section-label light"><span>04</span><i /> PROJETOS EM DESTAQUE</div>
-            <h2>Feitos para<br /><em>ser lembrados.</em></h2>
-            <p>Convites interativos que criam expectativa antes mesmo de a celebração começar.</p>
+            <div className="section-label light"><span>04</span><i /> PROJETOS</div>
+            <h2>Trabalhos que já<br /><em>saíram do papel.</em></h2>
+            <p>Um produto próprio em operação e experiências digitais criadas para eventos.</p>
           </div>
-          <div className="project-grid">
+          <div className="featured-grid">
+            <article className="featured-card">
+              <div className="featured-art kort-art" aria-hidden="true"><KortIcon className="featured-kort-icon" /><strong>Kort</strong><span>PRODUTO PRÓPRIO</span></div>
+              <div className="featured-body">
+                <small>SISTEMA WEB + APLICATIVO</small>
+                <h3>Kort, agenda online para barbearias</h3>
+                <p>Plataforma completa criada pela TresK: agendamento pelo link, lista de espera, lembretes no celular, galeria de trabalhos e painel de gestão com a marca de cada barbearia.</p>
+                <ul className="tags"><li>Várias empresas no mesmo sistema</li><li>Aplicativo instalável</li><li>Notificações</li><li>Painel de gestão</li></ul>
+                <a className="project-action" href={siteConfig.kortUrl} target="_blank" rel="noreferrer">Conhecer o Kort <Arrow /></a>
+              </div>
+            </article>
+            <article className="featured-card">
+              <div className="featured-art" aria-hidden="true"><video className="project-video" autoPlay loop muted playsInline preload="metadata"><source src="/videos/convite-interativo-preview.mp4" type="video/mp4" /></video><div className="video-badge"><span>●</span> PROJETO REAL</div></div>
+              <div className="featured-body">
+                <small>EXPERIÊNCIA DIGITAL</small>
+                <h3>Convite online interativo</h3>
+                <p>Convite digital feito para um evento real, com animações, informações do evento e confirmação de presença direto pelo celular.</p>
+                <ul className="tags"><li>Confirmação de presença</li><li>Mapa e programação</li><li>Visual exclusivo</li></ul>
+                <a className="project-action" href={whatsappLink("Olá, vim pelo site da TresK Tecnologia e gostaria de um convite online interativo.")} target="_blank" rel="noreferrer">Quero algo assim <Arrow /></a>
+              </div>
+            </article>
+          </div>
+          <div className="concepts-head"><h3>Conceitos visuais</h3><p>Estudos de design criados pela TresK para diferentes tipos de evento.</p></div>
+          <div className="concept-grid">
             {projects.map((project) => (
-              <article className={`project-card ${project.className}`} key={project.name}>
-                <div className="project-art" aria-hidden="true">
-                  {project.video ? <><video className="project-video" autoPlay loop muted playsInline preload="metadata"><source src={project.video} type="video/mp4" /></video><div className="video-badge"><span>●</span> PROJETO REAL</div></> : null}
-                  {project.image ? <><Image className="project-preview" src={project.image} alt="" fill sizes="(max-width: 760px) 100vw, 33vw" /><div className="concept-badge">CONCEITO VISUAL</div></> : null}
-                </div>
-                <div className="project-meta"><span>{project.number} — {project.category}</span><Arrow diagonal /></div>
-                <h3>{project.name}</h3>
-                <p>{project.detail}</p>
-                <a className="project-action" href={whatsappLink(`Olá, vim pelo site da TresK Tecnologia e gostei do projeto ${project.name}. Gostaria de criar algo nesse estilo.`)} target="_blank" rel="noreferrer" aria-label={`Conversar sobre um projeto como ${project.name}`}>Quero algo assim <Arrow /></a>
-              </article>
+              <a className="concept-card" key={project.name} href={whatsappLink(`Olá, vim pelo site da TresK Tecnologia e gostei do conceito ${project.name}. Gostaria de criar algo nesse estilo.`)} target="_blank" rel="noreferrer" aria-label={`Conversar sobre um projeto como ${project.name}`}>
+                <div className="concept-art"><Image src={project.image} alt="" fill sizes="(max-width: 760px) 50vw, 20vw" /></div>
+                <span>{project.category}</span>
+                <strong>{project.name}</strong>
+              </a>
             ))}
           </div>
-          <a className="button button-light all-projects" href="#contato">Fale com a TresK <Arrow /></a>
+          <a className="button button-primary all-projects" href="#contato">Quero um projeto assim <Arrow /></a>
         </div>
       </section>
 
