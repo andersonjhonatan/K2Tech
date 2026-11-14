@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
-import { FiGlobe, FiMonitor, FiSend, FiShoppingCart, FiSmartphone, FiZap } from "react-icons/fi";
-import { SiGmail, SiInstagram, SiWhatsapp } from "react-icons/si";
+import { FiDatabase, FiFileText, FiGlobe, FiKey, FiLifeBuoy, FiLock, FiMail, FiMonitor, FiSend, FiShield, FiShoppingCart, FiSmartphone, FiZap } from "react-icons/fi";
+import { SiInstagram, SiWhatsapp } from "react-icons/si";
 import { siteConfig } from "./site-config";
 import { KortIcon, TreskLogo, TreskMark } from "./tresk-logo";
 
@@ -30,6 +30,25 @@ const steps = [
   ["Design e aprovação", "Desenhamos as telas e você aprova o visual antes de qualquer programação.", "as telas do projeto para aprovar"],
   ["Desenvolvimento", "Construímos em etapas e mostramos o andamento, para você acompanhar e ajustar.", "versões de teste durante o projeto"],
   ["Entrega e suporte", "Colocamos no ar, orientamos o uso e seguimos por perto depois da entrega.", "projeto publicado e suporte"],
+];
+
+const guarantees = [
+  { icon: FiLock, title: "Conexão protegida", text: "Todo site e sistema entregue funciona com HTTPS, o cadeado do navegador." },
+  { icon: FiDatabase, title: "Cópias de segurança", text: "Os dados dos sistemas têm cópia de segurança, para nada se perder." },
+  { icon: FiShield, title: "Cuidado com os dados (LGPD)", text: "Coletamos só o necessário e tratamos os dados conforme a Lei Geral de Proteção de Dados." },
+  { icon: FiKey, title: "Acesso controlado", text: "Cada pessoa entra com o próprio acesso e vê só o que precisa ver." },
+  { icon: FiFileText, title: "Tudo por escrito", text: "Escopo, prazo e valor ficam registrados na proposta antes de o projeto começar." },
+  { icon: FiLifeBuoy, title: "Suporte depois da entrega", text: "Continuamos disponíveis para dúvidas, ajustes e evolução do projeto." },
+];
+
+const faqs = [
+  ["Quanto custa um projeto?", "Depende do que precisa ser feito. Depois da primeira conversa, enviamos uma proposta com o valor fechado, sem compromisso. Você só decide depois de saber exatamente quanto vai investir."],
+  ["Quanto tempo leva para ficar pronto?", "O prazo varia com o tamanho do projeto e vai escrito na proposta. Durante o desenvolvimento, você acompanha o andamento por etapas."],
+  ["Não entendo de tecnologia. Vou conseguir usar?", "Sim. Fazemos sistemas e sites simples de usar e orientamos você e a sua equipe na entrega."],
+  ["O site ou sistema fica no meu nome?", "Sim. O domínio e os dados do seu negócio são seus."],
+  ["E depois que o projeto é entregue?", "Seguimos por perto. Oferecemos suporte para dúvidas e ajustes, e podemos evoluir o projeto conforme a sua empresa cresce."],
+  ["Vocês atendem a minha cidade?", "Sim. Atendemos online, em todo o Brasil."],
+  ["Já tenho um site ou sistema. Dá para melhorar?", "Dá. Avaliamos o que já existe e indicamos se vale mais a pena melhorar ou refazer."],
 ];
 
 const kortFeatures = [
@@ -81,9 +100,10 @@ export default function Home() {
     const form = new FormData(event.currentTarget);
     const name = form.get("name")?.toString() || "";
     const company = form.get("company")?.toString() || "";
+    const need = form.get("need")?.toString() || "";
     const message = form.get("message")?.toString() || "";
     setSent(true);
-    openWhatsapp(`Olá, vim pelo site da TresK Tecnologia.\n\nNome: ${name || "Não informado"}\nEmpresa ou marca: ${company || "Não informada"}\n\nSobre o projeto:\n${message}`);
+    openWhatsapp(`Olá, vim pelo site da TresK Tecnologia.\n\nNome: ${name || "Não informado"}\nEmpresa: ${company || "Não informada"}\nPreciso de: ${need || "Não informado"}\n\nSobre o projeto:\n${message}`);
   }
 
   function sendReview(event: FormEvent<HTMLFormElement>) {
@@ -272,10 +292,39 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="seguranca" className="security container section-space">
+        <div className="section-label"><span>06</span><i /> SEGURANÇA E GARANTIAS</div>
+        <div className="security-head">
+          <h2>Seu projeto e seus dados<br /><em>em boas mãos.</em></h2>
+          <p>Tecnologia só ajuda quando é confiável. Estes são os compromissos que acompanham todo projeto da TresK.</p>
+        </div>
+        <div className="security-grid">
+          {guarantees.map(({ icon: Icon, title, text }) => (
+            <article key={title}><span className="solution-icon"><Icon aria-hidden="true" /></span><div><h3>{title}</h3><p>{text}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section id="duvidas" className="faq section-space">
+        <div className="container faq-grid">
+          <div>
+            <div className="section-label light"><span>07</span><i /> PERGUNTAS FREQUENTES</div>
+            <h2>Dúvidas<br /><em>comuns.</em></h2>
+            <p>Não achou a sua resposta? Fale com a gente pelo WhatsApp.</p>
+            <a className="text-link" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Tirar uma dúvida <Arrow /></a>
+          </div>
+          <div className="faq-list">
+            {faqs.map(([question, answer]) => (
+              <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="avaliacoes" className="reviews section-space">
         <div className="container">
           <div className="reviews-head">
-            <div><div className="section-label light"><span>06</span><i /> AVALIAÇÕES</div><h2>O que fica<br />depois da <em>entrega.</em></h2></div>
+            <div><div className="section-label light"><span>08</span><i /> AVALIAÇÕES</div><h2>O que fica<br />depois da <em>entrega.</em></h2></div>
             <p>Uma boa entrega precisa ser sentida por quem usa. Aqui entram as avaliações de quem já trabalhou com a gente.</p>
           </div>
           {testimonials.length > 0 && (
@@ -306,28 +355,46 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contato" className="contact container section-space">
-        <div className="contact-top"><div className="section-label"><span>07</span><i /> VAMOS COMEÇAR</div><p>Você tem uma ideia.<br />A gente coloca ela <em>no ar.</em></p></div>
-        <div className="contact-grid">
-          <h2>Vamos tirar o seu<br />projeto do papel<br /><em>juntos.</em></h2>
-          <form onSubmit={sendBrief}>
+      <section id="contato" className="reach section-space">
+        <div className="container reach-grid">
+          <div className="reach-info">
+            <div className="section-label light"><span>09</span><i /> CONTATO</div>
+            <h2>Vamos conversar sobre<br /><em>o seu projeto.</em></h2>
+            <p>Conte o que você precisa. A primeira conversa e o orçamento são sem compromisso.</p>
+            <ul className="reach-channels">
+              <li><a href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer"><span><SiWhatsapp aria-hidden="true" /></span><div><small>WHATSAPP</small><b>{siteConfig.phoneDisplay}</b></div></a></li>
+              <li><a href={`mailto:${siteConfig.contactEmail}`}><span><FiMail aria-hidden="true" /></span><div><small>E-MAIL</small><b>{siteConfig.contactEmail}</b></div></a></li>
+              <li><a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer"><span><SiInstagram aria-hidden="true" /></span><div><small>INSTAGRAM</small><b>{siteConfig.instagramHandle}</b></div></a></li>
+            </ul>
+          </div>
+          <form className="review-form reach-form" onSubmit={sendBrief}>
+            <h3>Solicite um orçamento</h3>
             <label>SEU NOME<input name="name" required placeholder="Como podemos te chamar?" /></label>
-            <label>EMPRESA / MARCA<input name="company" placeholder="Qual é o seu negócio?" /></label>
-            <label>ME CONTA UM POUCO<textarea name="message" required placeholder="O que você precisa: sistema, site, convite?" rows={3} /></label>
-            <button className="button button-dark" type="submit">Enviar mensagem <Arrow /></button>
-            <p className="form-privacy">Ao enviar, você será direcionado ao WhatsApp da TresK Tecnologia.</p>
+            <label>EMPRESA<input name="company" placeholder="Nome da sua empresa ou marca" /></label>
+            <label>O QUE VOCÊ PRECISA?<select name="need" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Sistema sob medida</option><option>Site institucional</option><option>Loja ou página de venda</option><option>Aplicativo</option><option>Automação ou integração</option><option>Convite interativo</option><option>Kort (agenda para barbearia)</option><option>Ainda não sei</option></select></label>
+            <label>CONTE UM POUCO<textarea name="message" required placeholder="Descreva o que você quer resolver" rows={4} /></label>
+            <button className="button button-primary" type="submit">Enviar pelo WhatsApp <Arrow /></button>
+            <p className="form-privacy">Ao enviar, a mensagem abre no seu WhatsApp, pronta para mandar à TresK Tecnologia.</p>
             {sent && <p className="form-note">Abrindo conversa no WhatsApp…</p>}
           </form>
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="container footer-grid">
-          <a className="brand footer-brand" href="#inicio" aria-label="TresK Tecnologia, início"><TreskLogo /></a>
-          <p>Produtos e soluções digitais para negócios que querem crescer.</p>
-          <div className="footer-links"><a className="contact-link" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer"><SiWhatsapp className="contact-icon whatsapp-icon" aria-hidden="true" />WhatsApp · {siteConfig.phoneDisplay}</a><a className="contact-link" href={`mailto:${siteConfig.contactEmail}`}><SiGmail className="contact-icon gmail-icon" aria-hidden="true" />{siteConfig.contactEmail}</a><a className="contact-link" href={siteConfig.instagramUrl} target="_blank" rel="noreferrer"><SiInstagram className="contact-icon instagram-icon" aria-hidden="true" />{siteConfig.instagramHandle}</a></div>
-          <small>© {new Date().getFullYear()} TresK Tecnologia. Todos os direitos reservados.</small>
-          <a className="back-top" href="#inicio">Voltar ao topo ↑</a>
+      <footer className="site-footer">
+        <div className="container">
+          <div className="site-footer-grid">
+            <div className="site-footer-brand">
+              <a className="brand" href="#inicio" aria-label="TresK Tecnologia, início"><TreskLogo /></a>
+              <p>Sistemas, sites e produtos digitais para empresas que querem crescer com organização e segurança.</p>
+            </div>
+            <nav aria-label="Empresa"><h4>Empresa</h4><a href="#sobre">Sobre</a><a href="#processo">Como trabalhamos</a><a href="#seguranca">Segurança</a><a href="#duvidas">Perguntas frequentes</a></nav>
+            <nav aria-label="Soluções"><h4>Soluções</h4><a href="#servicos">Serviços</a><a href="#produtos">Kort</a><a href="#projetos">Projetos</a><a href="#contato">Orçamento</a></nav>
+            <nav aria-label="Contato"><h4>Contato</h4><a href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">{siteConfig.phoneDisplay}</a><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a><a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer">{siteConfig.instagramHandle}</a></nav>
+          </div>
+          <div className="site-footer-bottom">
+            <small>© {new Date().getFullYear()} TresK Tecnologia. Todos os direitos reservados.</small>
+            <div><a href="/privacidade">Política de privacidade</a><a href="#inicio">Voltar ao topo ↑</a></div>
+          </div>
         </div>
       </footer>
       <a className="whatsapp-float" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp"><SiWhatsapp className="contact-icon" aria-hidden="true" /><em>Falar no WhatsApp</em></a>
