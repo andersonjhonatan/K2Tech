@@ -178,7 +178,7 @@ export default function Home() {
               <a className="button button-light" href={kortWhatsappUrl} target="_blank" rel="noreferrer">Quero o Kort na minha barbearia <Arrow /></a>
               {siteConfig.kortLive && <a className="kort-site-link" href={siteConfig.kortUrl} target="_blank" rel="noreferrer">Ver o site do Kort <Arrow /></a>}
             </div>
-            <small className="kort-note">14 dias grátis para testar.</small>
+            <small className="kort-note">10 dias grátis para testar.</small>
           </div>
           <ul className="kort-features">
             {kortFeatures.map((feature) => <li key={feature}><b>✓</b>{feature}</li>)}
