@@ -1,13 +1,10 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "./site-config";
+
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://tresktecnologia.com.br").replace(/\/$/, "");
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: `${siteConfig.siteUrl}/sitemap.xml`,
-    host: siteConfig.siteUrl,
+    rules: { userAgent: "*", allow: "/" },
+    ...(siteUrl ? { sitemap: `${siteUrl}/sitemap.xml` } : {}),
   };
 }

@@ -75,7 +75,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     eyebrow: "Produto digital · projeto real",
     className: "tasks",
     description: "Aplicação de organização de tarefas e estudos com colaboração e uma interface objetiva para o dia a dia.",
-    portfolioDescription: "Produto web voltado à organização pessoal, combinando uma interface direta com recursos para tarefas, estudos e colaboração em uma experiência responsiva. Um exemplo de como a K2 Tech também atua na construção de aplicações e não apenas em páginas institucionais.",
+    portfolioDescription: "Produto web voltado à organização pessoal, combinando uma interface direta com recursos para tarefas, estudos e colaboração em uma experiência responsiva. Um exemplo de como a TresK Tecnologia também atua na construção de aplicações e não apenas em páginas institucionais.",
     tags: ["React", "Next.js", "Firebase"],
     image: portfolioAsset("public/projects/tarefas.png"),
     liveUrl: "https://tasks-p26e.vercel.app/",
@@ -89,7 +89,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     eyebrow: "Case criativo · projeto real",
     className: "bob",
     description: "Uma experiência completa que transforma um convite em produto interativo: entrada temática, informações, confirmação de presença e mini-jogo.",
-    portfolioDescription: "Um dos cases criativos mais completos da K2 Tech. O convite começa com uma entrada inspirada no Siri Cascudo, apresenta a celebração com forte identidade visual e leva o convidado até um mini-jogo interativo no qual é preciso montar o hambúrguer de siri na ordem correta. O projeto mostra como narrativa, interação e utilidade podem coexistir em uma experiência mobile-first.",
+    portfolioDescription: "Um dos cases criativos mais completos da TresK Tecnologia. O convite começa com uma entrada inspirada no Siri Cascudo, apresenta a celebração com forte identidade visual e leva o convidado até um mini-jogo interativo no qual é preciso montar o hambúrguer de siri na ordem correta. O projeto mostra como narrativa, interação e utilidade podem coexistir em uma experiência mobile-first.",
     tags: ["Next.js", "Mini-jogo", "RSVP", "Mobile-first"],
     image: bobAsset("public/assets/hero-siri-cascudo.png"),
     secondaryImage: bobAsset("public/assets/siri-kitchen-game.png"),
@@ -199,13 +199,13 @@ export const publishedProjects = showcaseProjects.filter((project) => project.pu
 export const invitationConcepts: InvitationProject[] = [
   {
     number: "C01",
-    name: "CONVITE K2",
+    name: "CONVITE INTERATIVO",
     category: "Convite interativo",
     status: "Projeto real",
     className: "real",
-    homeDescription: "Uma prévia real de convite online interativo criada pela K2 Tech.",
-    portfolioDescription: "Uma experiência real criada pela K2 Tech para mostrar como um convite pode reunir apresentação, informações e interação em uma experiência pensada para o celular.",
-    video: "/videos/convite-interativo-k2-preview.mp4",
+    homeDescription: "Uma prévia real de convite online interativo criada pela TresK Tecnologia.",
+    portfolioDescription: "Uma experiência real criada pela TresK Tecnologia para mostrar como um convite pode reunir apresentação, informações e interação em uma experiência pensada para o celular.",
+    video: "/videos/convite-interativo-preview.mp4",
   },
   {
     number: "C02",
@@ -269,8 +269,8 @@ export function projectStatusLabel(project: InvitationProject) {
 
 export function projectWhatsappUrl(projectName: string, source: "home" | "portfolio" = "home") {
   const message = source === "portfolio"
-    ? `Olá, vim pela página de projetos da K2 Tech e gostei do ${projectName}. Quero criar algo nessa direção e gostaria de conversar sobre a minha ideia.`
-    : `Olá, vim pelo site da K2 Tech e gostei do projeto ${projectName}. Gostaria de criar algo nessa direção.`;
+    ? `Olá, vim pela página de projetos da TresK Tecnologia e gostei do ${projectName}. Quero criar algo nessa direção e gostaria de conversar sobre a minha ideia.`
+    : `Olá, vim pelo site da TresK Tecnologia e gostei do projeto ${projectName}. Gostaria de criar algo nessa direção.`;
 
   return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }

@@ -1,20 +1,26 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "./site-config";
+
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://tresktecnologia.com.br").replace(/\/$/, "");
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  if (!siteUrl) return [];
+
   return [
     {
-      url: siteConfig.siteUrl,
+      url: siteUrl,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${siteConfig.siteUrl}/projetos`,
+      url: `${siteUrl}/projetos`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${siteConfig.siteUrl}/privacidade`,
+      url: `${siteUrl}/privacidade`,
+      lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },

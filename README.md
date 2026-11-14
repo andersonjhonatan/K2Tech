@@ -1,20 +1,6 @@
-# K2 Tech
+# TresK Tecnologia
 
-Site institucional da **K2 Tech**, empresa de desenvolvimento web e design digital.
-
-A K2 Tech desenvolve diferentes tipos de solução digital:
-
-- sites institucionais e landing pages;
-- sistemas e aplicações web;
-- web design, UX/UI e interfaces;
-- produtos e soluções digitais sob medida;
-- experiências interativas.
-
-## Vertical criativa: K2 Convites
-
-Os convites digitais interativos são uma especialidade forte da K2 Tech, mas não definem toda a empresa. A intenção é evoluir essa frente para uma vertical própria — **K2 Convites, by K2 Tech** — com produto, portfólio e repositório dedicados no futuro.
-
-Enquanto essa separação não acontece, os projetos e conceitos de convites continuam apresentados no portfólio da K2 Tech como parte do laboratório criativo da empresa.
+Site institucional da TresK Tecnologia, em Next.js: apresenta a empresa, o Kort (agenda online para barbearias), os serviços (sistemas, sites e convites interativos) e o portfólio.
 
 ## Executar localmente
 
@@ -23,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Abra `http://localhost:3000` no navegador.
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
 ## Build de produção
 
@@ -31,8 +17,10 @@ Abra `http://localhost:3000` no navegador.
 npm run build
 ```
 
-## Configuração
+## Personalização rápida
 
-Os links públicos e dados centrais da K2 Tech estão em `app/site-config.ts`.
-
-A organização de projetos e cases está centralizada em `app/data/projects.ts`.
+- Contatos (WhatsApp, e-mail, Instagram) e o link do Kort ficam em `app/site-config.ts`.
+- O logo e o símbolo da TresK estão em `app/tresk-logo.tsx`; o favicon é `app/icon.svg`.
+- Projetos: a lista fica em `app/data/projects.ts`. A página inicial mostra seis em destaque, e `/projetos` mostra todos.
+- Avaliações de clientes: lista `testimonials` em `app/page.tsx`. Só aparecem quando houver avaliações reais.
+- Domínio: defina `NEXT_PUBLIC_SITE_URL` (padrão `https://tresktecnologia.com.br`).

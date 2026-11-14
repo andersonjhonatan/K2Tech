@@ -29,7 +29,7 @@ export function WeatherAppPreview() {
     <div className="weather-app-preview" aria-hidden="true">
       <div className="weather-preview-topbar">
         <div className="weather-preview-brand">
-          <b>K2</b>
+          <b>W</b>
           <span><strong>Weather</strong><small>tempo inteligente</small></span>
         </div>
         <div className="weather-preview-unit"><b>C</b><span>F</span></div>
