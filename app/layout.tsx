@@ -8,6 +8,9 @@ import { siteConfig } from "./site-config";
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 const poppins = Poppins({ weight: ["500", "600", "700"], style: ["normal", "italic"], subsets: ["latin"], display: "swap", variable: "--font-poppins" });
 
+/** Aplica o tema salvo antes da primeira pintura, para a página não piscar. */
+const themeScript = `try{var t=localStorage.getItem("tresk-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
+
 const shareDescription = "Tecnologia que move o seu negócio.";
 
 export const metadata: Metadata = {
@@ -52,7 +55,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="pt-BR" data-theme="dark" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>{children}</body>
     </html>
   );

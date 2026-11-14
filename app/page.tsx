@@ -9,6 +9,7 @@ import { MontagemSitePreview } from "./components/project-previews";
 import { showcaseProjects } from "./data/projects";
 import { weatherProject } from "./data/weather-project";
 import { siteConfig } from "./site-config";
+import { ThemeToggle } from "./theme-toggle";
 import { KortIcon, TreskLogo, TreskMark } from "./tresk-logo";
 
 const featuredProjects = [
@@ -153,8 +154,11 @@ export default function Home() {
           <a href="#projetos">Projetos</a>
           <a href="#contato">Contato</a>
         </nav>
-        <a className="header-cta" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp <Arrow /></a>
-        <button className="menu-toggle" type="button" onClick={() => setMenuOpen(true)} aria-label="Abrir menu" aria-expanded={menuOpen} aria-controls="menu-mobile"><span /><span /><span /></button>
+        <div className="header-actions">
+          <a className="header-cta" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp <Arrow /></a>
+          <ThemeToggle />
+          <button className="menu-toggle" type="button" onClick={() => setMenuOpen(true)} aria-label="Abrir menu" aria-expanded={menuOpen} aria-controls="menu-mobile"><span /><span /><span /></button>
+        </div>
       </header>
 
       <div id="menu-mobile" className={menuOpen ? "menu-panel open" : "menu-panel"} aria-hidden={!menuOpen}>
