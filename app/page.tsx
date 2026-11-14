@@ -162,33 +162,57 @@ export default function Home() {
         </details>
       </header>
 
-      <section id="inicio" className="hero container">
+      <section id="inicio" className="hero hero-corp container">
         <div className="hero-copy reveal">
-          <p className="eyebrow"><span /> PRODUTOS E SOLUÇÕES DIGITAIS</p>
-          <h1>Tecnologia que<br />trabalha pelo<br /><em>seu negócio.</em></h1>
-          <p className="hero-text">A TresK Tecnologia cria sistemas, sites e produtos digitais para quem quer crescer com organização, sem complicação.</p>
+          <p className="eyebrow"><span /> SOFTWARE, SITES E PRODUTOS DIGITAIS</p>
+          <h1>Tecnologia que move<br /><em>o seu negócio.</em></h1>
+          <p className="hero-text">A TresK Tecnologia desenvolve sistemas, sites e produtos digitais para empresas que querem crescer com organização, segurança e atendimento próximo.</p>
           <div className="hero-actions">
-            <a className="button button-whatsapp" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp <Arrow /></a>
-            <a className="text-link" href="#produtos">Conhecer o Kort <span>↓</span></a>
+            <a className="button button-primary" href="#contato">Solicitar orçamento <Arrow /></a>
+            <a className="text-link" href="#servicos">Conhecer as soluções <span>↓</span></a>
           </div>
+          <ul className="hero-points">
+            <li><b>✓</b> Projetos sob medida</li>
+            <li><b>✓</b> Atendimento direto com quem desenvolve</li>
+            <li><b>✓</b> Suporte depois da entrega</li>
+          </ul>
         </div>
-        <div className="hero-visual reveal" aria-label="Exemplo do Kort, a agenda online da TresK para barbearias">
-          <div className="visual-note"><span>DESIGN + TECNOLOGIA</span><i /></div>
-          <div className="tech-ring ring-one" /><div className="tech-ring ring-two" />
-          <div className="network-lines" aria-hidden="true"><i /><i /><i /><i /><i /></div>
-          <div className="invite-device">
-            <div className="device-top"><span>KORT</span><i>●</i></div>
-            <div className="device-content">
-              <p>AGENDAMENTO ONLINE</p>
-              <h3>CORTE<br /><em>&amp; BARBA</em></h3>
-              <div className="device-date">SEXTA · 14:30</div>
-              <span className="device-button">CONFIRMAR HORÁRIO <Arrow /></span>
+        <div className="hero-panel reveal" aria-hidden="true">
+          <div className="app-window">
+            <div className="app-bar"><i /><i /><i /><span>painel.suaempresa.com.br</span></div>
+            <div className="app-body">
+              <div className="app-side"><i className="on" /><i /><i /><i /><i /></div>
+              <div className="app-main">
+                <div className="app-head"><strong>Visão geral</strong><span>Este mês</span></div>
+                <div className="kpis">
+                  <div className="kpi"><small>Clientes</small><b>1.284</b><em>+12%</em></div>
+                  <div className="kpi"><small>Pedidos</small><b>326</b><em>+8%</em></div>
+                  <div className="kpi"><small>Faturamento</small><b>R$ 48,2 mil</b><em>+15%</em></div>
+                </div>
+                <div className="chart">
+                  {[38, 52, 44, 66, 58, 74, 62, 86, 78, 96].map((h, i) => <span key={i} style={{ height: `${h}%` }} />)}
+                </div>
+                <div className="rows">
+                  <div><i /><span className="l1" /><em className="ok">Concluído</em></div>
+                  <div><i /><span className="l2" /><em>Em andamento</em></div>
+                  <div><i /><span className="l3" /><em className="ok">Concluído</em></div>
+                </div>
+              </div>
             </div>
-            <div className="device-footer"><span>⌁</span><b>KORT, POR TRESK TECNOLOGIA</b></div>
           </div>
-          <div className="floating-tag tag-one">sistemas<br />sob medida</div>
-          <div className="floating-tag tag-two">TresK®</div>
+          <div className="float-card fc-one"><b>🔒</b><span><strong>Conexão segura</strong>HTTPS em todo o sistema</span></div>
+          <div className="float-card fc-two"><b>●</b><span><strong>Suporte ativo</strong>Atendimento direto</span></div>
         </div>
+      </section>
+
+      <section className="trust container" aria-label="Por que a TresK">
+        <div className="trust-grid">
+          <article><span>01</span><h3>Sob medida</h3><p>Cada projeto é desenhado para a rotina e o tamanho da sua empresa.</p></article>
+          <article><span>02</span><h3>Atendimento direto</h3><p>Você conversa com quem desenvolve, sem intermediários.</p></article>
+          <article><span>03</span><h3>Segurança</h3><p>Conexão protegida, cópias de segurança e cuidado com os dados (LGPD).</p></article>
+          <article><span>04</span><h3>Suporte contínuo</h3><p>Acompanhamento depois da entrega, para o sistema seguir funcionando.</p></article>
+        </div>
+        <div className="segments"><small>SOLUÇÕES PARA</small>{["Comércio", "Serviços", "Saúde e beleza", "Eventos", "Educação", "Indústria"].map((seg) => <span key={seg}>{seg}</span>)}</div>
       </section>
 
       <section id="sobre" className="intro container section-space">
