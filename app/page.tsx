@@ -24,6 +24,14 @@ const solutions = [
   { icon: FiSend, title: "Convites interativos", text: "Convites digitais para eventos, com confirmação de presença e todas as informações.", items: ["Confirmação de presença", "Mapa e programação", "Visual único para cada evento"] },
 ];
 
+const steps = [
+  ["Conversa inicial", "Entendemos a sua empresa, a rotina e o problema que precisa ser resolvido.", "um resumo do que foi entendido"],
+  ["Proposta e escopo", "Definimos o que será feito, o prazo e o valor, tudo por escrito.", "proposta com prazo e preço fechados"],
+  ["Design e aprovação", "Desenhamos as telas e você aprova o visual antes de qualquer programação.", "as telas do projeto para aprovar"],
+  ["Desenvolvimento", "Construímos em etapas e mostramos o andamento, para você acompanhar e ajustar.", "versões de teste durante o projeto"],
+  ["Entrega e suporte", "Colocamos no ar, orientamos o uso e seguimos por perto depois da entrega.", "projeto publicado e suporte"],
+];
+
 const kortFeatures = [
   "Agendamento online 24h pelo link da barbearia",
   "Lista de espera que avisa o cliente quando abre uma vaga",
@@ -244,10 +252,30 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="processo" className="process section-space">
+        <div className="container">
+          <div className="section-label light"><span>05</span><i /> COMO TRABALHAMOS</div>
+          <div className="process-head">
+            <h2>Um processo claro,<br /><em>do início ao fim.</em></h2>
+            <p>Você sabe o que vai ser entregue, quando e por quanto antes de o projeto começar, e acompanha cada etapa.</p>
+          </div>
+          <ol className="process-steps">
+            {steps.map(([title, text, result], i) => (
+              <li key={title}>
+                <span className="step-number">{String(i + 1).padStart(2, "0")}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <small><b>Você recebe:</b> {result}</small>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       <section id="avaliacoes" className="reviews section-space">
         <div className="container">
           <div className="reviews-head">
-            <div><div className="section-label light"><span>05</span><i /> AVALIAÇÕES</div><h2>O que fica<br />depois da <em>entrega.</em></h2></div>
+            <div><div className="section-label light"><span>06</span><i /> AVALIAÇÕES</div><h2>O que fica<br />depois da <em>entrega.</em></h2></div>
             <p>Uma boa entrega precisa ser sentida por quem usa. Aqui entram as avaliações de quem já trabalhou com a gente.</p>
           </div>
           {testimonials.length > 0 && (
@@ -274,20 +302,6 @@ export default function Home() {
               <p className="form-privacy">Ao enviar, você será direcionado ao WhatsApp da TresK Tecnologia.</p>
               {reviewSent && <p className="form-note">Abrindo conversa no WhatsApp…</p>}
             </form>
-          </div>
-        </div>
-      </section>
-
-      <section className="method section-space">
-        <div className="container method-grid">
-          <div>
-            <div className="section-label light"><span>06</span><i /> COMO FUNCIONA</div>
-            <h2>Boa parceria<br />tem <em>processo.</em></h2>
-          </div>
-          <div className="steps">
-            <article><span>01</span><div><h3>Conversa</h3><p>Entendemos a sua rotina, o seu público e o problema que precisa ser resolvido.</p></div></article>
-            <article><span>02</span><div><h3>Proposta e design</h3><p>Transformamos a ideia em uma proposta clara, com o visual e as telas do que vai ser construído.</p></div></article>
-            <article><span>03</span><div><h3>No ar e com suporte</h3><p>Construímos, testamos com você e entregamos funcionando, com acompanhamento depois da entrega.</p></div></article>
           </div>
         </div>
       </section>
