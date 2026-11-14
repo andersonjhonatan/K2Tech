@@ -1,18 +1,23 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import { FormEvent, useEffect, useState } from "react";
 import { FiDatabase, FiFileText, FiGlobe, FiKey, FiLifeBuoy, FiLock, FiMail, FiMonitor, FiSend, FiShield, FiShoppingCart, FiSmartphone, FiZap } from "react-icons/fi";
 import { SiInstagram, SiWhatsapp } from "react-icons/si";
+import { BoostifySitePreview, WeatherAppPreview } from "./components/project-coded-previews";
+import { MontagemSitePreview } from "./components/project-previews";
+import { showcaseProjects } from "./data/projects";
+import { weatherProject } from "./data/weather-project";
 import { siteConfig } from "./site-config";
 import { KortIcon, TreskLogo, TreskMark } from "./tresk-logo";
 
-const projects = [
-  { category: "Debutante", name: "JULIA 15", image: "/images/projects/debutante-julia-v3.png" },
-  { category: "Casamento", name: "MAYA & CAIO", image: "/images/projects/casamento-maya-caio-v2.png" },
-  { category: "Infantil", name: "MIGUEL 06", image: "/images/projects/infantil-miguel.png" },
-  { category: "Chá revelação", name: "BABY LUNA", image: "/images/projects/cha-revelacao-luna-v2.png" },
-  { category: "Evento corporativo", name: "IDEA SUMMIT", image: "/images/projects/idea-summit.png" },
+const featuredProjects = [
+  showcaseProjects[0], // Montagem de Móveis
+  showcaseProjects[1], // Boostify
+  weatherProject,
+  showcaseProjects[2], // Tarefas+
+  showcaseProjects[3], // Convite Bob Esponja
+  showcaseProjects[4], // Helena & Gabriel
 ];
 
 const solutions = [
@@ -262,41 +267,53 @@ export default function Home() {
           <div className="section-heading">
             <div className="section-label light"><span>04</span><i /> PROJETOS</div>
             <h2>Trabalhos que já<br /><em>saíram do papel.</em></h2>
-            <p>Um produto próprio em operação e experiências digitais criadas para eventos.</p>
+            <p>Um produto próprio e projetos entregues para negócios, de sites a aplicações e experiências interativas.</p>
           </div>
-          <div className="featured-grid">
-            <article className="featured-card">
-              <div className="featured-art kort-art" aria-hidden="true"><KortIcon className="featured-kort-icon" /><strong>Kort</strong><span>PRODUTO PRÓPRIO</span></div>
-              <div className="featured-body">
-                <small>SISTEMA WEB + APLICATIVO</small>
-                <h3>Kort, agenda online para barbearias</h3>
-                <p>Plataforma completa criada pela TresK: agendamento pelo link, lista de espera, lembretes no celular, galeria de trabalhos e painel de gestão com a marca de cada barbearia.</p>
-                <ul className="tags"><li>Várias empresas no mesmo sistema</li><li>Aplicativo instalável</li><li>Notificações</li><li>Painel de gestão</li></ul>
-                <a className="project-action" href={siteConfig.kortUrl} target="_blank" rel="noreferrer">Conhecer o Kort <Arrow /></a>
-              </div>
-            </article>
-            <article className="featured-card">
-              <div className="featured-art" aria-hidden="true"><video className="project-video" autoPlay loop muted playsInline preload="metadata"><source src="/videos/convite-interativo-preview.mp4" type="video/mp4" /></video><div className="video-badge"><span>●</span> PROJETO REAL</div></div>
-              <div className="featured-body">
-                <small>EXPERIÊNCIA DIGITAL</small>
-                <h3>Convite online interativo</h3>
-                <p>Convite digital feito para um evento real, com animações, informações do evento e confirmação de presença direto pelo celular.</p>
-                <ul className="tags"><li>Confirmação de presença</li><li>Mapa e programação</li><li>Visual exclusivo</li></ul>
-                <a className="project-action" href={whatsappLink("Olá, vim pelo site da TresK Tecnologia e gostaria de um convite online interativo.")} target="_blank" rel="noreferrer">Quero algo assim <Arrow /></a>
-              </div>
-            </article>
+          <article className="featured-card kort-feature">
+            <div className="featured-art kort-art" aria-hidden="true"><KortIcon className="featured-kort-icon" /><strong>Kort</strong><span>PRODUTO PRÓPRIO</span></div>
+            <div className="featured-body">
+              <small>SISTEMA WEB + APLICATIVO</small>
+              <h3>Kort, agenda online para barbearias</h3>
+              <p>Plataforma completa criada pela TresK: agendamento pelo link, lista de espera, lembretes no celular, galeria de trabalhos e painel de gestão com a marca de cada barbearia.</p>
+              <ul className="tags"><li>Várias empresas no mesmo sistema</li><li>Aplicativo instalável</li><li>Notificações</li><li>Painel de gestão</li></ul>
+              <a className="project-action" href={siteConfig.kortUrl} target="_blank" rel="noreferrer">Conhecer o Kort <Arrow /></a>
+            </div>
+          </article>
+
+          <div className="concepts-head"><h3>Projetos entregues</h3><p>Sites, aplicações e experiências que estão no ar e podem ser abertos agora.</p></div>
+          <div className="project-grid showcase-home-grid">
+            {featuredProjects.map((project) => {
+              const isMontagemPreview = project.previewType === "montagem-site" && project.image;
+              const isBoostifyPreview = project.className === "boostify";
+              const isWeatherPreview = project.className === "weather";
+              const hasCodedPreview = Boolean(isMontagemPreview || isBoostifyPreview || isWeatherPreview);
+              return (
+                <article className={`project-card showcase-home-card ${project.className}`} key={project.name}>
+                  <div
+                    className={`project-art showcase-project-art ${project.image ? "has-image" : "no-image"}`}
+                    style={!hasCodedPreview && project.image ? { backgroundImage: `url(${project.image})`, backgroundPosition: project.imagePosition } : undefined}
+                    role="img"
+                    aria-label={`Prévia do projeto ${project.name}`}
+                  >
+                    {isMontagemPreview ? <MontagemSitePreview imageUrl={project.image!} /> : isBoostifyPreview ? <BoostifySitePreview /> : isWeatherPreview ? <WeatherAppPreview /> : null}
+                    <div className="showcase-art-overlay" />
+                    <div className="video-badge live-project-badge"><span aria-hidden="true">●</span> PROJETO REAL · ONLINE</div>
+                  </div>
+                  <div className="project-meta"><span>{project.category}</span><Arrow diagonal /></div>
+                  <h3>{project.name}</h3>
+                  <p>{project.description}</p>
+                  <div className="showcase-tags" aria-label="Tecnologias e características">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                  <div className="showcase-home-actions">
+                    {project.liveUrl && <a className="project-action project-action-live" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Abrir projeto ao vivo <Arrow /></a>}
+                  </div>
+                </article>
+              );
+            })}
           </div>
-          <div className="concepts-head"><h3>Conceitos visuais</h3><p>Estudos de design criados pela TresK para diferentes tipos de evento.</p></div>
-          <div className="concept-grid">
-            {projects.map((project) => (
-              <a className="concept-card" key={project.name} href={whatsappLink(`Olá, vim pelo site da TresK Tecnologia e gostei do conceito ${project.name}. Gostaria de criar algo nesse estilo.`)} target="_blank" rel="noreferrer" aria-label={`Conversar sobre um projeto como ${project.name}`}>
-                <div className="concept-art"><Image src={project.image} alt="" fill sizes="(max-width: 760px) 50vw, 20vw" /></div>
-                <span>{project.category}</span>
-                <strong>{project.name}</strong>
-              </a>
-            ))}
+          <div className="projects-actions">
+            <Link className="button button-primary" href="/projetos">Ver todos os projetos <Arrow /></Link>
+            <a className="text-link" href="#contato">Quero um projeto assim <Arrow /></a>
           </div>
-          <a className="button button-primary all-projects" href="#contato">Quero um projeto assim <Arrow /></a>
         </div>
       </section>
 
@@ -421,7 +438,7 @@ export default function Home() {
           </div>
           <div className="site-footer-bottom">
             <small>© {new Date().getFullYear()} TresK Tecnologia. Todos os direitos reservados.</small>
-            <div><a href="/privacidade">Política de privacidade</a><a href="#inicio">Voltar ao topo ↑</a></div>
+            <div><Link href="/projetos">Todos os projetos</Link><Link href="/privacidade">Política de privacidade</Link><a href="#inicio">Voltar ao topo ↑</a></div>
           </div>
         </div>
       </footer>
