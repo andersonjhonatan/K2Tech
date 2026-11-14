@@ -146,9 +146,9 @@ export default function Home() {
       <header className="site-header container">
         <a className="brand" href="#inicio" aria-label="TresK Tecnologia, início"><TreskLogo /></a>
         <nav className="desktop-nav" aria-label="Navegação principal">
-          <a href="#servicos">Soluções</a>
           <a href="#sobre">Sobre</a>
           <a href="#produtos">Produtos</a>
+          <a href="#servicos">Soluções</a>
           <a href="#projetos">Projetos</a>
           <a href="#contato">Contato</a>
         </nav>
@@ -156,9 +156,9 @@ export default function Home() {
         <details className="mobile-nav">
           <summary aria-label="Abrir menu"><span /><span /></summary>
           <div>
-            <a href="#servicos">Soluções</a>
             <a href="#sobre">Sobre</a>
             <a href="#produtos">Produtos</a>
+            <a href="#servicos">Soluções</a>
             <a href="#projetos">Projetos</a>
             <a href="#contato">Contato</a>
             <a href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
@@ -193,31 +193,9 @@ export default function Home() {
         <div className="segments"><small>SOLUÇÕES PARA</small>{["Comércio", "Serviços", "Saúde e beleza", "Eventos", "Educação", "Indústria"].map((seg) => <span key={seg}>{seg}</span>)}</div>
       </section>
 
-      <section id="servicos" className="solutions container section-space">
-        <div className="section-label"><span>01</span><i /> SOLUÇÕES</div>
-        <div className="solutions-head">
-          <h2>Tudo o que a sua empresa<br />precisa <em>no digital.</em></h2>
-          <p>Do primeiro site ao sistema que organiza a operação inteira. Você escolhe por onde começar, e a gente cuida do resto.</p>
-        </div>
-        <div className="solutions-grid">
-          {solutions.map(({ icon: Icon, title, text, items }) => (
-            <article className="solution-card" key={title}>
-              <span className="solution-icon"><Icon aria-hidden="true" /></span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-              <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
-            </article>
-          ))}
-        </div>
-        <div className="solutions-cta">
-          <p>Não achou o que procura? Conte o que você precisa e montamos a solução.</p>
-          <a className="button button-primary" href="#contato">Falar com um especialista <Arrow /></a>
-        </div>
-      </section>
-
       <section id="sobre" className="about section-space">
         <div className="container">
-          <div className="section-label light"><span>02</span><i /> SOBRE A EMPRESA</div>
+          <div className="section-label light"><span>01</span><i /> SOBRE A EMPRESA</div>
           <div className="about-grid">
             <div className="about-copy">
               <h2>Uma empresa de tecnologia<br /><em>feita para durar.</em></h2>
@@ -240,7 +218,7 @@ export default function Home() {
       </section>
 
       <section id="produtos" className="products container">
-        <div className="section-label"><span>03</span><i /> NOSSOS PRODUTOS</div>
+        <div className="section-label"><span>02</span><i /> NOSSOS PRODUTOS</div>
         <article className="kort-card">
           <div className="kort-copy">
             <span className="kort-name"><KortIcon />Kort</span>
@@ -252,6 +230,28 @@ export default function Home() {
             {kortFeatures.map((feature) => <li key={feature}><b>✓</b>{feature}</li>)}
           </ul>
         </article>
+      </section>
+
+      <section id="servicos" className="solutions container section-space">
+        <div className="section-label"><span>03</span><i /> SOLUÇÕES</div>
+        <div className="solutions-head">
+          <h2>Tudo o que a sua empresa<br />precisa <em>no digital.</em></h2>
+          <p>Do primeiro site ao sistema que organiza a operação inteira. Você escolhe por onde começar, e a gente cuida do resto.</p>
+        </div>
+        <div className="solutions-grid">
+          {solutions.map(({ icon: Icon, title, text, items }) => (
+            <article className="solution-card" key={title}>
+              <span className="solution-icon"><Icon aria-hidden="true" /></span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+              <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+        <div className="solutions-cta">
+          <p>Não achou o que procura? Conte o que você precisa e montamos a solução.</p>
+          <a className="button button-primary" href="#contato">Falar com um especialista <Arrow /></a>
+        </div>
       </section>
 
       <section id="projetos" className="projects section-space">
