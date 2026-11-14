@@ -51,6 +51,16 @@ const faqs = [
   ["Já tenho um site ou sistema. Dá para melhorar?", "Dá. Avaliamos o que já existe e indicamos se vale mais a pena melhorar ou refazer."],
 ];
 
+const menuLinks = [
+  ["#sobre", "Sobre a empresa"],
+  ["#produtos", "Produtos"],
+  ["#servicos", "Soluções"],
+  ["#projetos", "Projetos"],
+  ["#processo", "Como trabalhamos"],
+  ["#duvidas", "Perguntas frequentes"],
+  ["#contato", "Contato"],
+];
+
 const kortFeatures = [
   "Agendamento online 24h pelo link da barbearia",
   "Lista de espera que avisa o cliente quando abre uma vaga",
@@ -70,6 +80,17 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 }
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setMenuOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   const [sent, setSent] = useState(false);
   const [reviewSent, setReviewSent] = useState(false);
   const [reviewPage, setReviewPage] = useState(0);
@@ -128,18 +149,25 @@ export default function Home() {
           <a href="#contato">Contato</a>
         </nav>
         <a className="header-cta" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp <Arrow /></a>
-        <details className="mobile-nav">
-          <summary aria-label="Abrir menu"><span /><span /></summary>
-          <div>
-            <a href="#sobre">Sobre</a>
-            <a href="#produtos">Produtos</a>
-            <a href="#servicos">Soluções</a>
-            <a href="#projetos">Projetos</a>
-            <a href="#contato">Contato</a>
-            <a href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
-          </div>
-        </details>
+        <button className="menu-toggle" type="button" onClick={() => setMenuOpen(true)} aria-label="Abrir menu" aria-expanded={menuOpen} aria-controls="menu-mobile"><span /><span /><span /></button>
       </header>
+
+      <div id="menu-mobile" className={menuOpen ? "menu-panel open" : "menu-panel"} aria-hidden={!menuOpen}>
+        <div className="menu-panel-top container">
+          <a className="brand" href="#inicio" onClick={closeMenu} aria-label="TresK Tecnologia, início"><TreskLogo /></a>
+          <button className="menu-close" type="button" onClick={closeMenu} aria-label="Fechar menu">✕</button>
+        </div>
+        <nav className="menu-links container" aria-label="Menu">
+          {menuLinks.map(([href, label], i) => (
+            <a key={href} href={href} onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}><small>{String(i + 1).padStart(2, "0")}</small>{label}<Arrow /></a>
+          ))}
+        </nav>
+        <div className="menu-panel-bottom container">
+          <a className="button button-primary" href="#contato" onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}>Solicitar orçamento <Arrow /></a>
+          <a className="menu-whatsapp" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer" tabIndex={menuOpen ? 0 : -1}><SiWhatsapp aria-hidden="true" /> Falar no WhatsApp</a>
+          <p>{siteConfig.contactEmail}</p>
+        </div>
+      </div>
 
       <section id="inicio" className="hero hero-corp container">
         <div className="hero-copy reveal">

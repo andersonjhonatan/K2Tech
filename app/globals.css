@@ -367,3 +367,26 @@ body { background:#0b0b0c; color:#f5f5f7; }
   .site-footer-bottom { flex-direction:column; align-items:flex-start; margin-top:40px; }
   .legal-body { padding:44px 0 80px; }
 }
+
+/* ───────── Menu do celular (tela cheia) ───────── */
+.menu-toggle { display:none; }
+.menu-panel { display:none; }
+@media (max-width:760px) {
+  .menu-toggle { display:inline-flex; flex-direction:column; justify-content:center; align-items:flex-end; gap:6px; width:46px; height:46px; padding:0 11px; border-radius:12px; border:1px solid rgba(245,245,247,.16); background:rgba(255,255,255,.04); cursor:pointer; }
+  .menu-toggle span { display:block; height:2px; width:22px; border-radius:2px; background:#f5f5f7; }
+  .menu-toggle span:nth-child(2) { width:15px; background:#3b82f6; }
+  .menu-panel { display:flex; flex-direction:column; position:fixed; inset:0; z-index:100; background:radial-gradient(120% 60% at 100% 0%,rgba(20,99,255,.28),transparent 60%),#08090c; opacity:0; visibility:hidden; transform:translateY(-12px); transition:opacity .25s ease, transform .25s ease, visibility .25s; overflow-y:auto; }
+  .menu-panel.open { opacity:1; visibility:visible; transform:none; }
+  .menu-panel-top { display:flex; align-items:center; justify-content:space-between; height:90px; flex:none; border-bottom:1px solid rgba(245,245,247,.12); }
+  .menu-close { width:46px; height:46px; border-radius:12px; border:1px solid rgba(245,245,247,.16); background:rgba(255,255,255,.04); color:#f5f5f7; font-size:17px; cursor:pointer; }
+  .menu-links { display:flex; flex-direction:column; padding-top:14px; padding-bottom:14px; flex:1; }
+  .menu-links a { display:flex; align-items:center; gap:16px; padding:17px 0; border-bottom:1px solid rgba(245,245,247,.08); font:600 22px Poppins,Inter,sans-serif; letter-spacing:-.03em; color:#f5f5f7; }
+  .menu-links a small { font:700 10px Inter,sans-serif; letter-spacing:.08em; color:#3b82f6; width:22px; }
+  .menu-links a .arrow { margin-left:auto; font-size:18px; color:#4b5266; }
+  .menu-links a:active { color:#6ea3ff; }
+  .menu-panel-bottom { flex:none; display:grid; gap:12px; padding-top:18px; padding-bottom:28px; }
+  .menu-panel-bottom .button { width:100%; padding:18px; font-size:13px; }
+  .menu-whatsapp { display:flex; align-items:center; justify-content:center; gap:10px; padding:16px; border-radius:8px; border:1px solid rgba(37,211,102,.5); color:#25d366; font:700 13px Inter,sans-serif; }
+  .menu-whatsapp svg { width:18px; height:18px; }
+  .menu-panel-bottom p { margin:6px 0 0; text-align:center; font-size:12px; color:#7d8496; }
+}
