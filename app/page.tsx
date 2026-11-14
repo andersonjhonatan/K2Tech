@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
+import { FiGlobe, FiMonitor, FiSend, FiShoppingCart, FiSmartphone, FiZap } from "react-icons/fi";
 import { SiGmail, SiInstagram, SiWhatsapp } from "react-icons/si";
 import { siteConfig } from "./site-config";
 import { KortIcon, TreskLogo } from "./tresk-logo";
@@ -67,10 +68,13 @@ const projects: Project[] = [
   },
 ];
 
-const services = [
-  ["01", "Sistemas sob medida", "Agendas, painéis e controles que resolvem o que planilhas e processos manuais já não conseguem acompanhar."],
-  ["02", "Sites que posicionam", "Presenças digitais rápidas, bonitas e estratégicas para o seu negócio ser encontrado e escolhido."],
-  ["03", "Convites interativos", "Experiências feitas sob medida com confirmação de presença, localização, cronograma e a personalidade do seu evento."],
+const solutions = [
+  { icon: FiMonitor, title: "Sistemas web sob medida", text: "Sistemas feitos para o jeito que a sua empresa trabalha, acessados de qualquer lugar.", items: ["Painéis e relatórios", "Cadastros e controles", "Acesso por perfil de usuário"] },
+  { icon: FiGlobe, title: "Sites institucionais", text: "Um site rápido e profissional para a sua empresa ser encontrada e passar confiança.", items: ["Visual próprio da marca", "Pronto para o Google", "Funciona bem no celular"] },
+  { icon: FiShoppingCart, title: "Lojas e páginas de venda", text: "Páginas pensadas para transformar visitas em pedidos, contatos e clientes.", items: ["Páginas de campanha", "Catálogo de produtos", "Contato direto pelo WhatsApp"] },
+  { icon: FiSmartphone, title: "Aplicativos", text: "Aplicativos que instalam no celular do cliente, sem depender das lojas de app.", items: ["Android e iPhone", "Notificações no celular", "Ícone e cores da sua marca"] },
+  { icon: FiZap, title: "Automação e integrações", text: "Menos trabalho manual: os seus sistemas conversando entre si e tarefas rodando sozinhas.", items: ["Integração entre sistemas", "Avisos e lembretes automáticos", "Fim das planilhas repetidas"] },
+  { icon: FiSend, title: "Convites interativos", text: "Convites digitais para eventos, com confirmação de presença e todas as informações.", items: ["Confirmação de presença", "Mapa e programação", "Visual único para cada evento"] },
 ];
 
 const kortFeatures = [
@@ -142,9 +146,9 @@ export default function Home() {
       <header className="site-header container">
         <a className="brand" href="#inicio" aria-label="TresK Tecnologia, início"><TreskLogo /></a>
         <nav className="desktop-nav" aria-label="Navegação principal">
+          <a href="#servicos">Soluções</a>
           <a href="#sobre">Sobre</a>
           <a href="#produtos">Produtos</a>
-          <a href="#servicos">Serviços</a>
           <a href="#projetos">Projetos</a>
           <a href="#contato">Contato</a>
         </nav>
@@ -152,9 +156,9 @@ export default function Home() {
         <details className="mobile-nav">
           <summary aria-label="Abrir menu"><span /><span /></summary>
           <div>
+            <a href="#servicos">Soluções</a>
             <a href="#sobre">Sobre</a>
             <a href="#produtos">Produtos</a>
-            <a href="#servicos">Serviços</a>
             <a href="#projetos">Projetos</a>
             <a href="#contato">Contato</a>
             <a href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
@@ -189,14 +193,36 @@ export default function Home() {
         <div className="segments"><small>SOLUÇÕES PARA</small>{["Comércio", "Serviços", "Saúde e beleza", "Eventos", "Educação", "Indústria"].map((seg) => <span key={seg}>{seg}</span>)}</div>
       </section>
 
+      <section id="servicos" className="solutions container section-space">
+        <div className="section-label"><span>01</span><i /> SOLUÇÕES</div>
+        <div className="solutions-head">
+          <h2>Tudo o que a sua empresa<br />precisa <em>no digital.</em></h2>
+          <p>Do primeiro site ao sistema que organiza a operação inteira. Você escolhe por onde começar, e a gente cuida do resto.</p>
+        </div>
+        <div className="solutions-grid">
+          {solutions.map(({ icon: Icon, title, text, items }) => (
+            <article className="solution-card" key={title}>
+              <span className="solution-icon"><Icon aria-hidden="true" /></span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+              <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+        <div className="solutions-cta">
+          <p>Não achou o que procura? Conte o que você precisa e montamos a solução.</p>
+          <a className="button button-primary" href="#contato">Falar com um especialista <Arrow /></a>
+        </div>
+      </section>
+
       <section id="sobre" className="intro container section-space">
-        <div className="section-label"><span>01</span><i /> SOBRE A TRESK</div>
+        <div className="section-label"><span>02</span><i /> SOBRE A TRESK</div>
         <div className="intro-grid">
           <h2>Uma família,<br /><em>uma empresa.</em></h2>
           <div className="intro-content">
             <p className="lead">A TresK Tecnologia transforma rotinas e ideias em produtos digitais que funcionam no dia a dia.</p>
             <p>O nome vem do símbolo: três hastes lado a lado, do mesmo tamanho, unidas por uma só linha e formando o K. É assim que trabalhamos: perto de quem usa, cuidando de cada detalhe e entregando tecnologia que qualquer pessoa consegue usar.</p>
-            <a className="text-link" href="#servicos">Veja o que fazemos <Arrow /></a>
+            <a className="text-link" href="#produtos">Conheça nossos produtos <Arrow /></a>
           </div>
         </div>
         <div className="values-row">
@@ -205,7 +231,7 @@ export default function Home() {
       </section>
 
       <section id="produtos" className="products container">
-        <div className="section-label"><span>02</span><i /> NOSSOS PRODUTOS</div>
+        <div className="section-label"><span>03</span><i /> NOSSOS PRODUTOS</div>
         <article className="kort-card">
           <div className="kort-copy">
             <span className="kort-name"><KortIcon />Kort</span>
@@ -217,14 +243,6 @@ export default function Home() {
             {kortFeatures.map((feature) => <li key={feature}><b>✓</b>{feature}</li>)}
           </ul>
         </article>
-      </section>
-
-      <section id="servicos" className="services container section-space">
-        <div className="section-label"><span>03</span><i /> O QUE FAZEMOS</div>
-        <div className="services-head"><h2>Sua ideia.<br /><em>Do seu jeito.</em></h2><p>Do sistema que organiza a sua empresa ao convite do seu evento, construímos soluções que aproximam pessoas.</p></div>
-        <div className="service-list">
-          {services.map(([number, title, text]) => <article className="service-item" key={number}><span className="service-number">{number}</span><h3>{title}</h3><p>{text}</p><Arrow diagonal /></article>)}
-        </div>
       </section>
 
       <section id="projetos" className="projects section-space">
