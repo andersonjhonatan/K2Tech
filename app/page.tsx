@@ -5,7 +5,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { FiGlobe, FiMonitor, FiSend, FiShoppingCart, FiSmartphone, FiZap } from "react-icons/fi";
 import { SiGmail, SiInstagram, SiWhatsapp } from "react-icons/si";
 import { siteConfig } from "./site-config";
-import { KortIcon, TreskLogo } from "./tresk-logo";
+import { KortIcon, TreskLogo, TreskMark } from "./tresk-logo";
 
 type Project = {
   number: string;
@@ -215,18 +215,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="sobre" className="intro container section-space">
-        <div className="section-label"><span>02</span><i /> SOBRE A TRESK</div>
-        <div className="intro-grid">
-          <h2>Uma família,<br /><em>uma empresa.</em></h2>
-          <div className="intro-content">
-            <p className="lead">A TresK Tecnologia transforma rotinas e ideias em produtos digitais que funcionam no dia a dia.</p>
-            <p>O nome vem do símbolo: três hastes lado a lado, do mesmo tamanho, unidas por uma só linha e formando o K. É assim que trabalhamos: perto de quem usa, cuidando de cada detalhe e entregando tecnologia que qualquer pessoa consegue usar.</p>
-            <a className="text-link" href="#produtos">Conheça nossos produtos <Arrow /></a>
+      <section id="sobre" className="about section-space">
+        <div className="container">
+          <div className="section-label light"><span>02</span><i /> SOBRE A EMPRESA</div>
+          <div className="about-grid">
+            <div className="about-copy">
+              <h2>Uma empresa de tecnologia<br /><em>feita para durar.</em></h2>
+              <p className="lead">A TresK Tecnologia desenvolve software para empresas que precisam de tecnologia confiável, sem complicação e com alguém por perto para resolver.</p>
+              <p>Trabalhamos do planejamento ao suporte: entendemos a operação, desenhamos a solução, desenvolvemos e continuamos ao lado do cliente depois que o projeto entra no ar. Cada entrega carrega o nosso nome, por isso tratamos o sistema de cada cliente como se fosse nosso.</p>
+              <div className="about-founder"><b>Anderson Jhonatan</b><span>Fundador e CEO</span></div>
+            </div>
+            <aside className="about-symbol">
+              <TreskMark className="about-mark" stems="#f5f5f7" />
+              <h3>Três hastes, uma só linha.</h3>
+              <p>O símbolo da TresK são três hastes do mesmo tamanho, unidas por uma linha que atravessa as três e forma o K. Ele representa união e direção: uma só família, uma só empresa, sempre apontando para frente.</p>
+            </aside>
           </div>
-        </div>
-        <div className="values-row">
-          <span>FEITO SOB MEDIDA</span><b>✳</b><span>DESIGN COM PROPÓSITO</span><b>✳</b><span>TECNOLOGIA SEM COMPLICAÇÃO</span>
+          <div className="about-pillars">
+            <article><span>MISSÃO</span><p>Colocar tecnologia de qualidade ao alcance de empresas de todos os tamanhos, de forma simples e segura.</p></article>
+            <article><span>VISÃO</span><p>Ser a parceira de tecnologia em que os nossos clientes confiam para crescer, ano após ano.</p></article>
+            <article><span>VALORES</span><ul><li>Proximidade com o cliente</li><li>Clareza no que é combinado</li><li>Qualidade em cada detalhe</li><li>Compromisso com o prazo</li></ul></article>
+          </div>
         </div>
       </section>
 
