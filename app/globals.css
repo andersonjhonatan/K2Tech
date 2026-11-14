@@ -554,3 +554,6 @@ html[data-theme="light"] .hero-chip { color:#0b2a7a; background:rgba(20,99,255,.
   .solution-card ul { display:none; }
   .solutions-grid { gap:10px; }
 }
+
+.kort-note b { color:#fff; font-weight:700; }
+.kort-note { line-height:1.6; max-width:420px; }
