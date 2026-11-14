@@ -1,6 +1,6 @@
-# K2 Tech
+# TresK Tecnologia
 
-Landing page da K2 Tech, construída em Next.js para apresentar convites online interativos, sites e soluções digitais personalizadas.
+Site institucional da TresK Tecnologia, em Next.js: apresenta a empresa, o Kort (agenda online para barbearias), os serviços (sistemas, sites e convites interativos) e o portfólio.
 
 ## Executar localmente
 
@@ -19,4 +19,7 @@ npm run build
 
 ## Personalização rápida
 
-Os links públicos da K2 Tech estão centralizados em `app/site-config.ts`. Altere esse arquivo ao mudar Instagram ou e-mail de atendimento.
+- Contatos (WhatsApp, e-mail, Instagram) e o link do Kort ficam em `app/site-config.ts`.
+- O logo e o símbolo da TresK estão em `app/tresk-logo.tsx`; o favicon é `app/icon.svg`.
+- Avaliações de clientes: lista `testimonials` em `app/page.tsx`. Só aparecem quando houver avaliações reais.
+- Domínio: defina `NEXT_PUBLIC_SITE_URL` (padrão `https://tresktecnologia.com.br`).

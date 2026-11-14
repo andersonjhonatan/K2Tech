@@ -1,34 +1,32 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tresktecnologia.com.br";
+
+const title = "TresK Tecnologia | Sistemas, sites e produtos digitais";
+const description =
+  "A TresK Tecnologia cria sistemas sob medida, sites e produtos digitais, como o Kort, a agenda online para barbearias.";
 
 export const metadata: Metadata = {
-  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
-  title: "K2 Tech | Convites online interativos",
-  description:
-    "Convites online interativos, sites e experiências digitais criadas pela K2 Tech para momentos que merecem ser lembrados.",
-  keywords: ["convite online", "convite interativo", "convite digital", "site para eventos", "K2 Tech"],
-  applicationName: "K2 Tech",
-  authors: [{ name: "K2 Tech" }],
-  creator: "K2 Tech",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  keywords: ["TresK Tecnologia", "sistema sob medida", "criação de sites", "Kort", "agenda para barbearia", "convite interativo"],
+  applicationName: "TresK Tecnologia",
+  authors: [{ name: "TresK Tecnologia" }],
+  creator: "TresK Tecnologia",
   robots: { index: true, follow: true },
   openGraph: {
-    title: "K2 Tech | Convites online interativos",
-    description: "Seu evento começa no primeiro clique.",
+    title,
+    description: "Tecnologia que trabalha pelo seu negócio.",
     locale: "pt_BR",
     type: "website",
+    siteName: "TresK Tecnologia",
   },
   twitter: {
     card: "summary_large_image",
-    title: "K2 Tech | Convites online interativos",
-    description: "Seu evento começa no primeiro clique.",
-  },
-  icons: {
-    icon: [
-      { url: "/favicons/k2-on-light-v2.png", media: "(prefers-color-scheme: light)", type: "image/png" },
-      { url: "/favicons/k2-on-dark-v2.png", media: "(prefers-color-scheme: dark)", type: "image/png" },
-    ],
+    title,
+    description: "Tecnologia que trabalha pelo seu negócio.",
   },
 };
 
