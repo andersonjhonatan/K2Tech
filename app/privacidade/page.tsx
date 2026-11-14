@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "../site-config";
+import { ThemeToggle } from "../theme-toggle";
 import { TreskLogo } from "../tresk-logo";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export default function Privacidade() {
     <main className="legal">
       <header className="site-header container">
         <Link className="brand" href="/" aria-label="TresK Tecnologia, início"><TreskLogo /></Link>
-        <Link className="header-cta" href="/">Voltar ao site</Link>
+        <div className="header-actions"><Link className="header-cta legal-back" href="/">Voltar ao site</Link><ThemeToggle /></div>
       </header>
       <article className="container legal-body">
         <h1>Política de privacidade</h1>

@@ -18,4 +18,6 @@ export const siteConfig = {
     "https://wa.me/5587991104152?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20TresK%20Tecnologia%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.",
   /** Produto da TresK para barbearias. */
   kortUrl: "https://kort.tresktecnologia.com.br",
+  /** Troque para true quando o site do Kort estiver no ar: aí o link para ele aparece. */
+  kortLive: false as boolean,
 } as const;
