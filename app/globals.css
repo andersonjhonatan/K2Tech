@@ -525,3 +525,32 @@ html[data-theme="light"] :is(.site-footer nav a, .site-footer-bottom a):hover { 
   html[data-theme="light"] .menu-whatsapp { color:#128c4a; border-color:rgba(18,140,74,.5); }
   html[data-theme="light"] .menu-panel-bottom p { color:#6b7080; }
 }
+
+/* ───────── Página mais curta e Kort em destaque ───────── */
+.hero-chip { display:inline-flex; align-items:center; gap:10px; padding:7px 14px 7px 7px; border-radius:30px; border:1px solid rgba(59,130,246,.45); background:rgba(20,99,255,.1); font-size:12px; font-weight:600; color:#dfe7ff; transition:border-color .2s ease, background .2s ease; }
+.hero-chip:hover { border-color:#3b82f6; background:rgba(20,99,255,.18); }
+.hero-chip b { padding:4px 9px; border-radius:20px; background:#1463ff; color:#fff; font:700 10px var(--font-inter),Arial,sans-serif; letter-spacing:.08em; }
+.hero-chip .arrow { font-size:14px; }
+html[data-theme="light"] .hero-chip { color:#0b2a7a; background:rgba(20,99,255,.07); border-color:rgba(20,99,255,.3); }
+.products { padding-top:70px; padding-bottom:30px; }
+.kort-actions { display:flex; flex-wrap:wrap; align-items:center; gap:14px 22px; }
+.kort-site-link { display:inline-flex; align-items:center; gap:9px; font-size:12px; font-weight:700; color:#fff; }
+.kort-site-link .arrow { color:#cfe0ff; }
+.kort-note { display:block; margin-top:16px; font-size:12px; color:#cfe0ff; }
+.kort-copy p { margin-bottom:26px; }
+.about { padding-top:90px; padding-bottom:90px; }
+.projects .showcase-home-grid { margin-top:56px; }
+.process-steps p { margin-bottom:0; }
+@media (max-width:760px) {
+  .hero-chip { font-size:11px; }
+  .products { padding-top:44px; padding-bottom:10px; }
+  .about { padding-top:60px; padding-bottom:60px; }
+  .projects .showcase-home-grid { margin-top:36px; }
+  /* Soluções em cartões compactos: ícone ao lado, sem a lista de itens */
+  .solution-card { display:grid; grid-template-columns:46px 1fr; column-gap:16px; padding:18px; align-items:start; }
+  .solution-card .solution-icon { grid-row:1 / span 2; }
+  .solution-card h3 { margin:2px 0 6px; font-size:16px; }
+  .solution-card p { margin:0; font-size:12.5px; line-height:1.6; }
+  .solution-card ul { display:none; }
+  .solutions-grid { gap:10px; }
+}

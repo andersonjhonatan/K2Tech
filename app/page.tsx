@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { FormEvent, useEffect, useState } from "react";
-import { FiDatabase, FiFileText, FiGlobe, FiKey, FiLifeBuoy, FiLock, FiMail, FiMonitor, FiSend, FiShield, FiShoppingCart, FiSmartphone, FiZap } from "react-icons/fi";
+import { FiGlobe, FiMail, FiMonitor, FiSend, FiShoppingCart, FiSmartphone, FiZap } from "react-icons/fi";
 import { SiInstagram, SiWhatsapp } from "react-icons/si";
 import { BoostifySitePreview, WeatherAppPreview } from "./components/project-coded-previews";
 import { MontagemSitePreview } from "./components/project-previews";
@@ -16,9 +16,6 @@ const featuredProjects = [
   showcaseProjects[0], // Montagem de Móveis
   showcaseProjects[1], // Boostify
   weatherProject,
-  showcaseProjects[2], // Tarefas+
-  showcaseProjects[3], // Convite Bob Esponja
-  showcaseProjects[4], // Helena & Gabriel
 ];
 
 const solutions = [
@@ -31,20 +28,11 @@ const solutions = [
 ];
 
 const steps = [
-  ["Conversa inicial", "Entendemos a sua empresa, a rotina e o problema que precisa ser resolvido.", "um resumo do que foi entendido"],
-  ["Proposta e escopo", "Definimos o que será feito, o prazo e o valor, tudo por escrito.", "proposta com prazo e preço fechados"],
-  ["Design e aprovação", "Desenhamos as telas e você aprova o visual antes de qualquer programação.", "as telas do projeto para aprovar"],
-  ["Desenvolvimento", "Construímos em etapas e mostramos o andamento, para você acompanhar e ajustar.", "versões de teste durante o projeto"],
-  ["Entrega e suporte", "Colocamos no ar, orientamos o uso e seguimos por perto depois da entrega.", "projeto publicado e suporte"],
-];
-
-const guarantees = [
-  { icon: FiLock, title: "Conexão protegida", text: "Todo site e sistema entregue funciona com HTTPS, o cadeado do navegador." },
-  { icon: FiDatabase, title: "Cópias de segurança", text: "Os dados dos sistemas têm cópia de segurança, para nada se perder." },
-  { icon: FiShield, title: "Cuidado com os dados (LGPD)", text: "Coletamos só o necessário e tratamos os dados conforme a Lei Geral de Proteção de Dados." },
-  { icon: FiKey, title: "Acesso controlado", text: "Cada pessoa entra com o próprio acesso e vê só o que precisa ver." },
-  { icon: FiFileText, title: "Tudo por escrito", text: "Escopo, prazo e valor ficam registrados na proposta antes de o projeto começar." },
-  { icon: FiLifeBuoy, title: "Suporte depois da entrega", text: "Continuamos disponíveis para dúvidas, ajustes e evolução do projeto." },
+  ["Conversa inicial", "Entendemos a sua empresa, a rotina e o problema que precisa ser resolvido."],
+  ["Proposta e escopo", "Definimos o que será feito, o prazo e o valor, tudo por escrito."],
+  ["Design e aprovação", "Desenhamos as telas e você aprova o visual antes de qualquer programação."],
+  ["Desenvolvimento", "Construímos em etapas e mostramos o andamento, para você acompanhar e ajustar."],
+  ["Entrega e suporte", "Colocamos no ar, orientamos o uso e seguimos por perto depois da entrega."],
 ];
 
 const faqs = [
@@ -53,13 +41,15 @@ const faqs = [
   ["Não entendo de tecnologia. Vou conseguir usar?", "Sim. Fazemos sistemas e sites simples de usar e orientamos você e a sua equipe na entrega."],
   ["O site ou sistema fica no meu nome?", "Sim. O domínio e os dados do seu negócio são seus."],
   ["E depois que o projeto é entregue?", "Seguimos por perto. Oferecemos suporte para dúvidas e ajustes, e podemos evoluir o projeto conforme a sua empresa cresce."],
+  ["Os meus dados e os dos meus clientes ficam seguros?", "Sim. Todo site e sistema entregue funciona com conexão protegida (HTTPS), cada pessoa entra com o próprio acesso e os dados são tratados conforme a Lei Geral de Proteção de Dados (LGPD)."],
+  ["E se der algum problema e os dados se perderem?", "Os sistemas têm cópia de segurança, para que os dados possam ser recuperados."],
   ["Vocês atendem a minha cidade?", "Sim. Atendemos online, em todo o Brasil."],
   ["Já tenho um site ou sistema. Dá para melhorar?", "Dá. Avaliamos o que já existe e indicamos se vale mais a pena melhorar ou refazer."],
 ];
 
 const menuLinks = [
+  ["#produtos", "Kort para barbearias"],
   ["#sobre", "Sobre a empresa"],
-  ["#produtos", "Produtos"],
   ["#servicos", "Soluções"],
   ["#projetos", "Projetos"],
   ["#processo", "Como trabalhamos"],
@@ -74,12 +64,11 @@ const kortFeatures = [
   "Painel do dono com equipe, horários e faturamento",
 ];
 
-/** Avaliações reais de clientes. Só aparecem quando houver pelo menos uma. */
-const testimonials: { project: string; quote: string; name: string }[] = [];
-
 function whatsappLink(message: string) {
   return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
+
+const kortWhatsappUrl = whatsappLink("Olá, vim pelo site da TresK Tecnologia e quero conhecer o Kort para a minha barbearia.");
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return <span className={diagonal ? "arrow diagonal" : "arrow"}>↗</span>;
@@ -98,23 +87,6 @@ export default function Home() {
   }, [menuOpen]);
 
   const [sent, setSent] = useState(false);
-  const [reviewSent, setReviewSent] = useState(false);
-  const [reviewPage, setReviewPage] = useState(0);
-  const reviewPages = Math.ceil(testimonials.length / 3);
-
-  useEffect(() => {
-    if (reviewPages < 2) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => {
-      setReviewPage((page) => (page + 1) % reviewPages);
-    }, 9000);
-    return () => window.clearInterval(timer);
-  }, [reviewPages]);
-
-  function changeReviewPage(direction: number) {
-    setReviewPage((page) => (page + direction + reviewPages) % reviewPages);
-  }
-
   function openWhatsapp(message: string) {
     const url = whatsappLink(message);
     const tab = window.open(url, "_blank");
@@ -133,23 +105,13 @@ export default function Home() {
     openWhatsapp(`Olá, vim pelo site da TresK Tecnologia.\n\nNome: ${name || "Não informado"}\nEmpresa: ${company || "Não informada"}\nPreciso de: ${need || "Não informado"}\n\nSobre o projeto:\n${message}`);
   }
 
-  function sendReview(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const name = form.get("reviewer")?.toString() || "";
-    const project = form.get("review-project")?.toString() || "";
-    const review = form.get("review")?.toString() || "";
-    setReviewSent(true);
-    openWhatsapp(`Nova avaliação recebida pelo site da TresK Tecnologia.\n\nCliente: ${name || "Não informado"}\nProjeto: ${project || "Não informado"}\n\nAvaliação:\n${review}`);
-  }
-
   return (
     <main>
       <header className="site-header container">
         <a className="brand" href="#inicio" aria-label="TresK Tecnologia, início"><TreskLogo /></a>
         <nav className="desktop-nav" aria-label="Navegação principal">
+          <a href="#produtos">Kort</a>
           <a href="#sobre">Sobre</a>
-          <a href="#produtos">Produtos</a>
           <a href="#servicos">Soluções</a>
           <a href="#projetos">Projetos</a>
           <a href="#contato">Contato</a>
@@ -180,12 +142,12 @@ export default function Home() {
 
       <section id="inicio" className="hero hero-corp container">
         <div className="hero-copy reveal">
-          <p className="eyebrow"><span /> SOFTWARE, SITES E PRODUTOS DIGITAIS</p>
+          <a className="hero-chip" href="#produtos"><b>KORT</b> Agenda online para barbearias <Arrow /></a>
           <h1>Tecnologia que move<br /><em>o seu negócio.</em></h1>
           <p className="hero-text">A TresK Tecnologia desenvolve sistemas, sites e produtos digitais para empresas que querem crescer com organização, segurança e atendimento próximo.</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#contato">Solicitar orçamento <Arrow /></a>
-            <a className="text-link" href="#servicos">Conhecer as soluções <span>↓</span></a>
+            <a className="text-link" href="#produtos">Conhecer o Kort <span>↓</span></a>
           </div>
           <ul className="hero-points">
             <li><b>✓</b> Projetos sob medida</li>
@@ -205,9 +167,28 @@ export default function Home() {
         <div className="segments"><small>SOLUÇÕES PARA</small>{["Comércio", "Serviços", "Saúde e beleza", "Eventos", "Educação", "Indústria"].map((seg) => <span key={seg}>{seg}</span>)}</div>
       </section>
 
+      <section id="produtos" className="products container">
+        <div className="section-label"><span>01</span><i /> KORT · PRODUTO DA TRESK</div>
+        <article className="kort-card">
+          <div className="kort-copy">
+            <span className="kort-name"><KortIcon />Kort</span>
+            <h2>A agenda online<br /><em>da sua barbearia.</em></h2>
+            <p>Seus clientes marcam pelo link a qualquer hora, recebem lembrete no celular e entram na lista de espera quando a agenda está cheia. Você acompanha tudo pelo painel, com a marca da sua barbearia.</p>
+            <div className="kort-actions">
+              <a className="button button-light" href={kortWhatsappUrl} target="_blank" rel="noreferrer">Quero o Kort na minha barbearia <Arrow /></a>
+              {siteConfig.kortLive && <a className="kort-site-link" href={siteConfig.kortUrl} target="_blank" rel="noreferrer">Ver o site do Kort <Arrow /></a>}
+            </div>
+            <small className="kort-note">14 dias grátis para testar.</small>
+          </div>
+          <ul className="kort-features">
+            {kortFeatures.map((feature) => <li key={feature}><b>✓</b>{feature}</li>)}
+          </ul>
+        </article>
+      </section>
+
       <section id="sobre" className="about section-space">
         <div className="container">
-          <div className="section-label light"><span>01</span><i /> SOBRE A EMPRESA</div>
+          <div className="section-label light"><span>02</span><i /> SOBRE A EMPRESA</div>
           <div className="about-grid">
             <div className="about-copy">
               <h2>Uma empresa de tecnologia<br /><em>feita para durar.</em></h2>
@@ -221,27 +202,7 @@ export default function Home() {
               <p>O símbolo da TresK são três hastes do mesmo tamanho, unidas por uma linha que atravessa as três e forma o K. Ele representa união e direção: uma só família, uma só empresa, sempre apontando para frente.</p>
             </aside>
           </div>
-          <div className="about-pillars">
-            <article><span>MISSÃO</span><p>Colocar tecnologia de qualidade ao alcance de empresas de todos os tamanhos, de forma simples e segura.</p></article>
-            <article><span>VISÃO</span><p>Ser a parceira de tecnologia em que os nossos clientes confiam para crescer, ano após ano.</p></article>
-            <article><span>VALORES</span><ul><li>Proximidade com o cliente</li><li>Clareza no que é combinado</li><li>Qualidade em cada detalhe</li><li>Compromisso com o prazo</li></ul></article>
-          </div>
         </div>
-      </section>
-
-      <section id="produtos" className="products container">
-        <div className="section-label"><span>02</span><i /> NOSSOS PRODUTOS</div>
-        <article className="kort-card">
-          <div className="kort-copy">
-            <span className="kort-name"><KortIcon />Kort</span>
-            <h2>A agenda online<br /><em>da sua barbearia.</em></h2>
-            <p>Seus clientes marcam pelo link a qualquer hora, recebem lembrete no celular e entram na lista de espera quando a agenda está cheia. Você acompanha tudo pelo painel.</p>
-            <a className="button button-light" href={siteConfig.kortUrl} target="_blank" rel="noreferrer">Conhecer o Kort <Arrow /></a>
-          </div>
-          <ul className="kort-features">
-            {kortFeatures.map((feature) => <li key={feature}><b>✓</b>{feature}</li>)}
-          </ul>
-        </article>
       </section>
 
       <section id="servicos" className="solutions container section-space">
@@ -271,20 +232,8 @@ export default function Home() {
           <div className="section-heading">
             <div className="section-label light"><span>04</span><i /> PROJETOS</div>
             <h2>Trabalhos que já<br /><em>saíram do papel.</em></h2>
-            <p>Um produto próprio e projetos entregues para negócios, de sites a aplicações e experiências interativas.</p>
+            <p>Sites e aplicações entregues, que estão no ar e podem ser abertos agora.</p>
           </div>
-          <article className="featured-card kort-feature">
-            <div className="featured-art kort-art" aria-hidden="true"><KortIcon className="featured-kort-icon" /><strong>Kort</strong><span>PRODUTO PRÓPRIO</span></div>
-            <div className="featured-body">
-              <small>SISTEMA WEB + APLICATIVO</small>
-              <h3>Kort, agenda online para barbearias</h3>
-              <p>Plataforma completa criada pela TresK: agendamento pelo link, lista de espera, lembretes no celular, galeria de trabalhos e painel de gestão com a marca de cada barbearia.</p>
-              <ul className="tags"><li>Várias empresas no mesmo sistema</li><li>Aplicativo instalável</li><li>Notificações</li><li>Painel de gestão</li></ul>
-              <a className="project-action" href={siteConfig.kortUrl} target="_blank" rel="noreferrer">Conhecer o Kort <Arrow /></a>
-            </div>
-          </article>
-
-          <div className="concepts-head"><h3>Projetos entregues</h3><p>Sites, aplicações e experiências que estão no ar e podem ser abertos agora.</p></div>
           <div className="project-grid showcase-home-grid">
             {featuredProjects.map((project) => {
               const isMontagemPreview = project.previewType === "montagem-site" && project.image;
@@ -329,35 +278,21 @@ export default function Home() {
             <p>Você sabe o que vai ser entregue, quando e por quanto antes de o projeto começar, e acompanha cada etapa.</p>
           </div>
           <ol className="process-steps">
-            {steps.map(([title, text, result], i) => (
+            {steps.map(([title, text], i) => (
               <li key={title}>
                 <span className="step-number">{String(i + 1).padStart(2, "0")}</span>
                 <h3>{title}</h3>
                 <p>{text}</p>
-                <small><b>Você recebe:</b> {result}</small>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      <section id="seguranca" className="security container section-space">
-        <div className="section-label"><span>06</span><i /> SEGURANÇA E GARANTIAS</div>
-        <div className="security-head">
-          <h2>Seu projeto e seus dados<br /><em>em boas mãos.</em></h2>
-          <p>Tecnologia só ajuda quando é confiável. Estes são os compromissos que acompanham todo projeto da TresK.</p>
-        </div>
-        <div className="security-grid">
-          {guarantees.map(({ icon: Icon, title, text }) => (
-            <article key={title}><span className="solution-icon"><Icon aria-hidden="true" /></span><div><h3>{title}</h3><p>{text}</p></div></article>
-          ))}
-        </div>
-      </section>
-
       <section id="duvidas" className="faq section-space">
         <div className="container faq-grid">
           <div>
-            <div className="section-label light"><span>07</span><i /> PERGUNTAS FREQUENTES</div>
+            <div className="section-label light"><span>06</span><i /> PERGUNTAS FREQUENTES</div>
             <h2>Dúvidas<br /><em>comuns.</em></h2>
             <p>Não achou a sua resposta? Fale com a gente pelo WhatsApp.</p>
             <a className="text-link" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">Tirar uma dúvida <Arrow /></a>
@@ -370,44 +305,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="avaliacoes" className="reviews section-space">
-        <div className="container">
-          <div className="reviews-head">
-            <div><div className="section-label light"><span>08</span><i /> AVALIAÇÕES</div><h2>O que fica<br />depois da <em>entrega.</em></h2></div>
-            <p>Uma boa entrega precisa ser sentida por quem usa. Aqui entram as avaliações de quem já trabalhou com a gente.</p>
-          </div>
-          {testimonials.length > 0 && (
-            <div className="testimonial-carousel" aria-live="polite">
-              <div className="testimonial-grid" key={reviewPage}>
-                {testimonials.slice(reviewPage * 3, reviewPage * 3 + 3).map((t) => <article className="testimonial-card" key={t.name + t.project}><span className="quote-mark">“</span><p>{t.quote}</p><footer><strong>{t.name}</strong><small>{t.project}</small></footer></article>)}
-              </div>
-              {reviewPages > 1 && (
-                <div className="review-controls">
-                  <button type="button" onClick={() => changeReviewPage(-1)} aria-label="Ver avaliações anteriores">←</button>
-                  <span><b>{String(reviewPage + 1).padStart(2, "0")}</b> / {String(reviewPages).padStart(2, "0")}</span>
-                  <button type="button" onClick={() => changeReviewPage(1)} aria-label="Ver próximas avaliações">→</button>
-                </div>
-              )}
-            </div>
-          )}
-          <div className="review-form-wrap">
-            <div><span className="review-kicker">JÁ FOI CLIENTE?</span><h3>Conta como foi<br />o seu <em>projeto.</em></h3><p>Sua avaliação chega direto para a TresK Tecnologia e pode ser publicada aqui depois, com a sua autorização.</p></div>
-            <form className="review-form" onSubmit={sendReview}>
-              <label>SEU NOME<input name="reviewer" required placeholder="Como podemos identificar você?" /></label>
-              <label>QUAL FOI O PROJETO?<select name="review-project" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Kort (agenda para barbearia)</option><option>Sistema personalizado</option><option>Site institucional</option><option>Convite online interativo</option><option>Outro projeto</option></select></label>
-              <label>COMO FOI A EXPERIÊNCIA?<textarea name="review" required rows={4} placeholder="Escreva sua avaliação para a TresK Tecnologia" /></label>
-              <button className="button button-outline" type="submit">Enviar avaliação <Arrow /></button>
-              <p className="form-privacy">Ao enviar, você será direcionado ao WhatsApp da TresK Tecnologia.</p>
-              {reviewSent && <p className="form-note">Abrindo conversa no WhatsApp…</p>}
-            </form>
-          </div>
-        </div>
-      </section>
-
       <section id="contato" className="reach section-space">
         <div className="container reach-grid">
           <div className="reach-info">
-            <div className="section-label light"><span>09</span><i /> CONTATO</div>
+            <div className="section-label light"><span>07</span><i /> CONTATO</div>
             <h2>Vamos conversar sobre<br /><em>o seu projeto.</em></h2>
             <p>Conte o que você precisa. A primeira conversa e o orçamento são sem compromisso.</p>
             <ul className="reach-channels">
@@ -436,7 +337,7 @@ export default function Home() {
               <a className="brand" href="#inicio" aria-label="TresK Tecnologia, início"><TreskLogo /></a>
               <p>Sistemas, sites e produtos digitais para empresas que querem crescer com organização e segurança.</p>
             </div>
-            <nav aria-label="Empresa"><h4>Empresa</h4><a href="#sobre">Sobre</a><a href="#processo">Como trabalhamos</a><a href="#seguranca">Segurança</a><a href="#duvidas">Perguntas frequentes</a></nav>
+            <nav aria-label="Empresa"><h4>Empresa</h4><a href="#sobre">Sobre</a><a href="#processo">Como trabalhamos</a><a href="#duvidas">Perguntas frequentes</a></nav>
             <nav aria-label="Soluções"><h4>Soluções</h4><a href="#servicos">Serviços</a><a href="#produtos">Kort</a><a href="#projetos">Projetos</a><a href="#contato">Orçamento</a></nav>
             <nav aria-label="Contato"><h4>Contato</h4><a href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">{siteConfig.phoneDisplay}</a><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a><a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer">{siteConfig.instagramHandle}</a></nav>
           </div>
