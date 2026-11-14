@@ -177,32 +177,6 @@ export default function Home() {
             <li><b>✓</b> Suporte depois da entrega</li>
           </ul>
         </div>
-        <div className="hero-panel reveal" aria-hidden="true">
-          <div className="app-window">
-            <div className="app-bar"><i /><i /><i /><span>painel.suaempresa.com.br</span></div>
-            <div className="app-body">
-              <div className="app-side"><i className="on" /><i /><i /><i /><i /></div>
-              <div className="app-main">
-                <div className="app-head"><strong>Visão geral</strong><span>Este mês</span></div>
-                <div className="kpis">
-                  <div className="kpi"><small>Clientes</small><b>1.284</b><em>+12%</em></div>
-                  <div className="kpi"><small>Pedidos</small><b>326</b><em>+8%</em></div>
-                  <div className="kpi"><small>Faturamento</small><b>R$ 48,2 mil</b><em>+15%</em></div>
-                </div>
-                <div className="chart">
-                  {[38, 52, 44, 66, 58, 74, 62, 86, 78, 96].map((h, i) => <span key={i} style={{ height: `${h}%` }} />)}
-                </div>
-                <div className="rows">
-                  <div><i /><span className="l1" /><em className="ok">Concluído</em></div>
-                  <div><i /><span className="l2" /><em>Em andamento</em></div>
-                  <div><i /><span className="l3" /><em className="ok">Concluído</em></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="float-card fc-one"><b>🔒</b><span><strong>Conexão segura</strong>HTTPS em todo o sistema</span></div>
-          <div className="float-card fc-two"><b>●</b><span><strong>Suporte ativo</strong>Atendimento direto</span></div>
-        </div>
       </section>
 
       <section className="trust container" aria-label="Por que a TresK">
