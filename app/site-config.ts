@@ -19,5 +19,5 @@ export const siteConfig = {
   /** Produto da TresK para barbearias. */
   kortUrl: "https://kort.tresktecnologia.com.br",
   /** Troque para true quando o site do Kort estiver no ar: aí o link para ele aparece. */
-  kortLive: false as boolean,
+  kortLive: true as boolean,
 } as const;
