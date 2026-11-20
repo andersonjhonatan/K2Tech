@@ -1,0 +1,192 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#07080b}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:'Inter';color:#F5F5F7;background:#07080b}
+.glow{position:absolute;border-radius:50%;filter:blur(40px)}
+#g1{width:900px;height:900px;background:radial-gradient(circle,rgba(37,99,235,.55),transparent 65%)}
+#g2{width:700px;height:700px;background:radial-gradient(circle,rgba(59,130,246,.30),transparent 65%)}
+#g3{width:520px;height:520px;background:radial-gradient(circle,rgba(200,169,106,.06),transparent 65%)}
+#floorwrap{position:absolute;left:-600px;right:-600px;bottom:-200px;height:1100px;perspective:900px;perspective-origin:50% 0%}
+#floor{position:absolute;inset:0;transform:rotateX(72deg);transform-origin:50% 0%;
+ background-image:linear-gradient(rgba(59,130,246,.22) 2px,transparent 2px),linear-gradient(90deg,rgba(59,130,246,.22) 2px,transparent 2px);
+ background-size:120px 120px;-webkit-mask-image:linear-gradient(transparent,#000 35%,#000 70%,transparent)}
+#vignette{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 45%,transparent 55%,rgba(0,0,0,.75))}
+#progress{position:absolute;left:80px;right:80px;top:150px;height:6px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}
+#progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2563EB,#60A5FA);box-shadow:0 0 18px #3B82F6}
+#capwrap{position:absolute;left:80px;right:80px;top:196px;height:250px;perspective:1200px}
+.cap{position:absolute;inset:0;transform-origin:50% 50% -60px;backface-visibility:hidden}
+.pill{display:inline-flex;align-items:center;gap:14px;padding:12px 22px;border-radius:40px;background:rgba(37,99,235,.14);border:1.5px solid rgba(59,130,246,.55);font-size:25px;font-weight:700;letter-spacing:.16em;color:#9cc2ff}
+.pill b{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#2563EB;color:#fff;font-size:20px;letter-spacing:0}
+.pill.dono{background:rgba(200,169,106,.12);border-color:rgba(200,169,106,.6);color:#e7cf9c}.pill.dono b{background:#C8A96A;color:#0B0B0C}
+.head{margin-top:22px;font-family:'Poppins';font-weight:700;font-size:70px;line-height:1.05;letter-spacing:-.02em}
+.head em{font-style:normal;background:linear-gradient(90deg,#3B82F6,#93C5FD);-webkit-background-clip:text;color:transparent}
+#phonewrap{position:absolute;left:0;right:0;top:470px;height:1420px;perspective:2200px;perspective-origin:50% 40%}
+#phone{position:absolute;left:50%;top:0;width:650px;height:1400px;margin-left:-325px;transform-style:preserve-3d}
+#body{position:absolute;inset:0;border-radius:96px;background:linear-gradient(145deg,#2a2b31,#121317 40%,#1c1d22);box-shadow:0 0 0 2px #3a3b42 inset,0 60px 140px rgba(0,0,0,.7),0 0 120px rgba(37,99,235,.28)}
+#screen{position:absolute;left:19px;top:19px;width:612px;height:1362px;border-radius:78px;overflow:hidden;background:#000}
+#screen img{position:absolute;left:0;top:0;width:100%;height:auto}
+#glare{position:absolute;inset:0;border-radius:78px;background:linear-gradient(115deg,rgba(255,255,255,.16),rgba(255,255,255,0) 32%,rgba(255,255,255,0) 70%,rgba(255,255,255,.07));pointer-events:none;mix-blend-mode:screen}
+#island{position:absolute;left:50%;top:40px;width:150px;height:42px;margin-left:-75px;border-radius:22px;background:#000;z-index:3}
+#sub{position:absolute;left:70px;right:70px;top:1395px;display:flex;justify-content:center}
+#subbox{max-width:900px;padding:22px 34px;border-radius:30px;background:rgba(8,9,12,.86);border:1.5px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.55);backdrop-filter:blur(8px);
+ font-family:'Poppins';font-weight:600;font-size:44px;line-height:1.25;text-align:center}
+#subbox span{color:rgba(245,245,247,.38);transition:none}
+#subbox span.on{color:#fff}
+#subbox span.now{color:#60A5FA}
+.full{position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0 96px 220px;perspective:1400px}
+#intro .mark,#outro .mark{width:300px;height:276px;transform-style:preserve-3d;margin-bottom:70px}
+.mark div{position:absolute}
+.kick{font-size:28px;letter-spacing:.24em;font-weight:600;color:#C8A96A}
+.big{margin-top:24px;font-family:'Poppins';font-weight:700;font-size:112px;line-height:1.02;letter-spacing:-.03em}
+.big .w{display:inline-block;transform-origin:50% 100%}
+.big em{font-style:normal;background:linear-gradient(90deg,#3B82F6,#93C5FD);-webkit-background-clip:text;color:transparent}
+.cta{margin-top:64px;display:inline-flex;align-items:center;gap:22px;padding:34px 46px;border-radius:40px;background:linear-gradient(135deg,#2563EB,#1d4ed8);font-family:'Poppins';font-size:50px;font-weight:700;box-shadow:0 20px 70px rgba(37,99,235,.55)}
+.handle{margin-top:34px;font-size:34px;color:#9a9ba3}
+</style></head><body>
+<div id="stage">
+ <div id="g1" class="glow"></div><div id="g2" class="glow"></div><div id="g3" class="glow"></div>
+ <div id="floorwrap"><div id="floor"></div></div>
+ <div id="vignette"></div>
+ <div id="intro" class="full">
+  <div class="mark" id="m1"></div>
+  <div class="kick" id="ik">KORT · AGENDA PARA BARBEARIAS</div>
+  <div class="big" id="ib"><span class="w">Veja</span> <span class="w">como</span><br><span class="w">funciona</span> <span class="w">o</span> <span class="w"><em>KORT</em></span></div>
+ </div>
+ <div id="progress"><i></i></div>
+ <div id="capwrap"></div>
+ <div id="phonewrap"><div id="phone"><div id="body"></div><div id="screen"><img id="imgA"><img id="imgB"><div id="glare"></div></div><div id="island"></div></div></div>
+ <div id="sub"><div id="subbox"></div></div>
+ <div id="outro" class="full">
+  <div class="mark" id="m2"></div>
+  <div class="kick">FEITO PELA TRESK TECNOLOGIA</div>
+  <div class="big" id="ob"><span class="w">Quer</span> <span class="w">o</span> <span class="w">KORT</span> <span class="w">na</span><br><span class="w"><em>sua</em></span> <span class="w"><em>barbearia?</em></span></div>
+  <div class="cta" id="octa">Chama no direct →</div>
+  <div class="handle" id="oh">@tresktecnologia · link na bio</div>
+ </div>
+</div>
+<script>
+const TL = __TIMELINE__;
+const CAPS = {
+ c1:['01','CLIENTE','Abre o link da<br><em>barbearia</em>'],
+ c2:['02','CLIENTE','Escolhe o<br><em>serviço</em>'],
+ c3:['03','CLIENTE','Barbeiro, dia<br><em>e horário</em>'],
+ c4:['04','CLIENTE','Pronto,<br><em>agendado!</em>'],
+ d1:['05','DONO','Na agenda,<br><em>na mesma hora</em>'],
+ d2:['06','DONO','Faturamento<br><em>na palma da mão</em>'],
+};
+const ORDER=['intro','c1','c2','c3','c4','d1','d2','outro'];
+const SCREENS=['c1','c2','c3','c4','d1','d2'];
+const W=TL.windows, END=W.outro[1];
+const $=s=>document.querySelector(s);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const outBack=x=>{const c1=1.5,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+
+// logo (símbolo das três hastes + K) feito de divs para animar em 3D
+function buildMark(el){
+  const s=300/376;
+  const stems=[0,85,170].map((x,i)=>`<div class="st" style="left:${x*s}px;top:${22*s}px;width:${48*s}px;height:${301*s}px;border-radius:6px;background:#F5F5F7;transform-origin:50% 100%"></div>`).join('');
+  el.innerHTML=stems+`<div class="bar" style="left:0;top:${161*s}px;width:${215*s}px;height:${18*s}px;background:#2563EB;transform-origin:0 50%"></div>
+  <svg class="arm" viewBox="0 0 376 345" style="position:absolute;left:0;top:0;width:300px;height:276px;transform-origin:${205/376*100}% 50%"><polygon points="340,0 375,30 262,170 375,310 340,340 205,170" fill="#2563EB"/></svg>`;
+}
+buildMark($('#m1'));buildMark($('#m2'));
+function animMark(el,p){ // p 0..1
+  el.querySelectorAll('.st').forEach((s,i)=>{const q=clamp((p-i*.12)/.45);const e=outBack(q);
+    s.style.transform=`rotateX(${(1-e)*-90}deg) translateZ(${(1-q)*-200}px)`;s.style.opacity=q});
+  const b=clamp((p-.45)/.3);el.querySelector('.bar').style.transform=`scaleX(${ease(b)})`;
+  const a=clamp((p-.6)/.4);el.querySelector('.arm').style.transform=`rotateY(${(1-outBack(a))*100}deg)`;el.querySelector('.arm').style.opacity=a;
+}
+// imagens pré-carregadas
+const IMG={};
+for(const sc of SCREENS) for(const [,f] of TL.screens[sc]){ if(!IMG[f]){const im=new Image();im.src='file://'+f;IMG[f]=im;} }
+function frameAt(sc,t){const seq=TL.screens[sc];let f=seq[0][1];for(const [st,fl] of seq){if(st<=t)f=fl;else break;}return f;}
+function sceneAt(t){for(const sc of ORDER){if(t<W[sc][1])return sc}return 'outro'}
+function capHTML(sc){const [n,who,h]=CAPS[sc];return `<div class="pill ${who==='DONO'?'dono':''}"><b>${n}</b>${who}</div><div class="head">${h}</div>`}
+
+window.ready=async()=>{await Promise.all(Object.values(IMG).map(i=>i.decode().catch(()=>{})));return Object.keys(IMG).length};
+
+window.renderAt=async(t)=>{
+  const sc=sceneAt(t);
+  // fundo vivo
+  $('#g1').style.transform=`translate(${520+Math.sin(t*.35)*160}px,${-260+Math.cos(t*.27)*120}px)`;
+  $('#g2').style.transform=`translate(${-260+Math.cos(t*.31)*140}px,${980+Math.sin(t*.23)*160}px)`;
+  $('#g3').style.transform=`translate(${300+Math.sin(t*.5)*200}px,${560+Math.cos(t*.4)*120}px)`;
+  $('#floor').style.backgroundPosition=`0px ${(t*60)%120}px`;
+  $('#progress i').style.width=`${clamp(t/END)*100}%`;
+
+  // abertura
+  const ip=clamp(t/W.intro[1]);
+  const introOut=clamp((t-(W.intro[1]-.45))/.45);
+  $('#intro').style.opacity=1-introOut;
+  $('#intro').style.transform=`translateZ(0) scale(${1+introOut*.15})`;
+  $('#intro').style.display=t<W.intro[1]+.05?'flex':'none';
+  animMark($('#m1'),clamp(t/1.4));
+  $('#ik').style.opacity=clamp((t-.9)/.4);$('#ik').style.transform=`translateY(${(1-ease(clamp((t-.9)/.4)))*30}px)`;
+  $('#ib').querySelectorAll('.w').forEach((w,i)=>{const q=clamp((t-1.2-i*.12)/.45);w.style.transform=`rotateX(${(1-outBack(q))*-95}deg)`;w.style.opacity=q});
+
+  // encerramento
+  const ot=t-W.outro[0];
+  $('#outro').style.display=ot>-.05?'flex':'none';
+  if(ot>-.05){
+    $('#outro').style.opacity=clamp(ot/.35)*(1-clamp((t-(END-.5))/.5));
+    animMark($('#m2'),clamp(ot/1.2));
+    $('#ob').querySelectorAll('.w').forEach((w,i)=>{const q=clamp((ot-.5-i*.1)/.45);w.style.transform=`rotateX(${(1-outBack(q))*-95}deg)`;w.style.opacity=q});
+    const c=clamp((ot-1.3)/.5);$('#octa').style.opacity=c;
+    $('#octa').style.transform=`perspective(800px) rotateX(${(1-outBack(c))*70}deg) scale(${1+Math.max(0,Math.sin((ot-1.8)*4))*.035})`;
+    $('#oh').style.opacity=clamp((ot-1.7)/.4);
+  }
+
+  // celular
+  const inScreens=t>=W.c1[0]-.6 && t<W.outro[0]+.3;
+  $('#phonewrap').style.display=inScreens?'block':'none';
+  $('#capwrap').style.display=inScreens?'block':'none';
+  $('#progress').style.opacity=inScreens?1:0;
+  if(inScreens){
+    // virada 3D nos capítulos (entrada, cliente→dono, painel→faturamento, saída)
+    let ry=Math.sin(t*.7)*7, rx=5+Math.sin(t*.45)*2.5, tz=0, sc2=1, op=1, ty=Math.sin(t*.9)*10;
+    const flips=[[W.c1[0],'in'],[W.d1[0],'flip'],[W.d2[0],'flip'],[W.outro[0],'out']];
+    for(const [ft,kind] of flips){
+      const d=t-ft;
+      if(kind==='in' && d<0.6 && d>-0.6){const q=ease(clamp((d+.6)/1.2));ry+=(1-q)*-75;tz+=(1-q)*-900;op=q;}
+      if(kind==='flip' && Math.abs(d)<.38){const q=(d+.38)/.76; const ang=q<.5? ease(q*2)*90 : -90+ease((q-.5)*2)*90; ry+=ang; tz-=Math.sin(q*Math.PI)*420; sc2*=1-Math.sin(q*Math.PI)*.06;}
+      if(kind==='out' && d>-0.35 && d<0.5){const q=ease(clamp((d+.35)/.7));ry+=q*80;tz-=q*900;op=1-q;}
+    }
+    $('#phone').style.transform=`translateY(${ty}px) translateZ(${tz}px) rotateX(${rx}deg) rotateY(${ry}deg) scale(${sc2})`;
+    $('#phone').style.opacity=op;
+    $('#glare').style.transform=`translateX(${-ry*6}px)`;
+    // tela: no meio da virada troca o conteúdo
+    let ssc=sc; if(!SCREENS.includes(ssc)) ssc= t<W.c1[0]?'c1':'d2';
+    const f=frameAt(ssc,t); const A=$('#imgA');
+    if(A.dataset.f!==f){A.src=IMG[f].src;A.dataset.f=f;}
+    // legenda do passo com virada 3D
+    const cw=$('#capwrap'); let html='';
+    const capSc=SCREENS.includes(sc)?sc:(t<W.c1[0]?'c1':'d2');
+    const start=W[capSc][0]; const dd=t-start;
+    const prev=SCREENS[SCREENS.indexOf(capSc)-1];
+    if(dd<.5 && prev){const q=ease(clamp(dd/.5));
+      html=`<div class="cap" style="transform:rotateX(${q*90}deg);opacity:${1-q}">${capHTML(prev)}</div><div class="cap" style="transform:rotateX(${(q-1)*90}deg);opacity:${q}">${capHTML(capSc)}</div>`;
+    } else { const q=ease(clamp((t-(W.c1[0]-.4))/.6)); html=`<div class="cap" style="transform:rotateX(${(q-1)*90}deg);opacity:${q}">${capHTML(capSc)}</div>`; }
+    if(t>W.outro[0]-.3){const q=ease(clamp((t-(W.outro[0]-.3))/.4)); html=html.replace('class="cap" style="','class="cap" style="opacity:'+(1-q)+';');}
+    if(cw.dataset.h!==html){cw.innerHTML=html;cw.dataset.h=html;}
+  }
+
+  // legenda da fala, palavra por palavra
+  const sb=$('#subbox'); let cur=null;
+  for(const s of TL.sentences){ if(t>=s.start-.08 && t<=s.end+.35){cur=s;} }
+  if(!cur){sb.style.opacity=0;}
+  else{
+    const words=cur.text.split(' '); const tot=words.reduce((a,w)=>a+w.length,0);
+    const prog=clamp((t-cur.start)/(cur.end-cur.start)); let acc=0;
+    const h=words.map(w=>{const s0=acc/tot; acc+=w.length; const s1=acc/tot; const cls= prog>=s1?'on':(prog>=s0?'now':''); return `<span class="${cls}">${w}</span>`}).join(' ');
+    sb.innerHTML=h;
+    const ap=clamp((t-cur.start+.08)/.18), dp=clamp((cur.end+.35-t)/.18);
+    sb.style.opacity=Math.min(ap,dp);
+    sb.style.transform=`translateY(${(1-ease(ap))*24}px) scale(${.96+.04*ease(ap)})`;
+  }
+  const subTop = (t<W.c1[0]-.3||t>W.outro[0]) ? 1560 : 1395;
+  $('#sub').style.top=subTop+'px';
+  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+  const A=$('#imgA'); if(A.src) { try{await A.decode()}catch(e){} }
+  return sc;
+};
+</script></body></html>

@@ -1,0 +1,92 @@
+[
+ {
+  "scene": "intro",
+  "text": "Fala, barbeiro!",
+  "start": 0.24,
+  "end": 1.2
+ },
+ {
+  "scene": "intro",
+  "text": "Deixa eu te mostrar como funciona o KORT.",
+  "start": 1.24,
+  "end": 3.46
+ },
+ {
+  "scene": "c1",
+  "text": "Seu cliente recebe o link da sua barbearia.",
+  "start": 4.17,
+  "end": 7.28
+ },
+ {
+  "scene": "c1",
+  "text": "Ali ele já vê o endereço, a equipe e o cartão fidelidade dele.",
+  "start": 7.28,
+  "end": 11.82
+ },
+ {
+  "scene": "c2",
+  "text": "Ele escolhe o serviço…",
+  "start": 11.82,
+  "end": 13.49
+ },
+ {
+  "scene": "c3",
+  "text": "…escolhe com quem quer cortar, o dia e o horário.",
+  "start": 13.49,
+  "end": 16.6
+ },
+ {
+  "scene": "c3",
+  "text": "O que já tá ocupado aparece riscado.",
+  "start": 16.6,
+  "end": 19.48
+ },
+ {
+  "scene": "c3",
+  "text": "Aí é só confirmar.",
+  "start": 19.82,
+  "end": 21.5
+ },
+ {
+  "scene": "c4",
+  "text": "Pronto! Horário marcado.",
+  "start": 21.84,
+  "end": 23.67
+ },
+ {
+  "scene": "c4",
+  "text": "E ainda ganha um selo no cartão fidelidade.",
+  "start": 25.03,
+  "end": 28.2
+ },
+ {
+  "scene": "d1",
+  "text": "E você, dono, vê tudo na hora, na sua agenda do dia.",
+  "start": 28.2,
+  "end": 31.93
+ },
+ {
+  "scene": "d1",
+  "text": "Sem ficar respondendo mensagem no WhatsApp.",
+  "start": 33.14,
+  "end": 36.0
+ },
+ {
+  "scene": "d2",
+  "text": "E ainda acompanha quanto a barbearia faturou no dia, na semana e no mês.",
+  "start": 36.0,
+  "end": 40.55
+ },
+ {
+  "scene": "outro",
+  "text": "Esse é o KORT, da TresK Tecnologia.",
+  "start": 41.05,
+  "end": 42.74
+ },
+ {
+  "scene": "outro",
+  "text": "Quer na sua barbearia? Me chama no direct.",
+  "start": 43.25,
+  "end": 45.95
+ }
+]
