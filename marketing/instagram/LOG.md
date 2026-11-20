@@ -3,6 +3,8 @@
 | Data | Tipo | Tema | Imagens | Status |
 |---|---|---|---|---|
 | 2026-11-20 | Carrossel 3 slides | Post 1 — Apresentação da Tresk (quem somos, 3 pilares, KORT + Divina Baby) | public/instagram/tresk-post1-*.jpg | Publicado (media id 18135129823786649) |
+| 2026-11-20 | Story | Serviços (para o destaque Serviços) | public/instagram/stories/tresk-story-servicos.jpg | Publicado (media id 18454411993121483) |
+| 2026-11-20 | Story | Orçamento (para o destaque Orçamento) | public/instagram/stories/tresk-story-orcamento.jpg | Publicado (media id 18113746550081268) |
 
 ## Próximos temas (plano inicial dos 9 primeiros posts)
 2. Case KORT — agenda saindo do caderno do barbeiro (carrossel)
@@ -13,3 +15,8 @@
 7. Depoimento de cliente (quando houver)
 8. Serviços e como funciona o orçamento
 9. Chamada para o KORT com teste grátis
+
+## Recursos já criados
+- Página de links da bio: /links (app/links/page.tsx)
+- Capas de destaque: public/instagram/destaques/ (Serviços, KORT, Cases, Orçamento, Bastidores); modelo em template-destaques.html
+- Modelo de stories: template-stories.html (1080x1920)
