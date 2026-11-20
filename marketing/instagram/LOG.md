@@ -5,11 +5,11 @@
 | 2026-11-20 | Carrossel 3 slides | Post 1 — Apresentação da Tresk (quem somos, 3 pilares, KORT + Divina Baby) | public/instagram/tresk-post1-*.jpg | Publicado (media id 18135129823786649) |
 | 2026-11-20 | Story | Serviços (para o destaque Serviços) | public/instagram/stories/tresk-story-servicos.jpg | Publicado (media id 18454411993121483) |
 | 2026-11-20 | Story | Orçamento (para o destaque Orçamento) | public/instagram/stories/tresk-story-orcamento.jpg | Publicado (media id 18113746550081268) |
+| 2026-11-20 | Carrossel 6 slides | Post 2 — Case KORT (telas reais: página, horários, fidelidade, agenda, faturamento) | public/instagram/tresk-post2-*.jpg | Publicado (media id 18361172917173093) |
+| 2026-11-20 | Reels (33s) | KORT: cliente agendando + visão do dono | public/instagram/tresk-reel-kort.mp4 | Aguardando decisão de publicação |
 
 ## Próximos temas (plano inicial dos 9 primeiros posts)
-2. Case KORT — agenda saindo do caderno do barbeiro (carrossel)
 3. Case Divina Baby — loja, PDV e crediário num sistema só
-4. "Sua barbearia ainda agenda pelo WhatsApp?" (Reels)
 5. Bastidores: desenvolvimento
 6. 3 sinais de que seu comércio precisa de um sistema
 7. Depoimento de cliente (quando houver)

@@ -123,6 +123,7 @@ function slotsFor(date) {
   return out;
 }
 
+let created = null;
 const json = (res, code, body) => { res.writeHead(code, { 'content-type': 'application/json' }); res.end(JSON.stringify(body)); };
 
 http.createServer((req, res) => {
@@ -142,7 +143,23 @@ http.createServer((req, res) => {
   if (m) {
     const rest = m[2] ?? '';
     if (rest === '') return json(res, 200, { tenant, services, professionals });
-    if (rest === '/customers/me') return json(res, 200, { customer: { id: 'c9', name: 'João Pedro', phone: '87988880009', loyalty: { stamps: 7, goal: 10, rewardText: 'Corte grátis' } } });
+    if (rest === '/customers/me') return json(res, 200, { customer: { id: 'c9', name: 'Gabriel Souza', phone: '87988880009', loyalty: { stamps: 7, goal: 10, rewardText: 'Corte grátis' } } });
+    if (rest === '/appointments' && req.method === 'POST') {
+      let raw = ''; req.on('data', (c) => (raw += c)); req.on('end', () => {
+        const b = JSON.parse(raw || '{}');
+        const s = services.find((x) => x.id === b.serviceId) ?? services[0];
+        const prof = professionals.find((x) => x.id === b.professionalId) ?? professionals[0];
+        const appt = { id: 'novo1', status: 'SCHEDULED', startsAt: b.startsAt, endsAt: addMin(b.startsAt, s.durationMinutes), serviceId: s.id, serviceName: s.name, priceCents: s.priceCents, pendingApproval: false, countsForLoyalty: true, professional: prof, canChange: true };
+        created = appt;
+        const panelAppt = { id: 'novo1', startsAt: appt.startsAt, endsAt: appt.endsAt, status: 'SCHEDULED', source: 'ONLINE', serviceName: s.name, priceCents: s.priceCents, pendingApproval: false, customer: { id: 'c9', name: 'Gabriel Souza', phone: '87988880009' }, walkInName: null, professional: prof };
+        overview.todayList = [...overview.todayList.filter((a) => a.id !== 'novo1'), panelAppt].sort((a, z) => a.startsAt.localeCompare(z.startsAt));
+        overview.today.total = overview.todayList.length; overview.today.remaining = overview.todayList.filter((a) => a.status !== 'DONE').length;
+        overview.today.expectedRevenueCents += s.priceCents;
+        json(res, 201, { appointment: appt });
+      });
+      return;
+    }
+    if (rest.startsWith('/appointments/') && created) return json(res, 200, { appointment: created });
     if (rest === '/gallery') return json(res, 200, { photos: [] });
     if (rest === '/availability') return json(res, 200, { slots: slotsFor(url.searchParams.get('date') ?? today) });
     if (rest === '/appointments') return json(res, 200, { appointments: [] });
