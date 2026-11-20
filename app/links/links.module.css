@@ -1,0 +1,158 @@
+.page {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  padding: 56px 20px 40px;
+  background: #0b0b0c;
+  color: #f5f5f7;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  top: -320px;
+  right: -220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.45), transparent 65%);
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.mark {
+  width: 76px;
+  height: auto;
+  margin-bottom: 22px;
+}
+
+.title {
+  margin: 0 0 12px;
+  font-family: var(--font-poppins), var(--font-inter), sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.title span {
+  color: #3b82f6;
+}
+
+.tagline {
+  max-width: 320px;
+  margin: 0 0 34px;
+  color: #b5b6bd;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link {
+  display: grid;
+  grid-template-columns: 26px 1fr 18px;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(245, 245, 247, 0.1);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f5f5f7;
+  text-align: left;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.7);
+  background: rgba(37, 99, 235, 0.12);
+}
+
+.link:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.link > svg:first-child {
+  width: 22px;
+  height: 22px;
+  color: #3b82f6;
+}
+
+.link > svg:last-child {
+  width: 18px;
+  height: 18px;
+  color: #797a82;
+}
+
+.link span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.link strong {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.link small {
+  color: #9a9ba3;
+  font-size: 12.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.primary {
+  border-color: transparent;
+  background: #2563eb;
+}
+
+.primary:hover,
+.primary:focus-visible {
+  border-color: transparent;
+  background: #1f56d0;
+}
+
+.primary > svg:first-child,
+.primary > svg:last-child,
+.primary small {
+  color: #ffffff;
+}
+
+.primary small {
+  opacity: 0.85;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 36px;
+  color: #6f7078;
+  font-size: 12px;
+}
+
+.footer a {
+  color: #9a9ba3;
+}
