@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0B0B0C}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;color:#F5F5F7;font-family:'Inter',sans-serif;
+  background:#0B0B0C}
+#glow{position:absolute;inset:-200px;background:radial-gradient(900px 900px at 80% 12%,#173072 0%,rgba(11,11,12,0) 60%),
+  radial-gradient(800px 800px at 10% 95%,#0f1f4d 0%,rgba(11,11,12,0) 60%)}
+.scene{position:absolute;left:0;top:0;width:1080px;height:1920px;padding:0 90px;display:flex;flex-direction:column;justify-content:center;opacity:0}
+.lbl{font-size:34px;letter-spacing:.2em;color:#C8A96A;font-weight:700;text-transform:uppercase;margin-bottom:34px}
+h1{font-family:'Poppins';font-weight:700;font-size:112px;line-height:1.05;letter-spacing:-.02em}
+h2{font-family:'Poppins';font-weight:700;font-size:96px;line-height:1.08;letter-spacing:-.02em}
+b{color:#3B82F6;font-weight:700}
+p{font-size:46px;line-height:1.4;color:#c9cad1;margin-top:40px}
+.big{font-family:'Poppins';font-weight:700;font-size:380px;line-height:.9;color:#2563EB;letter-spacing:-.04em}
+.num{font-family:'Poppins';font-weight:700;font-size:240px;line-height:1;color:#2563EB;margin-bottom:10px}
+.icon{font-size:170px;margin-bottom:40px;display:inline-block;align-self:flex-start}
+.bar{width:120px;height:10px;background:#2563EB;border-radius:5px;margin:50px 0 0}
+.cta{background:#2563EB;border-radius:36px;padding:48px 56px;margin-top:60px}
+.cta .t{font-family:'Poppins';font-size:60px;font-weight:700;line-height:1.12}
+.cta .s{font-size:40px;color:#dfe7ff;margin-top:14px}
+.mark{height:200px;width:auto;align-self:flex-start;display:block;margin-bottom:70px}
+.foot{position:absolute;left:90px;right:90px;bottom:400px;display:flex;justify-content:space-between;font-size:34px;color:#9a9ba3}
+.strike{position:relative;display:inline-block}
+.strike i{position:absolute;left:-10px;top:52%;height:12px;background:#ef4444;border-radius:6px;width:0}
+.dots{position:absolute;top:290px;left:90px;display:flex;gap:16px}
+.dots span{width:64px;height:10px;border-radius:5px;background:rgba(255,255,255,.15)}
+.dots span.on{background:#3B82F6}
+</style></head><body>
+<div id="stage">
+  <div id="glow"></div>
+
+  <!-- S0: hook -->
+  <div class="scene" id="s0">
+    <div class="icon" id="note">📒</div>
+    <h1 data-in>Seu comércio<br>ainda vive no<br><b>caderninho?</b></h1>
+  </div>
+
+  <!-- S1: title -->
+  <div class="scene" id="s1">
+    <div class="big" data-in>3</div>
+    <h2 data-in>sinais de que ele<br>precisa de um<br><b>sistema</b></h2>
+    <div class="bar" data-in></div>
+  </div>
+
+  <!-- S2..S4: signs -->
+  <div class="scene" id="s2">
+    <div class="num" data-in>01</div>
+    <h2 data-in>Você não sabe<br>quanto <b>lucrou</b><br>no mês</h2>
+    <p data-in>Vende o dia todo, mas no fim do mês a conta não fecha.</p>
+  </div>
+  <div class="scene" id="s3">
+    <div class="num" data-in>02</div>
+    <h2 data-in>O <b>fiado</b> tá<br>anotado no papel</h2>
+    <p data-in>E papel some, molha, rasga… e o dinheiro vai junto.</p>
+  </div>
+  <div class="scene" id="s4">
+    <div class="num" data-in>03</div>
+    <h2 data-in>Perde venda por<br>não saber o que<br>tem no <b>estoque</b></h2>
+    <p data-in>"Deixa eu ver lá dentro se ainda tem…"</p>
+  </div>
+
+  <!-- S5: case -->
+  <div class="scene" id="s5">
+    <div class="lbl" data-in>Case real · Ibimirim-PE</div>
+    <h2 data-in>Na <b>Divina Baby</b>,<br>loja virtual, caixa<br>e crediário num<br>sistema só.</h2>
+    <p data-in>Feito pela Tresk, rodando todo dia.</p>
+  </div>
+
+  <!-- S6: CTA -->
+  <div class="scene" id="s6">
+    <img class="mark" src="../mark.png" data-in>
+    <h1 data-in>Tá esperando<br>o <b>quê?</b></h1>
+    <div class="cta" data-in><div class="t">Chama no direct</div><div class="s">e peça seu orçamento sem compromisso.</div></div>
+    <div class="foot" data-in><span>tresktecnologia.com.br</span><span>@tresktecnologia</span></div>
+  </div>
+
+  <div class="dots" id="dots"><span></span><span></span><span></span></div>
+</div>
+
+<script>
+const BPM = 136, BEAT = 60 / BPM;
+// scene boundaries in beats
+const SC = [[0,8],[8,16],[16,24],[24,32],[32,40],[40,48],[48,56]];
+const TOTAL = 56 * BEAT;
+const ease = x => x<=0?0:x>=1?1:1-Math.pow(1-x,3);
+const back = x => { if(x<=0) return 0; if(x>=1) return 1; const c=1.70158; return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2); };
+
+function render(t){
+  const beat = t / BEAT;
+  const bf = beat - Math.floor(beat);            // fraction within beat
+  const pulse = Math.exp(-bf*6);                 // 1 on the beat, decays
+  const barStrong = (Math.floor(beat) % 4 === 0) ? 1 : .45;
+  document.getElementById('glow').style.opacity = (0.75 + 0.25*pulse*barStrong).toFixed(3);
+  document.getElementById('glow').style.transform = `scale(${1+0.03*pulse*barStrong})`;
+
+  SC.forEach(([a,b],i)=>{
+    const el = document.getElementById('s'+i);
+    const local = beat - a;                       // beats since scene start
+    const inScene = beat >= a && (beat < b || i === SC.length-1);
+    if(!inScene){ el.style.opacity = 0; return; }
+    // scene exit: last half beat slides up/fades (not for last)
+    let out = 0;
+    if(i < SC.length-1) out = ease((beat - (b - .5)) / .5);
+    el.style.opacity = (1-out).toFixed(3);
+    el.style.transform = `translateY(${-80*out}px)`;
+    // staggered element entries: one element per beat, landing on beats
+    el.querySelectorAll('[data-in]').forEach((c,k)=>{
+      const start = k * 1.0;                      // entry k starts on beat k
+      const p = back((local - start) / .6);
+      const pe = ease((local - start) / .6);
+      c.style.opacity = pe.toFixed(3);
+      c.style.transform = `translateY(${(1-p)*70}px) scale(${0.96+0.04*p})`;
+    });
+  });
+
+  // hook notebook shakes on every beat
+  const note = document.getElementById('note');
+  if (beat < 8) note.style.transform = `rotate(${(Math.floor(beat)%2?1:-1)*10*pulse}deg) scale(${1+.12*pulse})`;
+  // big numbers punch on the beat
+  document.querySelectorAll('.num,.big').forEach(n=>{ n.style.scale = (1+0.06*pulse).toFixed(3); });
+
+  // progress dots for the 3 signs
+  const dots = document.getElementById('dots');
+  const show = beat >= 16 && beat < 40;
+  dots.style.opacity = show ? 1 : 0;
+  [...dots.children].forEach((d,k)=> d.className = (show && beat >= 16 + 8*k) ? 'on' : '');
+
+  // CTA button breathes on beats in final scene
+  if (beat >= 48) { const c = document.querySelector('#s6 .cta'); c.style.boxShadow = `0 0 ${40+60*pulse}px rgba(37,99,235,${.35+.4*pulse})`; }
+}
+window.render = render; window.TOTAL = TOTAL;
+render(0);
+</script>
+</body></html>
