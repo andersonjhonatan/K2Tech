@@ -8,6 +8,7 @@
 | 2026-11-20 | Carrossel 6 slides | Post 2 — Case KORT (telas reais: página, horários, fidelidade, agenda, faturamento) | public/instagram/tresk-post2-*.jpg | Publicado (media id 18361172917173093) |
 | 2026-11-20 | Reels (33s) | KORT: cliente agendando + visão do dono | public/instagram/tresk-reel-kort.mp4 | Aguardando decisão de publicação |
 | 2026-11-21 | Reels (25s, 19h) | 3 sinais de que seu comércio precisa de um sistema (+ case Divina Baby) · 🎵 What You Waiting For? – Gwen Stefani (136 BPM, refrão) | public/instagram/tresk-2026-11-21-reels.mp4 (+ -capa.jpg) | Enviado ao Anderson para publicar pelo app com a música |
+| 2026-11-21 | Reels (2min22) | KORT explicativo passo a passo (cliente + dono), narração feminina (Kokoro pf_dora) + legendas + destaques | public/instagram/tresk-reel-kort-explicativo.mp4 (+ -capa.jpg) | Enviado ao Anderson para revisão |
 
 ## Músicas já usadas
 - What You Waiting For? – Gwen Stefani (2026-11-21)
