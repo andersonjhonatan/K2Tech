@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000}
+.s{position:relative;width:1080px;height:1920px;overflow:hidden;background:radial-gradient(1100px 1000px at 90% 0%,#14265a 0%,#0B0B0C 58%);color:#F5F5F7;font-family:'Inter';padding:230px 96px 0}
+.top{display:flex;justify-content:space-between;align-items:center}
+.mark{height:110px}
+.handle{font-size:28px;color:#8e8f97}
+.tag{margin-top:64px;font-size:28px;letter-spacing:.2em;color:#C8A96A;font-weight:600}
+h1{font-family:'Poppins';font-weight:700;font-size:84px;line-height:1.05;letter-spacing:-.02em;margin-top:22px}
+h1 b{color:#3B82F6}
+.lead{margin-top:28px;font-size:38px;line-height:1.4;color:#c4c5cc}
+.chips{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
+.chip{font-size:30px;padding:14px 26px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.chip i{font-style:normal;color:#3B82F6;font-weight:700;margin-right:8px}
+.pill{display:inline-block;margin-top:26px;font-size:28px;font-weight:600;padding:12px 26px;border-radius:999px;background:#C8A96A;color:#0B0B0C}
+/* phone */
+.phone{position:absolute;left:50%;transform:translateX(-50%);width:540px;border-radius:64px;padding:16px;background:#1b1b1e;box-shadow:0 0 0 3px #2c2c31,0 40px 120px rgba(0,0,0,.6),0 0 120px 20px rgba(37,99,235,.22)}
+.phone img{display:block;width:100%;border-radius:50px}
+.bare{position:absolute;left:50%;transform:translateX(-50%);filter:drop-shadow(0 40px 80px rgba(0,0,0,.55)) drop-shadow(0 0 80px rgba(37,99,235,.25))}
+.cta{position:absolute;left:96px;right:96px;bottom:300px;background:#2563EB;border-radius:36px;padding:40px 48px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.cta h2{font-family:'Poppins';font-size:44px;font-weight:700;line-height:1.15}
+.cta p{margin-top:12px;font-size:32px;color:#e2e9ff}
+.dlogo{position:absolute;right:96px;top:520px;width:220px;height:220px;border-radius:50%;background:#FFF8EF;padding:10px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+</style></head><body>
+
+<!-- KORT 1 -->
+<div class="s" id="kort-1">
+ <div class="top"><img class="mark" src="mark.png"><span class="handle">@tresktecnologia</span></div>
+ <div class="tag">KORT · AGENDA ONLINE</div>
+ <h1>Sua barbearia<br><b>agendando sozinha.</b></h1>
+ <p class="lead">O cliente marca pelo link, a qualquer hora. Sem ficar respondendo mensagem.</p>
+ <div class="phone" style="top:860px"><img src="kort-telas/publica.png"></div>
+</div>
+
+<!-- KORT 2 -->
+<div class="s" id="kort-2">
+ <div class="top"><img class="mark" src="mark.png"><span class="handle">@tresktecnologia</span></div>
+ <div class="tag">KORT · O CLIENTE</div>
+ <h1>Agendar em<br><b>4 toques.</b></h1>
+ <div class="chips"><span class="chip"><i>1</i>Serviço</span><span class="chip"><i>2</i>Barbeiro</span><span class="chip"><i>3</i>Horário</span><span class="chip"><i>4</i>Confirmar</span></div>
+ <p class="lead">Horário ocupado aparece riscado. Ninguém marca em cima de ninguém.</p>
+ <div class="phone" style="top:980px"><img src="kort-telas/horarios.png"></div>
+</div>
+
+<!-- KORT 3 -->
+<div class="s" id="kort-3">
+ <div class="top"><img class="mark" src="mark.png"><span class="handle">@tresktecnologia</span></div>
+ <div class="tag">KORT · O DONO</div>
+ <h1>Tudo da barbearia<br><b>no seu celular.</b></h1>
+ <p class="lead">Agenda do dia, faturamento e cartão fidelidade, atualizados na hora.</p>
+ <div class="phone" style="top:880px"><img src="kort-telas/painel.png"></div>
+ <div class="cta"><h2>Quer o KORT na sua barbearia?</h2><p>Chama no direct</p></div>
+</div>
+
+<!-- CASES 1 -->
+<div class="s" id="cases-1">
+ <div class="top"><img class="mark" src="mark.png"><span class="handle">@tresktecnologia</span></div>
+ <div class="tag">CASE · DIVINA BABY</div>
+ <h1>Loja, caixa e<br><b>crediário num<br>sistema só.</b></h1>
+ <p class="lead">Loja de enxoval para bebê<br>em Ibimirim-PE.</p>
+ <img class="dlogo" src="divina-telas/logo-divina-baby.png">
+ <div class="phone" style="top:1000px"><img src="divina-telas/produto-mobile.png"></div>
+</div>
+
+<!-- CASES 2 -->
+<div class="s" id="cases-2">
+ <div class="top"><img class="mark" src="mark.png"><span class="handle">@tresktecnologia</span></div>
+ <div class="tag">CASE · DIVINA BABY</div>
+ <h1>O crediário<br><b>no celular da cliente.</b></h1>
+ <p class="lead">Limite, parcelas e pagamento no Pix, sem ir até a loja.</p>
+ <span class="pill">Em breve</span>
+ <img class="bare" src="divina-telas/mc-telas-inicio.png" style="top:880px;width:560px">
+</div>
+
+<!-- CASES 3 -->
+<div class="s" id="cases-3">
+ <div class="top"><img class="mark" src="mark.png"><span class="handle">@tresktecnologia</span></div>
+ <div class="tag">CASE · KORT</div>
+ <h1>Produto próprio,<br><b>já no ar.</b></h1>
+ <p class="lead">Agenda online para barbearias, feita para cidades pequenas.</p>
+ <div class="phone" style="top:820px"><img src="kort-telas/agenda-dia.png"></div>
+ <div class="cta"><h2>Seu negócio pode ser o próximo case</h2><p>Chama no direct e peça seu orçamento</p></div>
+</div>
+
+</body></html>
