@@ -211,8 +211,9 @@ def scene_video(s):
     else:
         if kind == 'clip':
             a, e = s['src'][1], s['src'][2]
-            dur = max(s['need'], e - a)
-            hold = dur - (e - a)
+            dur = s['need'] if s.get('exact') else max(s['need'], e - a)
+            e = min(e, a + dur)
+            hold = max(0.0, dur - (e - a))
             scr = (f'[1:v]trim=start={a}:end={e},setpts=PTS-STARTPTS,crop={SW}:{SH}:{SX}:{SY},fps=30,'
                    f'tpad=stop_mode=clone:stop_duration={hold + 0.1:.3f}[s];')
             src_in = ['-i', SRC]
@@ -240,9 +241,28 @@ def scene_video(s):
     s['dur'] = round(dur * 30) / 30
     return out
 
+def ext_timings(path):
+    T = json.load(open(path))
+    ids = [x['id'] for x in SCENES]
+    L = T['lines']
+    bounds = [0.0]
+    for a, b in zip(ids, ids[1:]):
+        bounds.append(round((L[a][-1][1] + L[b][0][0]) / 2 * 30) / 30)
+    bounds.append(T['end'])
+    for k, s in enumerate(SCENES):
+        t0 = bounds[k]
+        s['cues'] = [(st - t0, en - t0, s['lines'][i][1], i) for i, (st, en) in enumerate(L[s['id']])]
+        s['need'] = bounds[k + 1] - t0
+        s['exact'] = True
+        s['audio'] = np.zeros(1, np.float32)
+
 def main():
     preview = len(sys.argv) > 1 and sys.argv[1] == 'preview'
-    tts()
+    ext = os.environ.get('EXT_TIMINGS')
+    if ext:
+        ext_timings(ext)
+    else:
+        tts()
     asyncio.run(layers())
     for s in SCENES:
         scene_video(s)
@@ -250,6 +270,13 @@ def main():
         if preview:
             mid = s['cues'][-1][0] + 0.5
             run(['ffmpeg', '-y', '-v', 'error', '-ss', f'{mid:.2f}', '-i', f'{W}/sc_{s["id"]}.mp4', '-frames:v', '1', f'{W}/pv_{s["id"]}.png'])
+    if ext:
+        with open(f'{W}/concat.txt', 'w') as fh:
+            for s in SCENES: fh.write(f"file '{W}/sc_{s['id']}.mp4'\n")
+        out = sys.argv[2] if len(sys.argv) > 2 else f'{W}/kort-explicativo-mudo.mp4'
+        run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', f'{W}/concat.txt', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
+             '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-shortest', '-movflags', '+faststart', out])
+        print('total', round(sum(s['dur'] for s in SCENES), 2), out); return
     track = []
     for s in SCENES:
         n = int(round(s['dur'] * SR))
