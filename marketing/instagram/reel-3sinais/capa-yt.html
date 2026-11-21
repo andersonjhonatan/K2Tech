@@ -1,40 +1,62 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Caveat';src:url(../fonts/caveat-latin-700-normal.woff2);font-weight:700}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#000}
-.c{position:relative;width:1080px;height:1920px;overflow:hidden;background:radial-gradient(900px 900px at 75% 55%,#1d4ed8 0%,#0b1640 45%,#05070f 80%);font-family:'Poppins'}
-/* raios de fundo */
-.rays{position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 75% 55%,rgba(255,255,255,.05) 0deg 8deg,rgba(255,255,255,0) 8deg 20deg)}
-.top{position:absolute;left:60px;right:60px;top:270px;text-align:left}
-.badge{display:inline-block;background:#FFD400;color:#0B0B0C;font-weight:800;font-size:54px;padding:6px 30px;border-radius:14px;transform:rotate(-3deg);box-shadow:0 10px 0 #b38f00}
-.h{margin-top:30px;font-weight:800;font-size:128px;line-height:.95;color:#FFFFFF;letter-spacing:-.03em;text-transform:uppercase;
-   text-shadow:0 8px 0 #0B0B0C,6px 0 0 #0B0B0C,-6px 0 0 #0B0B0C,0 -6px 0 #0B0B0C,0 18px 30px rgba(0,0,0,.6)}
-.h .y{color:#FFD400}
-/* lado esquerdo: caderninho riscado */
-.note{position:absolute;left:40px;top:930px;width:440px;height:440px;font-size:330px;line-height:440px;text-align:center;transform:rotate(-10deg);filter:drop-shadow(0 20px 30px rgba(0,0,0,.6))}
-.x{position:absolute;left:60px;top:960px;width:400px;height:400px}
-.x:before,.x:after{content:"";position:absolute;left:-10px;top:180px;width:420px;height:44px;background:#EF2B2B;border-radius:22px;box-shadow:0 0 0 8px #0B0B0C}
-.x:before{transform:rotate(45deg)}.x:after{transform:rotate(-45deg)}
-/* lado direito: celular com sistema */
-.phone{position:absolute;right:60px;top:860px;width:400px;border-radius:52px;padding:14px;background:#111;box-shadow:0 0 0 6px #FFD400,0 30px 60px rgba(0,0,0,.7);transform:rotate(6deg)}
-.phone img{display:block;width:100%;border-radius:40px}
-.ok{position:absolute;right:30px;top:820px;width:150px;height:150px;border-radius:50%;background:#16A34A;border:8px solid #0B0B0C;color:#fff;font-size:100px;font-weight:800;display:flex;align-items:center;justify-content:center;transform:rotate(8deg)}
-/* seta */
-.arrow{position:absolute;left:400px;top:1080px;width:240px;height:120px}
-.bottom{position:absolute;left:60px;right:60px;top:1470px;display:flex;justify-content:space-between;align-items:center}
-.pill{background:#EF2B2B;color:#fff;font-weight:800;font-size:46px;padding:14px 30px;border-radius:16px;border:6px solid #0B0B0C;transform:rotate(-2deg)}
-.mark{height:110px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.6))}
+.c{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:'Poppins';
+  background:radial-gradient(700px 600px at 50% 62%,rgba(59,130,246,.45),rgba(59,130,246,0) 70%),linear-gradient(180deg,#0a1230 0%,#081026 55%,#05070f 100%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:72px 72px}
+.vig{position:absolute;inset:0;background:radial-gradient(1200px 1300px at 50% 55%,rgba(0,0,0,0) 55%,rgba(0,0,0,.75) 100%)}
+.mark{position:absolute;right:64px;top:270px;height:96px}
+.title{position:absolute;left:64px;right:64px;top:290px}
+.t1,.t2{font-weight:800;text-transform:uppercase;letter-spacing:-.025em;line-height:.95;color:#fff;
+  text-shadow:0 6px 0 #02040b,0 0 0 #000,0 22px 40px rgba(0,0,0,.55)}
+.t1{font-size:118px}
+.t1 s{text-decoration:none;position:relative}
+.t1 s:after{content:"";position:absolute;left:-10px;right:-10px;top:52%;height:16px;background:#EF2B2B;border-radius:8px;transform:rotate(-4deg);box-shadow:0 4px 0 #02040b}
+.t2{font-size:132px;margin-top:6px}
+.t2 b{color:#FFD400}
+/* caderno */
+.paper{position:absolute;left:70px;top:760px;width:460px;height:600px;border-radius:14px;transform:rotate(-7deg);
+  background:repeating-linear-gradient(180deg,#FFFBEF 0px,#FFFBEF 58px,#9EC3EE 58px,#9EC3EE 60px);box-shadow:0 30px 60px rgba(0,0,0,.6);padding:70px 30px 0 92px;font-family:'Caveat';color:#22304f;font-size:50px;line-height:60px}
+.paper:before{content:"";position:absolute;left:66px;top:0;bottom:0;width:4px;background:#F28B8B}
+.paper .r{color:#C62828}
+.paper .stain{position:absolute;right:34px;bottom:50px;width:120px;height:120px;border-radius:50%;border:10px solid rgba(140,90,40,.25)}
+.rings{position:absolute;left:-18px;top:30px;display:flex;flex-direction:column;gap:46px}
+.rings i{display:block;width:44px;height:20px;border-radius:10px;background:#9aa3b5;box-shadow:inset 0 -4px 0 #6b7385}
+/* celular */
+.phone{position:absolute;right:66px;top:700px;width:420px;border-radius:56px;padding:14px;background:#0d0d10;transform:rotate(6deg);
+  box-shadow:0 0 0 3px #2c2c31,0 40px 80px rgba(0,0,0,.7),0 0 120px 30px rgba(59,130,246,.35)}
+.phone img{display:block;width:100%;border-radius:44px}
+/* etiquetas */
+.lab{position:absolute;font-weight:800;font-size:52px;color:#fff;padding:10px 28px;border-radius:16px;border:6px solid #02040b;box-shadow:0 8px 0 #02040b}
+.antes{left:110px;top:700px;background:#EF2B2B;transform:rotate(-8deg)}
+.depois{right:90px;top:640px;background:#16A34A;transform:rotate(6deg)}
+.arrow{position:absolute;left:470px;top:1060px;width:170px;height:100px}
+.bottom{position:absolute;left:0;right:0;top:1520px;display:flex;justify-content:center}
+.badge{background:#FFD400;color:#0B0B0C;font-weight:800;font-size:50px;padding:14px 36px;border-radius:18px;border:6px solid #02040b;box-shadow:0 10px 0 #02040b;transform:rotate(-2deg)}
 </style></head><body>
 <div class="c" id="capa">
- <div class="rays"></div>
- <div class="top">
-  <span class="badge">3 SINAIS</span>
-  <div class="h">Ainda no<br><span class="y">caderninho?</span></div>
+ <div class="grid"></div>
+ <img class="mark" src="../mark.png">
+ <div class="title">
+  <div class="t1"><s>Caderninho</s></div>
+  <div class="t2">ou <b>sistema?</b></div>
  </div>
- <div class="note">📒</div>
- <div class="x"></div>
- <svg class="arrow" viewBox="0 0 240 120"><path d="M10 60 H170" stroke="#0B0B0C" stroke-width="44" stroke-linecap="round"/><path d="M150 15 L225 60 L150 105 Z" fill="#0B0B0C" stroke="#0B0B0C" stroke-width="14" stroke-linejoin="round"/><path d="M10 60 H170" stroke="#FFD400" stroke-width="28" stroke-linecap="round"/><path d="M155 28 L212 60 L155 92 Z" fill="#FFD400"/></svg>
+ <div class="paper">
+  <div class="rings"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  Fiado Zé - 30,00<br>
+  <span class="r">Maria ??? pagou?</span><br>
+  Bodies P - acabou?<br>
+  caixa: 1.2?? <span class="r">✗</span><br>
+  ver estoque lá dentro<br>
+  Joana 3x... ??
+  <div class="stain"></div>
+ </div>
  <div class="phone"><img src="../kort-telas/faturamento.png"></div>
- <div class="ok">✓</div>
- <div class="bottom"><span class="pill">SEU COMÉRCIO PRECISA DISSO</span></div><img class="mark" src="../mark.png" style="position:absolute;right:60px;top:262px">
+ <div class="lab antes">ANTES</div>
+ <div class="lab depois">DEPOIS</div>
+ <svg class="arrow" viewBox="0 0 170 100"><path d="M8 50 H110" stroke="#02040b" stroke-width="40" stroke-linecap="round"/><path d="M95 8 L162 50 L95 92 Z" fill="#02040b" stroke="#02040b" stroke-width="12" stroke-linejoin="round"/><path d="M8 50 H112" stroke="#FFD400" stroke-width="24" stroke-linecap="round"/><path d="M100 20 L150 50 L100 80 Z" fill="#FFD400"/></svg>
+ <div class="bottom"><span class="badge">3 SINAIS PARA MUDAR JÁ</span></div>
+ <div class="vig"></div>
 </div>
 </body></html>
