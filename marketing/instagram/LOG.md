@@ -7,14 +7,15 @@
 | 2026-11-20 | Story | Orçamento (para o destaque Orçamento) | public/instagram/stories/tresk-story-orcamento.jpg | Publicado (media id 18113746550081268) |
 | 2026-11-20 | Carrossel 6 slides | Post 2 — Case KORT (telas reais: página, horários, fidelidade, agenda, faturamento) | public/instagram/tresk-post2-*.jpg | Publicado (media id 18361172917173093) |
 | 2026-11-20 | Reels (33s) | KORT: cliente agendando + visão do dono | public/instagram/tresk-reel-kort.mp4 | Aguardando decisão de publicação |
-| 2026-11-21 | Reels (25s, 19h) | 3 sinais de que seu comércio precisa de um sistema (+ case Divina Baby) · 🎵 What You Waiting For? – Gwen Stefani (136 BPM, refrão) | public/instagram/tresk-2026-11-21-reels.mp4 (+ -capa.jpg) | Enviado ao Anderson para publicar pelo app com a música; versão com abertura (11 batidas = 4,853 s) |
+| 2026-11-21 | Reels (25s, 19h) | 3 sinais de que seu comércio precisa de um sistema (+ case Divina Baby) · 🎵 Believer – Imagine Dragons (125 BPM, refrão; trocada a pedido do Anderson, antes era What You Waiting For? – Gwen Stefani) | public/instagram/tresk-2026-11-21-reels.mp4 (+ -capa.jpg) | Enviado ao Anderson para publicar pelo app com a música; abertura de 10 batidas = 4,8 s |
 | 2026-11-21 | Reels (2min22) | KORT explicativo passo a passo (cliente + dono), narração feminina (Kokoro pf_dora) + legendas + destaques | public/instagram/tresk-reel-kort-explicativo.mp4 (+ -capa.jpg) | Enviado ao Anderson para revisão |
 | 2026-11-21 | Stories (3) | Destaque KORT: agenda sozinha, 4 toques, painel do dono | public/instagram/stories/tresk-story-kort-1..3.jpg | Publicados (media ids 17923240650462621, 18111817562248746, 18110076422459451) |
 | 2026-11-21 | Stories (3) | Destaque Cases: Divina Baby (sistema + Meu Crediário em breve) e KORT | public/instagram/stories/tresk-story-cases-1..3.jpg | Publicados (media ids 18103324130670961, 18150999637576678, 18080338442467506) |
 | 2026-11-21 | Capas de destaque v2 | Ícone grande no círculo + nova capa Dicas | public/instagram/destaques/v2/ | Entregues ao Anderson para trocar no app |
 
 ## Músicas já usadas
-- What You Waiting For? – Gwen Stefani (2026-11-21)
+- Believer – Imagine Dragons (2026-11-21)
+- What You Waiting For? – Gwen Stefani (preparada em 2026-11-21, não usada)
 
 ## Próximos temas (plano inicial dos 9 primeiros posts)
 3. Case Divina Baby — loja, PDV e crediário num sistema só
