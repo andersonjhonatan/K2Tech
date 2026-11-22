@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base-dark.css"><style>
+html,body,#stage{background:#F5F5F7}
+#stage{color:#0B0B0C}
+#glow{background:radial-gradient(900px 900px at 85% 10%,rgba(37,99,235,.20) 0%,rgba(245,245,247,0) 60%),radial-gradient(800px 800px at 5% 95%,rgba(236,72,153,.12) 0%,rgba(245,245,247,0) 60%)}
+b{color:#2563EB}
+p{color:#3d3e45}
+.lbl{color:#a3864c}
+.phone{align-self:center;width:520px;height:1000px;border-radius:72px;background:#111;padding:16px;box-shadow:0 50px 120px rgba(11,11,12,.28);margin-top:50px}
+.phone .scr{width:100%;height:100%;border-radius:58px;overflow:hidden;background:#fff}
+.phone img{width:100%;display:block}
+.sm h2{font-size:76px}
+.logo{width:420px;height:420px;border-radius:50%;align-self:center;box-shadow:0 30px 90px rgba(236,72,153,.25);margin-bottom:60px}
+.ic{font-size:200px;align-self:flex-start;margin-bottom:30px}
+.soon{align-self:flex-start;background:#C8A96A;color:#0B0B0C;font-weight:800;font-size:32px;letter-spacing:.16em;border-radius:999px;padding:12px 30px;margin-bottom:24px}
+.cta{color:#fff}
+.mark{height:200px}
+.foot{color:#6b6c74}
+.scene.top{justify-content:flex-start;padding-top:260px}
+</style></head><body><div id="stage"><div id="glow"></div>
+
+<div class="scene" id="s0">
+ <div class="ic" data-in>👶</div>
+ <h1 data-in>Loja de roupa<br>de bebê no<br>Sertão… com<br><b>loja virtual?</b></h1>
+</div>
+
+<div class="scene" id="s1">
+ <img class="logo" src="logo-divina-baby.png" data-in>
+ <div class="lbl" data-in style="align-self:center">Case real · Ibimirim-PE</div>
+ <h2 data-in style="text-align:center">Essa é a<br><b>Divina Baby.</b></h2>
+</div>
+
+<div class="scene top sm" id="s2" data-stagger=".75">
+ <h2 data-in>A cliente vê as<br>peças <b>pelo celular</b></h2>
+ <div class="phone" data-in><div class="scr"><img id="prod" src="produto-crop.png"></div></div>
+</div>
+
+<div class="scene" id="s3">
+ <div class="ic" data-in>🧾</div>
+ <h2 data-in>No balcão, o<br><b>caixa (PDV)</b><br>registra a venda</h2>
+</div>
+
+<div class="scene" id="s4">
+ <div class="ic" data-in>📒➡️📲</div>
+ <h2 data-in>E o <b>crediário</b><br>fica no sistema,<br>não no caderno</h2>
+</div>
+
+<div class="scene top sm" id="s5" data-stagger=".75">
+ <div class="soon" data-in>EM BREVE</div>
+ <h2 data-in>App <b>Meu Crediário</b>:<br>a cliente vê as<br>parcelas no celular</h2>
+ <div class="phone" data-in style="background:none;box-shadow:none;padding:0;height:auto;width:440px;margin-top:40px"><img src="mc-telas-inicio.png" style="width:100%;border-radius:60px;box-shadow:0 50px 120px rgba(11,11,12,.28)"></div>
+</div>
+
+<div class="scene" id="s6">
+ <h1 data-in>Tudo num<br><b>sistema só.</b></h1>
+ <p data-in>Loja virtual, caixa e crediário. Feito pela Tresk, aqui no Sertão. 💙</p>
+</div>
+
+<div class="scene" id="s7" data-stagger=".75">
+ <img class="mark" src="mark-dark.png" data-in>
+ <h1 data-in style="font-size:92px">Seu negócio<br>pode ser o<br><b>próximo case.</b></h1>
+ <div class="cta" data-in><div class="t">Chama no direct</div><div class="s">e peça seu orçamento sem compromisso.</div></div>
+ <div class="foot" data-in><span>tresktecnologia.com.br</span><span>@tresktecnologia</span></div>
+</div>
+</div>
+<script>
+window.CFG={bpm:85,scenes:[4,4,8,4,4,8,4,6],stagger:1,extra:(t,beat,pulse)=>{
+  if(beat>=8&&beat<16){const k=Math.max(0,Math.min(1,(beat-10)/5));document.getElementById('prod').style.transform=`scale(${1+0.08*k})`;}
+  if(beat>=32){const c=document.querySelector('#s7 .cta');c.style.boxShadow=`0 0 ${40+50*pulse}px rgba(37,99,235,${.25+.35*pulse})`;}
+}};
+</script><script src="engine.js"></script></body></html>

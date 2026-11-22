@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base-dark.css"><style>
+.pov{align-self:flex-start;background:#C8A96A;color:#0B0B0C;font-family:'Poppins';font-weight:700;font-size:56px;padding:12px 34px;border-radius:18px;margin-bottom:40px}
+.bub{max-width:860px;border-radius:48px;padding:40px 50px;font-size:62px;line-height:1.2;font-weight:600;margin-top:30px}
+.bub small{display:block;font-size:28px;letter-spacing:.14em;font-weight:700;opacity:.65;margin-bottom:10px}
+.cli{align-self:flex-start;background:#F5F5F7;color:#0B0B0C;border-bottom-left-radius:10px}
+.eu{align-self:flex-end;background:#2563EB;border-bottom-right-radius:10px}
+.giant{font-size:300px;line-height:1.15;align-self:center;margin:30px 0 50px}
+.cap{font-family:'Poppins';font-weight:700;font-size:84px;line-height:1.08;text-align:center}
+.list{margin-top:40px;display:flex;flex-direction:column;gap:22px}
+.list div{font-size:50px;font-weight:600;background:rgba(255,255,255,.06);border-radius:24px;padding:22px 32px}
+</style></head><body><div id="stage"><div id="glow"></div>
+
+<div class="scene" id="s0" data-stagger=".75">
+ <div class="pov" data-in>POV</div>
+ <h1 data-in>É <b>Black Friday</b><br>no comércio<br>do interior 😅</h1>
+</div>
+
+<div class="scene" id="s1">
+ <div class="bub cli" data-in><small>CLIENTE</small>Moço, aqui tem<br>Black Friday? 👀</div>
+ <div class="bub eu" data-in data-at="2"><small>VOCÊ</small>Tem sim!<br>Chega mais! 🤩</div>
+</div>
+
+<div class="scene" id="s2">
+ <div class="bub cli" data-in><small>CLIENTE</small>Então bota no<br><b style="color:#2563EB">fiado</b> que eu pago<br>dia 10 🙏</div>
+ <div class="bub eu" data-in data-at="2.5"><small>VOCÊ</small>…dia 10 de qual mês? 🥲</div>
+</div>
+
+<div class="scene" id="s3">
+ <div class="cap" data-in>O caderno do<br>fiado no fim<br>do dia:</div>
+ <div class="giant" id="nb" data-in data-at="1">📒</div>
+ <div class="cap" data-in data-at="2" style="font-size:64px;color:#9a9ba3">(pedindo socorro)</div>
+</div>
+
+<div class="scene" id="s4">
+ <div class="cap" data-in>A calculadora<br>do celular:</div>
+ <div class="giant" id="calc" data-in data-at="1">📱🔥</div>
+ <div class="cap" data-in data-at="2" style="font-size:64px;color:#9a9ba3">trabalhando mais que você</div>
+</div>
+
+<div class="scene" id="s5">
+ <div class="lbl" data-in>Enquanto isso, quem tem sistema</div>
+ <h2 data-in>Sabe na hora: 😎</h2>
+ <div class="list"><div data-in data-at="2">✅ quanto vendeu</div><div data-in data-at="3">✅ o que saiu do estoque</div><div data-in data-at="4">✅ quem tá devendo</div></div>
+</div>
+
+<div class="scene" id="s6" data-stagger=".75">
+ <img class="mark" src="mark.png" data-in>
+ <h1 data-in style="font-size:92px">Bora organizar<br>antes do <b>Natal?</b> 🎄</h1>
+ <div class="cta" data-in><div class="t">Chama no direct 💬</div><div class="s">e peça seu orçamento sem compromisso.</div></div>
+ <div class="foot" data-in><span>tresktecnologia.com.br</span><span>@tresktecnologia</span></div>
+</div>
+</div>
+<script>
+window.CFG={bpm:80,scenes:[4,4,4,4,4,8,8],stagger:1,extra:(t,beat,pulse)=>{
+  const sh=(id)=>{const e=document.getElementById(id);e.style.rotate=((Math.floor(beat*2)%2?1:-1)*12*pulse)+'deg';e.style.scale=(1+.1*pulse).toFixed(3);};
+  if(beat>=12&&beat<16) sh('nb'); if(beat>=16&&beat<20) sh('calc');
+  if(beat>=28){const c=document.querySelector('#s6 .cta');c.style.boxShadow=`0 0 ${40+60*pulse}px rgba(37,99,235,${.35+.4*pulse})`;}
+}};
+</script><script src="engine.js"></script></body></html>
