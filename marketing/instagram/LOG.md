@@ -37,6 +37,9 @@
 8. Serviços e como funciona o orçamento
 9. Chamada para o KORT com teste grátis
 
+## Ideias aprovadas para depois (não fazer agora)
+- Comercial nível TV da Tresk com cara de Sertão (30–60 s, vídeo IA): barbeiro abrindo a barbearia de manhã, cliente pagando o crediário pelo celular, feira de Ibimirim; trilha original + narração; para Instagram, YouTube e telão de São João. Anderson quer, mas não agora (23/11). Custa créditos do Creative Claw: mandar roteiro + custo antes.
+
 ## Recursos já criados
 - Abertura padrão dos Reels (logo animado, ~5 s, com som): public/instagram/tresk-abertura.mp4. Todo Reels começa com ela; em Reels com música, cortar a abertura num número inteiro de batidas (floor(4,969 / (60/BPM)) batidas) para não desalinhar o ritmo.
 - Página de links da bio: /links (app/links/page.tsx)
