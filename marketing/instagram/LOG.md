@@ -12,7 +12,7 @@
 | 2026-11-21 | Stories (3) | Destaque KORT: agenda sozinha, 4 toques, painel do dono | public/instagram/stories/tresk-story-kort-1..3.jpg | Publicados (media ids 17923240650462621, 18111817562248746, 18110076422459451) |
 | 2026-11-21 | Stories (3) | Destaque Cases: Divina Baby (sistema + Meu Crediário em breve) e KORT | public/instagram/stories/tresk-story-cases-1..3.jpg | Publicados (media ids 18103324130670961, 18150999637576678, 18080338442467506) |
 | 2026-11-21 | Capas de destaque v2 | Ícone grande no círculo + nova capa Dicas | public/instagram/destaques/v2/ | Entregues ao Anderson para trocar no app |
-| 2026-11-23 12h | Carrossel 6 (EDUCA, visual claro) | Black Friday: 4 contas antes de dar desconto | public/instagram/tresk-2026-11-23-1..6.jpg | Aprovado pelo Anderson em 22/11; agendado |
+| 2026-11-23 12h | Carrossel 6 (EDUCA, visual claro) | Black Friday: 4 contas antes de dar desconto | public/instagram/tresk-2026-11-23-1..6.jpg | Publicado em 23/11 12h (media id 18132003976888809) |
 | 2026-11-24 19h | Reels de texto (EDUCA) | Você sabe quanto vendeu ontem? Fechar o caixa em 3 passos · 🎵 Levitating – Dua Lipa (103 BPM; abertura 8 batidas = 4,66 s) | public/instagram/tresk-2026-11-24-reels.mp4 (+ -capa.jpg) | Aprovado pelo Anderson em 22/11; agendado |
 | 2026-11-25 12h | Imagem única post-it (LEVE) | "Anota aí que sexta eu passo pra pagar" | public/instagram/tresk-2026-11-25.jpg | Aprovado pelo Anderson em 22/11; agendado |
 | 2026-11-26 19h | Reels POV/chat (LEVE) | POV: Black Friday no comércio do interior · 🎵 Xote da Alegria – Falamansa (80 BPM; abertura 6 batidas = 4,5 s) | public/instagram/tresk-2026-11-26-reels.mp4 (+ -capa.jpg) | Aprovado pelo Anderson em 22/11; agendado |
