@@ -12,13 +12,13 @@
 | 2026-11-21 | Stories (3) | Destaque KORT: agenda sozinha, 4 toques, painel do dono | public/instagram/stories/tresk-story-kort-1..3.jpg | Publicados (media ids 17923240650462621, 18111817562248746, 18110076422459451) |
 | 2026-11-21 | Stories (3) | Destaque Cases: Divina Baby (sistema + Meu Crediário em breve) e KORT | public/instagram/stories/tresk-story-cases-1..3.jpg | Publicados (media ids 18103324130670961, 18150999637576678, 18080338442467506) |
 | 2026-11-21 | Capas de destaque v2 | Ícone grande no círculo + nova capa Dicas | public/instagram/destaques/v2/ | Entregues ao Anderson para trocar no app |
-| 2026-11-23 12h | Carrossel 6 (EDUCA, visual claro) | Black Friday: 4 contas antes de dar desconto | public/instagram/tresk-2026-11-23-1..6.jpg | Aguardando aprovação |
-| 2026-11-24 19h | Reels de texto (EDUCA) | Você sabe quanto vendeu ontem? Fechar o caixa em 3 passos · 🎵 Levitating – Dua Lipa (103 BPM; abertura 8 batidas = 4,66 s) | public/instagram/tresk-2026-11-24-reels.mp4 (+ -capa.jpg) | Aguardando aprovação |
-| 2026-11-25 12h | Imagem única post-it (LEVE) | "Anota aí que sexta eu passo pra pagar" | public/instagram/tresk-2026-11-25.jpg | Aguardando aprovação |
-| 2026-11-26 19h | Reels POV/chat (LEVE) | POV: Black Friday no comércio do interior · 🎵 Xote da Alegria – Falamansa (80 BPM; abertura 6 batidas = 4,5 s) | public/instagram/tresk-2026-11-26-reels.mp4 (+ -capa.jpg) | Aguardando aprovação |
-| 2026-11-27 12h | Carrossel 5 FAQ com mockup (CONVITE) | Quanto custa / prazo / tecnologia / fora de Ibimirim | public/instagram/tresk-2026-11-27-1..5.jpg | Aguardando aprovação |
-| 2026-11-28 19h | Reels com tela, visual claro (PROVA) | Case Divina Baby: loja virtual + PDV + crediário (Meu Crediário em breve) · 🎵 Velha Infância – Tribalistas (85 BPM; abertura 7 batidas = 4,94 s) | public/instagram/tresk-2026-11-28-reels.mp4 (+ -capa.jpg) | Aguardando aprovação |
-| 2026-11-23..28 | Stories (12) | Enquete BF, post novo, aviso Reels, caixinha caixa, bastidor, como nasce um sistema, isso ou aquilo, quiz desconto, orçamento BF, link, sábado leve, case Divina | public/instagram/stories/tresk-story-2026-11-2*.jpg | Aguardando aprovação |
+| 2026-11-23 12h | Carrossel 6 (EDUCA, visual claro) | Black Friday: 4 contas antes de dar desconto | public/instagram/tresk-2026-11-23-1..6.jpg | Aprovado pelo Anderson em 22/11; agendado |
+| 2026-11-24 19h | Reels de texto (EDUCA) | Você sabe quanto vendeu ontem? Fechar o caixa em 3 passos · 🎵 Levitating – Dua Lipa (103 BPM; abertura 8 batidas = 4,66 s) | public/instagram/tresk-2026-11-24-reels.mp4 (+ -capa.jpg) | Aprovado pelo Anderson em 22/11; agendado |
+| 2026-11-25 12h | Imagem única post-it (LEVE) | "Anota aí que sexta eu passo pra pagar" | public/instagram/tresk-2026-11-25.jpg | Aprovado pelo Anderson em 22/11; agendado |
+| 2026-11-26 19h | Reels POV/chat (LEVE) | POV: Black Friday no comércio do interior · 🎵 Xote da Alegria – Falamansa (80 BPM; abertura 6 batidas = 4,5 s) | public/instagram/tresk-2026-11-26-reels.mp4 (+ -capa.jpg) | Aprovado pelo Anderson em 22/11; agendado |
+| 2026-11-27 12h | Carrossel 5 FAQ com mockup (CONVITE) | Quanto custa / prazo / tecnologia / fora de Ibimirim | public/instagram/tresk-2026-11-27-1..5.jpg | Aprovado pelo Anderson em 22/11; agendado |
+| 2026-11-28 19h | Reels com tela, visual claro (PROVA) | Case Divina Baby: loja virtual + PDV + crediário (Meu Crediário em breve) · 🎵 Velha Infância – Tribalistas (85 BPM; abertura 7 batidas = 4,94 s) | public/instagram/tresk-2026-11-28-reels.mp4 (+ -capa.jpg) | Aprovado pelo Anderson em 22/11; agendado |
+| 2026-11-23..28 | Stories (12) | Enquete BF, post novo, aviso Reels, caixinha caixa, bastidor, como nasce um sistema, isso ou aquilo, quiz desconto, orçamento BF, link, sábado leve, case Divina | public/instagram/stories/tresk-story-2026-11-2*.jpg | Aprovado pelo Anderson em 22/11; agendado |
 
 ## Desempenho (Windsor, 22/11)
 - Reels 3 sinais: 199 de alcance x carrosséis de apresentação/KORT: 5 cada. Reels está puxando o alcance; manter 3 Reels/semana e capas fortes.
