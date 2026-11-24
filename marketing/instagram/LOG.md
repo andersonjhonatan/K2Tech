@@ -20,6 +20,7 @@
 | 2026-11-28 19h | Reels com tela, visual claro (PROVA) | Case Divina Baby: loja virtual + PDV + crediário (Meu Crediário em breve) · 🎵 Velha Infância – Tribalistas (85 BPM; abertura 7 batidas = 4,94 s) | public/instagram/tresk-2026-11-28-reels.mp4 (+ -capa.jpg) | Aprovado pelo Anderson em 22/11; agendado |
 | 2026-11-23 10:07 | Story com enquete (publicado pelo Anderson no app) | Black Friday: sua loja vai entrar? | public/instagram/stories/tresk-story-2026-11-23-1.jpg | Publicado (story id 17978959671166220) |
 | 2026-11-23 12:30 | Story de imagem (eu publiquei) | Aviso do post novo (4 contas BF) → destaque Dicas | public/instagram/stories/tresk-story-2026-11-23-2.jpg | Publicado (media id 18121579586045117) |
+| 2026-11-24 17:00 | Story de imagem (eu publiquei) | Aviso do Reels das 19h (caixa) | public/instagram/stories/tresk-story-2026-11-24-1.jpg | Publicado (media id 17937443727143469) |
 | 2026-11-23..28 | Stories (12) | Enquete BF, post novo, aviso Reels, caixinha caixa, bastidor, como nasce um sistema, isso ou aquilo, quiz desconto, orçamento BF, link, sábado leve, case Divina | public/instagram/stories/tresk-story-2026-11-2*.jpg | Aprovado pelo Anderson em 22/11; agendado |
 
 ## Desempenho (Windsor, 22/11)
