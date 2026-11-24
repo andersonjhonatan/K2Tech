@@ -1,6 +1,6 @@
 // CFG = {bpm, scenes:[beats...], stagger:beats, extra:function(t,beat,pulse)}
 (function(){
-const C = window.CFG, BEAT = 60 / C.bpm;
+const C = window.CFG, BEAT = 60 / C.bpm * (C.unit || 1); // unit 2 = cenas contadas em pares de batidas (músicas rápidas)
 let acc = 0; const SC = C.scenes.map(n => { const r = [acc, acc + n]; acc += n; return r; });
 const TOTAL = acc * BEAT;
 const ease = x => x<=0?0:x>=1?1:1-Math.pow(1-x,3);

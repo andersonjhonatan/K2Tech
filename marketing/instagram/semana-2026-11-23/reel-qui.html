@@ -51,7 +51,7 @@
 </div>
 </div>
 <script>
-window.CFG={bpm:80,scenes:[4,4,4,4,4,8,8],stagger:1,extra:(t,beat,pulse)=>{
+window.CFG={bpm:140,unit:2,scenes:[4,4,4,4,4,8,6],stagger:1,extra:(t,beat,pulse)=>{
   const sh=(id)=>{const e=document.getElementById(id);e.style.rotate=((Math.floor(beat*2)%2?1:-1)*12*pulse)+'deg';e.style.scale=(1+.1*pulse).toFixed(3);};
   if(beat>=12&&beat<16) sh('nb'); if(beat>=16&&beat<20) sh('calc');
   if(beat>=28){const c=document.querySelector('#s6 .cta');c.style.boxShadow=`0 0 ${40+60*pulse}px rgba(37,99,235,${.35+.4*pulse})`;}

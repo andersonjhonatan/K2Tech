@@ -15,9 +15,9 @@
 | 2026-11-23 12h | Carrossel 6 (EDUCA, visual claro) | Black Friday: 4 contas antes de dar desconto | public/instagram/tresk-2026-11-23-1..6.jpg | Publicado em 23/11 12h (media id 18132003976888809) |
 | 2026-11-24 19h | Reels de texto (EDUCA) | Você sabe quanto vendeu ontem? Fechar o caixa em 3 passos · 🎵 planejada Levitating – Dua Lipa, mas o Anderson TROCOU a música no app (achou "muito feminina, não parece música de marketing") | public/instagram/tresk-2026-11-24-reels.mp4 (+ -capa.jpg) | Publicado pelo Anderson 24/11 19h00 (media id 18121603442051615; https://www.instagram.com/reel/DgI-b2sML4d/) |
 | 2026-11-25 12h | Imagem única post-it (LEVE) | "Anota aí que sexta eu passo pra pagar" | public/instagram/tresk-2026-11-25.jpg | Aprovado pelo Anderson em 22/11; agendado |
-| 2026-11-26 19h | Reels POV/chat (LEVE) | POV: Black Friday no comércio do interior · 🎵 Xote da Alegria – Falamansa (80 BPM; abertura 6 batidas = 4,5 s) | public/instagram/tresk-2026-11-26-reels.mp4 (+ -capa.jpg) | Aprovado pelo Anderson em 22/11; agendado |
+| 2026-11-26 19h | Reels POV/chat (LEVE) | POV: Black Friday no comércio do interior · 🎵 Kernkraft 400 – Zombie Nation (instrumental, 140 BPM; cenas a cada 8 batidas; abertura 11 batidas = 4,71 s) — trocada em 24/11 (era Xote da Alegria) | public/instagram/tresk-2026-11-26-reels.mp4 (+ -capa.jpg) | Aprovado pelo Anderson em 22/11; agendado |
 | 2026-11-27 12h | Carrossel 5 FAQ com mockup (CONVITE) | Quanto custa / prazo / tecnologia / fora de Ibimirim | public/instagram/tresk-2026-11-27-1..5.jpg | Aprovado pelo Anderson em 22/11; agendado |
-| 2026-11-28 19h | Reels com tela, visual claro (PROVA) | Case Divina Baby: loja virtual + PDV + crediário (Meu Crediário em breve) · 🎵 Velha Infância – Tribalistas (85 BPM; abertura 7 batidas = 4,94 s) | public/instagram/tresk-2026-11-28-reels.mp4 (+ -capa.jpg) | Aprovado pelo Anderson em 22/11; agendado |
+| 2026-11-28 19h | Reels com tela, visual claro (PROVA) | Case Divina Baby: loja virtual + PDV + crediário (Meu Crediário em breve) · 🎵 Spectre – Alan Walker (instrumental de 2015, 128 BPM; cenas a cada 8 batidas; abertura 10 batidas = 4,69 s) — trocada em 24/11 (era Velha Infância) | public/instagram/tresk-2026-11-28-reels.mp4 (+ -capa.jpg) | Aprovado pelo Anderson em 22/11; agendado |
 | 2026-11-23 10:07 | Story com enquete (publicado pelo Anderson no app) | Black Friday: sua loja vai entrar? | public/instagram/stories/tresk-story-2026-11-23-1.jpg | Publicado (story id 17978959671166220) |
 | 2026-11-23 12:30 | Story de imagem (eu publiquei) | Aviso do post novo (4 contas BF) → destaque Dicas | public/instagram/stories/tresk-story-2026-11-23-2.jpg | Publicado (media id 18121579586045117) |
 | 2026-11-24 17:00 | Story de imagem (eu publiquei) | Aviso do Reels das 19h (caixa) | public/instagram/stories/tresk-story-2026-11-24-1.jpg | Publicado (media id 17937443727143469) |
@@ -26,12 +26,17 @@
 ## Desempenho (Windsor, 22/11)
 - Reels 3 sinais: 199 de alcance x carrosséis de apresentação/KORT: 5 cada. Reels está puxando o alcance; manter 3 Reels/semana e capas fortes.
 
+## Regras do Anderson (24/11)
+- Músicas dos Reels: INSTRUMENTAIS, animadas, com cara de comercial/divulgação. Nada de pop com vocal feminino (Levitating foi recusada).
+- Legendas: no máximo 5 hashtags (limite do Instagram desde dez/2025). Base: #tresktecnologia #ibimirim #sertaodepernambuco + 2 do tema.
+
 ## Músicas já usadas
 - Believer – Imagine Dragons (2026-11-21)
 - What You Waiting For? – Gwen Stefani (preparada em 2026-11-21, não usada)
 - Levitating – Dua Lipa (planejada 2026-11-24, recusada pelo Anderson: vocal feminino pop não combina com marketing da Tresk)
-- Xote da Alegria – Falamansa (planejada 2026-11-26)
-- Velha Infância – Tribalistas (planejada 2026-11-28)
+- Kernkraft 400 – Zombie Nation (planejada 2026-11-26)
+- Spectre – Alan Walker (planejada 2026-11-28)
+- Xote da Alegria – Falamansa e Velha Infância – Tribalistas: preparadas e descartadas em 24/11 (não são instrumentais)
 
 ## Próximos temas (plano inicial dos 9 primeiros posts)
 3. Case Divina Baby — loja, PDV e crediário num sistema só (Reels 28/11)

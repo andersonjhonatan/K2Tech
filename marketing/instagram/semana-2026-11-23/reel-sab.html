@@ -63,8 +63,8 @@ p{color:#3d3e45}
 </div>
 </div>
 <script>
-window.CFG={bpm:85,scenes:[4,4,8,4,4,8,4,6],stagger:1,extra:(t,beat,pulse)=>{
-  if(beat>=8&&beat<16){const k=Math.max(0,Math.min(1,(beat-10)/5));document.getElementById('prod').style.transform=`scale(${1+0.08*k})`;}
+window.CFG={bpm:128,unit:2,scenes:[4,4,4,4,4,4,4,4],stagger:1,extra:(t,beat,pulse)=>{
+  if(beat>=8&&beat<12){const k=Math.max(0,Math.min(1,(beat-9)/3));document.getElementById('prod').style.transform=`scale(${1+0.08*k})`;}
   if(beat>=32){const c=document.querySelector('#s7 .cta');c.style.boxShadow=`0 0 ${40+50*pulse}px rgba(37,99,235,${.25+.35*pulse})`;}
 }};
 </script><script src="engine.js"></script></body></html>
