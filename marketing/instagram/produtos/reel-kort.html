@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base-dark.css"><link rel="stylesheet" href="produto.css"></head><body><div id="stage"><div id="glow"></div>
+
+<div class="scene" id="s0" data-stagger=".7">
+ <div class="lbl" data-in>Dono de barbearia…</div>
+ <h1 data-in style="font-size:96px">Ainda marca<br>horário pelo<br><b>WhatsApp?</b> 📲</h1>
+ <div class="chips"><div class="chip bad" data-in data-at="2">💬 Mensagem às 23h</div><div class="chip bad" data-in data-at="2.6">🙈 Cliente que esquece</div><div class="chip bad" data-in data-at="3.2">🪑 Cadeira vazia</div></div>
+</div>
+
+<div class="scene" id="s1" data-stagger=".7">
+ <div class="lbl" data-in>Apresentando</div>
+ <div class="brand" data-in data-pulse=".04">KORT<span>.</span></div>
+ <p class="tag" data-in>A agenda online da<br>sua barbearia. 💈</p>
+ <div class="by" data-in>FEITO PELA TRESK · SERTÃO DE PE</div>
+</div>
+
+<div class="scene ph" id="s2" data-stagger=".6">
+ <div class="step" data-in>PARA O CLIENTE · 1</div>
+ <h2 data-in>Abre o <b>link</b> da<br>sua barbearia</h2>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,-120" src="../kort-telas/publica.png"></div></div>
+</div>
+
+<div class="scene ph" id="s3" data-stagger=".6">
+ <div class="step" data-in>PARA O CLIENTE · 2</div>
+ <h2 data-in>Escolhe o <b>horário<br>livre</b>. Sem ligar.</h2>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,-260" src="../kort-telas/horarios.png"></div></div>
+</div>
+
+<div class="scene ph" id="s4" data-stagger=".6">
+ <div class="step" data-in>PARA O CLIENTE · 3</div>
+ <h2 data-in>Cartão <b>fidelidade</b><br>sem papel 🎁</h2>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,-40" src="../kort-telas/fidelidade.png"></div></div>
+</div>
+
+<div class="scene ph" id="s5" data-stagger=".6">
+ <div class="step" data-in>PARA O DONO · 1</div>
+ <h2 data-in>A <b>agenda do dia</b><br>na palma da mão</h2>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,-200" src="../kort-telas/agenda-dia.png"></div></div>
+</div>
+
+<div class="scene ph" id="s6" data-stagger=".6">
+ <div class="step" data-in>PARA O DONO · 2</div>
+ <h2 data-in>Quanto entra <b>hoje</b><br>e nos próximos dias</h2>
+ <div class="note" data-in>dados de demonstração</div>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,-180" src="../kort-telas/painel.png"></div></div>
+</div>
+
+<div class="scene ph" id="s7" data-stagger=".6">
+ <div class="step" data-in>PARA O DONO · 3</div>
+ <h2 data-in><b>Faturamento</b> do mês<br>sem planilha 📊</h2>
+ <div class="note" data-in>dados de demonstração</div>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,-260" src="../kort-telas/faturamento.png"></div></div>
+</div>
+
+<div class="scene" id="s8" data-stagger=".7">
+ <div class="lbl" data-in>O que muda na barbearia</div>
+ <h2 data-in>Com o KORT:</h2>
+ <div class="chips"><div class="chip ok" data-in data-at="1.4">✅ Cliente agenda 24h por dia</div><div class="chip ok" data-in data-at="2.1">✅ Menos cadeira vazia</div><div class="chip ok" data-in data-at="2.8">✅ Cliente volta mais (fidelidade)</div><div class="chip ok" data-in data-at="3.5">✅ Você sabe quanto fatura</div></div>
+</div>
+
+<div class="scene" id="s9" data-stagger=".7">
+ <img class="mark" src="mark.png" data-in>
+ <h1 data-in style="font-size:88px">Quer o <b>KORT</b><br>na sua barbearia?</h1>
+ <div class="cta" data-in><div class="t">Chama no direct 💬</div><div class="s">e peça um teste sem compromisso.</div></div>
+ <div class="foot" data-in><span>tresktecnologia.com.br</span><span>@tresktecnologia</span></div>
+</div>
+</div>
+<script>
+window.CFG={bpm:136,unit:2,scenes:[4,4,6,6,5,5,5,5,6,5],stagger:1,extra:(t,beat,pulse,SC)=>{
+  SC.forEach(([a,b],i)=>{ const el=document.getElementById('s'+i); const img=el&&el.querySelector('.pan'); if(!img) return;
+    const [x,y]=img.dataset.pan.split(',').map(Number); const k=Math.max(0,Math.min(1,(beat-a-1.2)/(b-a-1.6)));
+    const e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2; img.style.transformOrigin="50% 30%"; img.style.transform=`scale(${1+0.09*e})`; });
+  const last=SC[SC.length-1][0]; if(beat>=last){const c=document.querySelector('#s9 .cta');c.style.boxShadow=`0 0 ${40+60*pulse}px rgba(37,99,235,${.35+.4*pulse})`;}
+}};
+</script><script src="engine.js"></script></body></html>
