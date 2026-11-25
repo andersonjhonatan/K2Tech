@@ -1,0 +1,111 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#FFF4E0;font-family:'Archivo Black','Inter';color:#2B1708}
+#stage:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(215,38,61,.09) 3px,transparent 3.5px);background-size:34px 34px}
+.scene{position:absolute;inset:0;opacity:0;padding:260px 80px 360px}
+.big{font-family:'Anton';text-transform:uppercase;line-height:.92;letter-spacing:.005em}
+.red{color:#D7263D}.mus{color:#F2B705}
+.slab{background:#D7263D;color:#FFF4E0;display:inline-block;padding:6px 26px 10px;transform:rotate(-2deg)}
+.tag{display:inline-block;background:#2B1708;color:#FFF4E0;font-family:'Archivo Black';font-size:34px;padding:12px 28px;border-radius:14px;letter-spacing:.06em}
+.hand{font-family:'Caveat';font-weight:700}
+.stk{position:absolute;background:#F2B705;color:#2B1708;font-family:'Archivo Black';font-size:38px;padding:16px 28px;border-radius:18px;box-shadow:6px 6px 0 #2B1708;border:4px solid #2B1708;z-index:6}
+.stk.r{background:#D7263D;color:#FFF4E0}
+.phone{position:absolute;width:520px;height:1126px;border-radius:66px;background:#2B1708;padding:14px;box-shadow:18px 18px 0 rgba(43,23,8,.25)}
+.phone .scr{width:100%;height:100%;border-radius:54px;overflow:hidden;background:#fff}
+.phone .scr img{width:100%;display:block}
+.sal{position:absolute;will-change:transform}
+.wipe{position:absolute;left:-300px;top:-200px;width:1700px;height:2400px;background:#D7263D;z-index:50;transform:translateX(-120%) skewX(-12deg)}
+.num{font-family:'Anton';font-size:230px;line-height:.8;color:#D7263D;-webkit-text-stroke:0}
+.tk{background:#fff;border:4px dashed #2B1708;border-radius:24px;padding:26px 30px;box-shadow:10px 10px 0 #F2B705}
+.cta{background:#2B1708;color:#FFF4E0;border-radius:30px;padding:40px 46px;box-shadow:10px 10px 0 #F2B705}
+@font-face{font-family:Caveat;src:url(../../semana-2026-11-23/caveat-latin-700-normal.woff2);font-weight:700}
+</style></head><body><div id="stage">
+
+<!-- s0 hook -->
+<div class="scene" id="s0">
+ <img class="sal" id="h1" src="coxinha.png" style="width:420px;left:60px;top:300px" data-in data-at=".1">
+ <img class="sal" id="h2" src="pastel.png" style="width:520px;left:520px;top:420px" data-in data-at=".75">
+ <img class="sal" id="h3" src="kibe.png" style="width:440px;left:40px;top:1060px" data-in data-at="1.6">
+ <img class="sal" id="h4" src="empada.png" style="width:400px;left:600px;top:1000px" data-in data-at="2.6">
+ <div class="big" style="position:absolute;left:80px;top:860px;font-size:120px;z-index:3">
+  <span data-in data-at=".2">COXINHA,</span> <span class="red" data-in data-at=".85">PASTEL,</span><br>
+  <span data-in data-at="1.7">MARMITA,</span> <span class="red" data-in data-at="2.7">BOLO DE POTE…</span></div>
+</div>
+
+<!-- s1 -->
+<div class="scene" id="s1" style="display:flex;flex-direction:column;justify-content:center">
+ <div class="big" style="font-size:150px" data-in data-at=".05">VENDE<br><span class="slab">COMIDA?</span></div>
+ <div class="hand" style="font-size:110px;color:#D7263D;margin-top:40px;transform:rotate(-3deg)" data-in data-at="1.3">presta atenção 👀</div>
+ <img class="sal" src="refri.png" style="width:300px;right:60px;top:300px;transform:rotate(12deg)" data-in data-at=".4">
+</div>
+
+<!-- s2 brand -->
+<div class="scene" id="s2" style="background:#D7263D;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+ <img src="kfood-mark.webp" style="width:260px;filter:brightness(0) invert(1)" data-in data-at=".05">
+ <div class="big" style="font-size:300px;color:#FFF4E0" data-in data-at=".2" data-pulse=".03">KFOOD</div>
+ <div class="tag" style="background:#F2B705;color:#2B1708;margin-top:20px" data-in data-at=".6">CARDÁPIO · PEDIDOS · PAINEL</div>
+</div>
+
+<!-- s3 passo 1 -->
+<div class="scene" id="s3">
+ <div style="display:flex;align-items:flex-end;gap:26px" data-in data-at=".05"><div class="num">01</div><div class="tag" style="margin-bottom:26px">PASSO 1</div></div>
+ <div class="big" style="font-size:92px;margin-top:20px" data-in data-at=".3">O CLIENTE ABRE<br>O <span class="red">SEU CARDÁPIO</span></div>
+ <div class="phone" style="left:280px;top:820px;transform:rotate(-4deg)" data-in data-at=".7" data-rot="-4"><div class="scr"><img src="telas/2-cardapio.png"></div></div>
+ <div class="stk" style="left:60px;top:1000px;transform:rotate(-6deg)" data-in data-at="3.6" data-rot="-6">📸 FOTO</div>
+ <div class="stk r" style="right:50px;top:1150px;transform:rotate(5deg)" data-in data-at="4.1" data-rot="5">💲 PREÇO</div>
+ <div class="stk" style="left:80px;top:1350px;transform:rotate(3deg)" data-in data-at="4.6" data-rot="3">🍽️ PORÇÃO</div>
+</div>
+
+<!-- s4 passo 2 -->
+<div class="scene" id="s4">
+ <div style="display:flex;align-items:flex-end;gap:26px" data-in data-at=".05"><div class="num">02</div><div class="tag" style="margin-bottom:26px">PASSO 2</div></div>
+ <div class="big" style="font-size:92px;margin-top:20px" data-in data-at=".3">ESCOLHE E<br><span class="red">CONFIRMA</span> 🛍️</div>
+ <div class="phone" id="p4a" style="left:90px;top:820px;transform:rotate(-5deg)" data-in data-at=".6" data-rot="-5"><div class="scr"><img src="telas/3-prato.png"></div></div>
+ <div class="phone" id="p4b" style="left:470px;top:900px;transform:rotate(5deg)" data-in data-at="2.6" data-rot="5"><div class="scr"><img src="telas/5-checkout.png"></div></div>
+ <div class="stk r" style="left:520px;top:780px;transform:rotate(4deg)" data-in data-at="3.4" data-rot="4">📲 NOME + WHATSAPP</div>
+</div>
+
+<!-- s5 passo 3 -->
+<div class="scene" id="s5">
+ <div style="display:flex;align-items:flex-end;gap:26px" data-in data-at=".05"><div class="num">03</div><div class="tag" style="margin-bottom:26px">PASSO 3</div></div>
+ <div class="big" style="font-size:92px;margin-top:20px" data-in data-at=".3">CAI NA HORA<br>NO <span class="red">SEU PAINEL</span> 🔔</div>
+ <div class="phone" style="left:280px;top:820px;transform:rotate(3deg)" data-in data-at=".7" data-rot="3"><div class="scr"><img src="telas/7-painel.png"></div></div>
+ <div class="tk" id="tk" style="position:absolute;left:60px;top:1180px;width:420px;z-index:6;transform:rotate(-6deg)" data-in data-at="1.6" data-rot="-6">
+  <div style="font-size:30px">PEDIDO #4 ✓</div><div style="font-family:Inter;font-size:28px;margin-top:8px;color:#6b4a2b">2× Coxinha · 1× Pastel<br>Retirada · Pix</div></div>
+ <div class="stk" style="right:60px;top:1500px;transform:rotate(-4deg)" data-in data-at="3.2" data-rot="-4">✅ DO COMEÇO AO FIM</div>
+</div>
+
+<!-- s6 extras -->
+<div class="scene" id="s6">
+ <div class="tag" data-in data-at=".05">E AINDA TEM…</div>
+ <div style="position:absolute;left:60px;right:60px;top:420px;display:flex;flex-direction:column;gap:40px">
+  <div class="tk" style="display:flex;align-items:center;gap:30px" data-in data-at=".6"><span style="font-size:90px">📅</span><div><div style="font-size:52px">ENCOMENDA</div><div style="font-family:Inter;font-size:34px;color:#6b4a2b">com data marcada</div></div></div>
+  <div class="tk" style="display:flex;align-items:center;gap:30px" data-in data-at="2.0"><span style="font-size:90px">📦</span><div><div style="font-size:52px">ESTOQUE</div><div style="font-family:Inter;font-size:34px;color:#6b4a2b">que baixa sozinho</div></div></div>
+  <div class="tk" style="display:flex;align-items:center;gap:30px" data-in data-at="3.7"><span style="font-size:90px">📊</span><div><div style="font-size:52px">RELATÓRIO</div><div style="font-family:Inter;font-size:34px;color:#6b4a2b">de tudo que você vendeu</div></div></div>
+ </div>
+ <div class="phone" style="left:560px;top:1080px;width:400px;height:866px;border-radius:52px;transform:rotate(6deg)" data-in data-at="3.9" data-rot="6"><div class="scr" style="border-radius:42px"><img src="telas/10-relatorios.png"></div></div>
+</div>
+
+<!-- s7 CTA -->
+<div class="scene" id="s7" style="display:flex;flex-direction:column;justify-content:center">
+ <img class="sal" id="c1" src="coxinha.png" style="width:300px;right:40px;top:230px;transform:rotate(14deg)" data-in data-at=".3" data-rot="14">
+ <img class="sal" id="c2" src="pastel.png" style="width:380px;left:-40px;top:1500px;transform:rotate(-10deg)" data-in data-at=".5" data-rot="-10">
+ <div class="big" style="font-size:120px" data-in data-at=".05">QUER O <span class="slab">KFOOD</span><br>NO SEU<br><span class="red">NEGÓCIO?</span></div>
+ <div class="cta" style="margin-top:60px" data-in data-at="1.8"><div style="font-size:64px">CHAMA NO DIRECT 💬</div><div style="font-family:Inter;font-size:36px;margin-top:10px;color:#f3dfc0">peça seu orçamento sem compromisso</div></div>
+ <div style="display:flex;align-items:center;gap:24px;margin-top:50px" data-in data-at="2.4"><img src="mark.png" style="height:120px;filter:brightness(0) saturate(100%) invert(9%) sepia(30%) saturate(2000%) hue-rotate(10deg)"><div style="font-family:Inter;font-weight:700;font-size:32px">tresktecnologia.com.br<br>@tresktecnologia</div></div>
+ <div class="hand" style="position:absolute;left:80px;bottom:300px;font-size:44px;color:#6b4a2b" data-in data-at="2.6">*loja e preços de demonstração</div>
+</div>
+
+<div class="wipe" id="wipe"></div>
+</div>
+<script>
+window.CFG={bpm:60,unit:1,scenes:[4.2,2.65,1.85,5.7,4.8,4.9,5.2,5.2],stagger:.5,extra:(t,beat,pulse,SC)=>{
+  // salgados float
+  document.querySelectorAll('.sal').forEach((e,i)=>{ const base=e.style.transform.replace(/translateY\([^)]*\)/,''); e.style.translate=`0 ${Math.sin(t*2.2+i)*14}px`; });
+  // red wipe on scene changes (except into/out of s2 which is red itself)
+  const w=document.getElementById('wipe'); let x=-120;
+  SC.forEach(([a,b],i)=>{ if(i===0) return; const d=t-a; if(d>-0.28&&d<0.28){ const k=(d+0.28)/0.56; x=-120+240*k; } });
+  w.style.transform=`translateX(${x}%) skewX(-12deg)`;
+}};
+</script><script src="engine.js"></script></body></html>
