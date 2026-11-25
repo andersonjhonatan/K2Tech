@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base-dark.css"><link rel="stylesheet" href="produto.css"></head><body><div id="stage"><div id="glow"></div>
+
+<div class="scene" id="s0" data-stagger=".7">
+ <div class="lbl" data-in>Vende comida?</div>
+ <h1 data-in style="font-size:92px">Ainda anota<br>pedido no<br><b>WhatsApp?</b> 📲</h1>
+ <div class="chips"><div class="chip bad" data-in data-at="2">📝 Pedido perdido na conversa</div><div class="chip bad" data-in data-at="2.6">🤯 Confusão na hora do almoço</div><div class="chip bad" data-in data-at="3.2">💸 Não sabe quanto vendeu</div></div>
+</div>
+
+<div class="scene" id="s1" data-stagger=".7">
+ <img src="kfood-telas/kfood-mark.webp" data-in style="width:200px;align-self:flex-start;margin-bottom:30px">
+ <div class="brand" data-in data-pulse=".04">KFOOD<span>.</span></div>
+ <p class="tag" data-in>Cardápio online, pedidos<br>e painel num lugar só. 🍽️</p>
+ <div class="by" data-in>RESTAURANTES · MARMITAS · ENCOMENDAS</div>
+</div>
+
+<div class="scene ph" id="s2" data-stagger=".6">
+ <div class="step" data-in>PARA O CLIENTE · 1</div>
+ <h2 data-in>Abre o <b>link</b> do<br>seu cardápio</h2>
+ <div class="note" data-in>fotos dos pratos ilustrativas</div>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,0" src="kfood-telas/1-inicio.png"></div></div>
+</div>
+
+<div class="scene ph" id="s3" data-stagger=".6">
+ <div class="step" data-in>PARA O CLIENTE · 2</div>
+ <h2 data-in>Escolhe o <b>prato</b><br>e a porção</h2>
+ <div class="note" data-in>fotos dos pratos ilustrativas</div>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,0" src="kfood-telas/3-prato.png"></div></div>
+</div>
+
+<div class="scene ph" id="s4" data-stagger=".6">
+ <div class="step" data-in>PARA O CLIENTE · 3</div>
+ <h2 data-in>Nome, WhatsApp<br>e <b>pronto</b>.</h2>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,0" src="kfood-telas/7-preenchido.png"></div></div>
+</div>
+
+<div class="scene ph" id="s5" data-stagger=".5">
+ <div class="step" data-in>PARA O CLIENTE · 4</div>
+ <h2 data-in>Pedido <b>confirmado</b><br>na hora ✅</h2>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,0" src="kfood-telas/8-confirmado.png"></div></div>
+</div>
+
+<div class="scene ph" id="s6" data-stagger=".6">
+ <div class="step" data-in>PARA O DONO · 1</div>
+ <h2 data-in>O pedido cai no<br>seu <b>painel</b> 🔔</h2>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,0" src="kfood-telas/9-painel-pedidos.png"></div></div>
+</div>
+
+<div class="scene ph" id="s7" data-stagger=".6">
+ <div class="step" data-in>PARA O DONO · 2</div>
+ <h2 data-in><b>Estoque</b> baixa<br>sozinho pela receita</h2>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,0" src="kfood-telas/11-painel-estoque.png"></div></div>
+</div>
+
+<div class="scene ph" id="s8" data-stagger=".6">
+ <div class="step" data-in>PARA O DONO · 3</div>
+ <h2 data-in>Quanto vendeu no<br>dia, semana e <b>mês</b> 📊</h2>
+ <div class="note" data-in>dados de demonstração</div>
+ <div class="phone" data-in><div class="scr"><img class="pan" data-pan="0,0" src="kfood-telas/12-painel-relatorios.png"></div></div>
+</div>
+
+<div class="scene" id="s9" data-stagger=".7">
+ <div class="lbl" data-in>O que muda no seu negócio</div>
+ <h2 data-in>Com o KFOOD:</h2>
+ <div class="chips"><div class="chip ok" data-in data-at="1.4">✅ Pedido organizado, sem bagunça</div><div class="chip ok" data-in data-at="2.1">✅ Encomendas com data marcada</div><div class="chip ok" data-in data-at="2.8">✅ Estoque sob controle</div><div class="chip ok" data-in data-at="3.5">✅ Você sabe quanto vende</div></div>
+</div>
+
+<div class="scene" id="s10" data-stagger=".7">
+ <img class="mark" src="mark.png" data-in>
+ <h1 data-in style="font-size:88px">Quer o <b>KFOOD</b><br>no seu negócio?</h1>
+ <div class="cta" data-in><div class="t">Chama no direct 💬</div><div class="s">e peça um orçamento sem compromisso.</div></div>
+ <div class="foot" data-in><span>tresktecnologia.com.br</span><span>@tresktecnologia</span></div>
+</div>
+</div>
+<script>
+window.CFG={bpm:120,unit:2,scenes:[4,4,5,5,5,4,5,5,5,5,5],stagger:1,extra:(t,beat,pulse,SC)=>{
+  SC.forEach(([a,b],i)=>{ const el=document.getElementById('s'+i); const img=el&&el.querySelector('.pan'); if(!img) return;
+    const [x,y]=img.dataset.pan.split(',').map(Number); const k=Math.max(0,Math.min(1,(beat-a-1.2)/(b-a-1.6)));
+    const e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2; img.style.transformOrigin="50% 30%"; img.style.transform=`scale(${1+0.09*e})`; });
+  const last=SC[SC.length-1][0]; if(beat>=last){const c=document.querySelector('#s10 .cta');c.style.boxShadow=`0 0 ${40+60*pulse}px rgba(37,99,235,${.35+.4*pulse})`;}
+}};
+</script><script src="engine.js"></script></body></html>
