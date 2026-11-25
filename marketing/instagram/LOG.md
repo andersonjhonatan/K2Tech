@@ -21,12 +21,16 @@
 | 2026-11-23 10:07 | Story com enquete (publicado pelo Anderson no app) | Black Friday: sua loja vai entrar? | public/instagram/stories/tresk-story-2026-11-23-1.jpg | Publicado (story id 17978959671166220) |
 | 2026-11-23 12:30 | Story de imagem (eu publiquei) | Aviso do post novo (4 contas BF) → destaque Dicas | public/instagram/stories/tresk-story-2026-11-23-2.jpg | Publicado (media id 18121579586045117) |
 | 2026-11-24 17:00 | Story de imagem (eu publiquei) | Aviso do Reels das 19h (caixa) | public/instagram/stories/tresk-story-2026-11-24-1.jpg | Publicado (media id 17937443727143469) |
+| 2026-11-24 | Reels produto (série "Produtos Tresk") | KORT: dor → app → cliente → dono → benefícios → CTA (telas reais) · 🎵 sugerida Sandstorm – Darude (136 BPM) | public/instagram/tresk-produto-kort-reels.mp4 (+ -capa.jpg) | Enviado ao Anderson |
+| 2026-11-24 | Reels produto | KFOOD: telas reais do sistema (cliente + painel; fotos dos pratos ilustrativas) · 🎵 sugerida Axel F – Harold Faltermeyer (120 BPM) | public/instagram/tresk-produto-kfood-reels.mp4 (+ -capa.jpg) | Enviado ao Anderson |
+| 2026-11-24 | Reels produto | KFit: telas do protótipo recriadas; versão com música (Animals – Martin Garrix, 128 BPM) e versão NARRADA (voz Amanda Kelly, teaser "o resto a gente conta no lançamento") | public/instagram/tresk-produto-kfit-reels.mp4; base narrada tresk-produto-kfit-narrado-base.mp4; final narrado no Creative Claw (asset 642ef19d-5aa3-49f7-a39d-897496e66aba) | Enviado ao Anderson |
 | 2026-11-23..28 | Stories (12) | Enquete BF, post novo, aviso Reels, caixinha caixa, bastidor, como nasce um sistema, isso ou aquilo, quiz desconto, orçamento BF, link, sábado leve, case Divina | public/instagram/stories/tresk-story-2026-11-2*.jpg | Aprovado pelo Anderson em 22/11; agendado |
 
 ## Desempenho (Windsor, 22/11)
 - Reels 3 sinais: 199 de alcance x carrosséis de apresentação/KORT: 5 cada. Reels está puxando o alcance; manter 3 Reels/semana e capas fortes.
 
 ## Regras do Anderson (24/11)
+- Mostrar os produtos (KORT, KFOOD, KFit) em Reels estilo comercial: dor → produto → como o cliente usa → como o dono usa → o que melhora → CTA. Pode ter narração da Amanda Kelly explicando, sem contar tudo (deixar expectativa).
 - Músicas dos Reels: INSTRUMENTAIS, animadas, com cara de comercial/divulgação. Nada de pop com vocal feminino (Levitating foi recusada).
 - Legendas: no máximo 5 hashtags (limite do Instagram desde dez/2025). Base: #tresktecnologia #ibimirim #sertaodepernambuco + 2 do tema.
 
