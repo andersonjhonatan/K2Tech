@@ -27,6 +27,7 @@
 | 2026-11-24 | Reels produto NARRADO | KFOOD estilo lanchonete (creme/vermelho/mostarda, salgados ilustrados, loja-exemplo "Salgados da Esquina"), voz masculina Will (ElevenLabs, CstacWqMhJQlnfLPxRG4), 3 passos + extras + CTA | base public/instagram/tresk-produto-kfood-narrado-base.mp4; final no Creative Claw (asset 45b054e5-c1fe-4ed8-a4b9-4ed22eb59f18) | Enviado ao Anderson |
 | 2026-11-24 19:30 | Stories (Anderson no app) | Repost do Reels + caixinha "dúvida sobre o caixa" | public/instagram/stories/tresk-story-2026-11-24-2.jpg | Publicados (story ids 18132290068888570, 18139959067636294) |
 | 2026-11-25 11:12 | Story bastidor (Anderson no app, com foto dele) | Quarta-feira aqui na Tresk → destaque Bastidores | public/instagram/stories/tresk-story-2026-11-25-1.jpg | Publicado (story id 18065758043531654) |
+| 2026-11-25 15:00 | Story de imagem (eu publiquei) | Como nasce um sistema na Tresk → destaque Bastidores | public/instagram/stories/tresk-story-2026-11-25-2.jpg | Publicado (media id 17969313758981751) |
 | 2026-11-23..28 | Stories (12) | Enquete BF, post novo, aviso Reels, caixinha caixa, bastidor, como nasce um sistema, isso ou aquilo, quiz desconto, orçamento BF, link, sábado leve, case Divina | public/instagram/stories/tresk-story-2026-11-2*.jpg | Aprovado pelo Anderson em 22/11; agendado |
 
 ## Desempenho (Windsor, 22/11)
