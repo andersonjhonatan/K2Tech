@@ -119,7 +119,7 @@ const modulos = [
   { i: <FiShoppingBag />, t: "Vitrine online", d: "A sua loja no celular da cliente, com foto, tamanho, cor e preço. Um link para mandar no WhatsApp e no Instagram.", big: true },
   { i: <FiCreditCard />, t: "Caixa (PDV)", d: "Venda no balcão em segundos, com Pix, cartão, dinheiro e crediário." },
   { i: <FiBox />, t: "Estoque", d: "Cada peça por departamento, tamanho e cor. Vendeu, baixou." },
-  { i: <FiBookOpen />, t: "Crediário próprio", d: "Parcelas, vencimentos e contrato pronto para a cliente assinar.", big: true },
+  { i: <FiBookOpen />, t: "Crediário próprio", d: "Parcelas, vencimentos e contrato pronto para a cliente assinar. E a sua cliente acompanha tudo pelo app Meu Crediário.", big: true },
   { i: <FiUsers />, t: "Clientes", d: "O que cada uma comprou, quanto deve e o que costuma levar." },
   { i: <FiBarChart2 />, t: "Relatórios", d: "O que entrou, o que mais vendeu e o que está parado." },
 ];
@@ -130,10 +130,32 @@ const faq = [
   { q: "O KLOJA é ERP ou CRM?", a: "Os dois. A parte de dentro da loja (caixa, estoque, financeiro) é o que se chama de ERP. A parte do relacionamento com a cliente (cadastro, histórico, crediário, cobrança) é o que se chama de CRM. No KLOJA as duas são um sistema só." },
   { q: "Preciso entender de tecnologia?", a: "Não. A TresK entrega o sistema configurado com as suas peças, mostra como usar e fica por perto no começo." },
   { q: "Tenho tudo num caderno. Dá para passar para o sistema?", a: "Dá. A gente ajuda a cadastrar as clientes do crediário e as parcelas que estão em aberto, para você começar sem perder nada." },
+  { q: "A minha cliente consegue ver as parcelas?", a: "Consegue. Pelo Meu Crediário, com a marca da sua loja, ela vê o que está em aberto, quando vence, paga a parcela no Pix e guarda o contrato e os comprovantes." },
   { q: "Funciona no celular?", a: "Sim. A vitrine foi feita para o celular da cliente, e o painel abre no computador, no tablet ou no celular." },
   { q: "Quanto custa?", a: "Uma implantação e uma mensalidade, com preço pensado para loja de cidade do interior. Chame no WhatsApp e conte como é a sua loja: o orçamento sai sem compromisso." },
   { q: "Atende fora de Ibimirim?", a: "Sim. A implantação e o suporte podem ser todos online." },
 ];
+
+
+/** Desenho de QR Code ilustrativo (não é um Pix de verdade): três quadrados-guia e um miolo fixo. */
+function qrCells() {
+  const cells: [number, number][] = [];
+  const finder = (x: number, y: number) => {
+    for (let i = 0; i < 7; i++) for (let j = 0; j < 7; j++) {
+      const edge = i === 0 || j === 0 || i === 6 || j === 6;
+      const core = i >= 2 && i <= 4 && j >= 2 && j <= 4;
+      if (edge || core) cells.push([x + i, y + j]);
+    }
+  };
+  finder(0, 0);
+  finder(14, 0);
+  finder(0, 14);
+  for (let x = 0; x < 21; x++) for (let y = 0; y < 21; y++) {
+    const inFinder = (x < 8 && y < 8) || (x > 12 && y < 8) || (x < 8 && y > 12);
+    if (!inFinder && ((x * 7 + y * 13 + x * y) % 5 === 0 || (x * 3 + y * 5) % 7 === 1)) cells.push([x, y]);
+  }
+  return cells;
+}
 
 export default function KlojaPage() {
   return (
@@ -161,6 +183,7 @@ export default function KlojaPage() {
           <nav className={s.navLinks} aria-label="Seções">
             <a href="#um-dia">Um dia na loja</a>
             <a href="#o-que-faz">O que faz</a>
+            <a href="#meu-crediario">Meu Crediário</a>
             <a href="#erp-crm">ERP ou CRM?</a>
             <a href="#duvidas">Dúvidas</a>
           </nav>
@@ -260,7 +283,6 @@ export default function KlojaPage() {
           <div className={s.soon} data-rv>
             <span className={s.soonLbl}>Em breve</span>
             <span><FiFileText /> Nota fiscal (NFC-e) direto do caixa</span>
-            <span><FiSmartphone /> App Meu Crediário para a cliente</span>
           </div>
         </div>
       </section>
@@ -321,6 +343,96 @@ export default function KlojaPage() {
                 </div>
               }
             />
+          </div>
+        </div>
+      </section>
+
+      {/* MEU CREDIÁRIO */}
+      <section id="meu-crediario" className={`${s.section} ${s.sectionDark} ${s.mc}`}>
+        <div className={s.wrap}>
+          <div className={s.head} data-rv>
+            <span className={s.kicker}>Meu Crediário</span>
+            <h2 className={s.h2}>O crediário da sua loja <span className={s.goldText}>no celular da sua cliente.</span></h2>
+            <p className={s.sub}>Toda loja que usa o KLOJA ganha o Meu Crediário com a sua marca. A cliente vê o que deve, quando vence e paga a parcela sem precisar ir até a loja. Você vê tudo do outro lado, no painel.</p>
+          </div>
+
+          <div className={s.mcPhones}>
+            <div className={s.mcPhone} data-rv>
+              <div className={s.mcNotch} />
+              <div className={s.mcScr}>
+                <div className={s.mcTop}><span className={s.mcStore}><KlojaTag size={18} id="mc1" /> Sua Loja</span><small>Meu Crediário</small></div>
+                <small className={s.mcHi}>Olá, Ana Paula</small>
+                <div className={s.mcCard}>
+                  <small>Em aberto</small>
+                  <b>R$ 90,00</b>
+                  <div className={s.mcProg}><i style={{ width: "66%" }} /></div>
+                  <small>4 de 6 parcelas pagas</small>
+                </div>
+                <div className={s.mcNext}>
+                  <div><small>Próxima parcela</small><b>R$ 45,00</b><span>vence 05/12</span></div>
+                  <em>Pagar com Pix</em>
+                </div>
+                <ul className={s.mcList}>
+                  <li><span>Parcela 4/6</span><i className={s.tOk}>Paga</i></li>
+                  <li><span>Parcela 5/6 · 05/12</span><i className={s.tWarn}>Em aberto</i></li>
+                  <li><span>Parcela 6/6 · 05/01</span><i>A vencer</i></li>
+                </ul>
+              </div>
+              <span className={s.mcCap}>1 · Vê o que deve e quando vence</span>
+            </div>
+
+            <div className={`${s.mcPhone} ${s.mcMid}`} data-rv style={{ transitionDelay: ".12s" }}>
+              <div className={s.mcNotch} />
+              <div className={s.mcScr}>
+                <div className={s.mcTop}><span className={s.mcStore}>Pagar parcela</span><small>5 de 6</small></div>
+                <b className={s.mcVal}>R$ 45,00</b>
+                <svg className={s.mcQr} viewBox="0 0 25 25" aria-hidden="true">
+                  <rect width="25" height="25" fill="#f5f5f7" />
+                  {qrCells().map(([x, y]) => <rect key={`${x}-${y}`} x={x + 2} y={y + 2} width="1" height="1" fill="#0b0b0c" />)}
+                </svg>
+                <div className={s.mcCopy}>Pix copia e cola</div>
+                <small className={s.mcMuted}>Assim que o Pix cai, a parcela fica paga sozinha, aqui e no painel da loja.</small>
+              </div>
+              <span className={s.mcCap}>2 · Paga a parcela no Pix</span>
+            </div>
+
+            <div className={s.mcPhone} data-rv style={{ transitionDelay: ".24s" }}>
+              <div className={s.mcNotch} />
+              <div className={s.mcScr}>
+                <div className={s.mcTop}><span className={s.mcStore}>Minhas compras</span><small>Histórico</small></div>
+                <ul className={s.mcList}>
+                  <li><span>Conjunto · 2 anos<small>12/10 · 6x de R$ 22,50</small></span><i className={s.tWarn}>2 abertas</i></li>
+                  <li><span>Macacão plush<small>03/08 · 3x de R$ 23,30</small></span><i className={s.tOk}>Quitada</i></li>
+                </ul>
+                <div className={s.mcDocs}>
+                  <span><FiFileText /> Contrato do crediário</span>
+                  <span><FiFileText /> Comprovante da compra</span>
+                </div>
+                <div className={s.mcOkBox}><FiCheck /> Parcela 4 paga no Pix · comprovante salvo</div>
+              </div>
+              <span className={s.mcCap}>3 · Guarda compras, contrato e comprovantes</span>
+            </div>
+          </div>
+
+          <div className={s.mcSides}>
+            <div className={s.mcSide} data-rv>
+              <h3><FiSmartphone /> O que a sua cliente tem</h3>
+              <ul>
+                <li><FiCheck /> As parcelas em aberto, pagas e a vencer</li>
+                <li><FiCheck /> Pagamento da parcela no Pix, pelo celular</li>
+                <li><FiCheck /> Histórico de compras no crediário</li>
+                <li><FiCheck /> Contrato e comprovantes sempre à mão</li>
+              </ul>
+            </div>
+            <div className={s.mcSide} data-rv>
+              <h3><FiShoppingBag /> O que a sua loja tem</h3>
+              <ul>
+                <li><FiCheck /> Cadastro da cliente e contrato pronto para assinar</li>
+                <li><FiCheck /> Parcelas e vencimentos de cada compra</li>
+                <li><FiCheck /> Parcela paga no Pix baixa sozinha</li>
+                <li><FiCheck /> Quem está em dia e quem está atrasada, numa tela</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -406,9 +518,37 @@ export default function KlojaPage() {
       </section>
 
       <footer className={s.foot}>
-        <div className={s.wrap}>
-          <Link href="/" className={s.footBrand}><TreskMark className={s.footMark} stems="#f5f5f7" /> Desenvolvido pela TresK Tecnologia</Link>
-          <span>KORT · KFOOD · KFit · <b>KLOJA</b></span>
+        <div className={`${s.wrap} ${s.footTop}`}>
+          <div className={s.footAbout}>
+            <KlojaWordmark size={30} />
+            <p>Sistema para lojas: vitrine online, caixa, estoque, crediário e clientes num lugar só.</p>
+            <a className={s.btnGold} href={ctaOrc} target="_blank" rel="noopener noreferrer"><FaWhatsapp /> Falar com um especialista</a>
+          </div>
+          <nav className={s.footCol} aria-label="KLOJA">
+            <h4>KLOJA</h4>
+            <a href="#um-dia">Um dia na loja</a>
+            <a href="#o-que-faz">O que faz</a>
+            <a href="#meu-crediario">Meu Crediário</a>
+            <a href="#erp-crm">ERP ou CRM?</a>
+            <a href="#duvidas">Dúvidas</a>
+          </nav>
+          <div className={s.footCol}>
+            <h4>Atendimento</h4>
+            <a href={ctaDemo} target="_blank" rel="noopener noreferrer">WhatsApp · {siteConfig.phoneDisplay}</a>
+            <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
+            <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer">Instagram {siteConfig.instagramHandle}</a>
+            <span>Implantação e suporte online para todo o Brasil</span>
+          </div>
+          <div className={s.footCol}>
+            <h4>Empresa</h4>
+            <Link href="/">TresK Tecnologia</Link>
+            <Link href="/privacidade">Política de privacidade</Link>
+            <span>Ibimirim · Sertão de Pernambuco</span>
+          </div>
+        </div>
+        <div className={`${s.wrap} ${s.footBottom}`}>
+          <span>© {new Date().getFullYear()} TresK Tecnologia. Todos os direitos reservados.</span>
+          <Link href="/" className={s.footBrand}><TreskMark className={s.footMark} stems="#f5f5f7" /> Um produto TresK Tecnologia</Link>
         </div>
       </footer>
     </main>

@@ -320,8 +320,65 @@
 .finalIn .h2 { max-width: 16ch; }
 .finalIn .ctas { justify-content: center; margin-top: 12px; }
 
-.foot { border-top: 1px solid var(--line); padding-block: 30px; font-size: 14px; color: var(--muted); }
-.foot .wrap { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; }
-.foot b { color: var(--gold); }
-.footBrand { display: inline-flex; gap: 12px; align-items: center; font-weight: 600; color: var(--text); }
-.footMark { width: 28px; height: auto; }
+.foot { border-top: 1px solid var(--line); background: #08080a; font-size: 15px; color: var(--muted); }
+.footTop { display: grid; grid-template-columns: 1.5fr 1fr 1.3fr 1fr; gap: 40px; padding-block: 64px 48px; }
+@media (max-width: 960px) { .footTop { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .footTop { grid-template-columns: 1fr; gap: 30px; } }
+.footAbout { display: grid; gap: 18px; justify-items: start; align-content: start; }
+.footAbout p { max-width: 34ch; }
+.footAbout .btnGold { padding: 12px 18px; font-size: 14px; }
+.footCol { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.footCol h4 { margin: 0 0 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+.footCol a { color: var(--text) !important; overflow-wrap: anywhere; transition: color 0.2s; }
+.footCol a:hover { color: var(--gold-hi) !important; }
+.footCol span { font-size: 14px; }
+.footBottom { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; padding-block: 22px 30px; border-top: 1px solid var(--line); font-size: 13px; }
+.footBrand { display: inline-flex; gap: 10px; align-items: center; font-weight: 600; color: var(--text); }
+.footMark { width: 24px; height: auto; }
+
+/* ============ MEU CREDIÁRIO ============ */
+.mcPhones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: start; }
+@media (max-width: 960px) { .mcPhones { grid-template-columns: 1fr; justify-items: center; } }
+.mcPhone { display: grid; justify-items: center; gap: 18px; position: relative; }
+.mcMid { margin-top: 40px; }
+@media (max-width: 960px) { .mcMid { margin-top: 0; } }
+.mcPhone > .mcScr { width: min(290px, 80vw); aspect-ratio: 9 / 18.5; border-radius: 40px; background: #050506; box-shadow: 0 0 0 8px #18181c, 0 0 0 9px var(--line-2), 0 40px 90px rgba(0, 0, 0, 0.55), 0 0 90px rgba(200, 169, 106, 0.1); padding: 50px 16px 16px; display: grid; gap: 12px; align-content: start; font-size: 13px; overflow: hidden; max-width: 100%; }
+.mcNotch { position: absolute; top: 12px; width: 86px; height: 22px; background: #000; border-radius: 12px; z-index: 2; }
+.mcTop { display: flex; justify-content: space-between; align-items: center; }
+.mcStore { display: inline-flex; gap: 6px; align-items: center; font-family: var(--display); font-weight: 700; font-size: 15px; }
+.mcTop small { font-size: 10px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; }
+.mcHi { color: var(--muted); }
+.mcCard { border-radius: 18px; padding: 16px; background: linear-gradient(145deg, #2a2418, #141418 70%); border: 1px solid rgba(200, 169, 106, 0.35); display: grid; gap: 6px; }
+.mcCard small { color: var(--muted); font-size: 11px; }
+.mcCard b { font-family: var(--display); font-size: 30px; color: var(--gold-hi); line-height: 1.1; }
+.mcProg { height: 8px; border-radius: 99px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+.mcProg i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-lo), var(--gold-hi)); }
+.mcNext { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; background: var(--bg-3); border: 1px solid var(--line); }
+.mcNext div { display: grid; }
+.mcNext small { font-size: 10.5px; color: var(--muted); }
+.mcNext b { font-size: 17px; }
+.mcNext span { font-size: 11px; color: var(--warn); }
+.mcNext em { font-style: normal; font-size: 12px; font-weight: 700; color: #0b0b0c; background: linear-gradient(135deg, var(--gold-hi), var(--gold)); padding: 9px 12px; border-radius: 10px; white-space: nowrap; }
+.mcList { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.mcList li { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 12px; background: var(--bg-3); }
+.mcList li span { display: grid; min-width: 0; }
+.mcList li small { color: var(--dim); font-size: 10.5px; }
+.mcList i { font-style: normal; font-size: 11px; font-weight: 600; white-space: nowrap; color: var(--muted); }
+.mcVal { font-family: var(--display); font-size: 34px; text-align: center; color: var(--gold-hi); }
+.mcQr { width: 170px; height: 170px; justify-self: center; border-radius: 12px; max-width: 100%; shape-rendering: crispEdges; }
+.mcCopy { text-align: center; padding: 11px; border-radius: 12px; border: 1px solid rgba(200, 169, 106, 0.5); color: var(--gold-hi); font-weight: 600; }
+.mcMuted { color: var(--muted); font-size: 11.5px; text-align: center; }
+.mcDocs { display: grid; gap: 7px; }
+.mcDocs span { display: flex; gap: 8px; align-items: center; padding: 10px 12px; border-radius: 12px; border: 1px dashed var(--line-2); font-size: 12px; }
+.mcDocs svg { color: var(--gold); }
+.mcOkBox { display: flex; gap: 8px; align-items: center; padding: 10px 12px; border-radius: 12px; background: rgba(74, 222, 128, 0.12); color: var(--ok); font-weight: 600; font-size: 11.5px; }
+.mcCap { font-family: var(--mono); font-size: 13px; color: var(--gold-hi); letter-spacing: 0.04em; text-align: center; }
+.mcSides { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 56px; }
+@media (max-width: 760px) { .mcSides { grid-template-columns: 1fr; } }
+.mcSide { padding: 28px; border-radius: 22px; border: 1px solid var(--line); background: var(--bg-3); }
+.mcSide h3 { font-family: var(--display); font-size: 21px; display: flex; gap: 10px; align-items: center; margin-bottom: 14px; }
+.mcSide h3 svg { color: var(--gold); }
+.mcSide ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.mcSide li { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); }
+.mcSide li svg { color: var(--gold); flex: none; margin-top: 5px; }
+.mcList i.tOk { color: var(--ok); } .mcList i.tWarn { color: var(--warn); }
