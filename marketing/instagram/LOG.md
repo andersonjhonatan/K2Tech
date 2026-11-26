@@ -79,3 +79,9 @@
 - [26/11] O Anderson cobrou que os stories e Reels só tinham perguntas sobre valores e caixa, sem mostrar os produtos. Regra daqui pra frente: metade do conteúdo apresenta os produtos (KORT, KFOOD, KFit, KLOJA), metade é dica para atrair; toda enquete/pergunta ganha um story-resposta mostrando o produto com link; cada produto ganha um dia fixo na semana.
 - Ajustes desta semana: Reels qui (26/11) ganhou cena "Fiado no sistema? Conheça o KLOJA" (37,3 s); story-resposta da enquete com o KLOJA (stories/tresk-story-2026-11-26-3.jpg, figurinha de link para /kloja); carrossel sex (27/11) ganhou o slide 05/06 "Um sistema pra cada tipo de negócio" (6 imagens); Reels sáb (28/11) agora diz "Esse sistema tem nome: KLOJA" e o Meu Crediário saiu do "em breve" (34,7 s).
 - [26/11] O Anderson NÃO quer post mostrando todos os produtos juntos (KORT, KFOOD, KLOJA, KFit de uma vez). Cada post/story fala de UM produto só. O slide "Um sistema pra cada tipo de negócio" foi retirado do carrossel de sexta (voltou a 5 slides).
+
+## 26/11 — Comerciais do KLOJA (3 versões para o Anderson escolher)
+- public/instagram/tresk-kloja-comercial.mp4 (69 s): filme de marca preto e dourado (porta da loja subindo, etiqueta 3D, catálogo, caixa, crediário, Meu Crediário real, fechamento, Divina Baby, assinatura).
+- public/instagram/tresk-kloja-whatsapp.mp4 (62 s): conversa por mensagens entre Rita (sem sistema) e Joana (usa o KLOJA), com prints das telas.
+- public/instagram/tresk-kloja-conversa.mp4 (69 s): as duas lojistas em ilustração animada conversando na calçada, com o celular da Joana em close.
+- Sem voz por enquanto (legendas/balões + trilha sintetizada). Quando o Anderson mandar os MP3 da ElevenLabs, a voz entra no ritmo. Fonte: marketing/instagram/produtos/kloja-filmes/.
