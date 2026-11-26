@@ -1,0 +1,2 @@
+# áudios intermediários (gerados por voz.py e score.py)
+*.wav
