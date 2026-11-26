@@ -1,0 +1,178 @@
+<title>Central TresK</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap">
+<style>
+/* Layout: barra de projetos no topo (atalhos) + um bloco por projeto com botões grandes de "abrir" agrupados por finalidade */
+:root{
+  --bg:#F5F5F7; --panel:#FFFFFF; --ink:#0B0B0C; --muted:#5B5F6B; --line:#E2E4EA;
+  --accent:#2563EB; --accent-ink:#FFFFFF; --gold:#A8843F; --chip:#EEF1F7;
+  --ok:#15803D; --ok-bg:#E7F6EC; --warn:#B45309; --warn-bg:#FDF1E1; --no:#6B7280; --no-bg:#F0F1F4;
+  --display:'Poppins',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0B0B0C; --panel:#141519; --ink:#F5F5F7; --muted:#9CA1AD; --line:#262832;
+  --accent:#3B82F6; --accent-ink:#FFFFFF; --gold:#C8A96A; --chip:#1C1E25;
+  --ok:#4ADE80; --ok-bg:#12261A; --warn:#FBBF24; --warn-bg:#2A2111; --no:#A1A5AF; --no-bg:#1E2027; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B0B0C; --panel:#141519; --ink:#F5F5F7; --muted:#9CA1AD; --line:#262832;
+  --accent:#3B82F6; --accent-ink:#FFFFFF; --gold:#C8A96A; --chip:#1C1E25;
+  --ok:#4ADE80; --ok-bg:#12261A; --warn:#FBBF24; --warn-bg:#2A2111; --no:#A1A5AF; --no-bg:#1E2027; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:1080px;margin:0 auto;display:grid;gap:22px}
+header.top{display:grid;gap:6px}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1{font-family:var(--display);font-size:clamp(28px,5vw,40px);line-height:1.1;margin:0;text-wrap:balance}
+.lead{color:var(--muted);max-width:62ch;margin:0}
+nav.jump{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav.jump a{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
+nav.jump a .dot{width:9px;height:9px;border-radius:50%}
+nav.jump a:focus-visible,button:focus-visible,a.go:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.search{display:flex;gap:8px}
+.search input{flex:1;min-width:0;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit}
+.note{padding:12px 14px;border-radius:12px;background:var(--chip);color:var(--muted);font-size:14px}
+section.proj{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:16px;scroll-margin-top:70px}
+.ph{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.badge{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-family:var(--display);font-weight:700;color:#fff;font-size:18px;flex:none}
+.ph .t{flex:1;min-width:0}
+.ph h2{font-family:var(--display);font-size:22px;margin:0;line-height:1.2}
+.ph p{margin:2px 0 0;color:var(--muted)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chip{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--chip);color:var(--muted)}
+.chip.ok{background:var(--ok-bg);color:var(--ok)} .chip.warn{background:var(--warn-bg);color:var(--warn)} .chip.no{background:var(--no-bg);color:var(--no)}
+.groups{display:grid;gap:14px}
+.grp h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:600}
+.links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+a.go,div.go{display:grid;gap:2px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);text-decoration:none;min-width:0}
+a.go:hover{border-color:var(--accent)}
+a.go .l,div.go .l{font-weight:600;display:flex;justify-content:space-between;gap:8px}
+a.go .l::after{content:"↗";color:var(--accent)}
+.go .u{font-family:var(--mono);font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.go .n{font-size:13px;color:var(--muted)}
+div.go{border-style:dashed}
+div.go .row{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.copy{border:0;background:var(--chip);color:var(--ink);border-radius:8px;padding:4px 10px;font:600 12px var(--body);cursor:pointer}
+.todo{margin:0;padding-left:18px;color:var(--muted)} .todo li{margin:2px 0}
+.bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+button.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:10px;padding:8px 14px;font:600 14px var(--body);cursor:pointer}
+button.btn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+form.ed{display:grid;gap:12px;border-top:1px dashed var(--line);padding-top:14px}
+form.ed label{display:grid;gap:4px;font-size:13px;color:var(--muted);font-weight:600}
+form.ed input,form.ed select,form.ed textarea{font:inherit;font-weight:400;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;min-width:0;width:100%}
+.lr{display:grid;grid-template-columns:1.1fr 1.6fr .9fr 1.2fr auto;gap:6px;align-items:center}
+@media (max-width:720px){.lr{grid-template-columns:1fr 1fr;padding:8px;border:1px solid var(--line);border-radius:10px}.lr .u2{grid-column:1/-1}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px} @media (max-width:560px){.two{grid-template-columns:1fr}}
+.status{font-size:13px;color:var(--muted);text-align:right;min-height:1.2em}
+footer{color:var(--muted);font-size:13px;text-align:center}
+@media (prefers-reduced-motion:no-preference){a.go{transition:border-color .15s}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">TresK Tecnologia · só para o dono</div>
+    <h1>Central TresK</h1>
+    <p class="lead">Os 4 produtos que você vende e o site oficial, num lugar só. Cada projeto tem os sites, os painéis, onde editar o código e como rodar no computador, tudo a um toque.</p>
+  </header>
+  <nav class="jump" id="jump" aria-label="Projetos"></nav>
+  <div class="search"><input id="q" type="search" placeholder="Procurar um link, painel ou repositório…" aria-label="Procurar"></div>
+  <div id="msg" class="note">Carregando os projetos…</div>
+  <main id="list" class="wrap" style="gap:18px"></main>
+  <footer>Toque em <b>Editar</b> num projeto para trocar links, portas e pendências. O que você salva fica guardado aqui.</footer>
+</div>
+
+<script>
+const GROUPS=[['site','Sites no ar'],['painel','Painéis'],['codigo','Código e edição'],['local','No seu computador'],['infra','Hospedagem, domínio e monitoramento']];
+const TIPOS=GROUPS.map(g=>g[0]);
+const PAINEL={sim:['ok','Tem painel'],parcial:['warn','Painel em andamento'],verificar:['warn','Painel a confirmar'],nao:['no','Sem painel'],naoprecisa:['no','Não precisa de painel']};
+const STATUS={ar:['ok','No ar'],dev:['warn','Em desenvolvimento'],prototipo:['warn','Protótipo'],planejado:['no','Planejado']};
+let projects=[], editing=null, db=null, canWrite=true;
+const $=s=>document.querySelector(s);
+const el=(tag,attrs={},...kids)=>{const e=document.createElement(tag);for(const[k,v]of Object.entries(attrs)){if(k==='class')e.className=v;else if(k.startsWith('on'))e.addEventListener(k.slice(2),v);else e.setAttribute(k,v)}for(const c of kids.flat()){if(c==null)continue;e.append(c.nodeType?c:document.createTextNode(String(c)))}return e};
+const safe=u=>typeof u==='string'&&/^https:\/\//.test(u);
+async function copy(text,btn){try{await navigator.clipboard.writeText(text);btn.textContent='Copiado'}catch{const r=document.createRange();r.selectNodeContents(btn.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selecionado'}setTimeout(()=>btn.textContent='Copiar',1500)}
+
+function linkCard(l){
+  const n=l.nota?el('span',{class:'n'},l.nota):null;
+  if(safe(l.url)) return el('a',{class:'go',href:l.url,target:'_blank',rel:'noopener'},el('span',{class:'l'},l.rotulo||l.url),el('span',{class:'u'},l.url.replace(/^https:\/\//,'')),n);
+  // localhost, comandos, caminhos: mostra e copia
+  const b=el('button',{class:'copy',type:'button'},'Copiar'); b.addEventListener('click',()=>copy(l.url||'',b));
+  return el('div',{class:'go'},el('span',{class:'l'},l.rotulo||''),el('div',{class:'row'},el('span',{class:'u'},l.url||''),b),n);
+}
+function matches(p,q){if(!q)return true;q=q.toLowerCase();return JSON.stringify(p).toLowerCase().includes(q)}
+
+function render(){
+  const q=$('#q').value.trim();
+  const jump=$('#jump'); jump.replaceChildren(...projects.map(p=>el('a',{href:'#'+p.id},el('span',{class:'dot',style:`background:${/^#[0-9a-f]{3,8}$/i.test(p.cor||'')?p.cor:'#2563EB'}`}),p.nome)));
+  const list=$('#list'); list.replaceChildren();
+  for(const p of projects){
+    if(!matches(p,q))continue;
+    const cor=/^#[0-9a-f]{3,8}$/i.test(p.cor||'')?p.cor:'#2563EB';
+    const [pc,pt]=PAINEL[p.painel]||PAINEL.verificar, [sc,st]=STATUS[p.status]||STATUS.dev;
+    const sec=el('section',{class:'proj',id:p.id});
+    sec.append(el('div',{class:'ph'},
+      el('div',{class:'badge',style:`background:${cor}`},(p.sigla||p.nome||'?').slice(0,2)),
+      el('div',{class:'t'},el('h2',{},p.nome),el('p',{},p.descricao||''),
+        el('div',{class:'chips'},el('span',{class:'chip '+sc},st),el('span',{class:'chip '+pc},pt),p.painelNota?el('span',{class:'chip'},p.painelNota):null)),
+      canWrite?el('div',{class:'bar'},el('button',{class:'btn',type:'button',onclick:()=>{editing=editing===p.id?null:p.id;render();if(editing)document.getElementById(p.id).scrollIntoView({block:'start'})}},editing===p.id?'Fechar':'Editar')):null));
+    const groups=el('div',{class:'groups'});
+    for(const [g,title] of GROUPS){
+      const ls=(p.links||[]).filter(l=>(TIPOS.includes(l.tipo)?l.tipo:'infra')===g).filter(l=>!q||matches(l,q)||matches({n:p.nome},q));
+      if(!ls.length)continue;
+      groups.append(el('div',{class:'grp'},el('h3',{},title),el('div',{class:'links'},ls.map(linkCard))));
+    }
+    sec.append(groups);
+    if((p.pendencias||[]).length) sec.append(el('div',{class:'grp'},el('h3',{},'Falta fazer'),el('ul',{class:'todo'},p.pendencias.map(t=>el('li',{},t)))));
+    if(editing===p.id) sec.append(editor(p));
+    list.append(sec);
+  }
+  if(!list.children.length && projects.length) list.append(el('div',{class:'note'},'Nada encontrado com essa busca.'));
+}
+
+function editor(p){
+  const f=el('form',{class:'ed'});
+  const inp=(id,label,val,type='input')=>{const i=type==='textarea'?el('textarea',{id:id+'-'+p.id,rows:'4'}):el('input',{id:id+'-'+p.id});i.value=val||'';return el('label',{},label,i)};
+  const sel=(id,label,opts,val)=>{const s=el('select',{id:id+'-'+p.id},Object.entries(opts).map(([k,[,t]])=>{const o=el('option',{value:k},t);if(k===val)o.selected=true;return o}));return el('label',{},label,s)};
+  f.append(el('div',{class:'two'},inp('desc','Descrição',p.descricao),inp('pnota','Observação do painel',p.painelNota)));
+  f.append(el('div',{class:'two'},sel('st','Situação',STATUS,p.status),sel('pn','Painel administrativo',PAINEL,p.painel)));
+  const rows=el('div',{class:'groups'});
+  const addRow=(l={rotulo:'',url:'',tipo:'site',nota:''})=>{
+    const tipo=el('select',{},GROUPS.map(([k,t])=>{const o=el('option',{value:k},t);if(k===l.tipo)o.selected=true;return o}));
+    const r=el('div',{class:'lr'},el('input',{placeholder:'Nome do botão','aria-label':'Nome do botão'}),el('input',{class:'u2',placeholder:'https://… ou localhost:3000 ou comando','aria-label':'Link'}),tipo,el('input',{placeholder:'Observação','aria-label':'Observação'}),el('button',{class:'btn',type:'button','aria-label':'Remover link',onclick:()=>r.remove()},'✕'));
+    const [a,b,,d]=r.querySelectorAll('input'); a.value=l.rotulo||''; b.value=l.url||''; d.value=l.nota||''; rows.append(r);
+  };
+  (p.links||[]).forEach(addRow);
+  f.append(el('label',{},'Links (os que começam com https:// abrem com um toque; os outros viram “copiar”)'),rows,
+    el('div',{class:'bar',style:'justify-content:flex-start'},el('button',{class:'btn',type:'button',onclick:()=>addRow()},'+ Adicionar link')));
+  f.append(inp('pend','Falta fazer (um por linha)',(p.pendencias||[]).join('\n'),'textarea'));
+  const status=el('div',{class:'status',role:'status'});
+  f.append(el('div',{class:'bar'},el('button',{class:'btn',type:'button',onclick:()=>{editing=null;render()}},'Cancelar'),el('button',{class:'btn pri',type:'submit'},'Salvar')),status);
+  f.addEventListener('submit',async e=>{
+    e.preventDefault(); if(!db){status.textContent='Não deu para salvar agora: a central está sem conexão com o armazenamento.';return}
+    const g=id=>f.querySelector('#'+id+'-'+p.id).value.trim();
+    const links=[...rows.querySelectorAll('.lr')].map(r=>{const [a,b,d]=r.querySelectorAll('input');return{rotulo:a.value.trim(),url:b.value.trim(),tipo:r.querySelector('select').value,nota:d.value.trim()}}).filter(l=>l.rotulo||l.url);
+    const next={...p,descricao:g('desc'),painelNota:g('pnota'),status:g('st'),painel:g('pn'),links,pendencias:g('pend').split('\n').map(s=>s.trim()).filter(Boolean)};
+    delete next.id; status.textContent='Salvando…';
+    try{await db.doc('projetos/'+p.id).set(next);editing=null;render();}
+    catch(err){status.textContent=err&&err.code==='invalid_argument'?'Você não tem permissão para mudar esta central.':'Não salvou. Tente de novo em instantes.';}
+  });
+  return f;
+}
+
+$('#q').addEventListener('input',render);
+(async()=>{
+  const timer=setTimeout(()=>{$('#msg').textContent='Os projetos ainda não chegaram. Confira a internet; a página tenta de novo sozinha.'},10000);
+  db=await (window.claude?.use?.('db')??null);
+  const user=await (window.claude?.use?.('user')??null);
+  if(user){try{const c=await user.canEdit();canWrite=c!==false}catch{}}
+  if(!db){clearTimeout(timer);$('#msg').textContent='Abra esta central logado na sua conta do Claude para ver os projetos.';return}
+  db.collection('projetos').orderBy('ordem').onSnapshot(snap=>{
+    if(!snap.metadata.fromCache)clearTimeout(timer);
+    projects=snap.docs.map(d=>({id:d.id,...d.data()}));
+    if(projects.length){$('#msg').hidden=true}else if(!snap.metadata.fromCache){$('#msg').hidden=false;$('#msg').textContent='Nenhum projeto cadastrado ainda.'}
+    if(editing&&document.activeElement&&document.activeElement.closest('form.ed'))return; // não apaga o formulário enquanto você digita
+    render();
+  },err=>{clearTimeout(timer);$('#msg').hidden=false;$('#msg').textContent='Não foi possível carregar os projetos agora.'});
+})();
+</script>
