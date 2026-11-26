@@ -28,12 +28,14 @@
 | 2026-11-24 19:30 | Stories (Anderson no app) | Repost do Reels + caixinha "dúvida sobre o caixa" | public/instagram/stories/tresk-story-2026-11-24-2.jpg | Publicados (story ids 18132290068888570, 18139959067636294) |
 | 2026-11-25 11:12 | Story bastidor (Anderson no app, com foto dele) | Quarta-feira aqui na Tresk → destaque Bastidores | public/instagram/stories/tresk-story-2026-11-25-1.jpg | Publicado (story id 18065758043531654) |
 | 2026-11-25 15:00 | Story de imagem (eu publiquei) | Como nasce um sistema na Tresk → destaque Bastidores | public/instagram/stories/tresk-story-2026-11-25-2.jpg | Publicado (media id 17969313758981751) |
+| 2026-11-26 | Reels teaser cinematográfico | KFit "em breve" (mistério → fitness → interfaces parciais → "vocês ainda não viram nada" → TresK → revelação KFit). Voz grátis Piper Faber (pt-BR), trilha sintetizada própria, legendas sincronizadas | public/instagram/tresk-kfit-teaser.mp4 (+ -capa.jpg); fonte em marketing/instagram/produtos/kfit-teaser/ (voz.py, score.py, render.py) | Enviado ao Anderson |
 | 2026-11-23..28 | Stories (12) | Enquete BF, post novo, aviso Reels, caixinha caixa, bastidor, como nasce um sistema, isso ou aquilo, quiz desconto, orçamento BF, link, sábado leve, case Divina | public/instagram/stories/tresk-story-2026-11-2*.jpg | Aprovado pelo Anderson em 22/11; agendado |
 
 ## Desempenho (Windsor, 22/11)
 - Reels 3 sinais: 199 de alcance x carrosséis de apresentação/KORT: 5 cada. Reels está puxando o alcance; manter 3 Reels/semana e capas fortes.
 
 ## Regras do Anderson (24/11)
+- Voz grátis preferida: Piper Faber (pt-BR) — modelo em /home/claude/tts-models/piper (baixar de raw.githubusercontent.com/heitormirandasjp-collab/O-J.A.R.V.I.S/HEAD/voices/pt_BR-faber-medium.onnx[.json]); não gostou da Kokoro Santa.
 - Mostrar os produtos (KORT, KFOOD, KFit) em Reels estilo comercial: dor → produto → como o cliente usa → como o dono usa → o que melhora → CTA. Pode ter narração da Amanda Kelly explicando, sem contar tudo (deixar expectativa).
 - Músicas dos Reels: INSTRUMENTAIS, animadas, com cara de comercial/divulgação. Nada de pop com vocal feminino (Levitating foi recusada).
 - Legendas: no máximo 5 hashtags (limite do Instagram desde dez/2025). Base: #tresktecnologia #ibimirim #sertaodepernambuco + 2 do tema.
