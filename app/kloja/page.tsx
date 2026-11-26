@@ -189,6 +189,28 @@ function McScreens() {
   ];
 }
 
+const planos = [
+  {
+    nome: "Vitrine",
+    preco: "59",
+    para: "Para começar a vender pelo celular",
+    itens: ["Catálogo online com o link da sua loja", "Até 300 peças com fotos, tamanhos e cores", "Estoque por tamanho e cor", "Cadastro de clientes", "1 usuário"],
+  },
+  {
+    nome: "Loja",
+    preco: "99",
+    para: "A loja inteira num sistema só",
+    destaque: true,
+    itens: ["Tudo do Vitrine, com peças ilimitadas", "Caixa (PDV): Pix, cartão, dinheiro e crediário", "Crediário próprio com contrato", "App Meu Crediário com a marca da loja", "Relatórios do dia e do mês", "Até 3 usuários"],
+  },
+  {
+    nome: "Loja+",
+    preco: "149",
+    para: "Para quem vende muito no crediário",
+    itens: ["Tudo do Loja", "Usuários ilimitados", "Mais de um caixa ao mesmo tempo", "Suporte prioritário no WhatsApp", "Nota fiscal (NFC-e) assim que for lançada"],
+  },
+];
+
 const modulos = [
   { i: <FiShoppingBag />, t: "Vitrine online", d: "A sua loja no celular da cliente, com foto, tamanho, cor e preço. Um link para mandar no WhatsApp e no Instagram.", big: true },
   { i: <FiCreditCard />, t: "Caixa (PDV)", d: "Venda no balcão em segundos, com Pix, cartão, dinheiro e crediário." },
@@ -206,7 +228,8 @@ const faq = [
   { q: "Tenho tudo num caderno. Dá para passar para o sistema?", a: "Dá. A gente ajuda a cadastrar as clientes do crediário e as parcelas que estão em aberto, para você começar sem perder nada." },
   { q: "A minha cliente consegue ver as parcelas?", a: "Consegue. Pelo Meu Crediário, com a marca da sua loja, ela vê o que está em aberto, quando vence, paga a parcela no Pix e guarda o contrato e os comprovantes." },
   { q: "Funciona no celular?", a: "Sim. A vitrine foi feita para o celular da cliente, e o painel abre no computador, no tablet ou no celular." },
-  { q: "Quanto custa?", a: "Uma implantação e uma mensalidade, com preço pensado para loja de cidade do interior. Chame no WhatsApp e conte como é a sua loja: o orçamento sai sem compromisso." },
+  { q: "Quanto custa?", a: "Os planos vão de R$ 59 a R$ 149 por mês, sem fidelidade. Você testa 10 dias grátis e a implantação, com o cadastro das peças e das clientes do crediário, é feita pela TresK." },
+  { q: "Tem fidelidade ou multa?", a: "Não. Você paga mês a mês e pode trocar de plano ou cancelar quando quiser." },
   { q: "Atende fora de Ibimirim?", a: "Sim. A implantação e o suporte podem ser todos online." },
 ];
 
@@ -255,10 +278,10 @@ export default function KlojaPage() {
         <div className={s.wrap}>
           <KlojaWordmark size={32} />
           <nav className={s.navLinks} aria-label="Seções">
-            <a href="#um-dia">Um dia na loja</a>
             <a href="#o-que-faz">O que faz</a>
+            <a href="#catalogo">Catálogo</a>
             <a href="#meu-crediario">Meu Crediário</a>
-            <a href="#erp-crm">ERP ou CRM?</a>
+            <a href="#precos">Planos</a>
             <a href="#duvidas">Dúvidas</a>
           </nav>
           <a className={s.navCta} href={ctaDemo} target="_blank" rel="noopener noreferrer">Ver demonstração</a>
@@ -357,6 +380,46 @@ export default function KlojaPage() {
           <div className={s.soon} data-rv>
             <span className={s.soonLbl}>Em breve</span>
             <span><FiFileText /> Nota fiscal (NFC-e) direto do caixa</span>
+          </div>
+        </div>
+      </section>
+
+      {/* CATÁLOGO ONLINE */}
+      <section id="catalogo" className={s.section}>
+        <div className={`${s.wrap} ${s.cat}`}>
+          <div className={s.catText}>
+            <div className={s.head} data-rv>
+              <span className={s.kicker}>Catálogo online</span>
+              <h2 className={s.h2}>A sua loja inteira <span className={s.goldText}>num link.</span></h2>
+              <p className={s.sub}>Mande o link no WhatsApp, coloque na bio do Instagram e deixe a cliente escolher com calma. Cada peça com foto, preço, tamanho e cor, separada do jeito que a sua loja organiza.</p>
+            </div>
+            <ul className={s.catList}>
+              {[
+                ["Link com o nome da sua loja", "Um endereço só seu para divulgar onde quiser."],
+                ["Fotos, tamanhos e cores", "A cliente vê o que tem antes de perguntar."],
+                ["Organizado por departamento", "Bebê, menina, menino, promoção: como na sua prateleira."],
+                ["Sempre atualizado", "O catálogo usa o mesmo estoque do caixa: vendeu no balcão, atualiza no link."],
+                ["Compartilhe cada peça", "Mande a peça certa para a cliente certa, com um toque."],
+              ].map(([t, d], i) => (
+                <li key={t} data-rv style={{ transitionDelay: `${i * 0.06}s` }}><FiCheck /><span><b>{t}</b>{d}</span></li>
+              ))}
+            </ul>
+          </div>
+          <div className={s.catPhone} data-rv aria-hidden="true">
+            <div className={s.catScr}>
+              <div className={s.catBar}><span>sualoja.kloja</span><FiShoppingBag /></div>
+              <div className={s.catHero}><small>Coleção</small><b>Verão bebê</b></div>
+              <div className={s.catChips}><b>Bebê</b><span>Menina</span><span>Menino</span><span>Promo</span></div>
+              <div className={s.catGrid}>
+                {[["#E9D7B0", "Macacão", "69,90"], ["#C9D6F7", "Body", "39,90"], ["#2A2C33", "Conjunto", "54,90"], ["#F1E6CF", "Vestido", "59,90"]].map(([c, n, p], i) => (
+                  <div key={n} className={s.catItem}>
+                    <i style={{ background: c }}><svg viewBox="0 0 60 60" width="40" height="40"><path d="M20 10h20l10 8-6 8-4-3v25H20V23l-4 3-6-8Z" fill={i === 2 ? "#C8A96A" : "#fff"} opacity=".92" /></svg></i>
+                    <span>{n}</span><b>R$ {p}</b>
+                    <small>P · M · G</small>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -481,6 +544,30 @@ export default function KlojaPage() {
         </div>
       </section>
 
+      {/* PREÇOS */}
+      <section id="precos" className={`${s.section} ${s.sectionDark}`}>
+        <div className={s.wrap}>
+          <div className={s.head} data-rv>
+            <span className={s.kicker}>Planos</span>
+            <h2 className={s.h2}>Preço de loja do interior. <span className={s.goldText}>Sistema de loja grande.</span></h2>
+            <p className={s.sub}>10 dias grátis para testar. Sem fidelidade. A TresK faz a implantação e cadastra as suas peças e as clientes do crediário com você.</p>
+          </div>
+          <div className={s.plans}>
+            {planos.map((p, i) => (
+              <article key={p.nome} className={`${s.plan} ${p.destaque ? s.planHot : ""}`} data-rv style={{ transitionDelay: `${i * 0.08}s` }}>
+                {p.destaque && <span className={s.planBadge}>Mais escolhido</span>}
+                <h3>{p.nome}</h3>
+                <p className={s.planFor}>{p.para}</p>
+                <div className={s.price}><small>R$</small><b>{p.preco}</b><span>/mês</span></div>
+                <ul>{p.itens.map((it) => <li key={it}><FiCheck /> {it}</li>)}</ul>
+                <a className={p.destaque ? s.btnGold : s.btnGhost} href={wa(`Olá! Quero testar o KLOJA no plano ${p.nome}.`)} target="_blank" rel="noopener noreferrer">Testar 10 dias grátis</a>
+              </article>
+            ))}
+          </div>
+          <p className={s.planNote} data-rv>Valores por loja. Taxas de Pix e de cartão são as do seu banco ou da sua maquininha.</p>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section id="duvidas" className={s.section}>
         <div className={`${s.wrap} ${s.faqWrap}`}>
@@ -524,8 +611,9 @@ export default function KlojaPage() {
             <h4>KLOJA</h4>
             <a href="#um-dia">Um dia na loja</a>
             <a href="#o-que-faz">O que faz</a>
+            <a href="#catalogo">Catálogo online</a>
             <a href="#meu-crediario">Meu Crediário</a>
-            <a href="#erp-crm">ERP ou CRM?</a>
+            <a href="#precos">Planos e preços</a>
             <a href="#duvidas">Dúvidas</a>
           </nav>
           <div className={s.footCol}>

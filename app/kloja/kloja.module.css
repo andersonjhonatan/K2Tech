@@ -391,3 +391,80 @@
 .mcIn .mcQr { width: 150px; height: 150px; }
 .daySteps li.stepDone { opacity: 0.62; }
 .daySteps li.stepDone .stepHora::after { content: "  ✓ visto"; color: var(--ok); letter-spacing: 0.04em; }
+
+/* ============ CATÁLOGO ONLINE ============ */
+.cat { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
+@media (max-width: 900px) { .cat { grid-template-columns: 1fr; gap: 10px; } }
+.catText .head { margin-bottom: 28px; }
+.catList { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.catList li { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; border-radius: 16px; border: 1px solid var(--line); background: var(--bg-2); }
+.catList li svg { color: var(--gold); flex: none; margin-top: 4px; }
+.catList span { display: grid; color: var(--muted); font-size: 15px; }
+.catList b { color: var(--text); font-weight: 600; font-size: 16px; }
+.catPhone { justify-self: center; position: relative; }
+.catPhone::before { content: ""; position: absolute; inset: -60px; background: radial-gradient(closest-side, rgba(200, 169, 106, 0.18), transparent); z-index: -1; }
+.catScr { width: min(300px, 78vw); aspect-ratio: 9 / 18.5; border-radius: 40px; background: #f6f3ec; color: #16161a; box-shadow: 0 0 0 8px #18181c, 0 0 0 9px var(--line-2), 0 40px 90px rgba(0, 0, 0, 0.55); padding: 46px 14px 14px; display: grid; gap: 10px; align-content: start; overflow: hidden; max-width: 100%; }
+.catBar { display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; color: #6b6b74; padding: 7px 10px; border-radius: 10px; background: #ebe6db; }
+.catHero { border-radius: 16px; padding: 18px 14px; background: linear-gradient(135deg, #1b1b20, #2a2418); color: #fff; display: grid; }
+.catHero small { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-hi); }
+.catHero b { font-family: var(--display); font-size: 20px; }
+.catChips { display: flex; gap: 6px; font-size: 11px; line-height: 1.7; overflow: hidden; white-space: nowrap; }
+.catChips b, .catChips span { padding: 4px 10px; border-radius: 999px; background: #ebe6db; }
+.catChips b { background: #16161a; color: #fff; }
+.catGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.catItem { display: grid; gap: 1px; min-width: 0; font-size: 12px; }
+.catItem i { aspect-ratio: 1; border-radius: 14px; display: grid; place-items: center; }
+.catItem span { font-weight: 600; margin-top: 4px; }
+.catItem b { color: #8c6f3a; }
+.catItem small { color: #8a8a93; font-size: 10px; }
+
+/* ============ PLANOS ============ */
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
+@media (max-width: 960px) { .plans { grid-template-columns: 1fr; max-width: 460px; } }
+.plan { position: relative; padding: 32px 28px; border-radius: 24px; border: 1px solid var(--line-2); background: var(--bg-3); display: grid; gap: 14px; align-content: start; grid-template-rows: auto auto auto 1fr auto; }
+.planHot { border-color: rgba(200, 169, 106, 0.6); background: linear-gradient(170deg, rgba(200, 169, 106, 0.14), var(--bg-3) 55%); box-shadow: 0 30px 80px rgba(200, 169, 106, 0.12); }
+.planBadge { position: absolute; top: -13px; left: 28px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #0b0b0c; background: linear-gradient(135deg, var(--gold-hi), var(--gold)); padding: 5px 12px; border-radius: 999px; }
+.plan h3 { font-family: var(--display); font-size: 24px; }
+.planFor { color: var(--muted); font-size: 15px; }
+.price { display: flex; align-items: baseline; gap: 6px; font-variant-numeric: tabular-nums; }
+.price small { font-size: 18px; color: var(--muted); font-weight: 600; }
+.price b { font-family: var(--display); font-size: 54px; line-height: 1; letter-spacing: -0.03em; }
+.planHot .price b { color: var(--gold-hi); }
+.price span { color: var(--muted); }
+.plan ul { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 10px; align-content: start; }
+.plan li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+.plan li svg { color: var(--gold); flex: none; margin-top: 4px; }
+.plan .btnGold, .plan .btnGhost { justify-content: center; margin-top: 8px; }
+.planNote { margin-top: 22px !important; color: var(--dim); font-size: 14px; }
+
+/* ============ CELULAR: tipografia menor ============ */
+@media (max-width: 600px) {
+  .page { font-size: 15px; }
+  .h1 { font-size: clamp(34px, 10vw, 42px); margin: 18px 0 16px !important; }
+  .lead { font-size: 15.5px; }
+  .h2 { font-size: clamp(26px, 7.6vw, 32px); }
+  .sub { font-size: 15.5px; }
+  .kicker { font-size: 11px; letter-spacing: 0.18em; }
+  .eyebrow { font-size: 11px; padding: 7px 12px; }
+  .head { margin-bottom: 34px; gap: 10px; }
+  .btnGold, .btnGhost { padding: 13px 18px; font-size: 15px; }
+  .facts dt { font-size: 28px; }
+  .facts dd { font-size: 11px; }
+  .marqueeTrack span { font-size: 16px; }
+  .receipt h3 { font-size: 20px; }
+  .daySteps h3 { font-size: 20px; }
+  .daySteps li { padding: 20px; }
+  .tile { padding: 22px; min-height: 0; }
+  .tile h3 { font-size: 20px; }
+  .sig { font-size: 42px; }
+  .half { padding: 26px; }
+  .half h3, .safeItem h3, .mcSide h3 { font-size: 19px; }
+  .mergeNote { font-size: 16px; }
+  .pilot b { font-size: 26px; }
+  .faq summary { font-size: 15.5px; padding: 15px 0; }
+  .price b { font-size: 44px; }
+  .plan h3 { font-size: 21px; }
+  .catList b { font-size: 15px; }
+  .catList span { font-size: 14px; }
+  .introWord { font-size: 44px; }
+}
