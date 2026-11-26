@@ -43,7 +43,7 @@ svg.full{position:absolute;inset:0}
  <div id="bE" style="position:absolute;left:0;right:0;top:1530px;display:flex;justify-content:center;align-items:center;gap:22px;font-size:32px;color:#a3a3ad"><img src="mark.png" style="height:80px"> Desenvolvido pela TresK Tecnologia</div>
 </div>
 </div>
-<script src="common.js"></script><script src="screens.js"></script>
+<script src="common.js"></script><script src="screens.js"></script><script src="v3-tempos.js"></script>
 <script>
 const LINES=[
  ['R','Ai, Joana… mais um dia procurando o caderno do fiado. Sumiu de novo!'],
@@ -61,7 +61,9 @@ const LINES=[
  ['J','Bem-vinda ao clube!'],
 ];
 let t0=1.2; const TL=LINES.map(l=>{const d=Math.max(2.0,l[1].length/16+0.6); const o={who:l[0],txt:l[1],scr:l[2]||null,s:t0,e:t0+d}; t0+=d+0.45; return o;});
-const END_AT=t0+0.3; window.TOTAL=END_AT+6.5; window.TL=TL;
+let END_AT=t0+0.3; window.TOTAL=END_AT+6.5;
+if(window.VOZ){ TL.forEach((l,i)=>{l.s=VOZ[i][0]; l.e=VOZ[i][1];}); END_AT=VOZ[TL.length][0]-0.4; window.TOTAL=VOZ[TL.length][1]+2.6; }
+window.TL=TL;
 const RITA={skin:'#C98B62',hair:'#3A2418',style:'long',shirt:'#E0607E',pants:'#3A3F58'};
 const JOANA={skin:'#8D5A3B',hair:'#1E1410',style:'bun',shirt:'#C8A96A',pants:'#2E3A4A'};
 place('rita',person({...RITA,id:'pr'}),300,1700,1.25);
