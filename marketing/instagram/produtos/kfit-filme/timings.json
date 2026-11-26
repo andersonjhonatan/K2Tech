@@ -1,0 +1,1104 @@
+{
+ "voff": 0.4,
+ "tail": 3.8,
+ "lines": [
+  {
+   "id": "l1",
+   "text": "Cinco e meia da manhã. O Rafael já está na academia.",
+   "gap": 0.6,
+   "start": 0.3,
+   "end": 3.608
+  },
+  {
+   "id": "l2",
+   "text": "Personal trainer. Doze alunos por dia, e um celular que não para.",
+   "gap": 0.6,
+   "start": 4.208,
+   "end": 8.001
+  },
+  {
+   "id": "l3",
+   "text": "A ficha de treino é no papel. E o aluno perde.",
+   "gap": 0.4,
+   "start": 8.601,
+   "end": 11.382
+  },
+  {
+   "id": "l4",
+   "text": "A carga fica na cabeça. Ninguém lembra quanto pegou.",
+   "gap": 0.4,
+   "start": 11.782,
+   "end": 14.921
+  },
+  {
+   "id": "l5",
+   "text": "E no fim do mês, cobrar a mensalidade fica sempre pra depois.",
+   "gap": 0.7,
+   "start": 15.321,
+   "end": 18.58
+  },
+  {
+   "id": "l6",
+   "text": "Ele não tem tempo de cuidar do negócio. Está ocupado demais cuidando de pessoas.",
+   "gap": 1.0,
+   "start": 19.28,
+   "end": 23.884
+  },
+  {
+   "id": "l7",
+   "text": "Pensando em profissionais como ele, a TresK Tecnologia criou o KFit.",
+   "gap": 0.5,
+   "start": 24.884,
+   "end": 28.564
+  },
+  {
+   "id": "l8",
+   "text": "O app que organiza o trabalho do personal, do treino à mensalidade.",
+   "gap": 0.6,
+   "start": 29.064,
+   "end": 32.337
+  },
+  {
+   "id": "l9",
+   "text": "O aluno recebe o treino no celular, com vídeo e meta de carga.",
+   "gap": 0.4,
+   "start": 32.937,
+   "end": 36.29
+  },
+  {
+   "id": "l10",
+   "text": "Marca cada série. E o personal vê na hora quem evoluiu.",
+   "gap": 0.4,
+   "start": 36.69,
+   "end": 40.015
+  },
+  {
+   "id": "l11",
+   "text": "Avaliação física, evolução em gráfico e cobrança por Pix.",
+   "gap": 0.4,
+   "start": 40.415,
+   "end": 43.941
+  },
+  {
+   "id": "l12",
+   "text": "Tudo com a marca do seu studio.",
+   "gap": 0.7,
+   "start": 44.341,
+   "end": 45.876
+  },
+  {
+   "id": "l13",
+   "text": "Menos papel. Mais tempo pra cuidar de gente.",
+   "gap": 0.5,
+   "start": 46.576,
+   "end": 49.383
+  },
+  {
+   "id": "l14",
+   "text": "Para personal trainers, studios de funcional e pequenas academias.",
+   "gap": 0.9,
+   "start": 49.883,
+   "end": 53.614
+  },
+  {
+   "id": "l15",
+   "text": "KFit. Em breve.",
+   "gap": 0.6,
+   "start": 54.514,
+   "end": 55.891
+  },
+  {
+   "id": "l16",
+   "text": "Desenvolvido pela TresK Tecnologia. Chama no direct e seja um dos primeiros.",
+   "gap": 0,
+   "start": 56.491,
+   "end": 60.509
+  }
+ ],
+ "words": [
+  {
+   "text": "Cinco",
+   "startSeconds": 0.3,
+   "endSeconds": 0.674,
+   "line": "l1"
+  },
+  {
+   "text": "e",
+   "startSeconds": 0.674,
+   "endSeconds": 0.799,
+   "line": "l1"
+  },
+  {
+   "text": "meia",
+   "startSeconds": 0.799,
+   "endSeconds": 1.111,
+   "line": "l1"
+  },
+  {
+   "text": "da",
+   "startSeconds": 1.111,
+   "endSeconds": 1.299,
+   "line": "l1"
+  },
+  {
+   "text": "manhã.",
+   "startSeconds": 1.299,
+   "endSeconds": 1.735,
+   "line": "l1"
+  },
+  {
+   "text": "O",
+   "startSeconds": 1.735,
+   "endSeconds": 1.86,
+   "line": "l1"
+  },
+  {
+   "text": "Rafael",
+   "startSeconds": 1.86,
+   "endSeconds": 2.297,
+   "line": "l1"
+  },
+  {
+   "text": "já",
+   "startSeconds": 2.297,
+   "endSeconds": 2.484,
+   "line": "l1"
+  },
+  {
+   "text": "está",
+   "startSeconds": 2.484,
+   "endSeconds": 2.796,
+   "line": "l1"
+  },
+  {
+   "text": "na",
+   "startSeconds": 2.796,
+   "endSeconds": 2.984,
+   "line": "l1"
+  },
+  {
+   "text": "academia.",
+   "startSeconds": 2.984,
+   "endSeconds": 3.608,
+   "line": "l1"
+  },
+  {
+   "text": "Personal",
+   "startSeconds": 4.208,
+   "endSeconds": 4.725,
+   "line": "l2"
+  },
+  {
+   "text": "trainer.",
+   "startSeconds": 4.725,
+   "endSeconds": 5.242,
+   "line": "l2"
+  },
+  {
+   "text": "Doze",
+   "startSeconds": 5.242,
+   "endSeconds": 5.529,
+   "line": "l2"
+  },
+  {
+   "text": "alunos",
+   "startSeconds": 5.529,
+   "endSeconds": 5.932,
+   "line": "l2"
+  },
+  {
+   "text": "por",
+   "startSeconds": 5.932,
+   "endSeconds": 6.162,
+   "line": "l2"
+  },
+  {
+   "text": "dia,",
+   "startSeconds": 6.162,
+   "endSeconds": 6.449,
+   "line": "l2"
+  },
+  {
+   "text": "e",
+   "startSeconds": 6.449,
+   "endSeconds": 6.564,
+   "line": "l2"
+  },
+  {
+   "text": "um",
+   "startSeconds": 6.564,
+   "endSeconds": 6.736,
+   "line": "l2"
+  },
+  {
+   "text": "celular",
+   "startSeconds": 6.736,
+   "endSeconds": 7.196,
+   "line": "l2"
+  },
+  {
+   "text": "que",
+   "startSeconds": 7.196,
+   "endSeconds": 7.426,
+   "line": "l2"
+  },
+  {
+   "text": "não",
+   "startSeconds": 7.426,
+   "endSeconds": 7.656,
+   "line": "l2"
+  },
+  {
+   "text": "para.",
+   "startSeconds": 7.656,
+   "endSeconds": 8.001,
+   "line": "l2"
+  },
+  {
+   "text": "A",
+   "startSeconds": 8.601,
+   "endSeconds": 8.719,
+   "line": "l3"
+  },
+  {
+   "text": "ficha",
+   "startSeconds": 8.719,
+   "endSeconds": 9.074,
+   "line": "l3"
+  },
+  {
+   "text": "de",
+   "startSeconds": 9.074,
+   "endSeconds": 9.251,
+   "line": "l3"
+  },
+  {
+   "text": "treino",
+   "startSeconds": 9.251,
+   "endSeconds": 9.666,
+   "line": "l3"
+  },
+  {
+   "text": "é",
+   "startSeconds": 9.666,
+   "endSeconds": 9.784,
+   "line": "l3"
+  },
+  {
+   "text": "no",
+   "startSeconds": 9.784,
+   "endSeconds": 9.962,
+   "line": "l3"
+  },
+  {
+   "text": "papel.",
+   "startSeconds": 9.962,
+   "endSeconds": 10.376,
+   "line": "l3"
+  },
+  {
+   "text": "E",
+   "startSeconds": 10.376,
+   "endSeconds": 10.494,
+   "line": "l3"
+  },
+  {
+   "text": "o",
+   "startSeconds": 10.494,
+   "endSeconds": 10.613,
+   "line": "l3"
+  },
+  {
+   "text": "aluno",
+   "startSeconds": 10.613,
+   "endSeconds": 10.968,
+   "line": "l3"
+  },
+  {
+   "text": "perde.",
+   "startSeconds": 10.968,
+   "endSeconds": 11.382,
+   "line": "l3"
+  },
+  {
+   "text": "A",
+   "startSeconds": 11.782,
+   "endSeconds": 11.9,
+   "line": "l4"
+  },
+  {
+   "text": "carga",
+   "startSeconds": 11.9,
+   "endSeconds": 12.256,
+   "line": "l4"
+  },
+  {
+   "text": "fica",
+   "startSeconds": 12.256,
+   "endSeconds": 12.552,
+   "line": "l4"
+  },
+  {
+   "text": "na",
+   "startSeconds": 12.552,
+   "endSeconds": 12.73,
+   "line": "l4"
+  },
+  {
+   "text": "cabeça.",
+   "startSeconds": 12.73,
+   "endSeconds": 13.204,
+   "line": "l4"
+  },
+  {
+   "text": "Ninguém",
+   "startSeconds": 13.204,
+   "endSeconds": 13.677,
+   "line": "l4"
+  },
+  {
+   "text": "lembra",
+   "startSeconds": 13.677,
+   "endSeconds": 14.092,
+   "line": "l4"
+  },
+  {
+   "text": "quanto",
+   "startSeconds": 14.092,
+   "endSeconds": 14.507,
+   "line": "l4"
+  },
+  {
+   "text": "pegou.",
+   "startSeconds": 14.507,
+   "endSeconds": 14.921,
+   "line": "l4"
+  },
+  {
+   "text": "E",
+   "startSeconds": 15.321,
+   "endSeconds": 15.427,
+   "line": "l5"
+  },
+  {
+   "text": "no",
+   "startSeconds": 15.427,
+   "endSeconds": 15.584,
+   "line": "l5"
+  },
+  {
+   "text": "fim",
+   "startSeconds": 15.584,
+   "endSeconds": 15.794,
+   "line": "l5"
+  },
+  {
+   "text": "do",
+   "startSeconds": 15.794,
+   "endSeconds": 15.952,
+   "line": "l5"
+  },
+  {
+   "text": "mês,",
+   "startSeconds": 15.952,
+   "endSeconds": 16.215,
+   "line": "l5"
+  },
+  {
+   "text": "cobrar",
+   "startSeconds": 16.215,
+   "endSeconds": 16.583,
+   "line": "l5"
+  },
+  {
+   "text": "a",
+   "startSeconds": 16.583,
+   "endSeconds": 16.688,
+   "line": "l5"
+  },
+  {
+   "text": "mensalidade",
+   "startSeconds": 16.688,
+   "endSeconds": 17.318,
+   "line": "l5"
+  },
+  {
+   "text": "fica",
+   "startSeconds": 17.318,
+   "endSeconds": 17.581,
+   "line": "l5"
+  },
+  {
+   "text": "sempre",
+   "startSeconds": 17.581,
+   "endSeconds": 17.949,
+   "line": "l5"
+  },
+  {
+   "text": "pra",
+   "startSeconds": 17.949,
+   "endSeconds": 18.159,
+   "line": "l5"
+  },
+  {
+   "text": "depois.",
+   "startSeconds": 18.159,
+   "endSeconds": 18.58,
+   "line": "l5"
+  },
+  {
+   "text": "Ele",
+   "startSeconds": 19.28,
+   "endSeconds": 19.507,
+   "line": "l6"
+  },
+  {
+   "text": "não",
+   "startSeconds": 19.507,
+   "endSeconds": 19.734,
+   "line": "l6"
+  },
+  {
+   "text": "tem",
+   "startSeconds": 19.734,
+   "endSeconds": 19.962,
+   "line": "l6"
+  },
+  {
+   "text": "tempo",
+   "startSeconds": 19.962,
+   "endSeconds": 20.303,
+   "line": "l6"
+  },
+  {
+   "text": "de",
+   "startSeconds": 20.303,
+   "endSeconds": 20.473,
+   "line": "l6"
+  },
+  {
+   "text": "cuidar",
+   "startSeconds": 20.473,
+   "endSeconds": 20.871,
+   "line": "l6"
+  },
+  {
+   "text": "do",
+   "startSeconds": 20.871,
+   "endSeconds": 21.042,
+   "line": "l6"
+  },
+  {
+   "text": "negócio.",
+   "startSeconds": 21.042,
+   "endSeconds": 21.554,
+   "line": "l6"
+  },
+  {
+   "text": "Está",
+   "startSeconds": 21.554,
+   "endSeconds": 21.838,
+   "line": "l6"
+  },
+  {
+   "text": "ocupado",
+   "startSeconds": 21.838,
+   "endSeconds": 22.293,
+   "line": "l6"
+  },
+  {
+   "text": "demais",
+   "startSeconds": 22.293,
+   "endSeconds": 22.691,
+   "line": "l6"
+  },
+  {
+   "text": "cuidando",
+   "startSeconds": 22.691,
+   "endSeconds": 23.202,
+   "line": "l6"
+  },
+  {
+   "text": "de",
+   "startSeconds": 23.202,
+   "endSeconds": 23.373,
+   "line": "l6"
+  },
+  {
+   "text": "pessoas.",
+   "startSeconds": 23.373,
+   "endSeconds": 23.884,
+   "line": "l6"
+  },
+  {
+   "text": "Pensando",
+   "startSeconds": 24.884,
+   "endSeconds": 25.364,
+   "line": "l7"
+  },
+  {
+   "text": "em",
+   "startSeconds": 25.364,
+   "endSeconds": 25.524,
+   "line": "l7"
+  },
+  {
+   "text": "profissionais",
+   "startSeconds": 25.524,
+   "endSeconds": 26.271,
+   "line": "l7"
+  },
+  {
+   "text": "como",
+   "startSeconds": 26.271,
+   "endSeconds": 26.537,
+   "line": "l7"
+  },
+  {
+   "text": "ele,",
+   "startSeconds": 26.537,
+   "endSeconds": 26.804,
+   "line": "l7"
+  },
+  {
+   "text": "a",
+   "startSeconds": 26.804,
+   "endSeconds": 26.911,
+   "line": "l7"
+  },
+  {
+   "text": "TresK",
+   "startSeconds": 26.911,
+   "endSeconds": 27.231,
+   "line": "l7"
+  },
+  {
+   "text": "Tecnologia",
+   "startSeconds": 27.231,
+   "endSeconds": 27.817,
+   "line": "l7"
+  },
+  {
+   "text": "criou",
+   "startSeconds": 27.817,
+   "endSeconds": 28.137,
+   "line": "l7"
+  },
+  {
+   "text": "o",
+   "startSeconds": 28.137,
+   "endSeconds": 28.244,
+   "line": "l7"
+  },
+  {
+   "text": "KFit.",
+   "startSeconds": 28.244,
+   "endSeconds": 28.564,
+   "line": "l7"
+  },
+  {
+   "text": "O",
+   "startSeconds": 29.064,
+   "endSeconds": 29.16,
+   "line": "l8"
+  },
+  {
+   "text": "app",
+   "startSeconds": 29.16,
+   "endSeconds": 29.353,
+   "line": "l8"
+  },
+  {
+   "text": "que",
+   "startSeconds": 29.353,
+   "endSeconds": 29.545,
+   "line": "l8"
+  },
+  {
+   "text": "organiza",
+   "startSeconds": 29.545,
+   "endSeconds": 29.978,
+   "line": "l8"
+  },
+  {
+   "text": "o",
+   "startSeconds": 29.978,
+   "endSeconds": 30.075,
+   "line": "l8"
+  },
+  {
+   "text": "trabalho",
+   "startSeconds": 30.075,
+   "endSeconds": 30.508,
+   "line": "l8"
+  },
+  {
+   "text": "do",
+   "startSeconds": 30.508,
+   "endSeconds": 30.652,
+   "line": "l8"
+  },
+  {
+   "text": "personal,",
+   "startSeconds": 30.652,
+   "endSeconds": 31.134,
+   "line": "l8"
+  },
+  {
+   "text": "do",
+   "startSeconds": 31.134,
+   "endSeconds": 31.278,
+   "line": "l8"
+  },
+  {
+   "text": "treino",
+   "startSeconds": 31.278,
+   "endSeconds": 31.615,
+   "line": "l8"
+  },
+  {
+   "text": "à",
+   "startSeconds": 31.615,
+   "endSeconds": 31.712,
+   "line": "l8"
+  },
+  {
+   "text": "mensalidade.",
+   "startSeconds": 31.712,
+   "endSeconds": 32.337,
+   "line": "l8"
+  },
+  {
+   "text": "O",
+   "startSeconds": 32.937,
+   "endSeconds": 33.044,
+   "line": "l9"
+  },
+  {
+   "text": "aluno",
+   "startSeconds": 33.044,
+   "endSeconds": 33.363,
+   "line": "l9"
+  },
+  {
+   "text": "recebe",
+   "startSeconds": 33.363,
+   "endSeconds": 33.736,
+   "line": "l9"
+  },
+  {
+   "text": "o",
+   "startSeconds": 33.736,
+   "endSeconds": 33.842,
+   "line": "l9"
+  },
+  {
+   "text": "treino",
+   "startSeconds": 33.842,
+   "endSeconds": 34.214,
+   "line": "l9"
+  },
+  {
+   "text": "no",
+   "startSeconds": 34.214,
+   "endSeconds": 34.374,
+   "line": "l9"
+  },
+  {
+   "text": "celular,",
+   "startSeconds": 34.374,
+   "endSeconds": 34.853,
+   "line": "l9"
+  },
+  {
+   "text": "com",
+   "startSeconds": 34.853,
+   "endSeconds": 35.066,
+   "line": "l9"
+  },
+  {
+   "text": "vídeo",
+   "startSeconds": 35.066,
+   "endSeconds": 35.385,
+   "line": "l9"
+  },
+  {
+   "text": "e",
+   "startSeconds": 35.385,
+   "endSeconds": 35.491,
+   "line": "l9"
+  },
+  {
+   "text": "meta",
+   "startSeconds": 35.491,
+   "endSeconds": 35.758,
+   "line": "l9"
+  },
+  {
+   "text": "de",
+   "startSeconds": 35.758,
+   "endSeconds": 35.917,
+   "line": "l9"
+  },
+  {
+   "text": "carga.",
+   "startSeconds": 35.917,
+   "endSeconds": 36.29,
+   "line": "l9"
+  },
+  {
+   "text": "Marca",
+   "startSeconds": 36.69,
+   "endSeconds": 37.046,
+   "line": "l10"
+  },
+  {
+   "text": "cada",
+   "startSeconds": 37.046,
+   "endSeconds": 37.343,
+   "line": "l10"
+  },
+  {
+   "text": "série.",
+   "startSeconds": 37.343,
+   "endSeconds": 37.759,
+   "line": "l10"
+  },
+  {
+   "text": "E",
+   "startSeconds": 37.759,
+   "endSeconds": 37.877,
+   "line": "l10"
+  },
+  {
+   "text": "o",
+   "startSeconds": 37.877,
+   "endSeconds": 37.996,
+   "line": "l10"
+  },
+  {
+   "text": "personal",
+   "startSeconds": 37.996,
+   "endSeconds": 38.531,
+   "line": "l10"
+  },
+  {
+   "text": "vê",
+   "startSeconds": 38.531,
+   "endSeconds": 38.709,
+   "line": "l10"
+  },
+  {
+   "text": "na",
+   "startSeconds": 38.709,
+   "endSeconds": 38.887,
+   "line": "l10"
+  },
+  {
+   "text": "hora",
+   "startSeconds": 38.887,
+   "endSeconds": 39.184,
+   "line": "l10"
+  },
+  {
+   "text": "quem",
+   "startSeconds": 39.184,
+   "endSeconds": 39.481,
+   "line": "l10"
+  },
+  {
+   "text": "evoluiu.",
+   "startSeconds": 39.481,
+   "endSeconds": 40.015,
+   "line": "l10"
+  },
+  {
+   "text": "Avaliação",
+   "startSeconds": 40.415,
+   "endSeconds": 41.023,
+   "line": "l11"
+  },
+  {
+   "text": "física,",
+   "startSeconds": 41.023,
+   "endSeconds": 41.509,
+   "line": "l11"
+  },
+  {
+   "text": "evolução",
+   "startSeconds": 41.509,
+   "endSeconds": 42.056,
+   "line": "l11"
+  },
+  {
+   "text": "em",
+   "startSeconds": 42.056,
+   "endSeconds": 42.239,
+   "line": "l11"
+  },
+  {
+   "text": "gráfico",
+   "startSeconds": 42.239,
+   "endSeconds": 42.725,
+   "line": "l11"
+  },
+  {
+   "text": "e",
+   "startSeconds": 42.725,
+   "endSeconds": 42.847,
+   "line": "l11"
+  },
+  {
+   "text": "cobrança",
+   "startSeconds": 42.847,
+   "endSeconds": 43.394,
+   "line": "l11"
+  },
+  {
+   "text": "por",
+   "startSeconds": 43.394,
+   "endSeconds": 43.637,
+   "line": "l11"
+  },
+  {
+   "text": "Pix.",
+   "startSeconds": 43.637,
+   "endSeconds": 43.941,
+   "line": "l11"
+  },
+  {
+   "text": "Tudo",
+   "startSeconds": 44.341,
+   "endSeconds": 44.581,
+   "line": "l12"
+  },
+  {
+   "text": "com",
+   "startSeconds": 44.581,
+   "endSeconds": 44.773,
+   "line": "l12"
+  },
+  {
+   "text": "a",
+   "startSeconds": 44.773,
+   "endSeconds": 44.868,
+   "line": "l12"
+  },
+  {
+   "text": "marca",
+   "startSeconds": 44.868,
+   "endSeconds": 45.156,
+   "line": "l12"
+  },
+  {
+   "text": "do",
+   "startSeconds": 45.156,
+   "endSeconds": 45.3,
+   "line": "l12"
+  },
+  {
+   "text": "seu",
+   "startSeconds": 45.3,
+   "endSeconds": 45.492,
+   "line": "l12"
+  },
+  {
+   "text": "studio.",
+   "startSeconds": 45.492,
+   "endSeconds": 45.876,
+   "line": "l12"
+  },
+  {
+   "text": "Menos",
+   "startSeconds": 46.576,
+   "endSeconds": 46.951,
+   "line": "l13"
+  },
+  {
+   "text": "papel.",
+   "startSeconds": 46.951,
+   "endSeconds": 47.387,
+   "line": "l13"
+  },
+  {
+   "text": "Mais",
+   "startSeconds": 47.387,
+   "endSeconds": 47.699,
+   "line": "l13"
+  },
+  {
+   "text": "tempo",
+   "startSeconds": 47.699,
+   "endSeconds": 48.073,
+   "line": "l13"
+  },
+  {
+   "text": "pra",
+   "startSeconds": 48.073,
+   "endSeconds": 48.323,
+   "line": "l13"
+  },
+  {
+   "text": "cuidar",
+   "startSeconds": 48.323,
+   "endSeconds": 48.76,
+   "line": "l13"
+  },
+  {
+   "text": "de",
+   "startSeconds": 48.76,
+   "endSeconds": 48.947,
+   "line": "l13"
+  },
+  {
+   "text": "gente.",
+   "startSeconds": 48.947,
+   "endSeconds": 49.383,
+   "line": "l13"
+  },
+  {
+   "text": "Para",
+   "startSeconds": 49.883,
+   "endSeconds": 50.162,
+   "line": "l14"
+  },
+  {
+   "text": "personal",
+   "startSeconds": 50.162,
+   "endSeconds": 50.663,
+   "line": "l14"
+  },
+  {
+   "text": "trainers,",
+   "startSeconds": 50.663,
+   "endSeconds": 51.22,
+   "line": "l14"
+  },
+  {
+   "text": "studios",
+   "startSeconds": 51.22,
+   "endSeconds": 51.665,
+   "line": "l14"
+  },
+  {
+   "text": "de",
+   "startSeconds": 51.665,
+   "endSeconds": 51.832,
+   "line": "l14"
+  },
+  {
+   "text": "funcional",
+   "startSeconds": 51.832,
+   "endSeconds": 52.389,
+   "line": "l14"
+  },
+  {
+   "text": "e",
+   "startSeconds": 52.389,
+   "endSeconds": 52.5,
+   "line": "l14"
+  },
+  {
+   "text": "pequenas",
+   "startSeconds": 52.5,
+   "endSeconds": 53.001,
+   "line": "l14"
+  },
+  {
+   "text": "academias.",
+   "startSeconds": 53.001,
+   "endSeconds": 53.614,
+   "line": "l14"
+  },
+  {
+   "text": "KFit.",
+   "startSeconds": 54.514,
+   "endSeconds": 55.03,
+   "line": "l15"
+  },
+  {
+   "text": "Em",
+   "startSeconds": 55.03,
+   "endSeconds": 55.288,
+   "line": "l15"
+  },
+  {
+   "text": "breve.",
+   "startSeconds": 55.288,
+   "endSeconds": 55.891,
+   "line": "l15"
+  },
+  {
+   "text": "Desenvolvido",
+   "startSeconds": 56.491,
+   "endSeconds": 57.169,
+   "line": "l16"
+  },
+  {
+   "text": "pela",
+   "startSeconds": 57.169,
+   "endSeconds": 57.43,
+   "line": "l16"
+  },
+  {
+   "text": "TresK",
+   "startSeconds": 57.43,
+   "endSeconds": 57.743,
+   "line": "l16"
+  },
+  {
+   "text": "Tecnologia.",
+   "startSeconds": 57.743,
+   "endSeconds": 58.369,
+   "line": "l16"
+  },
+  {
+   "text": "Chama",
+   "startSeconds": 58.369,
+   "endSeconds": 58.682,
+   "line": "l16"
+  },
+  {
+   "text": "no",
+   "startSeconds": 58.682,
+   "endSeconds": 58.839,
+   "line": "l16"
+  },
+  {
+   "text": "direct",
+   "startSeconds": 58.839,
+   "endSeconds": 59.204,
+   "line": "l16"
+  },
+  {
+   "text": "e",
+   "startSeconds": 59.204,
+   "endSeconds": 59.308,
+   "line": "l16"
+  },
+  {
+   "text": "seja",
+   "startSeconds": 59.308,
+   "endSeconds": 59.569,
+   "line": "l16"
+  },
+  {
+   "text": "um",
+   "startSeconds": 59.569,
+   "endSeconds": 59.726,
+   "line": "l16"
+  },
+  {
+   "text": "dos",
+   "startSeconds": 59.726,
+   "endSeconds": 59.935,
+   "line": "l16"
+  },
+  {
+   "text": "primeiros.",
+   "startSeconds": 59.935,
+   "endSeconds": 60.509,
+   "line": "l16"
+  }
+ ]
+}

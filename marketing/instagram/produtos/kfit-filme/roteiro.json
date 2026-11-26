@@ -1,0 +1,86 @@
+{
+ "voff": 0.4,
+ "tail": 3.8,
+ "lines": [
+  {
+   "id": "l1",
+   "text": "Cinco e meia da manhã. O Rafael já está na academia.",
+   "gap": 0.6
+  },
+  {
+   "id": "l2",
+   "text": "Personal trainer. Doze alunos por dia, e um celular que não para.",
+   "gap": 0.6
+  },
+  {
+   "id": "l3",
+   "text": "A ficha de treino é no papel. E o aluno perde.",
+   "gap": 0.4
+  },
+  {
+   "id": "l4",
+   "text": "A carga fica na cabeça. Ninguém lembra quanto pegou.",
+   "gap": 0.4
+  },
+  {
+   "id": "l5",
+   "text": "E no fim do mês, cobrar a mensalidade fica sempre pra depois.",
+   "gap": 0.7
+  },
+  {
+   "id": "l6",
+   "text": "Ele não tem tempo de cuidar do negócio. Está ocupado demais cuidando de pessoas.",
+   "gap": 1.0
+  },
+  {
+   "id": "l7",
+   "text": "Pensando em profissionais como ele, a TresK Tecnologia criou o KFit.",
+   "gap": 0.5
+  },
+  {
+   "id": "l8",
+   "text": "O app que organiza o trabalho do personal, do treino à mensalidade.",
+   "gap": 0.6
+  },
+  {
+   "id": "l9",
+   "text": "O aluno recebe o treino no celular, com vídeo e meta de carga.",
+   "gap": 0.4
+  },
+  {
+   "id": "l10",
+   "text": "Marca cada série. E o personal vê na hora quem evoluiu.",
+   "gap": 0.4
+  },
+  {
+   "id": "l11",
+   "text": "Avaliação física, evolução em gráfico e cobrança por Pix.",
+   "gap": 0.4
+  },
+  {
+   "id": "l12",
+   "text": "Tudo com a marca do seu studio.",
+   "gap": 0.7
+  },
+  {
+   "id": "l13",
+   "text": "Menos papel. Mais tempo pra cuidar de gente.",
+   "gap": 0.5
+  },
+  {
+   "id": "l14",
+   "text": "Para personal trainers, studios de funcional e pequenas academias.",
+   "gap": 0.9
+  },
+  {
+   "id": "l15",
+   "text": "KFit. Em breve.",
+   "gap": 0.6
+  },
+  {
+   "id": "l16",
+   "text": "Desenvolvido pela TresK Tecnologia. Chama no direct e seja um dos primeiros.",
+   "gap": 0
+  }
+ ]
+}

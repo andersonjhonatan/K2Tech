@@ -1,0 +1,252 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="kfit-app.css"><style>
+@font-face{font-family:Exo2B;src:url(exo2-black-italic.ttf)}
+@font-face{font-family:InterB;src:url(inter-bold.ttf)}
+@font-face{font-family:InterR;src:url(inter-regular.ttf)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:InterR;color:#1E2A38}
+.sc{position:absolute;inset:0;opacity:0;overflow:hidden}
+svg.full{position:absolute;inset:0}
+.ttl{position:absolute;left:80px;right:80px;font-family:InterB;font-size:74px;line-height:1.08;letter-spacing:-.01em}
+.ttl b{color:#FF7A45}
+.chip{position:absolute;background:#fff;border-radius:999px;padding:16px 30px;font-family:InterB;font-size:34px;box-shadow:0 14px 40px rgba(30,42,56,.18)}
+.bub{position:absolute;background:#fff;color:#1E2A38;border-radius:30px 30px 30px 8px;padding:20px 28px;font-family:InterB;font-size:34px;box-shadow:0 16px 40px rgba(0,0,0,.25);white-space:nowrap}
+.bub small{display:block;font-family:InterR;font-size:22px;color:#7a8696;margin-bottom:4px}
+.cap{position:absolute;left:90px;right:90px;top:1430px;text-align:center;z-index:50}
+.cap .in{display:inline;background:rgba(255,255,255,.94);color:#1E2A38;font-family:InterB;font-size:44px;line-height:1.75;padding:8px 18px;border-radius:14px;box-decoration-break:clone;-webkit-box-decoration-break:clone;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.cap .on{color:#FF7A45}
+.cap .done{color:#1E2A38}
+.cap .todo{color:#9aa4b2}
+.phoneX{position:absolute;width:560px;height:1150px;border-radius:72px;background:#111318;padding:16px;box-shadow:0 50px 120px rgba(20,30,50,.35),0 0 0 3px #2a2d36}
+.phoneX .scr{width:100%;height:100%;border-radius:58px;overflow:hidden}
+.scr.kf{font-size:30px}
+.lbl{position:absolute;background:#FF7A45;color:#fff;font-family:InterB;font-size:32px;border-radius:18px;padding:14px 24px;box-shadow:0 12px 30px rgba(255,122,69,.4)}
+.card{position:absolute;background:#fff;border-radius:40px;box-shadow:0 30px 70px rgba(30,42,56,.15);padding:34px;text-align:center}
+.card h4{font-family:InterB;font-size:40px;margin-top:14px}
+.big{font-family:Exo2B}
+</style></head><body><div id="st">
+
+<!-- S0 amanhecer -->
+<div class="sc" id="S0"><svg class="full" viewBox="0 0 1080 1920">
+ <defs><linearGradient id="sky0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B2A5C"/><stop offset=".45" stop-color="#C9577A"/><stop offset=".75" stop-color="#FF9A5C"/><stop offset="1" stop-color="#FFD39A"/></linearGradient></defs>
+ <rect width="1080" height="1920" fill="url(#sky0)"/>
+ <circle id="sun" cx="760" cy="1120" r="150" fill="#FFE3A3"/><circle cx="760" cy="1120" r="230" fill="#FFE3A3" opacity=".25" id="sunh"/>
+ <path d="M0 1240 Q 270 1170 540 1230 T 1080 1210 V1920 H0Z" fill="#B85A4C"/>
+ <path d="M0 1330 Q 300 1270 600 1320 T 1080 1300 V1920 H0Z" fill="#8E3F3B"/>
+ <g fill="#5E2A2C"><path d="M120 1330 v-150 a22 22 0 0 1 44 0 v150z"/><path d="M90 1250 v-50 a16 16 0 0 1 32 0 v60 h-10z"/><path d="M164 1230 v-40 a16 16 0 0 1 32 0 v60 h-32z"/>
+  <path d="M930 1310 v-120 a20 20 0 0 1 40 0 v120z"/><path d="M970 1240 v-40 a14 14 0 0 1 28 0 v54 h-28z"/></g>
+ <g id="gym"><rect x="360" y="1080" width="520" height="300" rx="8" fill="#F4E6D8"/><rect x="340" y="1050" width="560" height="50" rx="8" fill="#E06A3F"/>
+  <text x="620" y="1088" text-anchor="middle" font-family="InterB" font-size="34" fill="#fff" letter-spacing="6">ACADEMIA</text>
+  <rect x="580" y="1220" width="90" height="160" rx="6" fill="#6B3A2E"/><rect x="590" y="1230" width="70" height="150" fill="#FFD98A" id="door" opacity=".9"/>
+  <rect x="410" y="1150" width="120" height="80" rx="6" fill="#FFD98A"/><rect x="720" y="1150" width="120" height="80" rx="6" fill="#FFD98A"/></g>
+ <rect x="0" y="1380" width="1080" height="540" fill="#7A3634"/>
+ <g id="rafa0"></g>
+</svg>
+ <div class="chip" id="clock" style="left:80px;top:300px;font-size:64px;padding:18px 38px">⏰ 05:30</div>
+</div>
+
+<!-- S1 celular não para -->
+<div class="sc" id="S1" style="background:linear-gradient(#FFE9D6,#FFD3B5)"><svg class="full" viewBox="0 0 1080 1920"><g id="rafa1"></g></svg>
+ <div class="bub" id="b1" style="left:60px;top:300px"><small>Carla</small>Hoje tem treino? 🙋‍♀️</div>
+ <div class="bub" id="b2" style="right:60px;top:430px"><small>Seu João</small>Qual minha carga? 🤔</div>
+ <div class="bub" id="b3" style="left:90px;top:560px"><small>Lucas</small>Esqueci a ficha 😅</div>
+ <div class="bub" id="b4" style="right:80px;top:690px"><small>Ana</small>Posso mudar o horário?</div>
+ <div class="chip" id="c12" style="left:80px;top:1250px;background:#1E2A38;color:#fff">👥 12 alunos por dia</div>
+</div>
+
+<!-- S2 ficha de papel -->
+<div class="sc" id="S2" style="background:#F4EFE8"><svg class="full" viewBox="0 0 1080 1920"><g id="carla2"></g>
+ <g id="paper"><rect x="-130" y="-170" width="260" height="340" rx="10" fill="#fff" stroke="#d9d2c6" stroke-width="4"/><text x="0" y="-115" text-anchor="middle" font-family="InterB" font-size="24" fill="#1E2A38">FICHA DE TREINO</text>
+  <g stroke="#c9c1b4" stroke-width="5" stroke-linecap="round"><line x1="-95" y1="-70" x2="95" y2="-70"/><line x1="-95" y1="-30" x2="60" y2="-30"/><line x1="-95" y1="10" x2="85" y2="10"/><line x1="-95" y1="50" x2="40" y2="50"/><line x1="-95" y1="90" x2="75" y2="90"/></g></g>
+</svg><div class="ttl" style="top:280px" id="t2">A ficha é no <b>papel</b>…</div></div>
+
+<!-- S3 carga na cabeça -->
+<div class="sc" id="S3" style="background:#EAF2F6"><svg class="full" viewBox="0 0 1080 1920">
+ <g id="rack"><rect x="170" y="700" width="26" height="760" rx="8" fill="#5B6B7C"/><rect x="884" y="700" width="26" height="760" rx="8" fill="#5B6B7C"/></g>
+ <g id="bar"><rect x="120" y="880" width="840" height="20" rx="10" fill="#3B4654"/><rect x="190" y="800" width="44" height="180" rx="10" fill="#FF7A45"/><rect x="240" y="825" width="34" height="130" rx="8" fill="#FFB085"/><rect x="846" y="800" width="44" height="180" rx="10" fill="#FF7A45"/><rect x="806" y="825" width="34" height="130" rx="8" fill="#FFB085"/>
+  <text x="212" y="900" text-anchor="middle" font-family="Exo2B" font-size="40" fill="#fff">?</text><text x="868" y="900" text-anchor="middle" font-family="Exo2B" font-size="40" fill="#fff">?</text></g>
+ <g id="joao3"></g>
+</svg><div class="bub" id="think" style="left:470px;top:330px;border-radius:40px">Quantos kg mesmo? 🤔</div></div>
+
+<!-- S4 mensalidade -->
+<div class="sc" id="S4" style="background:#FFF4E8"><svg class="full" viewBox="0 0 1080 1920">
+ <g id="cal" transform="translate(700 560)"><rect x="-170" y="-170" width="340" height="340" rx="34" fill="#fff" stroke="#f0d9c4" stroke-width="5"/><rect x="-170" y="-170" width="340" height="90" rx="34" fill="#E06A3F"/><rect x="-170" y="-110" width="340" height="30" fill="#E06A3F"/>
+  <text x="0" y="-108" text-anchor="middle" font-family="InterB" font-size="38" fill="#fff">NOVEMBRO</text><text id="calday" x="0" y="100" text-anchor="middle" font-family="Exo2B" font-size="170" fill="#1E2A38">28</text></g>
+ <g id="rafa4"></g></svg>
+ <div class="bub" id="mens" style="left:110px;top:900px">💸 Mensalidade… depois eu vejo</div></div>
+
+<!-- S5 cansado -->
+<div class="sc" id="S5"><svg class="full" viewBox="0 0 1080 1920"><defs><linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D2340"/><stop offset=".6" stop-color="#4A3E6B"/><stop offset="1" stop-color="#8C5A78"/></linearGradient></defs>
+ <rect width="1080" height="1920" fill="url(#sky5)"/><g fill="#fff" opacity=".7" id="stars"></g>
+ <rect x="0" y="1300" width="1080" height="620" fill="#2A2440"/><rect x="200" y="1180" width="680" height="40" rx="14" fill="#6E5A82"/><rect x="240" y="1220" width="26" height="90" fill="#6E5A82"/><rect x="814" y="1220" width="26" height="90" fill="#6E5A82"/>
+ <g id="rafa5"></g></svg></div>
+
+<!-- S6 virada -->
+<div class="sc" id="S6" style="background:#F7F9FC"><svg class="full" viewBox="0 0 1080 1920"><circle id="glow6" cx="540" cy="900" r="10" fill="#DCE8FF"/><g id="rafa6"></g></svg>
+ <img id="tk6" src="tresk-mark.png" style="position:absolute;left:420px;top:200px;width:240px;filter:brightness(0) saturate(100%) invert(14%) sepia(14%) saturate(1600%) hue-rotate(176deg)">
+ <img id="kf6" src="kfit-logo-horizontal-dark.svg" style="position:absolute;left:190px;top:1180px;width:700px;filter:drop-shadow(0 10px 30px rgba(37,99,235,.35)) brightness(.25) sepia(1) hue-rotate(190deg) saturate(6)"></div>
+
+<!-- S7 app que organiza -->
+<div class="sc" id="S7" style="background:#F7F9FC"><img src="kfit-logo-horizontal-dark.svg" style="position:absolute;left:240px;top:280px;width:600px;filter:brightness(.25) sepia(1) hue-rotate(190deg) saturate(6)">
+ <div class="ttl" style="top:600px;text-align:center">Do <b>treino</b> à <b>mensalidade</b>.</div>
+ <svg class="full" viewBox="0 0 1080 1920"><path id="line7" d="M190 1050 H890" stroke="#2563EB" stroke-width="8" stroke-linecap="round" pathLength="1"/></svg>
+ <div id="steps7"></div></div>
+
+<!-- S8-S11 produto -->
+<div class="sc" id="S8" style="background:radial-gradient(900px 900px at 50% 40%,#E7EEFF,#F7F9FC 70%)"><svg class="full" viewBox="0 0 1080 1920"><g id="hand8"></g></svg><div class="phoneX" id="ph8" style="left:260px;top:330px"><div class="scr kf" id="scr8"></div></div>
+ <div class="lbl" id="l8a" style="left:60px;top:560px">🎬 Vídeo do exercício</div><div class="lbl" id="l8b" style="right:50px;top:760px;background:#2563EB">🎯 Meta de carga</div></div>
+<div class="sc" id="S9" style="background:radial-gradient(900px 900px at 50% 40%,#E7EEFF,#F7F9FC 70%)"><div class="phoneX" id="ph9" style="left:120px;top:380px;transform:rotate(-4deg)"><div class="scr kf" id="scr9"></div></div>
+ <div class="phoneX" id="ph9b" style="left:560px;top:560px;width:440px;height:900px;border-radius:58px;transform:rotate(5deg)"><div class="scr kf" id="scr9b" style="border-radius:46px"></div></div>
+ <div class="lbl" id="l9a" style="left:70px;top:270px">✅ O aluno marca</div><div class="lbl" id="l9b" style="right:60px;top:440px;background:#2563EB">📊 O personal vê</div></div>
+<div class="sc" id="S10" style="background:#F7F9FC"><div id="tri"></div></div>
+<div class="sc" id="S11" style="background:#F7F9FC"><div class="phoneX" id="ph11" style="left:260px;top:360px"><div class="scr kf" id="scr11"></div></div><div class="ttl" style="top:230px;text-align:center;font-size:60px">Com a <b id="brandw">sua marca</b></div></div>
+
+<!-- S12 antes x depois -->
+<div class="sc" id="S12"><div id="ba"></div></div>
+<!-- S13 para quem -->
+<div class="sc" id="S13" style="background:#FFF6EC"><div class="ttl" style="top:250px;text-align:center">Feito para</div><div id="who"></div></div>
+<!-- S14-15 lançamento -->
+<div class="sc" id="S14" style="background:radial-gradient(1000px 1000px at 50% 40%,#1B3A8A,#0A1130 70%)"><svg class="full" viewBox="0 0 1080 1920" id="spark"></svg>
+ <img id="kf14" src="kfit-logo-horizontal-dark.svg" style="position:absolute;left:110px;top:640px;width:860px">
+ <div class="big" id="eb14" style="position:absolute;left:0;right:0;top:1040px;text-align:center;font-size:120px;color:#fff;letter-spacing:.02em">EM BREVE</div></div>
+<div class="sc" id="S15" style="background:linear-gradient(#FFF6EC,#FFE3CC)"><svg class="full" viewBox="0 0 1080 1920"><g id="rafa15"></g><g id="carla15"></g></svg>
+ <img src="kfit-logo-horizontal-dark.svg" style="position:absolute;left:240px;top:250px;width:600px;filter:brightness(.25) sepia(1) hue-rotate(190deg) saturate(6)">
+ <div style="position:absolute;left:0;right:0;top:470px;display:flex;justify-content:center;align-items:center;gap:18px;font-family:InterB;font-size:30px;letter-spacing:.16em;color:#5b6676">DESENVOLVIDO POR <img src="tresk-mark.png" style="height:90px;filter:brightness(0) saturate(100%) invert(14%) sepia(14%) saturate(1600%) hue-rotate(176deg)"></div>
+ <div id="cta15" style="position:absolute;left:120px;right:120px;top:640px;background:#1E2A38;color:#fff;border-radius:36px;padding:40px;text-align:center;box-shadow:0 24px 60px rgba(30,42,56,.3)"><div style="font-family:InterB;font-size:60px">Chama no direct 💬</div><div style="font-size:34px;color:#cdd5e0;margin-top:10px">e seja um dos primeiros a usar</div><div style="font-family:InterB;font-size:30px;color:#FF9A6B;margin-top:16px">@tresktecnologia</div></div></div>
+
+<div class="cap" id="cap"></div>
+</div>
+<script>
+const TM=window.TM, V=TM.voff;
+const L={}; TM.lines.forEach(l=>L[l.id]={s:l.start+V,e:l.end+V,text:l.text});
+const W=TM.words.map(w=>({t:w.text,s:w.startSeconds+V,e:w.endSeconds+V,line:w.line}));
+const END=L.l16.e+TM.tail; window.TOTAL=END;
+// scene starts keyed to lines (scene shows while its line is spoken)
+const SCN=[['S0',0],['S1',L.l2.s-.3],['S2',L.l3.s-.3],['S3',L.l4.s-.3],['S4',L.l5.s-.3],['S5',L.l6.s-.3],['S6',L.l7.s-.4],['S7',L.l8.s-.3],['S8',L.l9.s-.3],['S9',L.l10.s-.3],['S10',L.l11.s-.3],['S11',L.l12.s-.3],['S12',L.l13.s-.3],['S13',L.l14.s-.3],['S14',L.l15.s-.4],['S15',L.l16.s-.3]];
+SCN.push(['END',END]);
+const cl=x=>x<0?0:x>1?1:x, ease=x=>1-Math.pow(1-cl(x),3), eio=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}, back=x=>{x=cl(x);const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const $=id=>document.getElementById(id);
+/* ---------- personagem ilustrado ---------- */
+function person(o){
+ const {skin='#C98B62',hair='#2B1D16',style='short',shirt='#FF7A45',pants='#2E3A4A',shoe='#1E2A38',beard=false,id}=o;
+ const hairSVG = style==='ponytail'
+  ? `<path d="M-62 -15 Q -62 -92 0 -94 Q 62 -92 64 -15 Q 40 -52 0 -54 Q -40 -52 -62 -15Z" fill="${hair}"/><path d="M50 -60 Q 112 -50 100 30 Q 94 62 72 72 Q 90 10 54 -30Z" fill="${hair}"/>`
+  : style==='grey' ? `<path d="M-64 -10 Q -62 -84 0 -86 Q 62 -84 64 -10 Q 50 -44 0 -48 Q -50 -44 -64 -10Z" fill="#B9BEC6"/>`
+  : `<path d="M-64 -12 Q -68 -92 0 -96 Q 68 -92 64 -12 Q 56 -54 20 -58 Q -10 -48 -40 -56 Q -60 -48 -64 -12Z" fill="${hair}"/>`;
+ return `<g id="${id}">
+  <ellipse cx="0" cy="8" rx="120" ry="18" fill="rgba(0,0,0,.15)"/>
+  <g class="legL"><rect x="-44" y="-170" width="40" height="170" rx="18" fill="${pants}"/><rect x="-56" y="-14" width="58" height="22" rx="10" fill="${shoe}"/></g>
+  <g class="legR"><rect x="4" y="-170" width="40" height="170" rx="18" fill="${pants}"/><rect x="2" y="-14" width="58" height="22" rx="10" fill="${shoe}"/></g>
+  <g class="body"><path d="M-74 -330 Q -80 -160 -56 -150 L 56 -150 Q 80 -160 74 -330 Q 40 -352 0 -352 Q -40 -352 -74 -330Z" fill="${shirt}"/>
+   <rect x="-16" y="-372" width="32" height="30" rx="10" fill="${skin}"/>
+   <g class="armL" transform="translate(-66 -320)"><rect x="-18" y="0" width="34" height="150" rx="17" fill="${shirt}"/><circle cx="-1" cy="150" r="20" fill="${skin}"/></g>
+   <g class="armR" transform="translate(66 -320)"><rect x="-16" y="0" width="34" height="150" rx="17" fill="${shirt}"/><circle cx="1" cy="150" r="20" fill="${skin}"/><g class="prop"></g></g>
+   <g class="head" transform="translate(0 -440)"><circle cx="0" cy="0" r="66" fill="${skin}"/>${hairSVG}
+    <g class="eyes"><ellipse cx="-22" cy="-4" rx="6" ry="8" fill="#1E2A38"/><ellipse cx="22" cy="-4" rx="6" ry="8" fill="#1E2A38"/></g>
+    <path class="mouth" d="M-18 26 Q 0 40 18 26" stroke="#7A3B2E" stroke-width="6" fill="none" stroke-linecap="round"/>
+    ${beard?`<path d="M-50 10 Q -46 62 0 66 Q 46 62 50 10 Q 30 40 0 42 Q -30 40 -50 10Z" fill="${hair}" opacity=".85"/>`:''}
+    <circle cx="-34" cy="16" r="9" fill="#FF8A80" opacity=".35"/><circle cx="34" cy="16" r="9" fill="#FF8A80" opacity=".35"/></g>
+  </g></g>`;
+}
+const RAFA={skin:'#B97A52',hair:'#2A1C14',shirt:'#FF7A45',pants:'#2E3A4A',beard:true};
+const CARLA={skin:'#E0A57E',hair:'#5A2E1A',style:'ponytail',shirt:'#1FB5A5',pants:'#3A3F58'};
+const JOAO={skin:'#9C6644',style:'grey',shirt:'#6C7BD9',pants:'#3B4654'};
+function place(gid,html,x,y,s){ const g=$(gid); g.innerHTML=html; g.setAttribute('transform',`translate(${x} ${y}) scale(${s})`); return g; }
+place('rafa0',person({...RAFA,id:'r0'}),0,1560,1.0);
+place('rafa1',person({...RAFA,id:'r1'}),540,1520,1.85);
+place('carla2',person({...CARLA,id:'c2'}),360,1560,1.7);
+place('joao3',person({...JOAO,id:'j3'}),540,1560,1.55);
+place('rafa4',person({...RAFA,id:'r4'}),330,1600,1.6);
+place('rafa5',person({...RAFA,id:'r5'}),540,1430,1.25);
+place('rafa6',person({...RAFA,id:'r6'}),540,1120,0.85);
+place('rafa15',person({...RAFA,id:'r15'}),330,1560,1.25);
+place('carla15',person({...CARLA,id:'c15'}),760,1560,1.2);
+// phone prop in Rafa's hand (S1, S6)
+['r1','r6'].forEach(id=>{ const p=document.querySelector(`#${id} .armR .prop`); p.innerHTML='<rect x="-30" y="120" width="56" height="96" rx="10" fill="#111318"/><rect x="-25" y="126" width="46" height="84" rx="7" fill="#7FB0FF" class="scrn"/>'; });
+// stars
+$('stars').innerHTML=[...Array(60)].map((_,i)=>`<circle cx="${(i*197)%1080}" cy="${(i*131)%900}" r="${1+(i%3)}"/>`).join('');
+// limbs helper
+function pose(id,{aL=0,aR=0,head=0,lean=0,walk=null,blink=false,smile=1}){
+ const r=$(id); if(!r) return;
+ r.querySelector('.armL').setAttribute('transform',`translate(-66 -320) rotate(${aL})`);
+ r.querySelector('.armR').setAttribute('transform',`translate(66 -320) rotate(${aR})`);
+ r.querySelector('.head').setAttribute('transform',`translate(0 -440) rotate(${head})`);
+ r.querySelector('.body').setAttribute('transform',`rotate(${lean})`);
+ if(walk!==null){ r.querySelector('.legL').setAttribute('transform',`rotate(${Math.sin(walk)*14} 0 -170)`); r.querySelector('.legR').setAttribute('transform',`rotate(${-Math.sin(walk)*14} 0 -170)`); }
+ r.querySelector('.eyes').setAttribute('transform',blink?'translate(0 -4) scale(1 .15)':'');
+ r.querySelector('.mouth').setAttribute('d', smile>0? `M-18 26 Q 0 ${26+14*smile} 18 26` : `M-16 34 Q 0 ${34+14*smile} 16 34`);
+}
+const blinkAt=t=>((t*1.3)%3.1)<0.12;
+/* ---------- telas do app ---------- */
+const TOP=s=>`<div class="top"><img src="kfit-simbolo-color.svg"><div><div class="t">KFit</div><div class="s">${s}</div></div></div>`;
+$('scr8').innerHTML=TOP('Treino de hoje')+`<div class="card" style="position:relative;padding:0;overflow:hidden;text-align:left;border-radius:24px;box-shadow:none;background:#1a1b21"><div style="height:300px;background:linear-gradient(135deg,#1d2a4a,#2563EB);display:flex;align-items:center;justify-content:center;font-size:110px">▶</div><div style="padding:20px 24px"><div class="h" style="font-family:InterB;font-size:34px;color:#fff">Agachamento livre</div><div class="meta"><b>Meta do personal:</b> 4 × 10 com 60 kg</div></div></div>
+<div class="card" style="position:relative;text-align:left;padding:22px 24px;background:#1a1b21;border-radius:24px;box-shadow:none;color:#fff;font-family:InterB">Leg press 45° <span style="float:right;color:#9cc0ff">3 × 12</span></div>
+<div class="card" style="position:relative;text-align:left;padding:22px 24px;background:#1a1b21;border-radius:24px;box-shadow:none;color:#fff;font-family:InterB">Cadeira extensora <span style="float:right;color:#9cc0ff">3 × 15</span></div><div class="btn">Começar treino</div>`;
+const rows=(c)=>[[60,10],[62,10],[65,10],[65,8]].map((r,i)=>`<div class="row"><span>${i+1}</span><span class="cell">${r[0]} kg</span><span class="cell">${r[1]}</span><span class="ck ${i<c?'on':''}">✓</span></div>`).join('');
+$('scr9').innerHTML=TOP('Treino de hoje')+`<div class="card" style="position:relative;text-align:left;background:#1a1b21;border-radius:24px;box-shadow:none;color:#fff"><div class="h" style="font-family:InterB;font-size:34px">Agachamento livre</div><div class="meta"><b>Meta:</b> 4 × 10 com 60 kg</div><div class="row hd"><span>Série</span><span>Carga</span><span>Reps</span><span></span></div><div id="rows9">${rows(0)}</div></div><div class="btn">Concluir exercício</div>`;
+$('scr9b').innerHTML=TOP('Seus alunos hoje')+`<div class="card" style="position:relative;text-align:left;background:#1a1b21;border-radius:24px;box-shadow:none;color:#fff;font-size:28px">
+<div class="li"><span>Carla</span><span class="pill up" id="pc">↑ 65 kg</span></div><div class="li"><span>Seu João</span><span class="pill eq">= meta</span></div><div class="li"><span>Lucas</span><span class="pill up">↑ 70 kg</span></div><div class="li" style="border:0"><span>Ana</span><span class="pill down">↓ 40 kg</span></div></div>`;
+$('scr11').innerHTML=`<div class="top"><div class="av" id="brandav" style="background:#FF7A45">VF</div><div><div class="t" id="brandn">VEV Funcional</div><div class="s">feito com KFit</div></div></div><div class="card" style="position:relative;text-align:left;background:#1a1b21;border-radius:24px;box-shadow:none;color:#fff"><div class="h" style="font-family:InterB;font-size:34px">Treino A · Inferiores</div><div class="meta" id="brandmeta">Meta: 4 × 10 com 60 kg</div>${rows(2)}</div><div class="btn" id="brandbtn">Concluir exercício</div>`;
+document.querySelectorAll('.scr.kf').forEach(s=>s.classList.add('kf'));
+// tri (S10): 3 mini phones
+const mini=(t,inner,x,rot)=>`<div class="phoneX mini" style="left:${x}px;top:620px;width:330px;height:680px;border-radius:44px;padding:10px;transform:rotate(${rot}deg)"><div class="scr kf" style="border-radius:36px;padding:44px 18px 18px;font-size:22px;gap:14px">${TOP(t).replace('height:50px','height:30px')}${inner}</div></div>`;
+$('tri').innerHTML=`<div class="ttl" style="top:250px;text-align:center;font-size:64px">Avaliação · Evolução · <b>Pix</b></div>`+
+ mini('Avaliação',`<div class="grid2"><div class="card" style="position:relative;background:#1a1b21;box-shadow:none;border-radius:18px;padding:14px;color:#fff"><div style="font-size:18px;color:#8b8d96">Peso</div><div class="big" style="font-size:40px">78,9</div></div><div class="card" style="position:relative;background:#1a1b21;box-shadow:none;border-radius:18px;padding:14px;color:#fff"><div style="font-size:18px;color:#8b8d96">Cintura</div><div class="big" style="font-size:40px">86</div></div></div><div style="color:#c9cad1;font-size:20px">11 medidas · Pollock · IMC</div>`,40,-5)+
+ mini('Evolução',`<svg viewBox="0 0 280 200" style="width:100%"><polyline id="gline" points="10,180 60,150 110,140 160,100 210,80 270,30" fill="none" stroke="#3B82F6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg><div style="color:#4ade80;font-family:InterB">↑ +20 kg no agachamento</div>`,375,0)+
+ mini('Mensalidades',`<div class="wa" style="font-size:20px">Oi, Carla! Sua mensalidade vence hoje. Pix 👇</div><div class="li"><span>Carla</span><span class="pill up" id="pago">Pago ✓</span></div><div class="li" style="border:0"><span>Lucas</span><span class="pill up">Pago ✓</span></div>`,710,5);
+// steps S7
+$('steps7').innerHTML=['🏋️ Treino','📲 Aluno','📏 Avaliação','💸 Mensalidade'].map((s,i)=>`<div class="chip st7" style="left:${70+i*240}px;top:1110px;font-size:28px;padding:14px 20px">${s}</div>`).join('');
+// before/after S12
+$('ba').innerHTML=`<div style="position:absolute;left:0;top:0;width:540px;height:1920px;background:#E5E2DD;overflow:hidden"><div class="ttl" style="left:40px;right:20px;top:240px;color:#7a7266;font-size:64px">Antes</div>
+ <svg viewBox="0 0 540 1920" style="position:absolute;inset:0;filter:grayscale(1) contrast(.9)"><g id="rafaA"></g>
+  <g transform="translate(330 760) rotate(14)"><rect x="-70" y="-90" width="140" height="180" rx="8" fill="#fff" stroke="#bbb" stroke-width="4"/><g stroke="#ccc" stroke-width="5"><line x1="-45" y1="-40" x2="45" y2="-40"/><line x1="-45" y1="0" x2="30" y2="0"/><line x1="-45" y1="40" x2="40" y2="40"/></g></g></svg>
+ <div class="bub" style="left:40px;top:430px;font-size:28px;filter:grayscale(1)">Esqueci a ficha 😅</div><div class="bub" style="left:150px;top:560px;font-size:28px;filter:grayscale(1)">Qual minha carga?</div></div>
+<div id="after" style="position:absolute;left:540px;top:0;width:540px;height:1920px;background:linear-gradient(#E7EEFF,#F7F9FC);overflow:hidden"><div class="ttl" style="left:40px;right:20px;top:240px;color:#2563EB;font-size:64px">Com o KFit</div>
+ <svg viewBox="0 0 540 1920" style="position:absolute;inset:0"><g id="rafaB"></g><g id="carlaB"></g></svg>
+ <div class="chip" style="left:40px;top:450px;font-size:28px">✅ Treino no celular</div><div class="chip" style="left:90px;top:560px;font-size:28px">📈 Carga registrada</div><div class="chip" style="left:40px;top:670px;font-size:28px">💸 Pix pago</div></div>`;
+place('rafaA',person({...RAFA,id:'rA'}),230,1380,1.15);
+place('rafaB',person({...RAFA,id:'rB'}),170,1380,1.05);
+place('carlaB',person({...CARLA,id:'cB'}),400,1380,0.95);
+document.querySelector('#rB .armR .prop').innerHTML='<rect x="-30" y="120" width="56" height="96" rx="10" fill="#111318"/><rect x="-25" y="126" width="46" height="84" rx="7" fill="#7FB0FF"/>';
+// who S13
+const who=[['🧑‍🏫','Personal trainer','quem atende sozinho'],['🔥','Studio de funcional','turmas e equipe'],['🏢','Pequena academia','vários professores']];
+$('who').innerHTML=who.map((w,i)=>`<div class="card who" style="left:90px;right:90px;top:${470+i*300}px;display:flex;align-items:center;gap:36px;text-align:left;padding:34px 44px"><div style="font-size:120px">${w[0]}</div><div><div style="font-family:InterB;font-size:52px">${w[1]}</div><div style="font-size:34px;color:#7a8696">${w[2]}</div></div></div>`).join('');
+// sparks S14
+$('spark').innerHTML=[...Array(70)].map((_,i)=>`<circle class="sp" cx="${540}" cy="${820}" r="${2+(i%4)}" fill="${i%3?'#8FB6FF':'#FFB085'}" data-a="${i*137.5}" data-d="${200+(i*53)%520}"/>`).join('');
+/* ---------- legenda ---------- */
+function caption(t){
+ const cap=$('cap'); const lid=Object.keys(L).find(k=>t>=L[k].s-.1 && t<=L[k].e+.35);
+ if(!lid || lid==='l15'){ cap.style.opacity=0; return; }
+ cap.style.opacity=1;
+ const ws=W.filter(w=>w.line===lid);
+ cap.innerHTML='<span class="in">'+ws.map(w=>`<span class="${t>=w.s&&t<w.e+.04?'on':(t>=w.e?'done':'todo')}">${w.t}</span>`).join(' ')+'</span>';
+}
+/* ---------- render ---------- */
+function render(t){
+ let si=0; for(let i=0;i<SCN.length-1;i++) if(t>=SCN[i][1]) si=i;
+ const [sid,st]=SCN[si], ln=t-st, nx=SCN[si+1][1];
+ SCN.slice(0,-1).forEach(([id],i)=>{ const e=$(id); if(i!==si){e.style.opacity=0;return;} const fi=cl(ln/.35), fo=cl((nx-t)/.3); e.style.opacity=Math.min(fi, i===SCN.length-2?1:fo); e.style.transform=`scale(${1+0.018*ln})`; });
+ const bl=blinkAt(t);
+ if(sid==='S0'){ const k=eio(ln/(nx-st)); $('sun').setAttribute('cy',1120-140*k); $('sunh').setAttribute('cy',1120-140*k); place('rafa0',$('rafa0').innerHTML,80+460*k,1560,1.0); pose('r0',{aL:Math.sin(t*7)*18,aR:-Math.sin(t*7)*18,walk:t*7,blink:bl}); $('clock').style.opacity=ease(ln/.6); $('clock').style.transform=`scale(${back(ln/.6)})`; }
+ if(sid==='S1'){ pose('r1',{aL:8,aR:-150+Math.sin(t*30)*3,head:-8,blink:bl,smile:-0.3}); ['b1','b2','b3','b4'].forEach((b,i)=>{const k=back((ln-.3-i*.55)/.4); $(b).style.opacity=cl((ln-.3-i*.55)/.2); $(b).style.transform=`scale(${k}) rotate(${(i%2?3:-3)*k}deg)`;}); $('c12').style.opacity=ease((ln-2.4)/.5);
+   document.querySelector('#r1 .scrn').setAttribute('fill', Math.floor(t*8)%2?'#7FB0FF':'#FFFFFF'); }
+ if(sid==='S2'){ const k=eio((ln-.9)/1.8); const p=$('paper'); p.setAttribute('transform',`translate(${560+380*k} ${1000-700*k}) rotate(${-8+260*k}) scale(${1-.4*k})`); pose('c2',{aL:-20-40*(1-k),aR:20+120*k,head:20*k,blink:bl,smile:k>.5?-0.6:0.6}); $('t2').style.opacity=ease(ln/.5); }
+ if(sid==='S3'){ const up=Math.sin(ln*2.4)*20; $('bar').setAttribute('transform',`translate(0 ${up})`); pose('j3',{aL:-160,aR:160,head:Math.sin(ln*2)*6,blink:bl,smile:-0.4}); document.querySelector('#j3 .armL').setAttribute('transform',`translate(-66 -320) rotate(${150})`); document.querySelector('#j3 .armR').setAttribute('transform',`translate(66 -320) rotate(${-150})`); $('think').style.opacity=ease((ln-.6)/.5); $('think').style.transform=`translateY(${Math.sin(t*2)*8}px)`; }
+ if(sid==='S4'){ const d=Math.min(30,28+Math.floor(ln/0.9)); $('calday').textContent=d; $('cal').setAttribute('transform',`translate(700 560) rotate(${Math.sin(ln*3)*2})`); pose('r4',{aL:30,aR:-60,head:-10,blink:bl,smile:-0.5}); $('mens').style.opacity=ease((ln-1)/.5); }
+ if(sid==='S5'){ pose('r5',{aL:-35,aR:35,head:14,lean:4,blink:true,smile:-0.4}); }
+ if(sid==='S6'){ const g=ease(ln/1.5); $('glow6').setAttribute('r',10+900*g); pose('r6',{aL:10,aR:-150,head:-6,blink:bl,smile:0.4+0.8*ease((ln-1.2)/1)}); $('tk6').style.opacity=ease((ln-.4)/.8); $('kf6').style.opacity=ease((ln-2.7)/.6); $('kf6').style.transform=`scale(${.9+.1*back((ln-2.7)/.6)})`; }
+ if(sid==='S7'){ $('line7').style.strokeDasharray=1; $('line7').style.strokeDashoffset=1-eio((ln-.3)/1.6); document.querySelectorAll('.st7').forEach((c,i)=>{const k=back((ln-.4-i*.4)/.4); c.style.opacity=cl((ln-.4-i*.4)/.2); c.style.transform=`scale(${k})`;}); }
+ if(sid==='S8'){ const k=back(ln/.7); $('ph8').style.transform=`translateY(${(1-k)*300}px)`; $('l8a').style.opacity=ease((ln-1.1)/.4); $('l8b').style.opacity=ease((ln-2.0)/.4); }
+ if(sid==='S9'){ const c=Math.min(4,Math.floor((ln-.4)/.45)); $('rows9').innerHTML=rows(Math.max(0,c)); $('ph9b').style.opacity=ease((ln-1.4)/.5); $('ph9b').style.transform=`rotate(5deg) translateX(${(1-ease((ln-1.4)/.5))*200}px)`; $('l9a').style.opacity=ease((ln-.2)/.4); $('l9b').style.opacity=ease((ln-1.7)/.4); }
+ if(sid==='S10'){ document.querySelectorAll('.mini').forEach((m,i)=>{const k=back((ln-.1-i*.9)/.5); m.style.opacity=cl((ln-.1-i*.9)/.3); m.style.transform=`rotate(${[-5,0,5][i]}deg) translateY(${(1-k)*200}px)`;}); const g=$('gline'); if(g) g.style.strokeDashoffset=1-eio((ln-1.2)/1.2); }
+ if(sid==='S11'){ const brands=[['#FF7A45','VEV Funcional','VF'],['#16A34A','Iron Studio','IS'],['#9333EA','Corpo em Movimento','CM']]; const b=brands[Math.min(2,Math.floor(ln/0.75))]; $('brandav').style.background=b[0]; $('brandav').textContent=b[2]; $('brandn').textContent=b[1]; $('brandbtn').style.background=b[0]; $('brandw').style.color=b[0]; }
+ if(sid==='S12'){ pose('rA',{aL:-150,aR:-30,head:12,blink:bl,smile:-0.6}); pose('rB',{aL:8,aR:-120,head:-6,blink:bl,smile:1}); pose('cB',{aL:150+Math.sin(t*5)*14,aR:-8,blink:blinkAt(t+.7),smile:1}); $('after').style.clipPath=`inset(0 0 0 ${100-100*eio((ln-.9)/1.0)}%)`; }
+ if(sid==='S13'){ document.querySelectorAll('.who').forEach((c,i)=>{const k=back((ln-.3-i*.8)/.5); c.style.opacity=cl((ln-.3-i*.8)/.25); c.style.transform=`translateX(${(1-k)*-300}px)`;}); }
+ if(sid==='S14'){ const k=ease(ln/.8); $('kf14').style.opacity=k; $('kf14').style.transform=`scale(${1.3-.3*k})`; $('kf14').style.filter=`blur(${(1-k)*16}px) drop-shadow(0 0 ${40+40*Math.exp(-ln*2)}px rgba(59,130,246,.8))`; $('eb14').style.opacity=ease((ln-.7)/.5); $('eb14').style.letterSpacing=(.4-.38*ease((ln-.7)/.8))+'em';
+   document.querySelectorAll('.sp').forEach(s=>{const a=s.dataset.a*Math.PI/180, d=s.dataset.d*ease(ln/1.6); s.setAttribute('cx',540+Math.cos(a)*d); s.setAttribute('cy',820+Math.sin(a)*d*1.2); s.setAttribute('opacity',1-cl((ln-.8)/1.4));}); }
+ if(sid==='S15'){ pose('r15',{aL:10,aR:-150+Math.sin(t*6)*18,blink:bl,smile:1}); pose('c15',{aL:150+Math.sin(t*6+1)*18,aR:-10,blink:blinkAt(t+1),smile:1}); $('cta15').style.opacity=ease((ln-1.2)/.5); $('cta15').style.transform=`scale(${back((ln-1.2)/.5)})`; }
+ const fb=cl(1-t/.4); $('st').style.filter=`brightness(${1-fb})`;
+ caption(t);
+}
+window.render=render; render(0);
+</script></body></html>

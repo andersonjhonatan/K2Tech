@@ -65,3 +65,9 @@
 - Capas de destaque: public/instagram/destaques/ (Serviços, KORT, Cases, Orçamento, Bastidores); modelo em template-destaques.html
 - Modelo de stories: template-stories.html (1080x1920)
 - Semana 23/11: marketing/instagram/semana-2026-11-23/ (engine.js + render_reel.py + join.sh = Reels sincronizado na batida com a abertura; shot.py = posts/stories; base-dark.css; mark-dark.png = logo para fundo claro)
+
+## 26/11 — Filme do KFit (humanizado, ilustração animada)
+- `public/instagram/tresk-kfit-filme.mp4` (69,7 s com a abertura, 45 MB) + capa `tresk-kfit-filme-capa.jpg`.
+- História do Rafael, um personal trainer: o gargalo (ficha de papel, carga esquecida, mensalidade atrasada) → KFit → como o aluno usa → como o personal usa → antes e depois → para quem é → "Em breve" → CTA.
+- Voz Piper Faber (grátis), trilha original em duas partes (piano acolhedor que vira batida de lançamento), legendas palavra a palavra.
+- Fonte: `marketing/instagram/produtos/kfit-filme/` (filme.html, voz.py, score.py, render.py). Status: aguardando aprovação do Anderson.
