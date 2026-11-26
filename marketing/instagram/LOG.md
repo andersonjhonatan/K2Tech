@@ -74,3 +74,7 @@
 - 26/11 08h: voz trocada pela narração que o Anderson gerou na ElevenLabs (Guilherme – Direct and Neutral, `voz-elevenlabs.mp3`). Alinhamento por pausas (`alinhar.py`), trilha refeita, mixagem com ducking (`mix.py`). Filme: 67,3 s, 44 MB.
 
 - 26/11 12h: story enquete (Caderno 📒 / Sistema 📲) publicado pelo Anderson no app (tresk-story-2026-11-26-1.jpg).
+
+## 26/11 — Regra nova do Anderson: divulgar os produtos
+- [26/11] O Anderson cobrou que os stories e Reels só tinham perguntas sobre valores e caixa, sem mostrar os produtos. Regra daqui pra frente: metade do conteúdo apresenta os produtos (KORT, KFOOD, KFit, KLOJA), metade é dica para atrair; toda enquete/pergunta ganha um story-resposta mostrando o produto com link; cada produto ganha um dia fixo na semana.
+- Ajustes desta semana: Reels qui (26/11) ganhou cena "Fiado no sistema? Conheça o KLOJA" (37,3 s); story-resposta da enquete com o KLOJA (stories/tresk-story-2026-11-26-3.jpg, figurinha de link para /kloja); carrossel sex (27/11) ganhou o slide 05/06 "Um sistema pra cada tipo de negócio" (6 imagens); Reels sáb (28/11) agora diz "Esse sistema tem nome: KLOJA" e o Meu Crediário saiu do "em breve" (34,7 s).
