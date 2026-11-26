@@ -115,6 +115,80 @@ function Screens() {
   ];
 }
 
+const mcPassos = [
+  { hora: "1 de 7", titulo: "O app com a marca da sua loja", texto: "A cliente abre o Meu Crediário com o nome e as cores da sua loja e vê na hora quanto está em aberto." },
+  { hora: "2 de 7", titulo: "Todas as parcelas num lugar", texto: "O que já foi pago, o que está em aberto e o que vence nos próximos meses, sem precisar perguntar." },
+  { hora: "3 de 7", titulo: "Paga a parcela no Pix", texto: "QR Code ou Pix copia e cola, direto do celular. Sem ir até a loja e sem esperar o fim do mês." },
+  { hora: "4 de 7", titulo: "Parcela paga na hora", texto: "Assim que o Pix cai, a parcela fica paga sozinha, no app da cliente e no painel da loja." },
+  { hora: "5 de 7", titulo: "Histórico de compras", texto: "Cada compra no crediário com a data, as parcelas e o que já foi quitado." },
+  { hora: "6 de 7", titulo: "Contrato e comprovantes", texto: "O contrato do crediário e os comprovantes ficam guardados no app, sempre à mão." },
+  { hora: "7 de 7", titulo: "E você vê tudo no painel", texto: "Quem pagou, quem vence esta semana e quem está atrasada, numa tela só da sua loja." },
+];
+
+function McTop({ title, tag }: { title: string; tag: string }) {
+  return <div className={s.mcTop}><span className={s.mcStore}><KlojaTag size={16} id={`mt-${tag}`} /> {title}</span><small>{tag}</small></div>;
+}
+
+function McScreens() {
+  return [
+    <div key="1" className={s.mcIn}>
+      <McTop title="Sua Loja" tag="Início" />
+      <small className={s.mcHi}>Olá, Ana Paula</small>
+      <div className={s.mcCard}><small>Em aberto</small><b>R$ 90,00</b><div className={s.mcProg}><i style={{ width: "66%" }} /></div><small>4 de 6 parcelas pagas</small></div>
+      <div className={s.mcNext}><div><small>Próxima parcela</small><b>R$ 45,00</b><span>vence 05/12</span></div><em>Pagar com Pix</em></div>
+    </div>,
+    <div key="2" className={s.mcIn}>
+      <McTop title="Parcelas" tag="Conjunto" />
+      <ul className={s.mcList}>
+        {[["1/6 · 05/07", "Paga", s.tOk], ["2/6 · 05/08", "Paga", s.tOk], ["3/6 · 05/09", "Paga", s.tOk], ["4/6 · 05/11", "Paga", s.tOk], ["5/6 · 05/12", "Em aberto", s.tWarn], ["6/6 · 05/01", "A vencer", ""]].map(([n, st, c]) => (
+          <li key={n}><span>Parcela {n}</span><i className={c}>{st}</i></li>
+        ))}
+      </ul>
+    </div>,
+    <div key="3" className={s.mcIn}>
+      <McTop title="Pagar parcela" tag="5 de 6" />
+      <b className={s.mcVal}>R$ 45,00</b>
+      <svg className={s.mcQr} viewBox="0 0 25 25" aria-hidden="true">
+        <rect width="25" height="25" fill="#f5f5f7" />
+        {qrCells().map(([x, y]) => <rect key={`${x}-${y}`} x={x + 2} y={y + 2} width="1" height="1" fill="#0b0b0c" />)}
+      </svg>
+      <div className={s.mcCopy}>Pix copia e cola</div>
+    </div>,
+    <div key="4" className={s.mcIn}>
+      <McTop title="Pagamento" tag="Pix" />
+      <div className={s.mcDone}><span><FiCheck /></span><b>Parcela paga!</b><small>Parcela 5 de 6 · R$ 45,00</small></div>
+      <div className={s.mcCard}><small>Em aberto agora</small><b>R$ 45,00</b><div className={s.mcProg}><i style={{ width: "83%" }} /></div><small>5 de 6 parcelas pagas</small></div>
+    </div>,
+    <div key="5" className={s.mcIn}>
+      <McTop title="Minhas compras" tag="Histórico" />
+      <ul className={s.mcList}>
+        <li><span>Conjunto · 2 anos<small>12/10 · 6x de R$ 45,00</small></span><i className={s.tWarn}>1 aberta</i></li>
+        <li><span>Macacão plush<small>03/08 · 3x de R$ 23,30</small></span><i className={s.tOk}>Quitada</i></li>
+        <li><span>Kit body 3 peças<small>15/05 · 2x de R$ 39,90</small></span><i className={s.tOk}>Quitada</i></li>
+      </ul>
+    </div>,
+    <div key="6" className={s.mcIn}>
+      <McTop title="Documentos" tag="Seus papéis" />
+      <div className={s.mcDocs}>
+        <span><FiFileText /> Contrato do crediário</span>
+        <span><FiFileText /> Comprovante · Conjunto 2 anos</span>
+        <span><FiFileText /> Comprovante · Macacão plush</span>
+        <span><FiFileText /> Recibo · Parcela 5 de 6</span>
+      </div>
+    </div>,
+    <div key="7" className={s.mcIn}>
+      <small className={s.scrLbl}>Painel da loja · Crediário</small>
+      <b className={s.scrBig}>Esta semana</b>
+      <ul className={s.scrList}>
+        <li><span>Ana Paula</span><em className={s.tOk}>Pagou no Pix</em></li>
+        <li><span>Cícera L.</span><em className={s.tWarn}>Vence sex</em></li>
+        <li><span>Maria José</span><em className={s.tLate}>2 dias</em></li>
+        <li><span>Joana M.</span><em className={s.tOk}>Em dia</em></li>
+      </ul>
+    </div>,
+  ];
+}
+
 const modulos = [
   { i: <FiShoppingBag />, t: "Vitrine online", d: "A sua loja no celular da cliente, com foto, tamanho, cor e preço. Um link para mandar no WhatsApp e no Instagram.", big: true },
   { i: <FiCreditCard />, t: "Caixa (PDV)", d: "Venda no balcão em segundos, com Pix, cartão, dinheiro e crediário." },
@@ -347,93 +421,15 @@ export default function KlojaPage() {
         </div>
       </section>
 
-      {/* MEU CREDIÁRIO */}
-      <section id="meu-crediario" className={`${s.section} ${s.sectionDark} ${s.mc}`}>
+      {/* MEU CREDIÁRIO: celular fixo + checklist que troca a tela */}
+      <section id="meu-crediario" className={`${s.section} ${s.sectionDark}`}>
         <div className={s.wrap}>
           <div className={s.head} data-rv>
             <span className={s.kicker}>Meu Crediário</span>
             <h2 className={s.h2}>O crediário da sua loja <span className={s.goldText}>no celular da sua cliente.</span></h2>
-            <p className={s.sub}>Toda loja que usa o KLOJA ganha o Meu Crediário com a sua marca. A cliente vê o que deve, quando vence e paga a parcela sem precisar ir até a loja. Você vê tudo do outro lado, no painel.</p>
+            <p className={s.sub}>Toda loja que usa o KLOJA ganha o Meu Crediário com a sua marca. Role a lista e veja, tela por tela, o que a sua cliente tem e o que você vê do outro lado.</p>
           </div>
-
-          <div className={s.mcPhones}>
-            <div className={s.mcPhone} data-rv>
-              <div className={s.mcNotch} />
-              <div className={s.mcScr}>
-                <div className={s.mcTop}><span className={s.mcStore}><KlojaTag size={18} id="mc1" /> Sua Loja</span><small>Meu Crediário</small></div>
-                <small className={s.mcHi}>Olá, Ana Paula</small>
-                <div className={s.mcCard}>
-                  <small>Em aberto</small>
-                  <b>R$ 90,00</b>
-                  <div className={s.mcProg}><i style={{ width: "66%" }} /></div>
-                  <small>4 de 6 parcelas pagas</small>
-                </div>
-                <div className={s.mcNext}>
-                  <div><small>Próxima parcela</small><b>R$ 45,00</b><span>vence 05/12</span></div>
-                  <em>Pagar com Pix</em>
-                </div>
-                <ul className={s.mcList}>
-                  <li><span>Parcela 4/6</span><i className={s.tOk}>Paga</i></li>
-                  <li><span>Parcela 5/6 · 05/12</span><i className={s.tWarn}>Em aberto</i></li>
-                  <li><span>Parcela 6/6 · 05/01</span><i>A vencer</i></li>
-                </ul>
-              </div>
-              <span className={s.mcCap}>1 · Vê o que deve e quando vence</span>
-            </div>
-
-            <div className={`${s.mcPhone} ${s.mcMid}`} data-rv style={{ transitionDelay: ".12s" }}>
-              <div className={s.mcNotch} />
-              <div className={s.mcScr}>
-                <div className={s.mcTop}><span className={s.mcStore}>Pagar parcela</span><small>5 de 6</small></div>
-                <b className={s.mcVal}>R$ 45,00</b>
-                <svg className={s.mcQr} viewBox="0 0 25 25" aria-hidden="true">
-                  <rect width="25" height="25" fill="#f5f5f7" />
-                  {qrCells().map(([x, y]) => <rect key={`${x}-${y}`} x={x + 2} y={y + 2} width="1" height="1" fill="#0b0b0c" />)}
-                </svg>
-                <div className={s.mcCopy}>Pix copia e cola</div>
-                <small className={s.mcMuted}>Assim que o Pix cai, a parcela fica paga sozinha, aqui e no painel da loja.</small>
-              </div>
-              <span className={s.mcCap}>2 · Paga a parcela no Pix</span>
-            </div>
-
-            <div className={s.mcPhone} data-rv style={{ transitionDelay: ".24s" }}>
-              <div className={s.mcNotch} />
-              <div className={s.mcScr}>
-                <div className={s.mcTop}><span className={s.mcStore}>Minhas compras</span><small>Histórico</small></div>
-                <ul className={s.mcList}>
-                  <li><span>Conjunto · 2 anos<small>12/10 · 6x de R$ 22,50</small></span><i className={s.tWarn}>2 abertas</i></li>
-                  <li><span>Macacão plush<small>03/08 · 3x de R$ 23,30</small></span><i className={s.tOk}>Quitada</i></li>
-                </ul>
-                <div className={s.mcDocs}>
-                  <span><FiFileText /> Contrato do crediário</span>
-                  <span><FiFileText /> Comprovante da compra</span>
-                </div>
-                <div className={s.mcOkBox}><FiCheck /> Parcela 4 paga no Pix · comprovante salvo</div>
-              </div>
-              <span className={s.mcCap}>3 · Guarda compras, contrato e comprovantes</span>
-            </div>
-          </div>
-
-          <div className={s.mcSides}>
-            <div className={s.mcSide} data-rv>
-              <h3><FiSmartphone /> O que a sua cliente tem</h3>
-              <ul>
-                <li><FiCheck /> As parcelas em aberto, pagas e a vencer</li>
-                <li><FiCheck /> Pagamento da parcela no Pix, pelo celular</li>
-                <li><FiCheck /> Histórico de compras no crediário</li>
-                <li><FiCheck /> Contrato e comprovantes sempre à mão</li>
-              </ul>
-            </div>
-            <div className={s.mcSide} data-rv>
-              <h3><FiShoppingBag /> O que a sua loja tem</h3>
-              <ul>
-                <li><FiCheck /> Cadastro da cliente e contrato pronto para assinar</li>
-                <li><FiCheck /> Parcelas e vencimentos de cada compra</li>
-                <li><FiCheck /> Parcela paga no Pix baixa sozinha</li>
-                <li><FiCheck /> Quem está em dia e quem está atrasada, numa tela</li>
-              </ul>
-            </div>
-          </div>
+          <DayStory steps={mcPassos} screens={McScreens()} classes={s} />
         </div>
       </section>
 

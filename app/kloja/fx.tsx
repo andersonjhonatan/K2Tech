@@ -91,7 +91,7 @@ export function DayStory({
             ref={(el) => {
               refs.current[i] = el;
             }}
-            className={i === active ? classes.stepOn : ""}
+            className={i === active ? classes.stepOn : i < active ? classes.stepDone : ""}
           >
             <span className={classes.stepHora}>{s.hora}</span>
             <h3>{s.titulo}</h3>
