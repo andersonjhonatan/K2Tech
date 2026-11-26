@@ -72,3 +72,5 @@
 - Voz Piper Faber (grátis), trilha original em duas partes (piano acolhedor que vira batida de lançamento), legendas palavra a palavra.
 - Fonte: `marketing/instagram/produtos/kfit-filme/` (filme.html, voz.py, score.py, render.py). Status: aguardando aprovação do Anderson.
 - 26/11 08h: voz trocada pela narração que o Anderson gerou na ElevenLabs (Guilherme – Direct and Neutral, `voz-elevenlabs.mp3`). Alinhamento por pausas (`alinhar.py`), trilha refeita, mixagem com ducking (`mix.py`). Filme: 67,3 s, 44 MB.
+
+- 26/11 12h: story enquete (Caderno 📒 / Sistema 📲) publicado pelo Anderson no app (tresk-story-2026-11-26-1.jpg).
