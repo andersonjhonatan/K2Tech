@@ -90,3 +90,4 @@
 - 2026-11-27: Vídeo de apresentação do Anderson editado — SÓ TESTE, o Anderson pediu para NÃO usar (67 s; entregue no chat, fora do repo para não ficar público no site): logo Trybe coberto pela marca TresK com rastreamento de rosto, legendas por transcrição local (Whisper via sherpa-onnx, sem créditos), lower-third, abertura e final "Chama no direct". Não publicado.
 - 2026-11-27 10h: story Black Friday (orçamento) publicado via Windsor, media id 18122310364999596. Salvar no destaque Orçamento.
 - 2026-11-27 12h: carrossel FAQ (5 slides) publicado via Windsor, media id 18107256512564400. Alt text não aceito pela ação do Windsor (publicado sem).
+- 2026-11-27 18h: story com link "Pedir orçamento" (tresk-story-2026-11-27-2.jpg) publicado pelo Anderson no app.
