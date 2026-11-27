@@ -87,5 +87,5 @@
 - Sem voz por enquanto (legendas/balões + trilha sintetizada). Quando o Anderson mandar os MP3 da ElevenLabs, a voz entra no ritmo. Fonte: marketing/instagram/produtos/kloja-filmes/.
 - 26/11 noite: versões com voz da ElevenLabs geradas pelo Anderson: tresk-kloja-comercial-voz.mp4 (voz Will Brian, 60 s), tresk-kloja-whatsapp-voz.mp4 e tresk-kloja-conversa-voz.mp4 (diálogo Rita/Joana, 68 s). Alinhamento por pausas (alinhar_comercial.py, alinhar_dialogo.py).
 
-- 2026-11-27: Vídeo de apresentação do Anderson editado (67 s; entregue no chat, fora do repo para não ficar público no site): logo Trybe coberto pela marca TresK com rastreamento de rosto, legendas por transcrição local (Whisper via sherpa-onnx, sem créditos), lower-third, abertura e final "Chama no direct". Não publicado.
+- 2026-11-27: Vídeo de apresentação do Anderson editado — SÓ TESTE, o Anderson pediu para NÃO usar (67 s; entregue no chat, fora do repo para não ficar público no site): logo Trybe coberto pela marca TresK com rastreamento de rosto, legendas por transcrição local (Whisper via sherpa-onnx, sem créditos), lower-third, abertura e final "Chama no direct". Não publicado.
 - 2026-11-27 10h: story Black Friday (orçamento) publicado via Windsor, media id 18122310364999596. Salvar no destaque Orçamento.
