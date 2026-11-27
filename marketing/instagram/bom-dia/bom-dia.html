@@ -27,22 +27,27 @@ const q=new URLSearchParams(location.search);
 const tema=q.get('tema')||'carinho', frase=q.get('frase')||'', ref=q.get('ref')||'', rot=q.get('rotulo');
 const T={
  carinho:{rot:'Um abraço pra você',bg:'radial-gradient(70% 55% at 85% 8%,#FFE3C8 0%,rgba(255,227,200,0) 70%),linear-gradient(160deg,#FFF4EC 0%,#FBD9D3 55%,#F4B9B8 100%)',tx:'#4A1F2A',ac:'#D9536F',mk:'dark',
-  deco:`<g fill="#D9536F" opacity=".14"><path d="M880 1010c-40-60-140-40-140 40 0 70 140 150 140 150s140-80 140-150c0-80-100-100-140-40z"/><path d="M960 330c-18-27-63-18-63 18 0 32 63 68 63 68s63-36 63-68c0-36-45-45-63-18z"/></g><circle cx="980" cy="140" r="210" fill="#FFF" opacity=".35"/>`},
+  bot:`<g fill="#D9536F" opacity=".14"><path d="M880 1010c-40-60-140-40-140 40 0 70 140 150 140 150s140-80 140-150c0-80-100-100-140-40z"/></g>`,deco:`<g fill="#D9536F" opacity=".14"><path d="M960 330c-18-27-63-18-63 18 0 32 63 68 63 68s63-36 63-68c0-36-45-45-63-18z"/></g><circle cx="980" cy="140" r="210" fill="#FFF" opacity=".35"/>`},
  respeito:{rot:'Respeito é a base',bg:'linear-gradient(180deg,#F5F1E8 0%,#EAE3D2 100%)',tx:'#1E2A3A',ac:'#2563EB',mk:'dark',
-  deco:`<g fill="none" stroke="#2563EB" stroke-width="3" opacity=".22"><circle cx="830" cy="1080" r="150"/><circle cx="960" cy="1080" r="150"/></g><rect x="0" y="0" width="1080" height="18" fill="#2563EB" opacity=".9"/>`},
+  bot:`<g fill="none" stroke="#2563EB" stroke-width="3" opacity=".22"><circle cx="830" cy="1080" r="150"/><circle cx="960" cy="1080" r="150"/></g>`,deco:`<rect x="0" y="0" width="1080" height="18" fill="#2563EB" opacity=".9"/>`},
  deus:{rot:'Deus no comando',bg:'radial-gradient(90% 60% at 50% 0%,#FFE9B8 0%,rgba(255,233,184,.0) 60%),linear-gradient(180deg,#1B2A4E 0%,#0E1730 100%)',tx:'#FFF8E7',ac:'#E9C46A',mk:'light',
   deco:`<g opacity=".18" fill="#FFE9B8">${Array.from({length:13},(_,i)=>{const a=(-75+i*12.5)*Math.PI/180;return `<polygon points="540,-40 ${540+1700*Math.sin(a-.03)},${-40+1700*Math.cos(a-.03)} ${540+1700*Math.sin(a+.03)},${-40+1700*Math.cos(a+.03)}"/>`}).join('')}</g><circle cx="540" cy="-40" r="160" fill="#FFF3D1" opacity=".55"/>`},
- motivacao:{rot:'Bora pra cima',bg:'radial-gradient(70% 50% at 100% 100%,rgba(37,99,235,.55),rgba(37,99,235,0) 70%),radial-gradient(50% 35% at 0% 0%,rgba(59,130,246,.25),transparent 70%),#0B0B0C',tx:'#F5F5F7',ac:'#3B82F6',mk:'light',
-  deco:`<polyline points="90,1180 300,1100 470,1130 680,980 840,1010 1010,860" fill="none" stroke="#3B82F6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><polygon points="1010,860 975,875 1000,900" fill="#3B82F6" opacity=".55"/>`}
+ motivacao:{rot:'Bora pra cima',bg:'radial-gradient(70% 50% at 100% 100%,rgba(37,99,235,.55),rgba(37,99,235,0) 70%),radial-gradient(50% 35% at 0% 0%,rgba(59,130,246,.25),transparent 70%),#0B0B0C',tx:'#F5F5F7',ac:'#3B82F6',mk:'light',deco:'',
+  bot:`<polyline points="90,1180 300,1100 470,1130 680,980 840,1010 1010,860" fill="none" stroke="#3B82F6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><polygon points="1010,860 975,875 1000,900" fill="#3B82F6" opacity=".55"/>`}
 };
 const t=T[tema]; const $=id=>document.getElementById(id);
-$('bg').style.background=t.bg; $('deco').innerHTML=t.deco;
+const ST=q.get("fmt")==="story", H=ST?1920:1350, DY=ST?300:0;
+document.documentElement.style.height=document.body.style.height=$('c').style.height=H+'px';
+$('deco').setAttribute('viewBox',`0 0 1080 ${H}`);
+$('bg').style.background=t.bg; $('deco').innerHTML=(t.deco||'')+`<g transform="translate(0,${DY})">${t.bot||''}</g>`;
+let TOP=470, MAXH=520;
+if(ST){ $('k').style.top='330px'; $('bd').style.top='385px'; $('bd').style.fontSize='170px'; $('ln').style.top='600px'; $('fr').style.top='680px'; $('fr').style.fontSize='76px'; $('ft').style.bottom='300px'; TOP=680; MAXH=760; }
 ['k','bd','fr','ft'].forEach(i=>$(i).style.color=t.tx); $('k').style.color=t.ac; $('ln').style.background=t.ac;
 $('k').textContent=rot||t.rot; $('fr').textContent=frase; $('rf').textContent=ref; $('rf').style.color=t.ac;
 if(t.mk==='dark') $('mk').src='mark-dark.png';
 const meses=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
 const d=q.get('data'); if(d){const [y,m,dd]=d.split('-').map(Number); $('dt').textContent=`${dd===1?"1º":dd} de ${meses[m-1]}`;}
 // auto-fit frase
-let fs=68; const fr=$('fr'); while(fr.offsetHeight>520 && fs>40){fs-=2; fr.style.fontSize=fs+'px';}
-$('rf').style.top=(470+fr.offsetHeight+40)+'px';
+let fs=ST?76:68; const fr=$('fr'); while(fr.offsetHeight>MAXH && fs>40){fs-=2; fr.style.fontSize=fs+'px';}
+$('rf').style.top=(TOP+fr.offsetHeight+40)+'px';
 </script></body></html>
