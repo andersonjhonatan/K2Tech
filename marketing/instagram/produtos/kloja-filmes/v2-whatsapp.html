@@ -34,16 +34,16 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
  <div id="bE" style="position:absolute;left:0;right:0;top:1530px;display:flex;justify-content:center;align-items:center;gap:22px;font-size:32px;color:#a3a3ad"><img src="mark.png" style="height:80px"> Desenvolvido pela TresK Tecnologia</div>
 </div>
 </div>
-<script src="common.js"></script><script src="screens.js"></script>
+<script src="common.js"></script><script src="screens.js"></script><script src="v2-tempos.js"></script>
 <script>
 const MSG=[
- [0.6,'R','Joana, tu tá aí? 😩'],
- [2.2,'R','Perdi o caderno do fiado DE NOVO'],
+ [0.6,'R','Ai, Joana… mais um dia procurando o caderno do fiado 😩'],
+ [2.2,'R','Sumiu de novo!'],
  [4.6,'J','Caderno? Mulher, eu aposentei o meu 😂'],
  [7.4,'R','Aposentou como?? E quem te deve?'],
  [10.0,'J','Tá tudo aqui no KLOJA, ó 👇'],
  [11.6,'J','IMG:CRED'],
- [15.4,'R','E as clientes, como ficam sabendo?'],
+ [15.4,'R','E as clientes, como é que ficam sabendo?'],
  [17.8,'J','Elas têm o app Meu Crediário, com o nome da minha loja'],
  [19.8,'J','IMG:MC'],
  [23.4,'J','Veem a parcela e pagam no Pix. Caiu, já fica pago aqui ✅'],
@@ -57,7 +57,8 @@ const MSG=[
  [44.6,'R','Pois amanhã eu fecho o caderno… e abro o KLOJA! 🙌'],
  [47.4,'J','Bem-vinda ao clube 😎'],
 ];
-const END_AT=50.2; window.TOTAL=57;
+let END_AT=50.2; window.TOTAL=57;
+if(window.MSGT){ MSG.forEach((m,i)=>m[0]=MSGT[i]); END_AT=END_V; window.TOTAL=TOT_V; }
 const col=$('col'); const H=1920-250-170-40;
 const hh=(i)=>`<span class="h">18:${String(20+Math.floor(MSG[i][0]/6)).padStart(2,'0')}${MSG[i][1]==='R'?' ✓✓':''}</span>`;
 MSG.forEach((m,i)=>{const d=document.createElement('div'); let tx=m[2];

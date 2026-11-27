@@ -125,17 +125,20 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
 
 <div class="cap" id="cap"></div>
 </div>
-<script src="common.js"></script>
+<script src="common.js"></script><script src="v1-tempos.js"></script>
 <script>
-const SCN=[['S1',0],['S2',5],['S3',13],['S4',19],['S5',26],['S6',33],['S7',39],['S8',47],['S9',52],['S10',57],['END',64]];
+let SCN=[['S1',0],['S2',5],['S3',13],['S4',19],['S5',26],['S6',33],['S7',39],['S8',47],['S9',52],['S10',57],['END',64]];
 window.TOTAL=64;
+const DEF={S1:5,S2:8,S3:6,S4:7,S5:7,S6:6,S7:8,S8:5,S9:5,S10:7};
 const CAPS=[[0.6,4.8,'Toda loja começa assim: abrindo as portas.'],[5.3,9.2,'Mas por trás do balcão quase sempre tem um caderno…'],[13.8,18.8,'Agora a sua loja tem um sistema <b>à altura dela.</b>'],[19.5,25.8,'Um link com fotos, tamanhos e preços.'],[26.5,32.8,'Pix, cartão, dinheiro ou crediário. E o estoque <b>baixa sozinho.</b>'],[33.5,38.8,'Com contrato, parcelas e vencimentos.'],[39.5,46.8,'No app <b>Meu Crediário</b>, com a marca da sua loja.'],[47.5,51.8,'No fim do dia, você sabe exatamente quanto entrou.'],[52.5,56.8,'Cada função passa pelo balcão da Divina Baby antes de chegar na sua loja.']];
+let CAPS2=null;
+if(window.VOZ){ const st=i=>VOZ[i][0]-.3; SCN=[['S1',0],['S2',st(1)],['S3',st(2)],['S4',st(3)],['S5',st(4)],['S6',st(5)],['S7',st(6)],['S8',st(7)],['S9',st(8)],['S10',st(9)],['END',VOZ[10][1]+2.8]]; window.TOTAL=VOZ[10][1]+2.8; CAPS2=VOZ.map((v,i)=>[v[0],v[1]+.2,VOZTXT[i]]).slice(0,9); CAPS2[1]=[VOZ[1][0],VOZ[1][0]+2.6,'Mas por trás do balcão quase sempre tem um caderno.']; }
 $('tagin3').innerHTML=TAG(420,'g3'); $('tag10').innerHTML=TAG(300,'g10');
 $('w3').innerHTML='KLOJA'.split('').map((c,i)=>`<span class="${i?'gold':''}" style="display:inline-block" id="l3${i}">${c}</span>`).join('');
 $('grid4').innerHTML=[['#E9D7B0','Macacão','69,90'],['#C9D6F7','Body','39,90'],['#2A2C33','Conjunto','54,90'],['#F1E6CF','Vestido','59,90'],['#F7C9D4','Saída','49,90'],['#D8D3F5','Kit body','79,90']].map(([c,n,p],i)=>`<div class="it"><i style="background:${c};display:grid;place-items:center"><svg viewBox="0 0 60 60" width="90" height="90"><path d="M20 10h20l10 8-6 8-4-3v25H20V23l-4 3-6-8Z" fill="${i==2?'#C8A96A':'#fff'}" opacity=".92"/></svg></i><span>${n}</span><b>R$ ${p}</b></div>`).join('');
 $('sp3').innerHTML=[...Array(40)].map((_,i)=>`<div class="spark" data-a="${i*137.5}" data-d="${180+(i*47)%420}" style="left:540px;top:770px"></div>`).join('');
 function render(t){
- const {sid,ln,dur}=scenes(t,SCN,.45,.4);
+ const sc=scenes(t,SCN,.45,.4); const sid=sc.sid; const ln=window.VOZ? sc.ln*Math.min(1.6,DEF[sid]/sc.dur) : sc.ln;
  if(sid==='S1'){ const k=eio((ln-1.0)/3.2); $('door1').style.transform=`translateY(${-104*k}%)`; $('g1').style.opacity=ease((ln-.8)/2); $('t1').style.opacity=ease((ln-2.2)/1); $('t1').style.transform=`translateY(${(1-ease((ln-2.2)/1))*40}px)`; }
  if(sid==='S2'){ const sh=Math.sin(t*23)*3*cl(ln/2); $('paper2').style.transform=`rotate(${-3+sh*.4}deg) scale(${1.02+.03*Math.sin(ln)})`; [['p2a',.6],['p2b',2.6],['p2c',4.6]].forEach(([id,a])=>{const e=$(id);e.style.opacity=ease((ln-a)/.4);e.style.transform=`translateX(${(1-back((ln-a)/.5))*-200}px)`;}); $('S2').style.filter=`brightness(${1-.5*cl((ln-6.6)/1.2)})`; }
  if(sid==='S3'){ const k=eio(ln/2.2); $('tagin3').style.transform=`rotateY(${(1-k)*540+Math.sin(ln*1.4)*14}deg) scale(${.4+.6*back(ln/1.2)})`; $('tagin3').style.opacity=cl(ln/.4);
@@ -149,7 +152,7 @@ function render(t){
  if(sid==='S8'){ const hs=[82,46,58,24]; document.querySelectorAll('#bars8 i').forEach((b,i)=>{b.style.height=(hs[i]*eio((ln-.4-i*.15)/1.4))+'%';}); const v=Math.round(1284*eio((ln-.3)/2.4)); $('n8').textContent='R$ '+v.toLocaleString('pt-BR')+(ln>2.7?',00':''); }
  if(sid==='S9'){ $('logo9').style.transform=`scale(${back(ln/.7)})`; $('t9').style.opacity=ease((ln-.6)/.5); $('s9').style.opacity=ease((ln-1.1)/.5); }
  if(sid==='S10'){ $('tag10').style.transform=`scale(${back(ln/.7)}) rotate(${(1-ease(ln/.8))*-30}deg)`; $('w10').style.opacity=ease((ln-.5)/.6); $('w10').style.letterSpacing=(.3-.22*ease((ln-.5)/1))+'em'; $('t10').style.opacity=ease((ln-1.4)/.6); $('cta10').style.opacity=ease((ln-2.2)/.5); $('cta10').style.transform=`scale(${back((ln-2.2)/.5)})`; $('by10').style.opacity=ease((ln-3)/.6); }
- const c=CAPS.find(c=>t>=c[0]&&t<=c[1]); const cap=$('cap'); if(c){cap.innerHTML=c[2]; cap.style.opacity=Math.min(ease((t-c[0])/.3),ease((c[1]-t)/.3));} else cap.style.opacity=0;
+ const c=(CAPS2||CAPS).find(c=>t>=c[0]&&t<=c[1]); const cap=$('cap'); if(c){cap.innerHTML=c[2]; cap.style.opacity=Math.min(ease((t-c[0])/.3),ease((c[1]-t)/.3));} else cap.style.opacity=0;
  // cenas de produto: legenda no topo some (o título já diz), legenda embaixo fica
  $('st').style.filter=`brightness(${1-cl(1-t/.4)})`;
 }

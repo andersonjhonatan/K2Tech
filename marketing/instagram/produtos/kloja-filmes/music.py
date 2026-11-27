@@ -2,10 +2,10 @@
 python3 music.py m1 64      -> cinematográfica (comercial)
 python3 music.py m2 57      -> leve + 'plim' de mensagem (WhatsApp)
 python3 music.py m3 63.8    -> leve e divertida (conversa ilustrada)"""
-import sys, os, wave, numpy as np
+import sys, os, wave, json, numpy as np
 from scipy.signal import lfilter
 HERE=os.path.dirname(os.path.abspath(__file__)); SR=48000
-mode, END = sys.argv[1], float(sys.argv[2]); N=int(END*SR); out=np.zeros((N,2)); rng=np.random.default_rng(7)
+mode, END = sys.argv[1], float(sys.argv[2]); TURN=float(sys.argv[3]) if len(sys.argv)>3 else 13.0; FIN=float(sys.argv[4]) if len(sys.argv)>4 else 57.0; N=int(END*SR); out=np.zeros((N,2)); rng=np.random.default_rng(7)
 def lp(x,fc): a=np.exp(-2*np.pi*fc/SR); return lfilter([1-a],[1,-a],x)
 def hp(x,fc): return x-lp(x,fc)
 def add(sig,at,g=1.,pan=0.):
@@ -45,12 +45,12 @@ if mode=='m1':
         t=0.3+k*3.2
         add(note(hz(r-12),3.6,'sub'),t,.35); add(note(hz(ch[0]),3.6,'pad'),t,.10,-.3); add(note(hz(ch[2]),3.6,'pad'),t,.08,.3)
         for j,m in enumerate([ch[0]+12,ch[2]+12,ch[1]+24]): add(note(hz(m),2.4,'piano'),t+j*.8,.08,(-.3,0,.3)[j])
-    for k in range(8): add(kick()*.6,5.2+k*.95,.35)          # pulso de tensão no problema
-    add(riser(2.4),10.7,.22); add(boom(4),13.0,1.0)
-    for k,m in enumerate([76,79,83,88]): add(note(hz(m),3,'piano'),13.2+k*.12,.12,(-.3,-.1,.1,.3)[k])
+    for k in range(int((TURN-5.6)/.95)): add(kick()*.6,5.2+k*.95,.35)          # pulso de tensão no problema
+    add(riser(2.4),TURN-2.3,.22); add(boom(4),TURN,1.0)
+    for k,m in enumerate([76,79,83,88]): add(note(hz(m),3,'piano'),TURN+.2+k*.12,.12,(-.3,-.1,.1,.3)[k])
     # B: comercial 112 BPM até 57
-    b=60/112; t=15.4; i=0; prog=[(45,[57,60,64]),(41,[53,57,60]),(48,[55,60,64]),(43,[55,59,62])]
-    while t<56.6:
+    b=60/112; t=TURN+2.4; i=0; prog=[(45,[57,60,64]),(41,[53,57,60]),(48,[55,60,64]),(43,[55,59,62])]
+    while t<FIN-.4:
         r,ch=prog[i%4]; bar=4*b
         add(note(hz(r-12),bar,'sub'),t,.30); add(note(hz(ch[0]),bar+.6,'pad'),t,.07,-.3); add(note(hz(ch[2]),bar+.6,'pad'),t,.06,.3)
         for k in range(4):
@@ -59,10 +59,10 @@ if mode=='m1':
         for k in range(8): add(shk(),t+k*b/2+b/4,.06,(-.4,.4)[k%2])
         for k,m in enumerate([ch[0]+12,ch[2]+12,ch[1]+12,ch[2]+12,ch[0]+24,ch[2]+12,ch[1]+12,ch[2]+12]): add(note(hz(m),.8,'pluck'),t+k*b/2,.09,(-.25,.25)[k%2])
         t+=bar; i+=1
-    for at in [19,26,33,39,47,52]: add(riser(.8),at-.8,.08)
-    add(riser(2.2),54.8,.2); add(boom(5),57.0,.9)
-    for m in [45,52,57,61,64,69]: add(note(hz(m),END-57,'pad'),57.1,.07)
-    for k,m in enumerate([81,85,88,93]): add(note(hz(m),2.5,'piano'),57.3+k*.1,.1,(-.3,-.1,.1,.3)[k])
+    
+    add(riser(2.2),FIN-2.2,.2); add(boom(5),FIN,.9)
+    for m in [45,52,57,61,64,69]: add(note(hz(m),END-FIN,'pad'),FIN+.1,.07)
+    for k,m in enumerate([81,85,88,93]): add(note(hz(m),2.5,'piano'),FIN+.3+k*.1,.1,(-.3,-.1,.1,.3)[k])
 else:
     # leve e simpática, 104 BPM, com estalos de dedo
     b=60/104; t=0.3; i=0; prog=[(48,[60,64,67]),(45,[57,60,64]),(41,[53,57,60]),(43,[55,59,62])]
@@ -79,6 +79,9 @@ else:
         t+=bar; i+=1
     if mode=='m2':
         msgs=[0.6,2.2,4.6,7.4,10.0,11.6,15.4,17.8,19.8,23.4,26.8,29.0,31.4,33.4,37.2,39.6,41.8,44.6,47.4]
+        tf=os.path.join(HERE,'v2-tempos.js')
+        if os.path.exists(tf):
+            import re as _re; msgs=json.loads(_re.search(r'MSGT=(\[.*?\]);',open(tf).read()).group(1))
         for k,m in enumerate(msgs): add(plim(),m,.35,(.3 if k%2 else -.3))
     st=END-6.6
     add(riser(1.6),st-1.6,.18); add(boom(4),st,.8)

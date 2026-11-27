@@ -85,3 +85,4 @@
 - public/instagram/tresk-kloja-whatsapp.mp4 (62 s): conversa por mensagens entre Rita (sem sistema) e Joana (usa o KLOJA), com prints das telas.
 - public/instagram/tresk-kloja-conversa.mp4 (69 s): as duas lojistas em ilustração animada conversando na calçada, com o celular da Joana em close.
 - Sem voz por enquanto (legendas/balões + trilha sintetizada). Quando o Anderson mandar os MP3 da ElevenLabs, a voz entra no ritmo. Fonte: marketing/instagram/produtos/kloja-filmes/.
+- 26/11 noite: versões com voz da ElevenLabs geradas pelo Anderson: tresk-kloja-comercial-voz.mp4 (voz Will Brian, 60 s), tresk-kloja-whatsapp-voz.mp4 e tresk-kloja-conversa-voz.mp4 (diálogo Rita/Joana, 68 s). Alinhamento por pausas (alinhar_comercial.py, alinhar_dialogo.py).
