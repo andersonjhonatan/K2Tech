@@ -92,3 +92,4 @@
 - 2026-11-27 12h: carrossel FAQ (5 slides) publicado via Windsor, media id 18107256512564400. Alt text não aceito pela ação do Windsor (publicado sem).
 - 2026-11-27 18h: story com link "Pedir orçamento" (tresk-story-2026-11-27-2.jpg) publicado pelo Anderson no app.
 - 2026-11-28 8h: story Bom dia (carinho) publicado via Windsor, media id 18192564157366645.
+- 2026-11-28 10h: story "só tô olhando" publicado via Windsor, media id 18677105260016117.
