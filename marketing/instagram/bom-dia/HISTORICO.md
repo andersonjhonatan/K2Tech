@@ -5,3 +5,4 @@ Não repetir frase nem versículo já usados abaixo. Frases originais (nunca cop
 
 | data | tema | frase | media id |
 |---|---|---|---|
+| 2026-11-28 | carinho | Que hoje sobre tempo para um abraço demorado e um café com quem te faz bem. | 18192564157366645 |
